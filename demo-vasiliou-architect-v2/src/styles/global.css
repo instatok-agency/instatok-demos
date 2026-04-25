@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  --font-family-mono: ui-monospace, "JetBrains Mono", "Courier New", monospace;
+
+  --color-ink:     #0A0A0A;
+  --color-muted:   #6B6B6B;
+  --color-faint:   #ABABAB;
+  --color-surface: #FAFAFA;
+  --color-rule:    #DCDCDC;
+  --color-dark:    #1A1A1A;
+  --color-overlay: #111111;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #FAFAFA;
+  color: #0A0A0A;
+  font-family: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: #FAFAFA;
+}
+
+::selection {
+  background-color: #0A0A0A;
+  color: #FAFAFA;
+}
+
+/* ─── Works filter — pure CSS :has() + sibling selectors ─── */
+
+.filter-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+/* Hide non-matching cards — !important overrides inline style="display:flex" on articles */
+#works:has(#f-residential:checked) .project-card:not([data-type="residential"]) { display: none !important; }
+#works:has(#f-hospitality:checked) .project-card:not([data-type="hospitality"]) { display: none !important; }
+#works:has(#f-commercial:checked)  .project-card:not([data-type="commercial"])  { display: none !important; }
+#works:has(#f-renovation:checked)  .project-card:not([data-type="renovation"])  { display: none !important; }
+#works:has(#f-consulting:checked)  .project-card:not([data-type="consulting"])  { display: none !important; }
+
+/* Active filter label */
+#f-all:checked         ~ .filter-bar label[for="f-all"],
+#f-residential:checked ~ .filter-bar label[for="f-residential"],
+#f-hospitality:checked ~ .filter-bar label[for="f-hospitality"],
+#f-commercial:checked  ~ .filter-bar label[for="f-commercial"],
+#f-renovation:checked  ~ .filter-bar label[for="f-renovation"],
+#f-consulting:checked  ~ .filter-bar label[for="f-consulting"] {
+  color: #0A0A0A;
+  border-bottom-color: #0A0A0A;
+}

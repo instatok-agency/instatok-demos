@@ -1,0 +1,66 @@
+---
+const essays = [
+  {
+    title: 'Το φως του Αιγαίου ως αρχιτεκτονικό εργαλείο',
+    date: 'Μάρτιος 2024',
+    abstract: 'Πώς η ποιότητα του φωτός στο Αιγαίο — η οριζόντια γωνία, η ανάκλαση από τη θάλασσα, η ξηρή ατμόσφαιρα — καθορίζει αρχιτεκτονικές αποφάσεις που δεν θα λειτουργούσαν σε άλλο γεωγραφικό πλαίσιο. Περιπτωσιολογικές μελέτες από τις Villa Kalokairinos και Boutique Retreat Σαντορίνης.',
+  },
+  {
+    title: 'Beton brut σε μεσογειακό κλίμα: μια αναθεώρηση',
+    date: 'Νοέμβριος 2023',
+    abstract: 'Το εκτεθειμένο σκυρόδεμα λειτουργεί στη Βόρεια Ευρώπη. Στη Μεσόγειο αντιμετωπίζει ζητήματα θερμικής αγωγιμότητας, ανθανθράκωσης και αλατοπάγωτος. Πότε και γιατί το επιλέγουμε, και ποιες τεχνικές το κάνουν βιώσιμο στο ελληνικό κλίμα.',
+  },
+  {
+    title: 'Γιατί η φάση τοπογραφίας δεν μπορεί να παραλειφθεί',
+    date: 'Ιούνιος 2023',
+    abstract: 'Μελέτη περίπτωσης: ένα έργο στο Σούνιο που ξεκίνησε χωρίς τοπογραφική ανάλυση, και τι κόστισε αυτό στην κατασκευή. Πρακτική επιχειρηματολογία για το γιατί η τοπογραφία δεν είναι τυπική διαδικασία αλλά κρίσιμος σχεδιαστικός πόρος.',
+  },
+  {
+    title: 'Τα όρια του minimalism στην ελληνική κατοικία',
+    date: 'Φεβρουάριος 2023',
+    abstract: 'Ο ελληνικός τρόπος ζωής — οικογενειακές συγκεντρώσεις, πολλαπλές χρήσεις χώρου, ανοιχτόχωρη κοινωνικότητα — δεν εφαρμόζεται εύκολα σε αυστηρά minimalist πλαίσια. Πώς επαναδιαπραγματευόμαστε τη λιτότητα χωρίς να θυσιάζουμε τον τρόπο ζωής.',
+  },
+];
+---
+
+<section id="journal" style="padding:6rem 0; background:#F4F4F2;">
+  <div style="max-width:72rem; margin:0 auto; padding:0 2.5rem;">
+    <!-- Section header -->
+    <div style="display:flex; align-items:baseline; gap:1.5rem; margin-bottom:4rem; padding-bottom:1.5rem; border-bottom:1px solid #DCDCDC;">
+      <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:#ABABAB;">009</span>
+      <h2 style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Journal</h2>
+    </div>
+
+    <!-- Essays grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap:3rem 2.5rem;">
+      {essays.map(essay => (
+        <article style="display:flex; flex-direction:column; gap:1.25rem; cursor:pointer;" class="essay-card">
+          <!-- Thumbnail placeholder -->
+          <div style="aspect-ratio:2/1; background:#DCDCDC; position:relative; overflow:hidden;">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+              <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.5625rem; letter-spacing:0.08em; color:#ABABAB;">JOURNAL</span>
+            </div>
+          </div>
+          <!-- Content -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <p style="font-size:0.5625rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:#ABABAB;">{essay.date}</p>
+            <h3 style="font-size:1rem; font-weight:400; color:#0A0A0A; line-height:1.4;">{essay.title}</h3>
+            <p style="font-size:0.8125rem; font-weight:300; line-height:1.7; color:#6B6B6B; margin-top:0.25rem;">{essay.abstract}</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.625rem; margin-top:auto;" class="read-more">
+            <span style="font-size:0.5625rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Ανάγνωση</span>
+            <div style="flex:1; height:1px; background:#0A0A0A; max-width:2rem;"></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .essay-card:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+</style>

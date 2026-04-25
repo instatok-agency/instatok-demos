@@ -1,0 +1,258 @@
+---
+const projects = [
+  {
+    index: '01',
+    title: 'Κατοικία Μυκόνου',
+    location: 'Μύκονος',
+    year: '2022',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '285 m²',
+    tagline: 'Η ασυμμετρία της τοπογραφίας ως οργανωτική αρχή',
+    image: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&h=600&fit=crop&q=80',
+    narrative: 'Τρεις λευκοί όγκοι αρθρωμένοι κατά μήκος μιας βραχώδους κλιτύος με κλίση 18°. Η τοπογραφία δεν αντιμετωπίστηκε ως εμπόδιο αλλά ως γεννήτρια γεωμετρίας — κάθε επίπεδο ορίζεται από ισοϋψή. Βερμικουλίτης επένδυση εξωτερικά, ασβεστοκονία εσωτερικά.',
+  },
+  {
+    index: '02',
+    title: 'Villa Kalokairinos',
+    location: 'Πάρος',
+    year: '2023',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '310 m²',
+    tagline: 'Τρεις όγκοι σε διάλογο με τον βράχο και τη θάλασσα',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&q=80',
+    narrative: 'Η villa αναπτύσσεται σε τρεις αυτόνομους όγκους που συνδέονται με εξωτερικούς διαδρόμους. Το κεντρικό ανοιχτό πλαίσιο — πλάτους 9μ — λειτουργεί ως φίλτρο μεταξύ θέας και προστατευμένης ιδιωτικότητας. Τοπική γκρίζα πεδρά ασβεστόλιθος, ακατέργαστη.',
+  },
+  {
+    index: '03',
+    title: 'Αστική Κατοικία Κολωνάκι',
+    location: 'Κολωνάκι, Αθήνα',
+    year: '2021',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '190 m²',
+    tagline: 'Αστικό refugium σε πυκνή πολεοδομική δομή',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&q=80',
+    narrative: 'Πλήρης αναδιαμόρφωση ορόφου σε νεοκλασικό κτίριο του 1932. Η πρόκληση: μέγιστο φως σε εσωτερικό χωρίς νότιο προσανατολισμό. Λύση: εσωτερικό αίθριο 2×3μ που κατανέμει φυσικό φως σε όλους τους χώρους μέσω διαφανών διαχωριστικών.',
+  },
+  {
+    index: '04',
+    title: 'Παραθαλάσσια Κατοικία Σούνιο',
+    location: 'Σούνιο, Αττική',
+    year: '2023',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '240 m²',
+    tagline: 'Το Aegean light ως δομικό στοιχείο',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&q=80',
+    narrative: 'Μονόγωνη κατασκευή με υαλοπέτασμα πλάτους 14μ προς θάλασσα. Η οροφή κλίνει 7° για να κατευθύνει το καλοκαιρινό φως προς την οπίσθια ζώνη. Δάπεδο από τοπικό Αττικό ασβεστόλιθο, σε συνέχεια εσωτερικού-εξωτερικού.',
+  },
+  {
+    index: '05',
+    title: 'Boutique Retreat Σαντορίνη',
+    location: 'Σαντορίνη',
+    year: '2024',
+    type: 'hospitality',
+    typeLabel: 'Φιλοξενία',
+    area: '420 m²',
+    tagline: 'Εννέα δωμάτια που αναδιατυπώνουν την Κυκλαδική κλίμακα',
+    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&h=600&fit=crop&q=80',
+    narrative: 'Εννέα suites χτισμένες κατά μήκος της καλδέρας σε επίπεδα ύψους 3–4μ το καθένα. Κάθε δωμάτιο έχει ιδιωτικό εξώστη με πισίνα 4×2μ. Εσωτερικά: λευκή ασβεστοκονία, συρόμενα τζάμια χωρίς πλαίσιο, έπιπλα από ελαιόξυλο.',
+  },
+  {
+    index: '06',
+    title: 'Κατοικία Ψυχικό',
+    location: 'Ψυχικό, Αθήνα',
+    year: '2022',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '320 m²',
+    tagline: 'Beton brut σε αστικό οικόπεδο 500 τμ',
+    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop&q=80',
+    narrative: 'Η πρώτη χρήση εκτεθειμένου σκυροδέματος σε αστικό αθηναϊκό πλαίσιο. Το υλικό επελέγη για τη θερμική μάζα του σε αστική επαφή — η κατασκευή ρυθμίζει θερμοκρασία χωρίς κλιματιστικό καλοκαίρι και χειμώνα. Κήπος με ελιές και γκρίζο χαλίκι.',
+  },
+  {
+    index: '07',
+    title: 'Ξενοδοχείο Κάβος',
+    location: 'Νάξος',
+    year: '2021',
+    type: 'hospitality',
+    typeLabel: 'Φιλοξενία',
+    area: '680 m²',
+    tagline: '12 suites χτισμένες πάνω σε βραχώδη ακτή',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop&q=80',
+    narrative: 'Δώδεκα suites σε δύο σειρές πάνω σε ακατέργαστο νησιώτικο βράχο. Το κτίριο "ακουμπά" στον βράχο σε τέσσερα σημεία — χωρίς θεμελίωση που διαταράσσει τη γεωλογία. Ξύλινες γέφυρες σύνδεσης, δάπεδα από τοπική σχιστόπλακα.',
+  },
+  {
+    index: '08',
+    title: 'Ανακαίνιση Καπνεργοστασίου',
+    location: 'Καβάλα',
+    year: '2020',
+    type: 'commercial',
+    typeLabel: 'Εμπορικά',
+    area: '1.200 m²',
+    tagline: 'Ιστορικό κτίριο καπνεργοστασίου σε σύγχρονο χώρο εργασίας',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80',
+    narrative: 'Ανακαίνιση καπνεργοστασίου 1920 με στόχο τη μετατροπή σε mixed-use χώρο. Διατηρήθηκαν οι τσιμεντένιες δοκοί και η τούβλινη τοιχοποιία. Προστέθηκαν γυάλινα εσωτερικά χωρίσματα και μεταλλικά κλιμακοστάσια από corten ατσάλι.',
+  },
+  {
+    index: '09',
+    title: 'Boutique Offices Θεσσαλονίκη',
+    location: 'Θεσσαλονίκη',
+    year: '2022',
+    type: 'commercial',
+    typeLabel: 'Εμπορικά',
+    area: '380 m²',
+    tagline: 'Γραφεία tech εταιρείας σε νεοκλασικό κτίριο',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop&q=80',
+    narrative: 'Πλήρης αναδιαμόρφωση νεοκλασικού ορόφου για εταιρεία τεχνολογίας. Η πρόκληση: ανοιχτό open-plan χωρίς να αφαιρεθεί η ιστορική οροφή με γύψινα γείσα. Αιωρούμενα συστήματα γραφείων 80εκ από δάπεδο — χωρίς επαφή με ιστορικές επιφάνειες.',
+  },
+  {
+    index: '10',
+    title: 'Κατοικία Κέα',
+    location: 'Κέα',
+    year: '2020',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '210 m²',
+    tagline: 'Συμπύκνωση σε μικρό βραχώδες οικόπεδο',
+    image: 'https://images.unsplash.com/photo-1559508551-44bff1de756b?w=800&h=600&fit=crop&q=80',
+    narrative: 'Ελάχιστο αποτύπωμα 85 τμ στο έδαφος, ανάπτυξη κατακόρυφα σε τρία επίπεδα. Το οικόπεδο είχε κλίση 32° — η κατασκευή «ανεβαίνει» τον βράχο με τέσσερα σημεία θεμελίωσης μεταξύ βράχων. Κάθε επίπεδο λειτουργεί αυτόνομα.',
+  },
+  {
+    index: '11',
+    title: 'Σπα Φιλοξενίας Μύκονος',
+    location: 'Μύκονος',
+    year: '2021',
+    type: 'hospitality',
+    typeLabel: 'Φιλοξενία',
+    area: '520 m²',
+    tagline: 'Τελετουργικοί χώροι χαλάρωσης με Ανδριανή λιθοδομία',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop&q=80',
+    narrative: 'Υπόγειο spa σε πέντε επίπεδα χαλάρωσης. Η γλώσσα υλικών: λευκός Ανδριανός μάρμαρο σε αδρή επεξεργασία, σκοτεινό τεκ, ασημένιο mosaic στις πισίνες. Ο φωτισμός είναι αποκλειστικά πλάγιος — ποτέ άμεσος πάνω από το σώμα.',
+  },
+  {
+    index: '12',
+    title: 'Ανακαίνιση Αμπελόκηποι',
+    location: 'Αμπελόκηποι, Αθήνα',
+    year: '2023',
+    type: 'renovation',
+    typeLabel: 'Ανακαίνιση',
+    area: '145 m²',
+    tagline: 'Πλήρης ανακατασκευή διαμερίσματος του 1970',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&q=80',
+    narrative: 'Πολυκατοικία 1972, διαμέρισμα 2ου ορόφου. Αφαιρέθηκαν όλα τα ενδιάμεσα χωρίσματα, αποκαλύφθηκε η κεντρική λωρίδα δομικής τοιχοποιίας. Νέα κάτοψη: ένας κεντρικός πυρήνας υγιεινής + κουζίνας, ανοιχτό περιμετρικό επίπεδο.',
+  },
+  {
+    index: '13',
+    title: 'Κατοικία Πάρος Β',
+    location: 'Πάρος',
+    year: '2019',
+    type: 'residential',
+    typeLabel: 'Κατοικία',
+    area: '175 m²',
+    tagline: 'Μινιμαλ πρόσοψη ως απόκριση στην κυκλαδική παράδοση',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&q=80',
+    narrative: 'Ένα από τα πρώτα έργα του γραφείου στις Κυκλάδες. Η πρόσοψη — μια συνεχής λευκή επιφάνεια με τρία ανοίγματα — αναφέρεται στον κυκλαδικό τοίχο χωρίς να τον αντιγράφει. Το εσωτερικό είναι συνεχόχωρο, μεταβαλλόμενο με συρόμενα πάνελ.',
+  },
+  {
+    index: '14',
+    title: 'Project Management Μύκονος',
+    location: 'Μύκονος',
+    year: '2024',
+    type: 'consulting',
+    typeLabel: 'Consulting',
+    area: '—',
+    tagline: 'Αρχιτεκτονική επίβλεψη και PM για ξένο developer',
+    image: 'https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&h=600&fit=crop&q=80',
+    narrative: 'Εκπροσώπηση Σκανδιναβικού developer στην ελληνική αγορά. Αξιολόγηση σχεδίων από εξωτερικό αρχιτεκτονικό γραφείο, επίβλεψη αδειοδότησης, διαχείριση τοπικών εργολάβων. Το έργο περιελάμβανε διαμεσολάβηση σε τεχνικές και νομικές αντιθέσεις.',
+  },
+];
+---
+
+<section id="works" style="padding:6rem 0; position:relative;">
+  <!-- Hidden filter radios — must be direct children of section for sibling CSS to work -->
+  <input type="radio" id="f-all"         name="wf" class="filter-input" checked />
+  <input type="radio" id="f-residential" name="wf" class="filter-input" />
+  <input type="radio" id="f-hospitality" name="wf" class="filter-input" />
+  <input type="radio" id="f-commercial"  name="wf" class="filter-input" />
+  <input type="radio" id="f-renovation"  name="wf" class="filter-input" />
+  <input type="radio" id="f-consulting"  name="wf" class="filter-input" />
+
+  <div style="max-width:72rem; margin:0 auto; padding:0 2.5rem;">
+    <!-- Section header -->
+    <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1.5rem; margin-bottom:3rem; padding-bottom:1.5rem; border-bottom:1px solid #DCDCDC;">
+      <div style="display:flex; align-items:baseline; gap:1.5rem;">
+        <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:#ABABAB;">002</span>
+        <h2 style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Επιλεγμένα Έργα</h2>
+      </div>
+      <p style="font-size:0.6875rem; color:#6B6B6B;">{projects.length} έργα · 2014–2024</p>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar" style="display:flex; flex-wrap:wrap; gap:0; margin-bottom:3.5rem; border-bottom:1px solid #DCDCDC;">
+      {[
+        ['f-all', 'Όλα'],
+        ['f-residential', 'Κατοικία'],
+        ['f-hospitality', 'Φιλοξενία'],
+        ['f-commercial', 'Εμπορικά'],
+        ['f-renovation', 'Ανακαίνιση'],
+        ['f-consulting', 'Consulting'],
+      ].map(([id, label]) => (
+        <label
+          for={id}
+          style="font-size:0.625rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:#ABABAB; padding:0.75rem 1.25rem 0.75rem 0; margin-right:1.5rem; border-bottom:1px solid transparent; cursor:pointer; transition:color 0.15s, border-color 0.15s; margin-bottom:-1px;"
+        >{label}</label>
+      ))}
+    </div>
+
+    <!-- Projects grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap:3rem 2.5rem;">
+      {projects.map(p => (
+        <article class="project-card" data-type={p.type} style="display:flex; flex-direction:column; gap:1rem;">
+          <!-- Image block with hover overlay -->
+          <div style="position:relative; overflow:hidden; aspect-ratio:4/3; background:#1A1A1A;" class="img-wrap">
+            <img
+              src={p.image}
+              alt={p.title}
+              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;"
+              loading="lazy"
+            />
+            <!-- Hover narrative overlay -->
+            <div class="hover-overlay" style="position:absolute; inset:0; background:rgba(10,10,10,0.88); display:flex; align-items:flex-end; padding:1.25rem; opacity:0; transition:opacity 0.25s;">
+              <p style="font-size:0.75rem; font-weight:300; line-height:1.6; color:rgba(250,250,250,0.85);">{p.narrative}</p>
+            </div>
+          </div>
+
+          <!-- Metadata -->
+          <div style="display:flex; flex-direction:column; gap:0.375rem;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:1rem;">
+              <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.5625rem; color:#ABABAB;">{p.index}</span>
+              <span style="font-size:0.5625rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:#ABABAB; border:1px solid #DCDCDC; padding:0.1875rem 0.5rem;">{p.typeLabel}</span>
+            </div>
+            <h3 style="font-size:0.9375rem; font-weight:400; color:#0A0A0A; line-height:1.3;">{p.title}</h3>
+            <div style="display:flex; gap:0.75rem; align-items:center;">
+              <p style="font-size:0.6875rem; color:#6B6B6B;">{p.location}</p>
+              <span style="color:#DCDCDC;">·</span>
+              <p style="font-size:0.6875rem; color:#6B6B6B;">{p.year}</p>
+              {p.area !== '—' && (
+                <>
+                  <span style="color:#DCDCDC;">·</span>
+                  <p style="font-size:0.6875rem; color:#ABABAB;">{p.area}</p>
+                </>
+              )}
+            </div>
+            <p style="font-size:0.75rem; font-weight:300; font-style:italic; color:#6B6B6B; margin-top:0.125rem; line-height:1.5;">"{p.tagline}"</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .img-wrap:hover .hover-overlay {
+    opacity: 1;
+  }
+</style>

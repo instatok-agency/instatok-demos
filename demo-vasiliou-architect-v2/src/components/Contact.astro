@@ -1,0 +1,63 @@
+---
+const year = new Date().getFullYear();
+---
+
+<section id="contact" style="padding:6rem 0; background:#0A0A0A; color:#FAFAFA;">
+  <div style="max-width:72rem; margin:0 auto; padding:0 2.5rem;">
+    <!-- Section header -->
+    <div style="display:flex; align-items:baseline; gap:1.5rem; margin-bottom:4rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(250,250,250,0.1);">
+      <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:rgba(250,250,250,0.3);">010</span>
+      <h2 style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,250,250,0.9);">Επικοινωνία</h2>
+    </div>
+
+    <!-- Contact grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap:3rem 4rem; margin-bottom:5rem;">
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <p style="font-size:0.5rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,250,250,0.3);">Email</p>
+        <a
+          href="mailto:info@vasiliouarchitecture.gr"
+          style="font-size:0.9375rem; font-weight:300; color:#FAFAFA; text-decoration:none; border-bottom:1px solid rgba(250,250,250,0.2); padding-bottom:0.125rem; transition:border-color 0.2s;"
+        >info@vasiliouarchitecture.gr</a>
+        <p style="font-size:0.6875rem; font-weight:300; color:rgba(250,250,250,0.4); line-height:1.5;">Νέα project inquiries: 4–6 εβδομάδες lead time</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <p style="font-size:0.5rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,250,250,0.3);">Τηλέφωνο</p>
+        <a
+          href="tel:+302510000000"
+          style="font-size:0.9375rem; font-weight:300; color:#FAFAFA; text-decoration:none;"
+        >+30 2510 000 000</a>
+        <p style="font-size:0.6875rem; font-weight:300; color:rgba(250,250,250,0.4);">Δευτέρα–Παρασκευή, 09:00–18:00</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <p style="font-size:0.5rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,250,250,0.3);">Γραφεία</p>
+        <div style="display:flex; flex-direction:column; gap:0.25rem;">
+          <p style="font-size:0.9375rem; font-weight:300; color:#FAFAFA;">Παγγαίο, Καβάλα 640 04</p>
+          <p style="font-size:0.75rem; font-weight:300; color:rgba(250,250,250,0.4);">Αθήνα: Κολωνάκι, 106 73</p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <p style="font-size:0.5rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,250,250,0.3);">Social</p>
+        <p style="font-size:0.9375rem; font-weight:300; color:rgba(250,250,250,0.6);">@vasiliouarchitecture</p>
+        <p style="font-size:0.6875rem; font-weight:300; color:rgba(250,250,250,0.4);">Instagram · Archdaily</p>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem; padding-top:2rem; border-top:1px solid rgba(250,250,250,0.08);">
+      <p style="font-size:0.5625rem; font-weight:400; color:rgba(250,250,250,0.25);">
+        © {year} Vasiliou Architecture Studio. Όλα τα δικαιώματα διατηρούνται.
+      </p>
+      <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+        {['Μέλος ΤΕΕ', 'ΣΑΑ', 'Archdaily Listed Practice'].map(badge => (
+          <span style="font-size:0.5rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,250,250,0.2);">{badge}</span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

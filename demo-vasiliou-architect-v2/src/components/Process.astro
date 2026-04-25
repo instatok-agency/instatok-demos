@@ -1,0 +1,91 @@
+---
+const steps = [
+  {
+    index: '01',
+    title: 'Τοπογραφία',
+    duration: '2–3 εβδομάδες',
+    description: 'Επισκεψιμότητα στο οικόπεδο σε τρεις διαφορετικές ώρες της ημέρας. Τοπογραφική αποτύπωση 1:200, ηλιακή μελέτη τεσσάρων εποχών, ανάλυση πρόσβασης και γειτνίασης. Αυτή η φάση αποτελεί προϋπόθεση για οποιαδήποτε σχεδιαστική παρουσίαση — χωρίς εξαιρέσεις.',
+  },
+  {
+    index: '02',
+    title: 'Αρχιτεκτονική Ιδέα',
+    duration: '3–4 εβδομάδες',
+    description: 'Ανάπτυξη του concept σε φυσική μακέτα κλίμακας 1:100 πριν την παρουσίαση. Τρεις εναλλακτικές mass study προτάσεις — διαφορετικές δομικές λογικές, όχι στυλιστικές παραλλαγές. Ο πελάτης επιλέγει κατεύθυνση βάσει χωρικής εμπειρίας, όχι εικόνας.',
+  },
+  {
+    index: '03',
+    title: 'Τεκμηρίωση',
+    duration: '6–10 εβδομάδες',
+    description: 'Πλήρης αρχιτεκτονική μελέτη: κατόψεις 1:50, τομές 1:50, λεπτομέρειες 1:5 για κρίσιμους κόμβους. Τεχνικές εκθέσεις υλικών, ενεργειακή μελέτη ΚΕΝΑΚ, μελέτη δόμησης. Η φάση δεν «κλείνει» αν οποιοδήποτε στοιχείο παραμένει αναπάντητο.',
+  },
+  {
+    index: '04',
+    title: 'Κατασκευή',
+    duration: 'Ανά έργο',
+    description: 'Εβδομαδιαία επίβλεψη στο εργοτάξιο. Διαχείριση εργολάβου, επίλυση αποκλίσεων επί τόπου, τήρηση ημερολογίου κατασκευής. Ο αρχιτέκτονας δεν αποχωρεί μετά τη μελέτη — παραμένει υπεύθυνος για κάθε απόκλιση από το σχέδιο.',
+  },
+  {
+    index: '05',
+    title: 'Φροντίδα Μετά',
+    duration: '6 & 18 μήνες',
+    description: 'Επιθεώρηση 6 μηνών και 18 μηνών μετά την παράδοση. Τεκμηρίωση φθορών, εποχιακής συμπεριφοράς, απαιτούμενης συντήρησης. Κάθε έργο παραδίδεται με πλήρες αρχείο υλικών και εγχειρίδιο συντήρησης.',
+  },
+];
+---
+
+<section id="process" style="padding:6rem 0; background:#F4F4F2;">
+  <div style="max-width:72rem; margin:0 auto; padding:0 2.5rem;">
+    <!-- Section header -->
+    <div style="display:flex; align-items:baseline; gap:1.5rem; margin-bottom:4rem; padding-bottom:1.5rem; border-bottom:1px solid #DCDCDC;">
+      <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:#ABABAB;">005</span>
+      <h2 style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Διαδικασία</h2>
+    </div>
+
+    <!-- Steps — horizontal on desktop, vertical on mobile -->
+    <div class="process-grid">
+      {steps.map((step, i) => (
+        <div style="display:flex; flex-direction:column; gap:1.25rem; position:relative;">
+          <!-- Connector line (hidden for last) -->
+          {i < steps.length - 1 && (
+            <div class="connector-line" style="position:absolute; top:0.75rem; left:calc(100% + 0); width:100%; height:1px; background:#DCDCDC; pointer-events:none;"></div>
+          )}
+
+          <div style="display:flex; flex-direction:column; gap:0.375rem;">
+            <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:1.5rem; font-weight:200; color:#DCDCDC; line-height:1;">{step.index}</span>
+            <h3 style="font-size:0.875rem; font-weight:500; color:#0A0A0A; letter-spacing:0.02em;">{step.title}</h3>
+            <span style="font-size:0.5625rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:#ABABAB;">{step.duration}</span>
+          </div>
+
+          <div style="width:2rem; height:1px; background:#0A0A0A;"></div>
+
+          <p style="font-size:0.75rem; font-weight:300; line-height:1.75; color:#6B6B6B;">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Phase gate note -->
+    <div style="margin-top:4rem; padding:1.5rem 2rem; border:1px solid #DCDCDC; display:flex; align-items:baseline; gap:1.5rem;">
+      <span style="font-size:0.5625rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:#ABABAB; white-space:nowrap;">Phase Gate</span>
+      <p style="font-size:0.75rem; font-weight:300; line-height:1.7; color:#6B6B6B;">Κάθε φάση απαιτεί γραπτή έγκριση πριν την επόμενη. Το γραφείο εργάζεται με μέγιστο τέσσερα ταυτόχρονα έργα. Νέα έργα γίνονται δεκτά μόνο όταν υπάρχει διαθέσιμη ποιοτική χωρητικότητα.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+  }
+  @media (max-width: 900px) {
+    .process-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .connector-line { display: none; }
+  }
+  @media (max-width: 560px) {
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

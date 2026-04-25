@@ -1,0 +1,109 @@
+---
+const team = [
+  {
+    name: 'Νικόλας Βασιλείου',
+    role: 'Αρχιτεκτονικός Μηχανικός · Ιδρυτής',
+    bio: 'EMP + ETH Zürich (Miroslav Šik). Ίδρυσε το γραφείο το 2013 στο Παγγαίο Καβάλας.',
+  },
+  {
+    name: 'Ελένη Κωνσταντίνου',
+    role: 'Αρχιτέκτονας · Επικεφαλής Γραφείου Κυκλάδων',
+    bio: 'EMP, μεταπτυχιακό NTNU Trondheim. Υπεύθυνη για όλα τα έργα Πάρου / Μυκόνου από το 2018.',
+  },
+  {
+    name: 'Μάνος Παπαδόπουλος',
+    role: 'Πολιτικός Μηχανικός · Στατική Μελέτη',
+    bio: 'Αριστοτέλειο Θεσσαλονίκης. Εξειδίκευση σε κατασκευές σε βραχώδη εδάφη και τοπογραφίες με έντονη κλίση.',
+  },
+  {
+    name: 'Αλεξάνδρα Θεοδωράκη',
+    role: 'Αρχιτέκτονας · Εσωτερικά & Τεκμηρίωση',
+    bio: 'Πάντειο Αθήνα + ΙΕΚ Αρχιτεκτονικής. Υπεύθυνη για τεκμηρίωση υλικών και εσωτερική αρχιτεκτονική.',
+  },
+  {
+    name: 'Πέτρος Ιακωβίδης',
+    role: 'Αρχιτέκτονας · Επίβλεψη Κατασκευής',
+    bio: 'ΕΜΠ. Μόνιμη παρουσία στα εργοτάξια — διαχειρίζεται τη φάση κατασκευής για όλα τα ενεργά έργα.',
+  },
+  {
+    name: 'Μαρία Σαμαρά',
+    role: 'Διαχείριση Γραφείου · Σχέσεις Πελατών',
+    bio: 'Οικονομολόγος ΟΠΑ. Συντονισμός client relations, οικονομική διαχείριση, προγραμματισμός έργων.',
+  },
+  {
+    name: 'Studio Haris',
+    role: 'Αρχιτεκτονική Φωτογραφία',
+    bio: 'Συνεργάτης εξωτερικός από το 2016. Ειδίκευση στη φωτογράφηση αρχιτεκτονικής σε φυσικό φωτισμό.',
+  },
+];
+---
+
+<section id="studio" style="padding:6rem 0;">
+  <div style="max-width:72rem; margin:0 auto; padding:0 2.5rem;">
+    <!-- Section header -->
+    <div style="display:flex; align-items:baseline; gap:1.5rem; margin-bottom:4rem; padding-bottom:1.5rem; border-bottom:1px solid #DCDCDC;">
+      <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:#ABABAB;">006</span>
+      <h2 style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Στούντιο</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem;" class="studio-layout">
+
+      <!-- Founder bio -->
+      <div style="display:flex; flex-direction:column; gap:2rem;">
+        <div style="display:flex; flex-direction:column; gap:0.375rem;">
+          <h3 style="font-size:1.125rem; font-weight:400; color:#0A0A0A;">Νικόλας Βασιλείου</h3>
+          <p style="font-size:0.6875rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:#ABABAB;">Αρχιτεκτονικός Μηχανικός · Ιδρυτής</p>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <p style="font-size:0.9375rem; font-weight:300; line-height:1.8; color:#0A0A0A;">
+            Ο Νικόλας Βασιλείου γεννήθηκε το 1985 στο Παγγαίο Καβάλας και μεγάλωσε σε άμεση επαφή με το ημιορεινό τοπίο της Ανατολικής Μακεδονίας — εμπειρία που διαμόρφωσε από νωρίς την κατανόησή του για τη σχέση κτισμένου και φυσικού περιβάλλοντος.
+          </p>
+          <p style="font-size:0.9375rem; font-weight:300; line-height:1.8; color:#0A0A0A;">
+            Σπούδασε Αρχιτεκτονική στο Εθνικό Μετσόβιο Πολυτεχνείο και ολοκλήρωσε μεταπτυχιακές σπουδές στο ETH Zürich υπό την καθοδήγηση του Miroslav Šik — εκπαίδευση που τον εξόπλισε με την ευρωπαϊκή παράδοση του analogous urbanism χωρίς να τον αποκόψει από τον ελληνικό τόπο.
+          </p>
+          <p style="font-size:0.9375rem; font-weight:300; line-height:1.8; color:#0A0A0A;">
+            Επέστρεψε στην Ελλάδα το 2010 και εργάστηκε ως μελετητής αρχιτέκτονας στον Δήμο Καβάλας, με αντικείμενο αποκατάσταση κτιρίων παραδοσιακής αρχιτεκτονικής. Αυτή η περίοδος του δίδαξε δύο πράγματα: ότι η υφιστάμενη δομή έχει λόγο ύπαρξης που δεν διαγράφεται εύκολα, και ότι η σχέση αρχιτέκτονα-κατοίκου απαιτεί ουσιαστική επικοινωνία.
+          </p>
+          <p style="font-size:0.9375rem; font-weight:300; line-height:1.8; color:#0A0A0A;">
+            Ίδρυσε το Vasiliou Architecture Studio το 2013 στο Παγγαίο. Το αρχικό εύρος ήταν κατοικίες μεσαίου μεγέθους στην Ανατολική Μακεδονία και τις Κυκλάδες — αγορά που σταδιακά επέκτεινε σε hospitality και commercial. Το 2019 άνοιξε δεύτερο γραφείο στην Αθήνα για την κάλυψη της αττικής και κυκλαδικής αγοράς.
+          </p>
+          <p style="font-size:0.9375rem; font-weight:300; line-height:1.8; color:#0A0A0A;">
+            Σήμερα το γραφείο μετρά 40+ ολοκληρωμένα έργα, με εστίαση στην Κυκλαδική αρχιτεκτονική, την αστική κατοικία Αττικής και ξενοδοχειακά projects υψηλής κλίμακας. Η φιλοσοφία του — «αγκυρωμένος τοπικισμός» — αρνείται τόσο τη νοσταλγική αναπαραγωγή παραδοσιακών μορφών όσο και τον εξαγόμενο διεθνή minimalism. Αναζητά τον τρίτο δρόμο: σύγχρονο, τοπικό, ειλικρινές.
+          </p>
+        </div>
+
+        <!-- Credentials strip -->
+        <div style="display:flex; flex-direction:column; gap:0.5rem; padding-top:1.5rem; border-top:1px solid #DCDCDC;">
+          {['Μέλος ΤΕΕ από το 2007', 'Σύλλογος Αρχιτεκτόνων Αθηνών (ΣΑΑ)', 'Archdaily Listed Practice'].map(c => (
+            <p style="font-size:0.6875rem; font-weight:400; color:#6B6B6B;">{c}</p>
+          ))}
+        </div>
+      </div>
+
+      <!-- Team roster -->
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <p style="font-size:0.5625rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#ABABAB; margin-bottom:1.5rem;">Ομάδα</p>
+        {team.map((member, i) => (
+          <div style={`padding:1.25rem 0; border-top:1px solid #DCDCDC;${i === team.length - 1 ? ' border-bottom:1px solid #DCDCDC;' : ''}`}>
+            <div style="display:flex; flex-direction:column; gap:0.25rem;">
+              <h4 style="font-size:0.875rem; font-weight:500; color:#0A0A0A;">{member.name}</h4>
+              <p style="font-size:0.625rem; font-weight:400; letter-spacing:0.08em; text-transform:uppercase; color:#ABABAB;">{member.role}</p>
+              <p style="font-size:0.75rem; font-weight:300; line-height:1.6; color:#6B6B6B; margin-top:0.375rem;">{member.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .studio-layout {
+      grid-template-columns: 1fr !important;
+      gap: 3rem !important;
+    }
+  }
+</style>
