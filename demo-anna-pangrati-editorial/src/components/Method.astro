@@ -1,0 +1,206 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Παρατηρούμε",
+    body: "Πριν μιλήσουμε για το τι συνέβη, ακούμε τι κάνει το σώμα σου τώρα. Ένα σφίξιμο στο στήθος. Μια ανάσα που κρατάς. Αυτά δεν λένε ψέματα — και συχνά ξέρουν περισσότερα από τις λέξεις.",
+  },
+  {
+    num: "02",
+    title: "Ονομάζουμε",
+    body: "Δίνουμε λέξεις σε πράγματα που δεν είχαν. Όχι για να τα «λύσουμε» — αλλά επειδή αυτό που δεν έχει όνομα τρομάζει περισσότερο από αυτό που έχει. Η γλώσσα δημιουργεί χώρο.",
+  },
+  {
+    num: "03",
+    title: "Ξαναβρισκόμαστε",
+    body: "Η θεραπεία δεν σε αλλάζει. Σε επαναφέρει σε κάτι που ήταν πάντα εκεί — κάτω από το burnout, τον θόρυβο, τις προσδοκίες. Κάτι που έχεις ήδη, που απλώς δεν άκουγε για καιρό.",
+  },
+];
+---
+
+<section class="method" id="method" aria-labelledby="method-heading">
+  <hr class="section-rule method__top-rule" aria-hidden="true" />
+
+  <div class="method__inner section-inner">
+
+    <header class="method__header">
+      <p class="eyebrow method__eyebrow" data-anim="reveal">Η προσέγγιση</p>
+      <div class="method__title-row">
+        <h2 class="method__heading" id="method-heading" data-anim="reveal">
+          Πώς δουλεύουμε
+        </h2>
+        <p class="method__subtitle" data-anim="reveal">
+          Τρία αργά βήματα —<br />και δεν είναι γραμμικά.
+        </p>
+      </div>
+    </header>
+
+    <ol class="method__steps" aria-label="Η μέθοδος">
+      {steps.map((step) => (
+        <li class="method__step">
+          <hr class="method__step-rule" aria-hidden="true" data-anim="step-rule" />
+          <div class="method__step-inner">
+            <span class="method__step-num" aria-hidden="true" data-anim="reveal">{step.num}</span>
+            <div class="method__step-content">
+              <h3 class="method__step-title" data-anim="reveal">{step.title}</h3>
+              <p class="method__step-body" data-anim="reveal">{step.body}</p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <footer class="method__coda" data-anim="reveal">
+      <p>
+        Δεν είναι γραμμικό. Κάποιες εβδομάδες επιστρέφουμε στο βήμα ένα.
+        <em>Αυτό δεν σημαίνει ότι αποτυγχάνουμε — σημαίνει ότι κάνουμε δουλειά.</em>
+      </p>
+    </footer>
+
+  </div>
+</section>
+
+<style>
+  .method {
+    background: var(--c-bg-2);
+    padding-block: 0 var(--s-9);
+  }
+
+  .method__inner { padding-block-start: var(--s-7); }
+
+  /* ── Header ─────────────────────────────── */
+  .method__header { margin-bottom: var(--s-7); }
+  .method__eyebrow { margin-bottom: var(--s-4); }
+
+  .method__title-row {
+    display: grid;
+    gap: var(--s-4);
+    align-items: end;
+  }
+
+  .method__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .method__subtitle {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.0625rem;
+    color: var(--c-ink-2);
+    line-height: 1.5;
+  }
+
+  /* ── Steps ──────────────────────────────── */
+  .method__steps { list-style: none; }
+
+  .method__step { padding-bottom: var(--s-6); }
+
+  .method__step-rule {
+    border: none;
+    height: 1px;
+    background: var(--c-border);
+    margin-bottom: var(--s-5);
+    transform-origin: left center;
+  }
+
+  .method__step-inner {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--s-4);
+    align-items: start;
+  }
+
+  .method__step-num {
+    font-family: var(--f-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--c-terra);
+    opacity: 0.35;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    padding-top: 0.1em;
+  }
+
+  .method__step-title {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--s-3);
+    line-height: 1.2;
+  }
+
+  .method__step-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+    max-width: 52ch;
+  }
+
+  /* ── Coda ───────────────────────────────── */
+  .method__coda {
+    margin-top: var(--s-5);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    max-width: 60ch;
+  }
+  .method__coda em {
+    font-family: var(--f-display);
+    font-style: italic;
+    color: var(--c-ink);
+  }
+
+  /* ── ≥768px ─────────────────────────────── */
+  @media (min-width: 768px) {
+    .method__title-row {
+      grid-template-columns: 1fr 1fr;
+    }
+    .method__step-inner {
+      grid-template-columns: 6.5rem 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.method__top-rule',
+      { scaleX: 0 },
+      {
+        scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.method', start: 'top 90%' },
+      }
+    );
+
+    gsap.utils.toArray<HTMLElement>('.method [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 22 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.85,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+        }
+      );
+    });
+
+    gsap.utils.toArray<HTMLElement>('.method__step-rule').forEach(rule => {
+      gsap.fromTo(rule,
+        { scaleX: 0 },
+        {
+          scaleX: 1, duration: 1.0, ease: 'power3.out',
+          scrollTrigger: { trigger: rule, start: 'top 88%', toggleActions: 'play none none none' },
+        }
+      );
+    });
+  });
+</script>

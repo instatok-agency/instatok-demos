@@ -1,0 +1,202 @@
+---
+---
+
+<header class="nav" role="banner">
+  <div class="nav__inner section-inner">
+    <a href="#" class="nav__brand" aria-label="Αρχική σελίδα">
+      <span class="nav__name">Δρ. Άννα Δημητρίου</span>
+      <span class="nav__role">Ψυχοθεραπεύτρια</span>
+    </a>
+
+    <button
+      class="nav__burger"
+      aria-label="Άνοιγμα μενού"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span class="nav__burger-bar"></span>
+      <span class="nav__burger-bar"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" aria-label="Κύρια πλοήγηση">
+      <ul class="nav__links" role="list">
+        <li><a href="#method"   class="nav__link">Μέθοδος</a></li>
+        <li><a href="#sessions" class="nav__link">Συνεδρίες</a></li>
+        <li><a href="#faq"      class="nav__link">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <a href="#booking" class="nav__cta">
+      Ραντεβού
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="nav__rule" aria-hidden="true"></div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-bg);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    height: 3.5rem;
+  }
+
+  /* ── Brand ──────────────────────────────── */
+  .nav__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-right: auto;
+    text-decoration: none;
+  }
+  .nav__name {
+    font-family: var(--f-display);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--c-ink);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .nav__role {
+    font-family: var(--f-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    line-height: 1;
+  }
+
+  /* ── Links ──────────────────────────────── */
+  .nav__menu { display: none; }
+  .nav__links {
+    display: flex;
+    gap: var(--s-5);
+    list-style: none;
+  }
+  .nav__link {
+    font-family: var(--f-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--c-ink-2);
+    letter-spacing: 0.01em;
+    transition: color 0.18s;
+    position: relative;
+  }
+  .nav__link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--c-terra);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav__link:hover { color: var(--c-ink); }
+  .nav__link:hover::after { transform: scaleX(1); }
+
+  /* ── CTA ────────────────────────────────── */
+  .nav__cta {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--c-ink);
+    font-family: var(--f-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--c-ink);
+    text-decoration: none;
+    transition: background 0.18s, color 0.18s;
+  }
+  .nav__cta svg { width: 13px; height: 13px; }
+  .nav__cta:hover { background: var(--c-ink); color: var(--c-bg); }
+
+  /* ── Burger ─────────────────────────────── */
+  .nav__burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: var(--s-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .nav__burger-bar {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--c-ink);
+    transition: transform 0.22s, opacity 0.22s;
+    transform-origin: center;
+  }
+  .nav__burger[aria-expanded="true"] .nav__burger-bar:first-child {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+  .nav__burger[aria-expanded="true"] .nav__burger-bar:last-child {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  /* ── Mobile open state ──────────────────── */
+  .nav__menu.is-open {
+    display: block;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border);
+    padding: var(--s-4) 1.5rem var(--s-5);
+  }
+  .nav__menu.is-open .nav__links {
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+  .nav__menu.is-open .nav__link {
+    font-size: 1rem;
+  }
+
+  /* ── Rule ───────────────────────────────── */
+  .nav__rule {
+    height: 1px;
+    background: var(--c-border);
+  }
+
+  /* ── ≥768px ─────────────────────────────── */
+  @media (min-width: 768px) {
+    .nav__menu { display: block; }
+    .nav__cta  { display: inline-flex; }
+    .nav__burger { display: none; }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector('.nav__burger') as HTMLButtonElement;
+  const menu   = document.querySelector('.nav__menu') as HTMLElement;
+
+  burger?.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Κλείσιμο μενού' : 'Άνοιγμα μενού');
+  });
+
+  document.querySelectorAll('.nav__link, .nav__cta').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      burger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

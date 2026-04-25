@@ -1,0 +1,245 @@
+---
+---
+
+<section class="about" id="about" aria-labelledby="about-heading">
+  <hr class="section-rule about__top-rule" aria-hidden="true" />
+
+  <div class="about__inner section-inner">
+
+    <header class="about__header">
+      <p class="eyebrow about__eyebrow" data-anim="reveal">Ποια είμαι</p>
+      <h2 class="about__heading" id="about-heading" data-anim="reveal">
+        Γιατί έγινα<br />θεραπεύτρια
+      </h2>
+    </header>
+
+    <div class="about__body">
+      <!-- Text column -->
+      <div class="about__text">
+        <p class="about__para" data-anim="reveal">
+          Έγινα θεραπεύτρια επειδή για χρόνια ήμουν εγώ αυτή που κράταγε
+          τα πάντα μέσα. Τα διάβαζα, τα ανέλυα, τα «διαχειριζόμουν» —
+          αλλά δεν τα έλεγα ποτέ. Η θεραπεία με δίδαξε ότι όταν ονομάζεις
+          κάτι, μειώνεις την εξουσία του. Αυτό κάνω τώρα μαζί σου.
+        </p>
+        <p class="about__para" data-anim="reveal">
+          Δεν πιστεύω στη θεραπεία ως «επίλυση προβλημάτων». Πιστεύω σε
+          έναν χώρο όπου ακούγεσαι — χωρίς να βιαστείς, χωρίς να κριθείς,
+          χωρίς να χρειαστεί να εξηγήσεις γιατί αισθάνεσαι αυτό που αισθάνεσαι.
+        </p>
+
+        <ul class="about__contrasts" data-anim="list" aria-label="Προσέγγισή μου">
+          <li>
+            <span class="about__contrast-no">Δεν δίνω συμβουλές</span>
+            <span class="about__contrast-sep" aria-hidden="true">→</span>
+            <span class="about__contrast-yes">Ακούω πρότυπα</span>
+          </li>
+          <li>
+            <span class="about__contrast-no">Δεν σε «διορθώνω»</span>
+            <span class="about__contrast-sep" aria-hidden="true">→</span>
+            <span class="about__contrast-yes">Ανακαλύπτουμε μαζί</span>
+          </li>
+          <li>
+            <span class="about__contrast-no">Δεν απαιτώ γραμμική πρόοδο</span>
+            <span class="about__contrast-sep" aria-hidden="true">→</span>
+            <span class="about__contrast-yes">Εκτιμώ κάθε επιστροφή</span>
+          </li>
+        </ul>
+
+        <ul class="about__credentials eyebrow" data-anim="reveal" aria-label="Τίτλοι σπουδών">
+          <li>MSc Κλινική Ψυχολογία, Παν. Αθηνών</li>
+          <li>Εκπαίδευση EMDR Europe</li>
+          <li>ΕΛΨΕ #ΧΧΧΧΧ</li>
+          <li>Somatic Experiencing® Practitioner</li>
+        </ul>
+      </div>
+
+      <!-- Photo column -->
+      <figure class="about__figure" data-anim="photo" aria-label="Δρ. Άννα Δημητρίου">
+        <div class="about__frame">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=top"
+            alt="Δρ. Άννα Δημητρίου, Ψυχοθεραπεύτρια"
+            class="about__photo"
+            loading="lazy"
+            width="600"
+            height="780"
+          />
+        </div>
+        <figcaption class="about__figcaption eyebrow">
+          Δρ. Άννα Δημητρίου<br />
+          <em>Ψυχοθεραπεύτρια · Παγκράτι</em>
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--c-bg);
+    padding-block: var(--s-8) var(--s-9);
+  }
+
+  .about__top-rule { margin-bottom: 0; }
+
+  .about__inner { padding-block-start: var(--s-7); }
+
+  /* ── Header ─────────────────────────────── */
+  .about__header { margin-bottom: var(--s-7); }
+  .about__eyebrow { margin-bottom: var(--s-3); }
+  .about__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Body grid ──────────────────────────── */
+  .about__body {
+    display: grid;
+    gap: var(--s-7);
+  }
+
+  /* ── Text ───────────────────────────────── */
+  .about__para {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+    max-width: 55ch;
+  }
+  .about__para + .about__para { margin-top: var(--s-4); }
+
+  /* ── Contrasts ──────────────────────────── */
+  .about__contrasts {
+    list-style: none;
+    margin-top: var(--s-6);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    display: grid;
+    gap: var(--s-3);
+  }
+  .about__contrasts li {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+  }
+  .about__contrast-no {
+    color: var(--c-ink-3);
+    font-style: italic;
+    font-family: var(--f-display);
+  }
+  .about__contrast-sep {
+    color: var(--c-terra);
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+  }
+  .about__contrast-yes {
+    color: var(--c-ink);
+    font-weight: 500;
+  }
+
+  /* ── Credentials ────────────────────────── */
+  .about__credentials {
+    list-style: none;
+    margin-top: var(--s-6);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--c-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-5);
+  }
+  .about__credentials li { position: relative; }
+  .about__credentials li + li::before {
+    content: "·";
+    position: absolute;
+    left: calc(var(--s-5) * -1 - 0.3ch);
+    color: var(--c-terra);
+  }
+
+  /* ── Figure ─────────────────────────────── */
+  .about__figure { display: grid; gap: var(--s-3); }
+  .about__frame {
+    border: 1px solid var(--c-border);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .about__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: sepia(8%) contrast(1.03);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .about__frame:hover .about__photo { transform: scale(1.02); }
+  .about__figcaption {
+    color: var(--c-ink-3);
+    line-height: 1.5;
+  }
+  .about__figcaption em {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--c-ink-2);
+  }
+
+  /* ── ≥1024px ────────────────────────────── */
+  @media (min-width: 1024px) {
+    .about__body {
+      grid-template-columns: 1fr 340px;
+      align-items: start;
+    }
+    .about__frame { aspect-ratio: auto; height: 520px; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.utils.toArray<HTMLElement>('.about [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 22 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.85,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+        }
+      );
+    });
+
+    gsap.utils.toArray<HTMLElement>('.about [data-anim="list"] li').forEach((el, i) => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 14 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.65, delay: i * 0.09,
+          scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
+        }
+      );
+    });
+
+    gsap.fromTo('.about__frame',
+      { autoAlpha: 0, scale: 1.04 },
+      {
+        autoAlpha: 1, scale: 1, duration: 1.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.about__figure', start: 'top 85%', toggleActions: 'play none none none' },
+      }
+    );
+
+    gsap.fromTo('.about__top-rule',
+      { scaleX: 0 },
+      {
+        scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.about', start: 'top 90%', toggleActions: 'play none none none' },
+      }
+    );
+  });
+</script>
