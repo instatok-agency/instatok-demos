@@ -120,6 +120,11 @@
     justify-content: space-between; flex-wrap: wrap;
     gap: var(--s-3); color: var(--c-on-dark-3);
   }
+
+  [data-anim="contact-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="contact-grid"] { opacity: 1 !important; }
+  }
 </style>
 
 <script>
@@ -127,8 +132,9 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.fromTo('[data-anim="contact-grid"]', { autoAlpha: 0, y: 24 }, {
-      autoAlpha: 1, y: 0, duration: 0.8,
+    gsap.set('[data-anim="contact-grid"]', { y: 24 });
+    gsap.to('[data-anim="contact-grid"]', {
+      opacity: 1, y: 0, duration: 0.8,
       scrollTrigger: { trigger: '[data-anim="contact-grid"]', start: 'top 80%' }
     });
   });

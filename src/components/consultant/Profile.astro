@@ -86,6 +86,11 @@
     font-size: 0.9375rem; line-height: 1.8; color: var(--c-on-dark-2);
   }
   .profile__quals { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+
+  [data-anim="prof-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="prof-grid"] { opacity: 1 !important; }
+  }
 </style>
 
 <script>
@@ -93,8 +98,9 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.fromTo('[data-anim="prof-grid"]', { autoAlpha: 0, y: 30 }, {
-      autoAlpha: 1, y: 0, duration: 0.9,
+    gsap.set('[data-anim="prof-grid"]', { y: 30 });
+    gsap.to('[data-anim="prof-grid"]', {
+      opacity: 1, y: 0, duration: 0.9,
       scrollTrigger: { trigger: '[data-anim="prof-grid"]', start: 'top 80%' }
     });
   });

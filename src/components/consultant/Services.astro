@@ -80,6 +80,11 @@ const services = [
     font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2);
   }
   .service-card__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); align-self: start; }
+
+  [data-anim="srv-head"], [data-anim="srv-card"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="srv-head"], [data-anim="srv-card"] { opacity: 1 !important; }
+  }
 </style>
 
 <script>
@@ -87,12 +92,14 @@ const services = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.fromTo('[data-anim="srv-head"]', { autoAlpha: 0, y: 20 }, {
-      autoAlpha: 1, y: 0, duration: 0.7,
+    gsap.set('[data-anim="srv-head"]', { y: 20 });
+    gsap.set('[data-anim="srv-card"]', { y: 24 });
+    gsap.to('[data-anim="srv-head"]', {
+      opacity: 1, y: 0, duration: 0.7,
       scrollTrigger: { trigger: '[data-anim="srv-head"]', start: 'top 85%' }
     });
-    gsap.fromTo('[data-anim="srv-card"]', { autoAlpha: 0, y: 24 }, {
-      autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.1,
+    gsap.to('[data-anim="srv-card"]', {
+      opacity: 1, y: 0, duration: 0.65, stagger: 0.1,
       scrollTrigger: { trigger: '.services__grid', start: 'top 80%' }
     });
   });
