@@ -1,0 +1,135 @@
+---
+---
+
+<section class="contact" id="contact" aria-label="Επικοινωνία">
+  <hr class="section-rule" aria-hidden="true" />
+  <div class="contact__inner con-inner">
+
+    <div class="contact__grid" data-anim="contact-grid">
+
+      <div class="contact__info">
+        <p class="eyebrow eyebrow--blue" style="margin-bottom: var(--s-4);">Ας μιλήσουμε</p>
+        <h2 class="contact__title">Κλείσε μια<br/>30λεπτη συνάντηση.</h2>
+        <p class="contact__lead">
+          Δωρεάν αρχική συζήτηση. Αν δεν βλέπω πραγματική αξία για
+          την εταιρεία σου, θα σου πω ειλικρινά.
+        </p>
+        <div class="contact__details">
+          <a href="mailto:nikos@stavrou-strategy.gr" class="contact__link">nikos@stavrou-strategy.gr</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact__link">LinkedIn →</a>
+        </div>
+      </div>
+
+      <form class="contact__form" onsubmit="return false">
+        <div class="contact__field">
+          <label for="c-name" class="contact__label">Ονοματεπώνυμο</label>
+          <input type="text" id="c-name" name="name" class="contact__input"
+            placeholder="Το όνομά σου" autocomplete="name" />
+        </div>
+        <div class="contact__field">
+          <label for="c-company" class="contact__label">Εταιρεία</label>
+          <input type="text" id="c-company" name="company" class="contact__input"
+            placeholder="Όνομα εταιρείας" autocomplete="organization" />
+        </div>
+        <div class="contact__field">
+          <label for="c-email" class="contact__label">Email</label>
+          <input type="email" id="c-email" name="email" class="contact__input"
+            placeholder="email@company.gr" autocomplete="email" />
+        </div>
+        <div class="contact__field">
+          <label for="c-challenge" class="contact__label">Η πρόκληση</label>
+          <textarea id="c-challenge" name="challenge" class="contact__input contact__textarea"
+            placeholder="Πες μου σε 2-3 γραμμές τι αντιμετωπίζεις…" rows="4"></textarea>
+        </div>
+        <button type="submit" class="contact__submit">Αποστολή αιτήματος</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner con-inner">
+    <p class="eyebrow">© {new Date().getFullYear()} Νίκος Σταύρου</p>
+    <p class="eyebrow">Demo — Instatok Agency</p>
+  </div>
+</footer>
+
+<style>
+  .contact { background: var(--c-bg); padding-block: var(--s-9); }
+  .contact__inner { }
+
+  .contact__grid {
+    display: grid; gap: var(--s-8);
+  }
+  @media (min-width: 768px) {
+    .contact__grid { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  .contact__info { display: grid; gap: var(--s-5); }
+  .contact__title {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+  }
+  .contact__lead {
+    font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2);
+  }
+  .contact__details { display: grid; gap: var(--s-3); }
+  .contact__link {
+    font-size: 0.9375rem; font-weight: 500; color: var(--c-blue);
+    transition: color 0.18s;
+  }
+  .contact__link:hover { color: var(--c-blue-dark); }
+
+  .contact__form {
+    background: var(--c-card); border: 1px solid var(--c-border);
+    border-radius: var(--r-md); padding: var(--s-6);
+    display: grid; gap: var(--s-5);
+  }
+  .contact__field { display: grid; gap: var(--s-2); }
+  .contact__label { font-size: 0.8125rem; font-weight: 500; color: var(--c-ink); }
+  .contact__input {
+    padding: 0.7rem 0.875rem;
+    background: var(--c-bg); border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--c-ink);
+    outline: none; transition: border-color 0.18s;
+    width: 100%; appearance: none;
+  }
+  .contact__input::placeholder { color: var(--c-ink-3); }
+  .contact__input:focus { border-color: var(--c-blue); }
+  .contact__textarea { resize: vertical; min-height: 6rem; }
+
+  .contact__submit {
+    padding: 0.85rem 1.75rem;
+    background: var(--c-blue); color: #fff;
+    border: 1px solid var(--c-blue);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
+    cursor: pointer; transition: background 0.18s;
+  }
+  .contact__submit:hover { background: var(--c-blue-dark); border-color: var(--c-blue-dark); }
+
+  .footer {
+    background: var(--c-dark); padding-block: var(--s-5);
+    border-top: 1px solid var(--c-dark-border);
+  }
+  .footer__inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: var(--s-3); color: var(--c-on-dark-3);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="contact-grid"]', { autoAlpha: 0, y: 24 }, {
+      autoAlpha: 1, y: 0, duration: 0.8,
+      scrollTrigger: { trigger: '[data-anim="contact-grid"]', start: 'top 80%' }
+    });
+  });
+</script>

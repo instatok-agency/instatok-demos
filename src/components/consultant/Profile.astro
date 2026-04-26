@@ -1,0 +1,101 @@
+---
+---
+
+<section class="profile" aria-label="Προφίλ">
+  <div class="profile__inner con-inner">
+
+    <div class="profile__grid" data-anim="prof-grid">
+
+      <div class="profile__photo-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=top"
+          alt="Νίκος Σταύρου"
+          class="profile__photo"
+          loading="lazy"
+          width="700"
+          height="875"
+        />
+      </div>
+
+      <div class="profile__content">
+        <p class="eyebrow eyebrow--on-dark" style="margin-bottom: var(--s-5);">Ποιος είμαι</p>
+        <h2 class="profile__name">Νίκος Σταύρου</h2>
+        <p class="profile__role">Στρατηγικός Σύμβουλος</p>
+
+        <div class="profile__bio">
+          <p>
+            Ξεκίνησα την καριέρα μου στο Strategy & Operations του McKinsey Αθήνας,
+            όπου δούλεψα για 8 χρόνια σε εταιρείες από Νορβηγία μέχρι Ινδία. Το 2015
+            αποφάσισα να δουλέψω αποκλειστικά με ελληνικές εταιρείες — επειδή πιστεύω
+            ότι το ελληνικό business talent είναι σοβαρά underutilized.
+          </p>
+          <p>
+            Εξειδικεύομαι στις εταιρείες που είναι "stuck" — καλές επιχειρήσεις που
+            έχουν σταματήσει να μεγαλώνουν ή χάνουν έδαφος. Δεν φέρνω templates.
+            Φέρνω ανάλυση και ειλικρίνεια.
+          </p>
+        </div>
+
+        <div class="profile__quals">
+          <span class="pill pill--dark">MBA ALBA Graduate School</span>
+          <span class="pill pill--dark">Παν. Αθηνών — Οικονομικά</span>
+          <span class="pill pill--dark">Ex-McKinsey Athens</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .profile {
+    background: var(--c-dark-2);
+    padding-block: var(--s-9);
+  }
+
+  .profile__grid {
+    display: grid; gap: var(--s-8); align-items: center;
+  }
+  @media (min-width: 768px) {
+    .profile__grid { grid-template-columns: 5fr 7fr; }
+  }
+
+  .profile__photo-wrap {
+    border-radius: var(--r-md); overflow: hidden;
+  }
+  .profile__photo {
+    width: 100%; height: clamp(320px, 55vw, 560px);
+    object-fit: cover; object-position: center top;
+    filter: brightness(0.88) saturate(0.85);
+  }
+
+  .profile__content { display: grid; gap: var(--s-5); }
+  .profile__name {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em; color: var(--c-on-dark); line-height: 1.05;
+  }
+  .profile__role {
+    font-size: 0.9375rem; font-weight: 400;
+    color: var(--c-blue-light); letter-spacing: 0.04em;
+  }
+  .profile__bio {
+    display: grid; gap: var(--s-4);
+  }
+  .profile__bio p {
+    font-size: 0.9375rem; line-height: 1.8; color: var(--c-on-dark-2);
+  }
+  .profile__quals { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="prof-grid"]', { autoAlpha: 0, y: 30 }, {
+      autoAlpha: 1, y: 0, duration: 0.9,
+      scrollTrigger: { trigger: '[data-anim="prof-grid"]', start: 'top 80%' }
+    });
+  });
+</script>

@@ -1,0 +1,125 @@
+---
+const programs = [
+  {
+    photo: 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=700&q=80&fit=crop',
+    tag: 'Ατομικό',
+    name: '1:1 Coaching',
+    desc: 'Εβδομαδιαίες συνεδρίες για βαθιά, εξατομικευμένη δουλειά. 3–6 μήνες.',
+    duration: '60 λεπτά / εβδομάδα',
+    from: '€280 / μήνα',
+  },
+  {
+    photo: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&q=80&fit=crop',
+    tag: 'Intensive',
+    name: 'Mind Reset',
+    desc: 'Εντατικό 4εβδομαδο πρόγραμμα. Για όσους θέλουν γρήγορη αλλαγή κατεύθυνσης.',
+    duration: '3× / εβδομάδα',
+    from: '€490 / μήνα',
+  },
+  {
+    photo: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=80&fit=crop',
+    tag: 'Online',
+    name: 'Self-Paced',
+    desc: 'Recorded sessions, workbooks και on-demand support. Δουλεύεις με τον ρυθμό σου.',
+    duration: 'Ανοιχτή πρόσβαση',
+    from: '€97',
+  },
+];
+---
+
+<section class="programs" id="programs" aria-label="Προγράμματα">
+  <hr class="section-rule" aria-hidden="true" />
+  <div class="programs__inner cm-inner">
+
+    <div class="programs__head" data-anim="prog-head">
+      <p class="eyebrow eyebrow--orange">Πώς δουλεύουμε μαζί</p>
+      <h2 class="programs__title">Τα προγράμματα.</h2>
+    </div>
+
+    <div class="programs__grid">
+      {programs.map((p, i) => (
+        <article class="prog-card" data-anim="prog-card">
+          <div class="prog-card__photo-wrap">
+            <img src={p.photo} alt={p.name} class="prog-card__photo" loading="lazy" width="700" height="420" />
+            <span class="pill pill--orange prog-card__tag">{p.tag}</span>
+          </div>
+          <div class="prog-card__body">
+            <p class="eyebrow prog-card__dur">{p.duration}</p>
+            <h3 class="prog-card__name">{p.name}</h3>
+            <p class="prog-card__desc">{p.desc}</p>
+            <div class="prog-card__foot">
+              <span class="prog-card__price">από <strong>{p.from}</strong></span>
+              <a href="#booking" class="prog-card__link">Μάθε περισσότερα →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .programs { background: var(--c-bg); padding-block: var(--s-9); }
+  .programs__inner { display: grid; gap: var(--s-8); }
+  .programs__head { display: grid; gap: var(--s-4); }
+  .programs__title {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+  }
+
+  .programs__grid { display: grid; gap: var(--s-5); }
+  @media (min-width: 640px) { .programs__grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .prog-card {
+    background: var(--c-card); border: 1px solid var(--c-border);
+    border-radius: var(--r-md); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .prog-card:hover {
+    border-color: var(--c-orange-border);
+    box-shadow: 0 4px 24px var(--c-orange-bg);
+  }
+  .prog-card__photo-wrap { position: relative; height: 200px; overflow: hidden; }
+  .prog-card__photo {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.95) saturate(1.05);
+    transition: transform 0.5s ease;
+  }
+  .prog-card:hover .prog-card__photo { transform: scale(1.04); }
+  .prog-card__tag { position: absolute; top: var(--s-4); left: var(--s-4); }
+
+  .prog-card__body { padding: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); flex: 1; }
+  .prog-card__dur { color: var(--c-ink-3); }
+  .prog-card__name {
+    font-family: var(--f-display); font-weight: 700; font-size: 1.25rem;
+    color: var(--c-ink); line-height: 1.15;
+  }
+  .prog-card__desc { font-size: 0.9375rem; line-height: 1.65; color: var(--c-ink-2); flex: 1; }
+  .prog-card__foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: var(--s-3); border-top: 1px solid var(--c-border); margin-top: auto;
+  }
+  .prog-card__price { font-size: 0.875rem; color: var(--c-ink-3); }
+  .prog-card__price strong { font-family: var(--f-display); font-weight: 700; font-size: 1rem; color: var(--c-ink); }
+  .prog-card__link { font-size: 0.8125rem; font-weight: 500; color: var(--c-orange); transition: color 0.18s; }
+  .prog-card__link:hover { color: var(--c-orange-light); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="prog-head"]', { autoAlpha: 0, y: 20 }, {
+      autoAlpha: 1, y: 0, duration: 0.65,
+      scrollTrigger: { trigger: '[data-anim="prog-head"]', start: 'top 85%' }
+    });
+    gsap.fromTo('[data-anim="prog-card"]', { autoAlpha: 0, y: 28 }, {
+      autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1,
+      scrollTrigger: { trigger: '.programs__grid', start: 'top 80%' }
+    });
+  });
+</script>

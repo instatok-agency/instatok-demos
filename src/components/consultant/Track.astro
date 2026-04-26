@@ -1,0 +1,108 @@
+---
+const stats = [
+  { value: 15, suffix: '+', label: 'Χρόνια εμπειρία' },
+  { value: 40, suffix: '+', label: 'Εταιρείες-πελάτες' },
+  { value: 280, suffix: 'M€+', label: 'Αξία projects' },
+  { value: 92, suffix: '%', label: 'Επαναλαμβανόμενοι πελάτες' },
+];
+
+const sectors = ['FMCG', 'Real Estate', 'Tech & SaaS', 'Φαρμακευτικά', 'Οικογενειακές Επιχειρήσεις', 'Retail', 'Logistics', 'Hospitality'];
+---
+
+<section class="track" aria-label="Track record">
+  <div class="track__inner con-inner">
+
+    <div class="track__head" data-anim="track-head">
+      <p class="eyebrow eyebrow--on-dark">Track Record</p>
+      <h2 class="track__title">Αποτελέσματα σε αριθμούς.</h2>
+    </div>
+
+    <div class="track__stats" data-anim="track-stats">
+      {stats.map(s => (
+        <div class="track__stat">
+          <p class="track__num">
+            <span class="track__counter" data-target={s.value}>0</span>{s.suffix}
+          </p>
+          <p class="track__label eyebrow eyebrow--on-dark">{s.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="track__sectors" data-anim="track-sectors">
+      <p class="eyebrow eyebrow--on-dark" style="margin-bottom: var(--s-4);">Κλάδοι εμπειρίας</p>
+      <div class="track__tags">
+        {sectors.map(s => <span class="pill pill--dark">{s}</span>)}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .track {
+    background: var(--c-dark);
+    padding-block: var(--s-9);
+  }
+  .track__inner { display: grid; gap: var(--s-8); }
+
+  .track__head { display: grid; gap: var(--s-3); }
+  .track__title {
+    font-family: var(--f-display);
+    font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em; color: var(--c-on-dark); line-height: 1.1;
+  }
+
+  .track__stats {
+    display: grid; gap: var(--s-6);
+    grid-template-columns: repeat(2, 1fr);
+    padding-block: var(--s-6);
+    border-block: 1px solid var(--c-dark-border);
+  }
+  @media (min-width: 768px) {
+    .track__stats { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .track__stat { display: grid; gap: var(--s-2); }
+  .track__num {
+    font-family: var(--f-display);
+    font-weight: 300; font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1; color: var(--c-blue-light);
+    letter-spacing: -0.02em;
+  }
+  .track__label { letter-spacing: 0.12em; }
+
+  .track__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="track-head"]', { autoAlpha: 0, y: 20 }, {
+      autoAlpha: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '[data-anim="track-head"]', start: 'top 85%' }
+    });
+    gsap.fromTo('[data-anim="track-stats"]', { autoAlpha: 0, y: 24 }, {
+      autoAlpha: 1, y: 0, duration: 0.7,
+      scrollTrigger: {
+        trigger: '[data-anim="track-stats"]', start: 'top 80%',
+        onEnter: () => {
+          document.querySelectorAll('.track__counter').forEach(el => {
+            const target = parseInt((el as HTMLElement).dataset.target || '0');
+            gsap.fromTo(el, { textContent: 0 }, {
+              textContent: target, duration: 1.8, ease: 'power2.out',
+              snap: { textContent: 1 },
+              onUpdate() { (el as HTMLElement).textContent = Math.round(Number((el as HTMLElement).textContent)).toString(); }
+            });
+          });
+        }
+      }
+    });
+    gsap.fromTo('[data-anim="track-sectors"]', { autoAlpha: 0, y: 16 }, {
+      autoAlpha: 1, y: 0, duration: 0.6, delay: 0.2,
+      scrollTrigger: { trigger: '[data-anim="track-sectors"]', start: 'top 85%' }
+    });
+  });
+</script>

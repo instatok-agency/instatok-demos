@@ -1,0 +1,115 @@
+---
+---
+
+<section class="booking" id="booking" aria-label="Κράτηση">
+  <hr class="section-rule" aria-hidden="true" />
+  <div class="booking__inner cm-inner">
+
+    <div class="booking__grid" data-anim="bk-grid">
+      <div class="booking__info">
+        <p class="eyebrow eyebrow--orange" style="margin-bottom: var(--s-4);">Ξεκίνα</p>
+        <h2 class="booking__title">Δωρεάν πρώτη συνεδρία.</h2>
+        <p class="booking__lead">
+          30 λεπτά, χωρίς δέσμευση. Αν δεν νιώσεις ότι έχει νόημα
+          να συνεχίσουμε, δεν χρωστάς τίποτα.
+        </p>
+        <ul class="booking__bullets">
+          <li>✓ Κατανοώ πού βρίσκεσαι τώρα</li>
+          <li>✓ Βλέπουμε αν υπάρχει fit</li>
+          <li>✓ Σου εξηγώ πώς δουλεύω</li>
+        </ul>
+      </div>
+
+      <form class="booking__form" onsubmit="return false">
+        <div class="booking__row">
+          <div class="booking__field">
+            <label for="bk-name" class="booking__label">Όνομα</label>
+            <input type="text" id="bk-name" name="name" class="booking__input" placeholder="Το όνομά σου" autocomplete="given-name" />
+          </div>
+          <div class="booking__field">
+            <label for="bk-email" class="booking__label">Email</label>
+            <input type="email" id="bk-email" name="email" class="booking__input" placeholder="email@example.com" autocomplete="email" />
+          </div>
+        </div>
+        <div class="booking__field">
+          <label for="bk-prog" class="booking__label">Με ενδιαφέρει</label>
+          <select id="bk-prog" name="program" class="booking__input">
+            <option value="">Επίλεξε…</option>
+            <option>1:1 Coaching</option>
+            <option>Mind Reset (Intensive)</option>
+            <option>Self-Paced Online</option>
+            <option>Θέλω να δω πρώτα</option>
+          </select>
+        </div>
+        <div class="booking__field">
+          <label for="bk-msg" class="booking__label">Τι αντιμετωπίζεις <span style="font-weight:400; color: var(--c-ink-3);">(προαιρετικό)</span></label>
+          <textarea id="bk-msg" name="message" class="booking__input booking__textarea" placeholder="Πες μου σε λίγα λόγια…" rows="3"></textarea>
+        </div>
+        <button type="submit" class="booking__submit">Κλείσε δωρεάν συνεδρία</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .booking { background: var(--c-bg); padding-block: var(--s-9); }
+  .booking__grid { display: grid; gap: var(--s-8); }
+  @media (min-width: 768px) { .booking__grid { grid-template-columns: 5fr 7fr; align-items: start; } }
+
+  .booking__info { display: grid; gap: var(--s-5); }
+  .booking__title {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+  }
+  .booking__lead { font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2); }
+  .booking__bullets {
+    list-style: none; display: grid; gap: var(--s-2);
+    font-size: 0.9375rem; color: var(--c-ink-2);
+    padding-left: var(--s-1);
+  }
+  .booking__bullets li { display: flex; align-items: baseline; gap: var(--s-2); }
+
+  .booking__form {
+    background: var(--c-card); border: 1px solid var(--c-border);
+    border-radius: var(--r-lg); padding: var(--s-6);
+    display: grid; gap: var(--s-5);
+  }
+  .booking__row { display: grid; gap: var(--s-4); }
+  @media (min-width: 480px) { .booking__row { grid-template-columns: 1fr 1fr; } }
+
+  .booking__field { display: grid; gap: var(--s-2); }
+  .booking__label { font-size: 0.8125rem; font-weight: 500; color: var(--c-ink); }
+  .booking__input {
+    padding: 0.7rem 0.875rem;
+    background: var(--c-bg); border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--c-ink);
+    outline: none; transition: border-color 0.18s;
+    width: 100%; appearance: none; -webkit-appearance: none;
+  }
+  .booking__input::placeholder { color: var(--c-ink-3); }
+  .booking__input:focus { border-color: var(--c-orange); }
+  .booking__textarea { resize: vertical; min-height: 5rem; }
+  .booking__submit {
+    padding: 0.85rem 1.75rem; width: 100%;
+    background: var(--c-orange); color: #fff;
+    border: 1px solid var(--c-orange); border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
+    cursor: pointer; transition: background 0.18s;
+  }
+  .booking__submit:hover { background: var(--c-orange-light); border-color: var(--c-orange-light); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="bk-grid"]', { autoAlpha: 0, y: 24 }, {
+      autoAlpha: 1, y: 0, duration: 0.8,
+      scrollTrigger: { trigger: '[data-anim="bk-grid"]', start: 'top 80%' }
+    });
+  });
+</script>

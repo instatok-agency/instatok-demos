@@ -1,0 +1,89 @@
+---
+const testimonials = [
+  {
+    quote: 'Σε 3 μήνες πήρα την απόφαση που ανέβαλα 2 χρόνια. Δεν θα το έκανα μόνος μου.',
+    name: 'Γιώργος Α.',
+    role: 'Product Manager, 34',
+  },
+  {
+    quote: 'Δεν ήξερα τι ήθελα. Μετά τις 6 εβδομάδες ήξερα ακριβώς τι να αλλάξω και το έκανα.',
+    name: 'Σταύρος Κ.',
+    role: 'Επιχειρηματίας, 41',
+  },
+  {
+    quote: 'Η Μαρία δεν σου λέει τι να κάνεις. Σε βοηθάει να βρεις μόνος σου. Αυτό μένει.',
+    name: 'Ελένη Δ.',
+    role: 'Marketing Director, 38',
+  },
+];
+---
+
+<section class="testimonials" aria-label="Μαρτυρίες">
+  <div class="testimonials__inner cm-inner">
+
+    <div class="testimonials__head" data-anim="test-head">
+      <p class="eyebrow eyebrow--orange">Τι λένε</p>
+      <h2 class="testimonials__title">Πραγματικές ιστορίες.</h2>
+    </div>
+
+    <div class="testimonials__grid" data-anim="test-grid">
+      {testimonials.map(t => (
+        <blockquote class="test-card">
+          <p class="test-card__quote">"{t.quote}"</p>
+          <footer class="test-card__foot">
+            <p class="test-card__name">{t.name}</p>
+            <p class="test-card__role eyebrow">{t.role}</p>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .testimonials { background: var(--c-bg-2); padding-block: var(--s-9); }
+  .testimonials__inner { display: grid; gap: var(--s-8); }
+  .testimonials__head { display: grid; gap: var(--s-4); }
+  .testimonials__title {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+  }
+
+  .testimonials__grid { display: grid; gap: var(--s-5); }
+  @media (min-width: 768px) { .testimonials__grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .test-card {
+    background: var(--c-card); border: 1px solid var(--c-border);
+    border-radius: var(--r-md); padding: var(--s-6);
+    display: flex; flex-direction: column; gap: var(--s-5);
+    transition: border-color 0.2s;
+  }
+  .test-card:hover { border-color: var(--c-orange-border); }
+  .test-card__quote {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    line-height: 1.5; color: var(--c-ink); flex: 1;
+    font-style: italic;
+  }
+  .test-card__foot { display: grid; gap: 2px; padding-top: var(--s-4); border-top: 1px solid var(--c-border); }
+  .test-card__name { font-size: 0.9375rem; font-weight: 500; color: var(--c-ink); }
+  .test-card__role { color: var(--c-ink-3); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="test-head"]', { autoAlpha: 0, y: 20 }, {
+      autoAlpha: 1, y: 0, duration: 0.65,
+      scrollTrigger: { trigger: '[data-anim="test-head"]', start: 'top 85%' }
+    });
+    gsap.fromTo('[data-anim="test-grid"] .test-card', { autoAlpha: 0, y: 24 }, {
+      autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1,
+      scrollTrigger: { trigger: '[data-anim="test-grid"]', start: 'top 80%' }
+    });
+  });
+</script>

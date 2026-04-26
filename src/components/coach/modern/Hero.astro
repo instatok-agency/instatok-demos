@@ -1,0 +1,158 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+  <div class="hero__inner cm-inner">
+
+    <div class="hero__top" data-anim="cm-top">
+      <p class="eyebrow">Μαρία Αναστασίου · Life &amp; Mindset Coach</p>
+      <span class="pill pill--orange">Αθήνα &amp; Online</span>
+    </div>
+
+    <h1 class="hero__headline" id="hero-headline">
+      <span class="hero__hline" data-anim="cm-line">Σταμάτα να</span>
+      <span class="hero__hline hero__hline--accent" data-anim="cm-line">περιμένεις.</span>
+      <span class="hero__hline" data-anim="cm-line">Ξεκίνα να</span>
+      <span class="hero__hline hero__hline--accent" data-anim="cm-line">αλλάζεις.</span>
+    </h1>
+
+    <div class="hero__sub" data-anim="cm-sub">
+      <p class="hero__lead">
+        Coaching για επαγγελματίες 25–45 που νιώθουν stuck — στην καριέρα,
+        στις σχέσεις ή απλά στο ποιοι είναι. Δεν κάνω therapy. Κάνω
+        αλλαγή που φαίνεται.
+      </p>
+      <div class="hero__actions">
+        <a href="#booking" class="hero__cta hero__cta--primary">Δωρεάν πρώτη συνεδρία</a>
+        <a href="#programs" class="hero__cta hero__cta--ghost">Τα προγράμματα</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Photo strip with rounded corners -->
+  <div class="hero__visual cm-inner" data-anim="cm-photo">
+    <div class="hero__frame">
+      <img
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1400&q=80&fit=crop"
+        alt="Μαρία Αναστασίου — Life Coach"
+        class="hero__photo"
+        loading="eager"
+        width="1400"
+        height="840"
+      />
+      <div class="hero__chips" aria-hidden="true">
+        <div class="hero__chip">
+          <span class="hero__chip-n">200+</span>
+          <span class="hero__chip-l">Πελάτες</span>
+        </div>
+        <div class="hero__chip">
+          <span class="hero__chip-n">5</span>
+          <span class="hero__chip-l">Χρόνια εμπειρία</span>
+        </div>
+        <div class="hero__chip">
+          <span class="hero__chip-n">92%</span>
+          <span class="hero__chip-l">Βλέπουν αλλαγή σε 3 μήνες</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero { background: var(--c-bg); padding-top: 4.5rem; padding-bottom: var(--s-7); }
+  .hero__inner { display: grid; gap: var(--s-6); margin-bottom: var(--s-6); }
+
+  .hero__top {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: var(--s-3);
+  }
+
+  .hero__headline {
+    font-family: var(--f-display); font-weight: 800;
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 0.95; letter-spacing: -0.03em; color: var(--c-ink); margin: 0;
+  }
+  .hero__hline { display: block; }
+  .hero__hline--accent { color: var(--c-orange); }
+
+  .hero__sub {
+    display: flex; flex-direction: column; gap: var(--s-5);
+    padding-top: var(--s-4); border-top: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) {
+    .hero__sub { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: var(--s-8); }
+  }
+
+  .hero__lead { font-size: 1rem; line-height: 1.75; color: var(--c-ink-2); max-width: 42ch; }
+
+  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); flex-shrink: 0; }
+  .hero__cta {
+    display: inline-flex; align-items: center;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
+    border-radius: var(--r-sm); text-decoration: none; white-space: nowrap;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .hero__cta--primary {
+    background: var(--c-orange); color: #fff; border: 1px solid var(--c-orange);
+  }
+  .hero__cta--primary:hover { background: var(--c-orange-light); border-color: var(--c-orange-light); }
+  .hero__cta--ghost {
+    background: transparent; color: var(--c-ink); border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover { border-color: var(--c-ink-3); }
+
+  .hero__frame {
+    position: relative; border-radius: var(--r-lg); overflow: hidden;
+    height: clamp(280px, 50vw, 560px);
+  }
+  .hero__photo {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
+    filter: brightness(1.02) saturate(1.05);
+  }
+  .hero__chips {
+    position: absolute; bottom: var(--s-5); left: var(--s-5);
+    display: flex; gap: var(--s-3); flex-wrap: wrap;
+  }
+  .hero__chip {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 0.55rem 0.875rem;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--r-sm); border: 1px solid rgba(255,255,255,0.6);
+  }
+  .hero__chip-n {
+    font-family: var(--f-display); font-size: 1.0625rem; font-weight: 700;
+    color: var(--c-ink); line-height: 1;
+  }
+  .hero__chip-l {
+    font-size: 0.6875rem; font-weight: 400; color: var(--c-ink-3); white-space: nowrap;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-coach-modern';
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      if (isReduced) return;
+      gsap.set(['[data-anim="cm-top"]','[data-anim="cm-line"]','[data-anim="cm-sub"]','[data-anim="cm-photo"]'], { autoAlpha: 0 });
+      gsap.set('[data-anim="cm-line"]', { y: 28 });
+
+      const tl = gsap.timeline();
+      tl.to('[data-anim="cm-top"]', { autoAlpha: 1, y: 0, duration: 0.5 }, 0.1)
+        .to('[data-anim="cm-line"]', { autoAlpha: 1, y: 0, stagger: 0.07, duration: 0.65 }, 0.3)
+        .to('[data-anim="cm-sub"]', { autoAlpha: 1, duration: 0.55 }, 0.75)
+        .to('[data-anim="cm-photo"]', { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 0.55);
+    }
+  );
+</script>

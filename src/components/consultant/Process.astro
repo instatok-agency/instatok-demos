@@ -1,0 +1,91 @@
+---
+const steps = [
+  { n: '01', title: 'Διάγνωση', body: 'Βαθιά ανάλυση της τρέχουσας κατάστασης: αγορά, ανταγωνισμός, εσωτερικές δυνατότητες. 2–3 εβδομάδες.' },
+  { n: '02', title: 'Στρατηγική', body: 'Ανάπτυξη σεναρίων και επιλογή κατεύθυνσης με συγκεκριμένους KPIs και χρονοδιαγράμματα.' },
+  { n: '03', title: 'Εκτέλεση', body: 'Hands-on συνεργασία με την ομάδα για implementation. Δεν αφήνω reports στο συρτάρι.' },
+  { n: '04', title: 'Παρακολούθηση', body: 'Μηνιαία check-ins για 6–12 μήνες. Προσαρμογή στρατηγικής όταν αλλάζουν οι συνθήκες.' },
+];
+---
+
+<section class="process" aria-label="Μεθοδολογία">
+  <hr class="section-rule" aria-hidden="true" />
+  <div class="process__inner con-inner">
+
+    <div class="process__head" data-anim="proc-head">
+      <p class="eyebrow eyebrow--blue">Μεθοδολογία</p>
+      <h2 class="process__title">Πώς δουλεύω.</h2>
+    </div>
+
+    <div class="process__steps">
+      {steps.map((s, i) => (
+        <div class="process__step" data-anim="proc-step">
+          <div class="process__step-num">
+            <span class="eyebrow">{s.n}</span>
+            {i < steps.length - 1 && <div class="process__connector" aria-hidden="true"></div>}
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">{s.title}</h3>
+            <p class="process__step-body">{s.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .process { background: var(--c-bg); padding-block: var(--s-9); }
+  .process__inner { display: grid; gap: var(--s-8); }
+
+  .process__head { display: grid; gap: var(--s-4); }
+  .process__title {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+  }
+
+  .process__steps { display: grid; gap: 0; }
+
+  .process__step {
+    display: grid; grid-template-columns: 3rem 1fr;
+    gap: var(--s-5); padding-block: var(--s-6);
+    border-bottom: 1px solid var(--c-border-2);
+  }
+  .process__step:first-child { border-top: 1px solid var(--c-border-2); }
+
+  .process__step-num {
+    display: flex; flex-direction: column;
+    align-items: center; gap: var(--s-3);
+  }
+  .process__connector {
+    flex: 1; width: 1px; background: var(--c-blue-border);
+    min-height: 2rem;
+  }
+
+  .process__step-content { display: grid; gap: var(--s-3); padding-block: 0.1rem; }
+  .process__step-title {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--c-ink); line-height: 1.2;
+  }
+  .process__step-body {
+    font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="proc-head"]', { autoAlpha: 0, y: 20 }, {
+      autoAlpha: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '[data-anim="proc-head"]', start: 'top 85%' }
+    });
+    gsap.fromTo('[data-anim="proc-step"]', { autoAlpha: 0, x: -20 }, {
+      autoAlpha: 1, x: 0, duration: 0.6, stagger: 0.1,
+      scrollTrigger: { trigger: '.process__steps', start: 'top 78%' }
+    });
+  });
+</script>

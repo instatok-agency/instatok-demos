@@ -1,0 +1,35 @@
+---
+import '../styles/consultant.css';
+interface Props { title?: string; description?: string; }
+const {
+  title = 'Νίκος Σταύρου · Στρατηγικός Σύμβουλος',
+  description = 'Στρατηγικές αναπτυξιακές λύσεις για ελληνικές επιχειρήσεις. 15+ χρόνια εμπειρία.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0F1626" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a href="/consultant" class="back-link">← demos</a>
+    <slot />
+  </body>
+</html>
+<style>
+  body { position: relative; }
+  .back-link {
+    position: fixed; top: 1rem; left: 1rem; z-index: 100;
+    font-family: var(--f-body); font-size: 0.65rem; letter-spacing: 0.08em;
+    color: rgba(138, 149, 176, 0.45); text-decoration: none;
+    padding: 0.25rem 0.5rem; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--c-blue-light); }
+</style>
