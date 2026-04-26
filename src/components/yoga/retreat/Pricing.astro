@@ -1,0 +1,257 @@
+---
+const tiers = [
+  {
+    name: 'Drop-in',
+    price: '25',
+    unit: 'ανά μάθημα',
+    note: 'ομαδικό',
+    includes: [
+      'Vinyasa ή Restorative',
+      'Διαθέσιμες θέσεις only',
+      'Χωρίς δέσμευση',
+    ],
+    highlight: false,
+    cta: 'Κλείσε θέση',
+  },
+  {
+    name: 'Μηνιαία',
+    price: '180',
+    unit: 'ανά μήνα',
+    note: '8 μαθήματα',
+    includes: [
+      'Απεριόριστες ομαδικές',
+      'Προτεραιότητα κράτησης',
+      '1 δωρεάν ιδιωτικό',
+      'Monthly check-in',
+    ],
+    highlight: true,
+    badge: 'Πιο δημοφιλές',
+    cta: 'Ξεκίνα τώρα',
+  },
+  {
+    name: 'Ιδιωτικό',
+    price: '80',
+    unit: 'ανά συνεδρία',
+    note: '1-on-1',
+    includes: [
+      'Απόλυτη εξατομίκευση',
+      'Εύκαμπτο πρόγραμμα',
+      'Home visits (+€15)',
+      'Video recording option',
+    ],
+    highlight: false,
+    cta: 'Ρώτα για ώρες',
+  },
+];
+---
+
+<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+  <hr class="section-rule section-rule--deep" aria-hidden="true" />
+
+  <div class="pricing__inner retreat-section-inner">
+
+    <header class="pricing__header" data-anim="header">
+      <p class="eyebrow-dark" id="pricing-title">Τιμολόγηση</p>
+      <h2 class="pricing__heading">Διάλεξε τον ρυθμό σου.</h2>
+    </header>
+
+    <div class="pricing__grid">
+      {tiers.map((t, i) => (
+        <article
+          class={`pricing__tier ${t.highlight ? 'pricing__tier--highlight' : ''}`}
+          data-anim="tier"
+        >
+          {t.badge && <p class="pricing__badge eyebrow-dark">{t.badge}</p>}
+
+          <div class="pricing__tier-header">
+            <p class="pricing__tier-name">{t.name}</p>
+            <p class="pricing__tier-note eyebrow-dark">{t.note}</p>
+          </div>
+
+          <div class="pricing__price">
+            <span class="pricing__currency">€</span>
+            <span class="pricing__amount">{t.price}</span>
+            <span class="pricing__unit eyebrow-dark">{t.unit}</span>
+          </div>
+
+          <ul class="pricing__list" aria-label={`Περιλαμβάνει για ${t.name}`}>
+            {t.includes.map(item => (
+              <li class="pricing__item">
+                <svg class="pricing__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M2.5 8.5l3.5 3.5 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a href="#booking" class={`pricing__cta ${t.highlight ? 'pricing__cta--primary' : 'pricing__cta--ghost'}`}>
+            {t.cta}
+          </a>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pricing { background: var(--c-deep); }
+  .pricing > .section-rule--deep { background: var(--c-deep-border); }
+  .pricing__inner { padding-block: var(--s-9); }
+
+  .pricing__header { display: grid; gap: var(--s-3); margin-bottom: var(--s-7); }
+  .pricing__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    color: var(--c-on-deep);
+  }
+
+  .pricing__grid {
+    display: grid;
+    gap: var(--s-4);
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .pricing__grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+  }
+
+  .pricing__tier {
+    background: var(--c-deep-2);
+    border: 1px solid var(--c-deep-border);
+    padding: var(--s-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+    position: relative;
+    transition: border-color 0.25s;
+  }
+  .pricing__tier:hover { border-color: var(--c-deep-border); }
+  .pricing__tier--highlight {
+    border-color: var(--c-gold);
+    background: var(--c-deep-2);
+  }
+  .pricing__tier--highlight:hover { border-color: var(--c-gold); }
+
+  .pricing__badge {
+    color: var(--c-gold) !important;
+    position: absolute;
+    top: calc(-1 * var(--s-3));
+    left: var(--s-5);
+    background: var(--c-deep-2);
+    padding: 0 var(--s-2);
+    border: 1px solid var(--c-gold);
+    font-size: 0.575rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pricing__tier-header { display: flex; flex-direction: column; gap: var(--s-1); }
+  .pricing__tier-name {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    color: var(--c-on-deep);
+  }
+
+  .pricing__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-2);
+    padding-bottom: var(--s-4);
+    border-bottom: 1px solid var(--c-deep-border);
+  }
+  .pricing__currency {
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--c-gold);
+    align-self: flex-start;
+    margin-top: 0.3rem;
+  }
+  .pricing__amount {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--c-on-deep);
+  }
+  .pricing__unit { color: var(--c-on-deep-3); }
+
+  .pricing__list { list-style: none; display: grid; gap: var(--s-3); flex: 1; }
+  .pricing__item {
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    gap: var(--s-2);
+    align-items: start;
+    font-family: var(--f-body);
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--c-on-deep-2);
+    line-height: 1.5;
+  }
+  .pricing__check {
+    width: 14px;
+    height: 14px;
+    color: var(--c-gold);
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .pricing__cta {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    font-family: var(--f-body);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    cursor: pointer;
+    margin-top: auto;
+  }
+  .pricing__cta--primary {
+    background: var(--c-gold);
+    color: var(--c-deep);
+    border: 1px solid var(--c-gold);
+  }
+  .pricing__cta--primary:hover { background: var(--c-gold-deep); border-color: var(--c-gold-deep); }
+  .pricing__cta--ghost {
+    background: transparent;
+    color: var(--c-on-deep);
+    border: 1px solid var(--c-deep-border);
+  }
+  .pricing__cta--ghost:hover { border-color: rgba(232, 224, 209, 0.35); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = [
+        document.querySelector('[data-anim="header"]'),
+        ...Array.from(document.querySelectorAll('[data-anim="tier"]')),
+      ].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0, y: 24 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1, y: 0 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 85%',
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, y: 0, stagger: 0.1, duration: 1.1,
+        }),
+      });
+    }
+  );
+</script>

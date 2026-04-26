@@ -1,0 +1,95 @@
+---
+---
+
+<footer class="footer" role="contentinfo">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="footer__inner darkbar-section-inner">
+
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <p class="footer__name">Καβός</p>
+        <p class="footer__cred eyebrow eyebrow--amber">Micro-Roastery · Q-Grader</p>
+        <p class="footer__loc eyebrow">Νέος Κόσμος · Αθήνα</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#story">Ιστορία</a></li>
+          <li><a href="#menu">Μενού</a></li>
+          <li><a href="#origins">Origins</a></li>
+          <li><a href="#visit">Επίσκεψη</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="eyebrow footer__label">Wholesale &amp; Trade</p>
+        <a href="mailto:hello@kavos.coffee" class="footer__link">hello@kavos.coffee</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+           class="footer__link footer__ig eyebrow">@kavos.coffee →</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="eyebrow footer__copy">© {new Date().getFullYear()} Καβός Micro-Roastery</p>
+      <p class="eyebrow footer__demo">Demo — Instatok Agency</p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--c-bg); padding-block: 0 var(--s-6); }
+
+  .footer__inner { padding-block-start: var(--s-7); }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--s-7);
+    padding-bottom: var(--s-7);
+    border-bottom: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) { .footer__grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .footer__name {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--c-cream);
+    margin-bottom: var(--s-2);
+  }
+  .footer__cred { margin-bottom: var(--s-1); }
+  .footer__loc { color: var(--c-cream-3); }
+
+  .footer__nav ul { list-style: none; display: grid; gap: var(--s-2); }
+  .footer__nav a {
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    color: var(--c-cream-2);
+    transition: color 0.18s;
+  }
+  .footer__nav a:hover { color: var(--c-amber); }
+
+  .footer__contact { display: grid; gap: var(--s-2); }
+  .footer__label { margin-bottom: var(--s-1); color: var(--c-cream-3); }
+  .footer__link {
+    font-size: 0.9375rem;
+    font-family: var(--f-body);
+    color: var(--c-cream-2);
+    transition: color 0.18s;
+  }
+  .footer__link:hover { color: var(--c-amber); }
+  .footer__ig { margin-top: var(--s-2); }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    padding-top: var(--s-5);
+    color: var(--c-cream-3);
+  }
+</style>

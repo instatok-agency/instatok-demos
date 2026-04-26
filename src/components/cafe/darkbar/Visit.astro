@@ -1,0 +1,213 @@
+---
+---
+
+<section class="visit" id="visit" aria-labelledby="visit-title">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="visit__inner darkbar-section-inner">
+
+    <div class="visit__layout">
+
+      <div class="visit__info" data-anim="info">
+        <p class="eyebrow" id="visit-title">Επίσκεψη</p>
+        <h2 class="visit__heading">Νέος Κόσμος, Αθήνα.</h2>
+
+        <address class="visit__address">
+          Νικηφόρου Θεοτόκη 18<br />
+          Νέος Κόσμος, 117 44, Αθήνα
+        </address>
+
+        <div class="visit__hours">
+          <h3 class="visit__hours-title eyebrow--amber">Showroom &amp; Tasting</h3>
+          <p class="visit__hours-note">Μόνο με ραντεβού — trade &amp; wholesale</p>
+          <table class="visit__table" aria-label="Ώρες showroom">
+            <tbody>
+              <tr>
+                <th scope="row">Τρίτη – Πέμπτη</th>
+                <td>10:00 – 17:00</td>
+              </tr>
+              <tr>
+                <th scope="row">Παρασκευή</th>
+                <td>10:00 – 15:00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="visit__hours">
+          <h3 class="visit__hours-title eyebrow--amber">Retail Shop</h3>
+          <table class="visit__table" aria-label="Ώρες retail">
+            <tbody>
+              <tr>
+                <th scope="row">Δευτέρα – Παρασκευή</th>
+                <td>09:00 – 20:00</td>
+              </tr>
+              <tr>
+                <th scope="row">Σάββατο</th>
+                <td>10:00 – 16:00</td>
+              </tr>
+              <tr>
+                <th scope="row">Κυριακή</th>
+                <td>Κλειστά</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="visit__actions">
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="visit__map-btn"
+          >
+            Google Maps →
+          </a>
+          <a href="mailto:hello@kavos.coffee" class="visit__email">
+            hello@kavos.coffee
+          </a>
+        </div>
+
+      </div>
+
+      <div class="visit__photo-col" data-anim="photo" aria-hidden="true">
+        <div class="visit__photo-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80&fit=crop"
+            alt=""
+            loading="lazy"
+            width="800"
+            height="1100"
+          />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .visit { background: var(--c-bg-2); }
+  .visit__inner { padding-block: var(--s-9); }
+
+  .visit__layout {
+    display: grid;
+    gap: var(--s-7);
+  }
+  @media (min-width: 900px) {
+    .visit__layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .visit__info { display: grid; gap: var(--s-5); }
+  .visit__heading {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--c-cream);
+  }
+
+  .visit__address {
+    font-style: normal;
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    color: var(--c-cream-2);
+    line-height: 1.65;
+  }
+
+  .visit__hours { display: grid; gap: var(--s-3); }
+  .visit__hours-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
+  .visit__hours-note {
+    font-family: var(--f-body);
+    font-size: 0.8rem;
+    color: var(--c-cream-3);
+    font-style: italic;
+  }
+
+  .visit__table { width: 100%; border-collapse: collapse; }
+  .visit__table th,
+  .visit__table td {
+    text-align: left;
+    padding: var(--s-2) 0;
+    border-bottom: 1px solid var(--c-border);
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+  .visit__table th {
+    color: var(--c-cream-2);
+    font-weight: 400;
+    width: 60%;
+  }
+  .visit__table td { color: var(--c-cream); }
+
+  .visit__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+    padding-top: var(--s-2);
+  }
+  .visit__map-btn {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-bg);
+    background: var(--c-amber);
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--c-amber);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .visit__map-btn:hover { background: var(--c-amber-deep); border-color: var(--c-amber-deep); }
+  .visit__email {
+    font-family: var(--f-body);
+    font-size: 0.9rem;
+    color: var(--c-cream-2);
+    transition: color 0.2s;
+  }
+  .visit__email:hover { color: var(--c-amber); }
+
+  .visit__photo-wrap {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+  .visit__photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) saturate(0.5);
+    transition: transform 0.7s ease;
+  }
+  .visit__photo-wrap:hover img { transform: scale(1.03); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = [
+        document.querySelector('[data-anim="info"]'),
+        document.querySelector('[data-anim="photo"]'),
+      ].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 85%',
+        onEnter: batch => gsap.to(batch, { autoAlpha: 1, stagger: 0.15, duration: 0.9 }),
+      });
+    }
+  );
+</script>

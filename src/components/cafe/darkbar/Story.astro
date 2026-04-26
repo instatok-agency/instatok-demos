@@ -1,0 +1,150 @@
+---
+---
+
+<section class="story" id="story" aria-labelledby="story-title">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="story__inner darkbar-section-inner">
+
+    <p class="eyebrow" id="story-title" data-anim="eyebrow">Η ιστορία</p>
+
+    <blockquote class="story__quote" data-anim="quote">
+      "Έβλεπα cafés να σερβίρουν specialty beans σαν filter coffee
+      από σούπερ-μάρκετ. Αποφάσισα να κάνω το αντίθετο."
+    </blockquote>
+
+    <div class="story__body" data-anim="body">
+      <p>
+        Ο Δημήτρης Σκλάβος ξεκίνησε να ψήνει καφέ στο σπίτι το 2018. Τρία χρόνια αργότερα
+        απέκτησε πιστοποίηση Q-Grader από το SCA. Το 2024 άνοιξε το Καβός — ένα ψητήριο
+        μικρής παρτίδας στον Νέο Κόσμο με απλή αποστολή: να φέρει πρώτης τάξης single
+        origins στην Αθήνα, σωστά επεξεργασμένα και φρεσκοψημένα.
+      </p>
+      <p>
+        Δεν κάνουμε blends για να κρύψουμε κακό καφέ. Δεν κρατάμε αποθέματα. Κάθε Δευτέρα
+        ψήνουμε την εβδομαδιαία παρτίδα. Αν ξεπουλήσει, περιμένεις μέχρι την επόμενη.
+      </p>
+      <p>
+        Δουλεύουμε απευθείας με 4 εισαγωγείς που γνωρίζουμε προσωπικά. Κάθε lot
+        έρχεται με full traceability: φάρμα, υψόμετρο, processing, harvest date.
+        Αν δεν ξέρουμε από πού ήρθε ο καφές, δεν τον ψήνουμε.
+      </p>
+    </div>
+
+    <div class="story__notes" data-anim="notes">
+      <div class="story__note">
+        <span class="story__note-num eyebrow--amber">01</span>
+        <div>
+          <p class="story__note-title">Traceability</p>
+          <p class="story__note-body">Κάθε παρτίδα με πλήρη στοιχεία παραγωγού, farm, harvest.</p>
+        </div>
+      </div>
+      <div class="story__note">
+        <span class="story__note-num eyebrow--amber">02</span>
+        <div>
+          <p class="story__note-title">Weekly Roast</p>
+          <p class="story__note-body">Ψήνουμε κάθε Δευτέρα. Αποστολή Τρίτη–Τετάρτη.</p>
+        </div>
+      </div>
+      <div class="story__note">
+        <span class="story__note-num eyebrow--amber">03</span>
+        <div>
+          <p class="story__note-title">Μικρές ποσότητες</p>
+          <p class="story__note-body">Max 15kg ανά lot. Όταν τελειώσει, τελειώσει.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .story { background: var(--c-bg); }
+  .story__inner {
+    padding-block: var(--s-9);
+    display: grid;
+    gap: var(--s-6);
+    max-width: 48rem;
+  }
+
+  .story__quote {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    line-height: 1.35;
+    color: var(--c-amber);
+    padding-left: var(--s-5);
+    border-left: 1px solid var(--c-border-amber);
+  }
+
+  .story__body { display: grid; gap: var(--s-4); }
+  .story__body p {
+    font-family: var(--f-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--c-cream-2);
+  }
+
+  .story__notes {
+    display: grid;
+    gap: var(--s-4);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--c-border);
+  }
+
+  .story__note {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: var(--s-3);
+    align-items: start;
+  }
+
+  .story__note-num {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    padding-top: 0.1rem;
+  }
+  .eyebrow--amber { color: var(--c-amber); }
+
+  .story__note-title {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--c-cream);
+    margin-bottom: 0.25rem;
+  }
+  .story__note-body {
+    font-family: var(--f-body);
+    font-size: 0.875rem;
+    color: var(--c-cream-3);
+    line-height: 1.6;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = [
+        document.querySelector('[data-anim="eyebrow"]'),
+        document.querySelector('[data-anim="quote"]'),
+        document.querySelector('[data-anim="body"]'),
+        document.querySelector('[data-anim="notes"]'),
+      ].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 84%',
+        onEnter: batch => gsap.to(batch, { autoAlpha: 1, stagger: 0.12, duration: 0.9 }),
+      });
+    }
+  );
+</script>

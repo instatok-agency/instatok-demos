@@ -1,0 +1,220 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+
+  <div class="hero__inner darkbar-section-inner">
+
+    <p class="hero__eyebrow eyebrow" data-anim="eyebrow">
+      Ψητήριο &nbsp;·&nbsp; Νέος Κόσμος &nbsp;·&nbsp; 2024
+    </p>
+
+    <h1 class="hero__headline" id="hero-headline" data-anim="headline">
+      <span class="hero__brand">Καβός.</span>
+    </h1>
+
+    <p class="hero__sub" data-anim="sub">
+      Single origins. Micro-lots. Ωμός καφές για επαγγελματίες.
+    </p>
+
+    <div class="hero__actions" data-anim="actions">
+      <a href="#origins" class="hero__cta hero__cta--primary">
+        <span>Δες τα origins</span>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#story" class="hero__cta hero__cta--ghost">Η ιστορία</a>
+    </div>
+
+  </div>
+
+  <div class="hero__photo-strip" data-anim="strip" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1600&q=85&fit=crop&crop=center"
+      alt=""
+      loading="eager"
+      width="1600"
+      height="800"
+    />
+    <div class="hero__vignette"></div>
+  </div>
+
+  <div class="hero__meta darkbar-section-inner" data-anim="meta">
+    <div class="hero__meta-item">
+      <span class="hero__meta-val">Specialty</span>
+      <span class="hero__meta-label eyebrow">SCA Certified</span>
+    </div>
+    <div class="hero__meta-sep" aria-hidden="true"></div>
+    <div class="hero__meta-item">
+      <span class="hero__meta-val">Q-Graded</span>
+      <span class="hero__meta-label eyebrow">84+ pts all lots</span>
+    </div>
+    <div class="hero__meta-sep" aria-hidden="true"></div>
+    <div class="hero__meta-item">
+      <span class="hero__meta-val">Εβδομαδιαίο ψήσιμο</span>
+      <span class="hero__meta-label eyebrow">Fresh every Monday</span>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    background: var(--c-bg);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-block: var(--s-9);
+    padding-block-start: calc(var(--s-9) + 3rem);
+    gap: var(--s-5);
+  }
+
+  .hero__eyebrow { display: block; }
+
+  .hero__headline {
+    margin: 0;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .hero__brand {
+    display: block;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(4rem, 13vw, 9rem);
+    color: var(--c-cream);
+  }
+
+  .hero__sub {
+    font-family: var(--f-body);
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
+    color: var(--c-cream-2);
+    letter-spacing: 0.01em;
+    max-width: 42ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    padding-top: var(--s-2);
+  }
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    text-decoration: none;
+  }
+  .hero__cta svg { width: 15px; height: 15px; }
+  .hero__cta--primary {
+    background: var(--c-amber);
+    color: var(--c-bg);
+    border: 1px solid var(--c-amber);
+  }
+  .hero__cta--primary:hover { background: var(--c-amber-deep); border-color: var(--c-amber-deep); }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-cream);
+    border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover { border-color: var(--c-border-2); }
+
+  .hero__photo-strip {
+    position: relative;
+    height: 50svh;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .hero__photo-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: brightness(0.65) saturate(0.5);
+  }
+  .hero__vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, var(--c-bg) 0%, transparent 20%),
+      linear-gradient(to top, var(--c-bg) 0%, transparent 30%);
+  }
+
+  .hero__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--s-5);
+    padding-block: var(--s-5);
+    flex-wrap: wrap;
+    border-top: 1px solid var(--c-border);
+  }
+
+  .hero__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+  }
+  .hero__meta-val {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--c-cream);
+  }
+  .hero__meta-label { color: var(--c-cream-3); }
+
+  .hero__meta-sep {
+    width: 1px;
+    height: 2rem;
+    background: var(--c-border);
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-cafe-darkbar';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = ['[data-anim="eyebrow"]', '[data-anim="headline"]', '[data-anim="sub"]',
+                   '[data-anim="actions"]', '[data-anim="strip"]', '[data-anim="meta"]'];
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      const tl = gsap.timeline();
+      tl.fromTo('[data-anim="eyebrow"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, 0.1)
+        .fromTo('[data-anim="headline"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.9, ease: 'power3.out' }, 0.25)
+        .fromTo('[data-anim="sub"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.7 }, '-=0.45')
+        .fromTo('[data-anim="actions"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.65 }, '-=0.4')
+        .fromTo('[data-anim="strip"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.2, ease: 'power2.out' }, 0.2)
+        .fromTo('[data-anim="meta"]',
+          { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.7 }, '-=0.4');
+    }
+  );
+</script>

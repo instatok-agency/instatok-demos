@@ -1,0 +1,180 @@
+---
+const days = [
+  { day: 'Δευτέρα', short: 'ΔΕΥ', classes: [
+    { name: 'Ιδιωτικό', time: '08:00', type: 'private', slots: 0 },
+    { name: 'Vinyasa Flow', time: '19:30', type: 'group', slots: 4 },
+  ]},
+  { day: 'Τρίτη', short: 'ΤΡΙ', classes: [
+    { name: 'Ιδιωτικό', time: '07:00', type: 'private', slots: 1 },
+    { name: 'Restorative', time: '20:00', type: 'group', slots: 2 },
+  ]},
+  { day: 'Τετάρτη', short: 'ΤΕΤ', classes: [
+    { name: 'Vinyasa Flow', time: '08:00', type: 'group', slots: 3 },
+  ]},
+  { day: 'Πέμπτη', short: 'ΠΕΜ', classes: [
+    { name: 'Ιδιωτικό', time: '07:30', type: 'private', slots: 1 },
+    { name: 'Restorative', time: '19:00', type: 'group', slots: 5 },
+  ]},
+  { day: 'Παρασκευή', short: 'ΠΑΡ', classes: [
+    { name: 'Vinyasa Flow', time: '08:00', type: 'group', slots: 0 },
+  ]},
+  { day: 'Σάββατο', short: 'ΣΑΒ', classes: [
+    { name: 'Workshop', time: '10:00', type: 'special', slots: 4, note: '1× μηνιαίως' },
+  ]},
+  { day: 'Κυριακή', short: 'ΚΥΡ', classes: [] },
+];
+---
+
+<section class="schedule" id="schedule" aria-labelledby="schedule-title">
+  <div class="schedule__inner retreat-section-inner">
+
+    <header class="schedule__header">
+      <p class="eyebrow-light" id="schedule-title">Εβδομαδιαίο Πρόγραμμα</p>
+      <h2 class="schedule__heading">Βρες τη μέρα σου.</h2>
+    </header>
+
+    <div class="schedule__grid" role="list">
+      {days.map(d => (
+        <div class="schedule__day" role="listitem" data-anim="day">
+          <p class="schedule__day-name">{d.day}</p>
+          {d.classes.length === 0
+            ? <p class="schedule__rest">Ανάπαυση</p>
+            : d.classes.map(c => (
+              <div class={`schedule__class schedule__class--${c.type}`}>
+                <span class="schedule__class-time eyebrow-light">{c.time}</span>
+                <span class="schedule__class-name">{c.name}</span>
+                {c.note && <span class="schedule__class-note eyebrow-light">{c.note}</span>}
+                <span class={`schedule__slots ${c.slots === 0 ? 'schedule__slots--full' : ''}`}>
+                  {c.slots === 0 ? 'Πλήρες' : `${c.slots} θέσεις`}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      ))}
+    </div>
+
+    <p class="schedule__note eyebrow-light">
+      Ιδιωτικά μαθήματα — επικοινωνία για ορισμό ώρας &nbsp;·&nbsp;
+      <a href="#booking" class="schedule__note-link">Κλείσε θέση →</a>
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .schedule { background: var(--c-cream); color: var(--c-ink); }
+  .schedule__inner { padding-block: var(--s-9); }
+
+  .schedule__header {
+    display: grid;
+    gap: var(--s-3);
+    margin-bottom: var(--s-7);
+  }
+  .schedule__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+  }
+
+  .schedule__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    gap: var(--s-4);
+    margin-bottom: var(--s-6);
+  }
+
+  .schedule__day {
+    background: var(--c-cream-2);
+    padding: var(--s-4) var(--s-4) var(--s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    min-height: 9rem;
+  }
+
+  .schedule__day-name {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    padding-bottom: var(--s-2);
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: var(--s-1);
+  }
+
+  .schedule__rest {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    margin-top: auto;
+  }
+
+  .schedule__class {
+    display: grid;
+    gap: 0.2rem;
+  }
+  .schedule__class-time { color: var(--c-ink-3); }
+  .schedule__class-name {
+    font-family: var(--f-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--c-ink);
+  }
+  .schedule__class-note { color: var(--c-ink-3); margin-top: 0.1rem; }
+
+  .schedule__class--special .schedule__class-name { color: var(--c-gold-deep); }
+  .schedule__class--private .schedule__class-time { color: var(--c-gold-deep); }
+
+  .schedule__slots {
+    font-family: var(--f-mono);
+    font-size: 0.575rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    margin-top: 0.25rem;
+  }
+  .schedule__slots--full { color: var(--c-ink-3); opacity: 0.6; }
+
+  .schedule__note {
+    color: var(--c-ink-3);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+  }
+  .schedule__note-link {
+    color: var(--c-gold-deep);
+    transition: opacity 0.2s;
+  }
+  .schedule__note-link:hover { opacity: 0.7; }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = document.querySelectorAll('[data-anim="day"]');
+      const header = document.querySelector('.schedule__header');
+      const all = [header, ...Array.from(els)].filter(Boolean);
+      gsap.set(all, { autoAlpha: 0, y: 18 });
+      if (isReduced) { gsap.set(all, { autoAlpha: 1, y: 0 }); return; }
+
+      ScrollTrigger.batch(all, {
+        start: 'top 88%',
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, y: 0,
+          stagger: 0.06, duration: 0.9,
+        }),
+      });
+    }
+  );
+</script>

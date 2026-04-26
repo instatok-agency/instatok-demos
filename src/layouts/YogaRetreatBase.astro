@@ -1,0 +1,52 @@
+---
+import '../styles/yoga-retreat.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Έλενα Παπαδάκη · Yoga Retreats & Ιδιωτικά Αθήνα',
+  description = 'Ιδιωτική yoga και mindful retreats στην Αθήνα. RYT-500 certified. Για όσους ζητούν χρόνο μακριά από τον χρόνο.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1C2415" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Raleway:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="/yoga" class="back-link">← demos</a>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body { position: relative; }
+  .back-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: rgba(181, 169, 143, 0.45);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.25s;
+  }
+  .back-link:hover { color: #E8E0D1; }
+</style>

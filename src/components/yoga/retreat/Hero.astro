@@ -1,0 +1,209 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+
+  <div class="hero__inner retreat-section-inner">
+
+    <p class="hero__eyebrow eyebrow-dark" data-anim="eyebrow">
+      Έλενα Παπαδάκη &nbsp;·&nbsp; Αθήνα &nbsp;·&nbsp; RYT-500
+    </p>
+
+    <h1 class="hero__headline" id="hero-headline">
+      <span class="hero__word" data-anim="word">Πρακτική.</span>
+      <span class="hero__word" data-anim="word">Σιωπή.</span>
+      <span class="hero__word" data-anim="word">Επιστροφή.</span>
+    </h1>
+
+    <span class="hero__rule" data-anim="rule" aria-hidden="true"></span>
+
+    <p class="hero__lead" data-anim="lead">
+      Ιδιωτική yoga και mindful retreats για όσους ζητούν χρόνο
+      μακριά από τον χρόνο. 12 χρόνια εμπειρίας, μικρές ομάδες,
+      κανένα compromis στην ποιότητα της πρακτικής.
+    </p>
+
+    <div class="hero__actions" data-anim="actions">
+      <a href="#booking" class="hero__cta hero__cta--primary">
+        <span>Κλείσε ιδιωτική</span>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#programs" class="hero__cta hero__cta--ghost">Retreats &amp; προγράμματα</a>
+    </div>
+
+  </div>
+
+  <div class="hero__photo-strip" data-anim="strip" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1600&q=85&fit=crop&crop=center"
+      alt=""
+      loading="eager"
+      width="1600"
+      height="900"
+    />
+    <div class="hero__strip-vignette"></div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    background: var(--c-deep);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero__inner {
+    padding-block: var(--s-9);
+    padding-block-start: calc(var(--s-9) + 2.5rem);
+    display: grid;
+    gap: var(--s-6);
+    max-width: 62rem;
+  }
+
+  .hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+  .hero__eyebrow::before {
+    content: "";
+    display: block;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--c-gold);
+    flex-shrink: 0;
+  }
+
+  .hero__headline {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--c-on-deep);
+    display: flex;
+    flex-direction: column;
+    gap: 0.08em;
+  }
+  .hero__word { display: block; }
+
+  .hero__rule {
+    display: block;
+    width: 3.5rem;
+    height: 1px;
+    background: var(--c-gold);
+  }
+
+  .hero__lead {
+    font-family: var(--f-body);
+    font-weight: 300;
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    line-height: 1.75;
+    color: var(--c-on-deep-2);
+    max-width: 44ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--f-body);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    text-decoration: none;
+  }
+  .hero__cta svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .hero__cta--primary {
+    background: var(--c-gold);
+    color: var(--c-deep);
+    border: 1px solid var(--c-gold);
+  }
+  .hero__cta--primary:hover {
+    background: var(--c-gold-deep);
+    border-color: var(--c-gold-deep);
+  }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-on-deep);
+    border: 1px solid var(--c-deep-border);
+  }
+  .hero__cta--ghost:hover {
+    border-color: rgba(232, 224, 209, 0.4);
+    color: var(--c-on-deep);
+  }
+
+  .hero__photo-strip {
+    position: relative;
+    width: 100%;
+    height: 55svh;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .hero__photo-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    filter: brightness(0.82) saturate(0.7);
+  }
+  .hero__strip-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, var(--c-deep) 0%, transparent 18%),
+      linear-gradient(to top, var(--c-deep) 0%, transparent 25%);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-yoga-retreat';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+
+      const els = ['[data-anim="eyebrow"]', '[data-anim="word"]', '[data-anim="rule"]',
+                   '[data-anim="lead"]', '[data-anim="actions"]', '[data-anim="strip"]'];
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      const tl = gsap.timeline();
+      tl.fromTo('[data-anim="eyebrow"]',
+          { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.15)
+        .fromTo('[data-anim="word"]',
+          { autoAlpha: 0, y: 20 },
+          { autoAlpha: 1, y: 0, duration: 1.3, stagger: 0.18, ease: 'power3.out' }, 0.3)
+        .fromTo('[data-anim="rule"]',
+          { autoAlpha: 0, scaleX: 0 },
+          { autoAlpha: 1, scaleX: 1, duration: 0.9, transformOrigin: 'left center' }, '-=0.6')
+        .fromTo('[data-anim="lead"]',
+          { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 1.1 }, '-=0.7')
+        .fromTo('[data-anim="actions"]',
+          { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.7')
+        .fromTo('[data-anim="strip"]',
+          { autoAlpha: 0, scale: 1.03 }, { autoAlpha: 1, scale: 1, duration: 1.6, ease: 'power2.out' }, 0.2);
+    }
+  );
+</script>

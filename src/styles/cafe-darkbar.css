@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  /* Backgrounds */
+  --c-bg:        #0F0E0D;
+  --c-bg-2:      #1A1916;
+  --c-surface:   #231F1C;
+  --c-surface-2: #2C2825;
+
+  /* Text */
+  --c-cream:     #F0EBE3;
+  --c-cream-2:   #C9BDB2;
+  --c-cream-3:   #8A7E72;
+
+  /* Accent */
+  --c-amber:     #D4A853;
+  --c-amber-deep: #B8882F;
+
+  /* Borders */
+  --c-border:    rgba(240, 235, 227, 0.10);
+  --c-border-2:  rgba(240, 235, 227, 0.18);
+  --c-border-amber: rgba(212, 168, 83, 0.35);
+
+  /* Typography */
+  --f-display: "Syne", system-ui, sans-serif;
+  --f-body:    "Courier Prime", "Courier New", monospace;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Spacing */
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 4.5rem;   --s-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-cream);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-amber) 25%, transparent);
+  color: var(--c-cream);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+.darkbar-section-inner {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 640px)  { .darkbar-section-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .darkbar-section-inner { padding-inline: 4rem; } }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-cream-3);
+}
+
+.eyebrow--amber {
+  color: var(--c-amber);
+}
+
+.section-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  border: none;
+  margin: 0;
+}

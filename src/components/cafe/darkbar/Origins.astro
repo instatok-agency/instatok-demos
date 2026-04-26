@@ -1,0 +1,306 @@
+---
+const origins = [
+  {
+    country: 'Ethiopia',
+    flag: 'ET',
+    region: 'Worka Sakaro, Yirgacheffe',
+    producer: 'Worka Sakaro Farmers Coop',
+    variety: 'Heirloom',
+    process: 'Washed',
+    altitude: '1.900–2.200m',
+    harvest: 'Nov 2024 – Jan 2025',
+    score: '92',
+    roast: 'Light',
+    tasting: ['Jasmine', 'Peach', 'Lime zest', 'Juicy'],
+    available: true,
+    story: 'Το Yirgacheffe είναι ο γενέτειρος τόπος του arabica. Αυτή η παρτίδα από το Worka Sakaro είναι washed με 2 washes για να αναδειχθεί η φυσική οξύτητα του φρούτου.',
+  },
+  {
+    country: 'Kenya',
+    flag: 'KE',
+    region: 'Kirinyaga, Mount Kenya',
+    producer: 'Gakuyuini Wet Mill',
+    variety: 'SL28 / SL34',
+    process: 'Washed',
+    altitude: '1.750–1.900m',
+    harvest: 'Oct – Dec 2024',
+    score: '87',
+    roast: 'Medium-Light',
+    tasting: ['Blackcurrant', 'Pomelo', 'Brown sugar'],
+    available: true,
+    story: 'Kenya AB από το Kirinyaga — μία από τις πιο διάσημες ζώνες παραγωγής. Το SL28/SL34 δίνει εκείνη τη χαρακτηριστική berry-κου οξύτητα.',
+  },
+  {
+    country: 'Brazil',
+    flag: 'BR',
+    region: 'Patrocínio, Cerrado Mineiro',
+    producer: 'Daterra Reserve',
+    variety: 'Yellow Bourbon / Mundo Novo',
+    process: 'Pulped Natural',
+    altitude: '1.000–1.100m',
+    harvest: 'May – Jul 2024',
+    score: '88',
+    roast: 'Medium',
+    tasting: ['Dark chocolate', 'Walnut', 'Caramel'],
+    available: false,
+    badge: 'Sold Out',
+    story: 'Η Daterra είναι από τα λίγα βραζιλιάνικα farms με certification και πλήρη traceability. Αυτή η pulped natural παρτίδα έχει σώμα που δουλεύει τέλεια ως espresso base.',
+  },
+];
+---
+
+<section class="origins" id="origins" aria-labelledby="origins-title">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="origins__inner darkbar-section-inner">
+
+    <header class="origins__header" data-anim="header">
+      <p class="eyebrow" id="origins-title">Current Lots</p>
+      <h2 class="origins__heading">
+        Ξέρουμε από πού ήρθε<br />κάθε κόκκος.
+      </h2>
+    </header>
+
+    <div class="origins__grid">
+      {origins.map((o, i) => (
+        <article
+          class={`origins__card ${!o.available ? 'origins__card--sold' : ''}`}
+          data-anim="card"
+        >
+          <header class="origins__card-header">
+            <div class="origins__flag" aria-hidden="true">{o.flag}</div>
+            <div>
+              <h3 class="origins__country">{o.country}</h3>
+              <p class="origins__region eyebrow">{o.region}</p>
+            </div>
+            <div class="origins__score-wrap">
+              <span class="origins__score">{o.score}</span>
+              <span class="origins__score-label eyebrow">pts</span>
+            </div>
+          </header>
+
+          <p class="origins__story">{o.story}</p>
+
+          <dl class="origins__data">
+            <div class="origins__datum">
+              <dt class="eyebrow">Variety</dt>
+              <dd>{o.variety}</dd>
+            </div>
+            <div class="origins__datum">
+              <dt class="eyebrow">Process</dt>
+              <dd>{o.process}</dd>
+            </div>
+            <div class="origins__datum">
+              <dt class="eyebrow">Altitude</dt>
+              <dd>{o.altitude}</dd>
+            </div>
+            <div class="origins__datum">
+              <dt class="eyebrow">Roast</dt>
+              <dd>{o.roast}</dd>
+            </div>
+            <div class="origins__datum origins__datum--full">
+              <dt class="eyebrow">Harvest</dt>
+              <dd>{o.harvest}</dd>
+            </div>
+          </dl>
+
+          <div class="origins__tasting" aria-label="Tasting notes">
+            {o.tasting.map(note => (
+              <span class="origins__note">{note}</span>
+            ))}
+          </div>
+
+          <div class="origins__footer">
+            {o.available
+              ? <>
+                  <span class="origins__avail">
+                    <span class="origins__dot" aria-hidden="true"></span>
+                    Διαθέσιμο
+                  </span>
+                  <a href="#visit" class="origins__order">Παραγγελία →</a>
+                </>
+              : <span class="origins__sold">{o.badge}</span>
+            }
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .origins { background: var(--c-bg); }
+  .origins__inner { padding-block: var(--s-9); display: grid; gap: var(--s-7); }
+
+  .origins__header { display: grid; gap: var(--s-3); }
+  .origins__heading {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--c-cream);
+  }
+
+  .origins__grid {
+    display: grid;
+    gap: var(--s-4);
+  }
+  @media (min-width: 768px) {
+    .origins__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .origins__card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    padding: var(--s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+    transition: border-color 0.25s;
+  }
+  .origins__card:hover { border-color: var(--c-border-amber); }
+  .origins__card--sold { opacity: 0.5; }
+
+  .origins__card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--s-3);
+  }
+  .origins__flag {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--c-amber);
+    background: rgba(212, 168, 83, 0.12);
+    border: 1px solid var(--c-border-amber);
+    padding: 0.3rem 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .origins__country {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--c-cream);
+  }
+  .origins__region { color: var(--c-cream-3); margin-top: 0.2rem; }
+
+  .origins__score-wrap {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .origins__score {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--c-amber);
+    letter-spacing: -0.02em;
+  }
+  .origins__score-label { color: var(--c-cream-3); }
+
+  .origins__story {
+    font-family: var(--f-body);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--c-cream-3);
+  }
+
+  .origins__data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-2) var(--s-3);
+    padding-block: var(--s-3);
+    border-block: 1px solid var(--c-border);
+  }
+  .origins__datum { display: flex; flex-direction: column; gap: 0.2rem; }
+  .origins__datum--full { grid-column: 1 / -1; }
+  .origins__datum dt { color: var(--c-cream-3); }
+  .origins__datum dd {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    color: var(--c-cream);
+    letter-spacing: 0.04em;
+  }
+
+  .origins__tasting {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+  .origins__note {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-cream-2);
+    border: 1px solid var(--c-border);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .origins__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  .origins__avail {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-cream-2);
+  }
+  .origins__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-amber);
+  }
+  .origins__order {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-amber);
+    transition: opacity 0.2s;
+  }
+  .origins__order:hover { opacity: 0.7; }
+  .origins__sold {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-cream-3);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const header = document.querySelector('[data-anim="header"]');
+      const cards = Array.from(document.querySelectorAll('[data-anim="card"]'));
+      const els = [header, ...cards].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 86%',
+        onEnter: batch => gsap.to(batch, { autoAlpha: 1, stagger: 0.1, duration: 0.85 }),
+      });
+    }
+  );
+</script>

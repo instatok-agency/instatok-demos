@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark surfaces */
+  --c-deep:         #1C2415;
+  --c-deep-2:       #252E1B;
+  --c-deep-border:  rgba(232, 224, 209, 0.14);
+
+  /* Light surfaces */
+  --c-cream:        #F4EFE6;
+  --c-cream-2:      #EBE4D7;
+  --c-border:       #DED7CD;
+
+  /* Ink on light */
+  --c-ink:          #2A2319;
+  --c-ink-2:        #6B5D4F;
+  --c-ink-3:        #9B8E85;
+
+  /* Ink on dark */
+  --c-on-deep:      #E8E0D1;
+  --c-on-deep-2:    #B5A98F;
+  --c-on-deep-3:    #7A7060;
+
+  /* Accent */
+  --c-gold:         #C9A84C;
+  --c-gold-deep:    #A8882E;
+
+  /* Typography */
+  --f-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --f-body:    "Raleway", system-ui, sans-serif;
+  --f-mono:    "DM Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Spacing */
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 4.5rem;   --s-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-deep);
+  color: var(--c-on-deep);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-gold) 22%, transparent);
+  color: var(--c-ink);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+.retreat-section-inner {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 640px)  { .retreat-section-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .retreat-section-inner { padding-inline: 4rem; } }
+
+/* Eyebrow — mono label on dark */
+.eyebrow-dark {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-on-deep-3);
+}
+
+/* Eyebrow on cream */
+.eyebrow-light {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.section-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  border: none;
+  margin: 0;
+}
+
+.section-rule--deep {
+  background: var(--c-deep-border);
+}
+
+/* Gold accent hairline (decorative) */
+.gold-rule {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--c-gold);
+}

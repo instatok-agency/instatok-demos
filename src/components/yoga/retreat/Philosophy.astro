@@ -1,0 +1,172 @@
+---
+---
+
+<section class="philosophy" aria-labelledby="philosophy-title">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="philosophy__inner retreat-section-inner">
+
+    <div class="philosophy__grid">
+
+      <div class="philosophy__photo-col" data-anim="photo">
+        <div class="philosophy__photo-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=800&q=80&fit=crop&crop=top"
+            alt="Έλενα Παπαδάκη"
+            loading="lazy"
+            width="800"
+            height="1100"
+          />
+        </div>
+      </div>
+
+      <div class="philosophy__text-col">
+        <p class="eyebrow-light" id="philosophy-title" data-anim="eyebrow">Φιλοσοφία</p>
+
+        <blockquote class="philosophy__quote" data-anim="quote">
+          "Η πρακτική δεν αρχίζει όταν βάλεις στρώμα —<br />
+          αρχίζει όταν σταματήσεις να λες ότι δεν έχεις χρόνο."
+        </blockquote>
+
+        <div class="philosophy__body" data-anim="body">
+          <p>
+            Άρχισα να διδάσκω yoga γιατί με άλλαξε. Όχι σωματικά — αν και αυτό επίσης. Με άλλαξε
+            γιατί μου έδωσε ένα εργαλείο για να αντέχω τη ζωή χωρίς να τη φοβάμαι. Αυτό θέλω
+            να μεταδώσω.
+          </p>
+          <p>
+            Δεν δουλεύω με μεγάλες ομάδες. Κάθε πρόγραμμα είναι φτιαγμένο για τη συγκεκριμένη
+            ανάγκη του κάθε ατόμου. Τα ιδιωτικά μαθήματα, τα retreats, η 8εβδομαδιαία συνεργασία —
+            όλα ξεκινούν από μια ερώτηση: τι χρειάζεσαι τώρα;
+          </p>
+        </div>
+
+        <footer class="philosophy__byline" data-anim="byline">
+          <hr class="philosophy__byline-rule" aria-hidden="true" />
+          <p>
+            <em>Έλενα Παπαδάκη</em>
+            <span class="eyebrow-light">RYT-500 · 12 χρόνια διδασκαλίας · Αθήνα</span>
+          </p>
+        </footer>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .philosophy {
+    background: var(--c-cream);
+    color: var(--c-ink);
+  }
+  .philosophy > .section-rule { background: var(--c-border); }
+
+  .philosophy__inner { padding-block: var(--s-9); }
+
+  .philosophy__grid {
+    display: grid;
+    gap: var(--s-7);
+  }
+  @media (min-width: 900px) {
+    .philosophy__grid {
+      grid-template-columns: 5fr 7fr;
+      align-items: start;
+      gap: var(--s-8);
+    }
+  }
+
+  .philosophy__photo-wrap {
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .philosophy__photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.75) contrast(1.05);
+    transition: transform 0.7s ease;
+  }
+  .philosophy__photo-wrap:hover img { transform: scale(1.03); }
+
+  .philosophy__text-col {
+    display: grid;
+    gap: var(--s-6);
+    padding-top: var(--s-2);
+  }
+
+  .philosophy__quote {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--c-ink);
+    padding-left: var(--s-5);
+    border-left: 2px solid var(--c-gold);
+  }
+
+  .philosophy__body {
+    display: grid;
+    gap: var(--s-4);
+  }
+  .philosophy__body p {
+    font-family: var(--f-body);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--c-ink-2);
+  }
+
+  .philosophy__byline {
+    display: grid;
+    gap: var(--s-3);
+  }
+  .philosophy__byline-rule {
+    width: 2.5rem;
+    height: 1px;
+    background: var(--c-border);
+    border: none;
+  }
+  .philosophy__byline p {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+  }
+  .philosophy__byline em {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--c-ink);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = ['.philosophy__photo-wrap', '[data-anim="eyebrow"]',
+                   '[data-anim="quote"]', '[data-anim="body"]', '[data-anim="byline"]'];
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 82%',
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, y: 0,
+          stagger: 0.12, duration: 1.1,
+          ease: 'power2.out',
+        }),
+      });
+      gsap.set(els, { y: 24 });
+    }
+  );
+</script>

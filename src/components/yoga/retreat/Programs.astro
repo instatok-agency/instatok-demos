@@ -1,0 +1,240 @@
+---
+const programs = [
+  {
+    id: 'private',
+    eyebrow: 'Ιδιωτικά Μαθήματα',
+    name: 'One-on-One',
+    price: '€80',
+    unit: 'ανά συνεδρία',
+    description: 'Πρακτική απόλυτα προσαρμοσμένη στις ανάγκες σου. Ιδανικό για αρχάριους, recovery ή βαθύτερη εξερεύνηση.',
+    photo: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80&fit=crop&crop=center',
+    available: true,
+  },
+  {
+    id: 'program',
+    eyebrow: 'Δομημένο Πρόγραμμα',
+    name: '8 Εβδομάδες',
+    price: '€480',
+    unit: '24 συνεδρίες',
+    description: 'Ολοκληρωμένη μεταμόρφωση. Εβδομαδιαία ομαδική + ιδιωτική συνεδρία, ανατροφοδότηση, πρακτικό plan για το σπίτι.',
+    photo: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80&fit=crop',
+    available: true,
+  },
+  {
+    id: 'retreat',
+    eyebrow: 'Σαββατοκύριακο Retreat',
+    name: 'Αποχώρηση',
+    price: '€680',
+    unit: '2 νύχτες all-in',
+    description: 'Πάρνηθα ή Εύβοια. Φαγητό, διαμονή, 4 συνεδρίες, φυσιοθεραπεία. Δύο φορές το χρόνο, 6 θέσεις μόνο.',
+    photo: 'https://images.unsplash.com/photo-1439130490301-25e322d88054?w=700&q=80&fit=crop',
+    available: false,
+    badge: 'Αναμονή',
+  },
+];
+---
+
+<section class="programs" id="programs" aria-labelledby="programs-title">
+  <hr class="section-rule section-rule--deep" aria-hidden="true" />
+
+  <div class="programs__inner retreat-section-inner">
+    <header class="programs__header">
+      <p class="eyebrow-dark" id="programs-title">Προγράμματα</p>
+      <h2 class="programs__heading">Διάλεξε την πρακτική σου.</h2>
+    </header>
+
+    <div class="programs__grid">
+      {programs.map((p, i) => (
+        <article class="programs__card" data-anim="card" style={`animation-delay: ${i * 0.12}s`}>
+          <div class="programs__card-photo">
+            <img
+              src={p.photo}
+              alt=""
+              loading="lazy"
+              width="700"
+              height="500"
+            />
+            {p.badge && <span class="programs__badge">{p.badge}</span>}
+          </div>
+          <div class="programs__card-body">
+            <p class="eyebrow-dark">{p.eyebrow}</p>
+            <h3 class="programs__card-name">{p.name}</h3>
+            <p class="programs__card-price">
+              <strong>{p.price}</strong>
+              <span class="eyebrow-dark programs__unit">{p.unit}</span>
+            </p>
+            <p class="programs__card-desc">{p.description}</p>
+            {p.available
+              ? <a href="#booking" class="programs__link">
+                  Κλείσε θέση
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M3 8h10M8.5 4l4.5 4-4.5 4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              : <span class="programs__soon">Σε αναμονή</span>
+            }
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .programs {
+    background: var(--c-deep);
+  }
+  .programs > .section-rule--deep { background: var(--c-deep-border); }
+
+  .programs__inner { padding-block: var(--s-9); }
+
+  .programs__header {
+    display: grid;
+    gap: var(--s-3);
+    margin-bottom: var(--s-7);
+  }
+  .programs__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--c-on-deep);
+  }
+
+  .programs__grid {
+    display: grid;
+    gap: var(--s-5);
+  }
+  @media (min-width: 768px) { .programs__grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .programs__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--c-deep-2);
+    border: 1px solid var(--c-deep-border);
+    overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .programs__card:hover { border-color: rgba(201, 168, 76, 0.35); }
+
+  .programs__card-photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .programs__card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) saturate(0.6);
+    transition: transform 0.6s ease, filter 0.4s;
+  }
+  .programs__card:hover .programs__card-photo img {
+    transform: scale(1.04);
+    filter: brightness(0.85) saturate(0.75);
+  }
+
+  .programs__badge {
+    position: absolute;
+    top: var(--s-3);
+    right: var(--s-3);
+    font-family: var(--f-mono);
+    font-size: 0.575rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-deep);
+    background: var(--c-gold);
+    padding: 0.2rem 0.55rem;
+  }
+
+  .programs__card-body {
+    padding: var(--s-5);
+    display: grid;
+    gap: var(--s-3);
+    flex: 1;
+  }
+
+  .programs__card-name {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    color: var(--c-on-deep);
+  }
+
+  .programs__card-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+  }
+  .programs__card-price strong {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: var(--c-gold);
+    letter-spacing: -0.01em;
+  }
+  .programs__unit { color: var(--c-on-deep-3); }
+
+  .programs__card-desc {
+    font-family: var(--f-body);
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--c-on-deep-2);
+  }
+
+  .programs__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    margin-top: auto;
+    padding-top: var(--s-3);
+    transition: gap 0.2s;
+  }
+  .programs__link svg { width: 14px; height: 14px; }
+  .programs__link:hover { gap: 0.7rem; }
+
+  .programs__soon {
+    font-family: var(--f-mono);
+    font-size: 0.575rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-on-deep-3);
+    margin-top: auto;
+    padding-top: var(--s-3);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const cards = document.querySelectorAll('.programs__card');
+      const header = document.querySelector('.programs__header');
+      const els = [header, ...Array.from(cards)].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0, y: 28 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1, y: 0 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 85%',
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, y: 0,
+          stagger: 0.1, duration: 1.1,
+          ease: 'power2.out',
+        }),
+      });
+    }
+  );
+</script>

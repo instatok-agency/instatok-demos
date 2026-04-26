@@ -1,0 +1,189 @@
+---
+---
+
+<section class="booking" id="booking" aria-labelledby="booking-title">
+  <div class="booking__inner retreat-section-inner">
+
+    <div class="booking__layout">
+
+      <div class="booking__info" data-anim="info">
+        <p class="eyebrow-light" id="booking-title">Επικοινωνία</p>
+        <h2 class="booking__heading">Ξεκινάμε με μια συνομιλία.</h2>
+        <p class="booking__sub">
+          Δεν χρειάζεται να ξέρεις τι ακριβώς θέλεις. Αρκεί να ξέρεις
+          ότι κάτι χρειάζεσαι. Μπορούμε να το βρούμε μαζί.
+        </p>
+
+        <dl class="booking__details">
+          <div class="booking__detail">
+            <dt class="eyebrow-light">Ανταπόκριση</dt>
+            <dd>Εντός 24 ωρών</dd>
+          </div>
+          <div class="booking__detail">
+            <dt class="eyebrow-light">Τοποθεσία</dt>
+            <dd>Παγκράτι · Αθήνα · Remote</dd>
+          </div>
+          <div class="booking__detail">
+            <dt class="eyebrow-light">Email</dt>
+            <dd>
+              <a href="mailto:elena@papadaki.yoga" class="booking__email">
+                elena@papadaki.yoga
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="booking__form" data-anim="form" novalidate aria-label="Φόρμα επικοινωνίας">
+        <div class="booking__field">
+          <label for="booking-name" class="booking__label eyebrow-light">Όνομα *</label>
+          <input id="booking-name" name="name" type="text" class="booking__input"
+            placeholder="Το όνομά σου" autocomplete="name" required />
+        </div>
+
+        <div class="booking__field">
+          <label for="booking-email" class="booking__label eyebrow-light">Email *</label>
+          <input id="booking-email" name="email" type="email" class="booking__input"
+            placeholder="email@example.com" autocomplete="email" required />
+        </div>
+
+        <div class="booking__field">
+          <label for="booking-program" class="booking__label eyebrow-light">Με ενδιαφέρει</label>
+          <select id="booking-program" name="program" class="booking__input booking__select">
+            <option value="">Επίλεξε…</option>
+            <option value="private">Ιδιωτικό μάθημα</option>
+            <option value="8weeks">Πρόγραμμα 8 εβδομάδων</option>
+            <option value="retreat">Retreat</option>
+            <option value="group">Ομαδικές τάξεις</option>
+            <option value="other">Κάτι άλλο</option>
+          </select>
+        </div>
+
+        <div class="booking__field">
+          <label for="booking-message" class="booking__label eyebrow-light">Μήνυμα</label>
+          <textarea id="booking-message" name="message" class="booking__input booking__textarea"
+            placeholder="Πες μου λίγα λόγια για σένα και αυτό που ψάχνεις."
+            rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="booking__submit">
+          <span>Αποστολή</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .booking { background: var(--c-cream); color: var(--c-ink); }
+  .booking__inner { padding-block: var(--s-9); }
+
+  .booking__layout {
+    display: grid;
+    gap: var(--s-8);
+  }
+  @media (min-width: 900px) {
+    .booking__layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .booking__info { display: grid; gap: var(--s-5); }
+  .booking__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--c-ink);
+  }
+  .booking__sub {
+    font-family: var(--f-body);
+    font-weight: 300;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--c-ink-2);
+    max-width: 42ch;
+  }
+
+  .booking__details { display: grid; gap: var(--s-3); }
+  .booking__detail { display: flex; flex-direction: column; gap: var(--s-1); }
+  .booking__detail dd {
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+  }
+  .booking__email { color: var(--c-gold-deep); transition: opacity 0.2s; }
+  .booking__email:hover { opacity: 0.7; }
+
+  .booking__form { display: grid; gap: var(--s-4); }
+  .booking__field { display: flex; flex-direction: column; gap: var(--s-2); }
+  .booking__label { cursor: default; }
+  .booking__input {
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--c-ink);
+    background: var(--c-cream-2);
+    border: 1px solid var(--c-border);
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    outline: none;
+    appearance: none;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+  .booking__input:focus { border-color: var(--c-gold); }
+  .booking__input::placeholder { color: var(--c-ink-3); }
+  .booking__select { cursor: pointer; }
+  .booking__textarea { resize: vertical; min-height: 9rem; }
+
+  .booking__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    font-family: var(--f-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    background: var(--c-ink);
+    color: var(--c-cream);
+    border: 1px solid var(--c-ink);
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .booking__submit svg { width: 16px; height: 16px; }
+  .booking__submit:hover { background: var(--c-gold-deep); border-color: var(--c-gold-deep); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = [
+        document.querySelector('[data-anim="info"]'),
+        document.querySelector('[data-anim="form"]'),
+      ].filter(Boolean);
+      gsap.set(els, { autoAlpha: 0, y: 24 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1, y: 0 }); return; }
+
+      ScrollTrigger.batch(els, {
+        start: 'top 82%',
+        onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.15, duration: 1.1 }),
+      });
+    }
+  );
+</script>
