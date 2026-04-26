@@ -1,0 +1,202 @@
+---
+const stats = [
+  { value: 2019, suffix: '', label: 'Χρονιά ίδρυσης' },
+  { value: 7,    suffix: '',  label: 'Ημέρες την εβδομάδα' },
+  { value: 120,  suffix: '+', label: 'Drink selections' },
+];
+---
+
+<section class="story" aria-label="Η ιστορία του Nyx">
+
+  <div class="story__top nyx-inner">
+    <p class="eyebrow eyebrow--coral" data-anim="story-label">Το μέρος</p>
+  </div>
+
+  <div class="story__grid nyx-inner">
+
+    <!-- Left: text -->
+    <div class="story__text" data-anim="story-text">
+      <h2 class="story__headline">
+        Μια γωνιά<br/>που δεν<br/>κλείνει ποτέ.
+      </h2>
+      <p class="story__body">
+        Το Nyx γεννήθηκε από μια απλή ιδέα: ένα μέρος όπου το πρωινό filter
+        coffee και το βραδινό cocktail ανήκουν στον ίδιο χώρο. Χωρίς συμβιβασμούς
+        και στα δύο.
+      </p>
+      <p class="story__body">
+        Εργαζόμαστε με small-batch roasters και natural wine producers που μοιράζονται
+        την ίδια εμμονή με την ποιότητα. Το μενού μας αλλάζει με την εποχή.
+        Η διάθεση όχι.
+      </p>
+      <div class="story__rule" data-anim="story-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- Right: image with clip-path reveal -->
+    <div class="story__visual" data-anim="story-photo">
+      <img
+        src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80&fit=crop"
+        alt="Nyx bar — εσωτερικός χώρος"
+        class="story__photo"
+        loading="lazy"
+        width="900"
+        height="1100"
+      />
+    </div>
+
+  </div>
+
+  <!-- Stats row with counter animation -->
+  <div class="story__stats nyx-inner" data-anim="story-stats">
+    <hr class="section-rule" aria-hidden="true" style="margin-bottom: var(--s-7);" />
+    <div class="story__stats-grid">
+      {stats.map(s => (
+        <div class="story__stat">
+          <p class="story__stat-num">
+            <span class="story__counter" data-target={s.value}>0</span>{s.suffix}
+          </p>
+          <p class="story__stat-label eyebrow">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .story {
+    background: var(--c-bg);
+    padding-block: var(--s-9);
+    display: grid;
+    gap: var(--s-7);
+  }
+
+  .story__top { padding-bottom: 0; }
+
+  .story__grid {
+    display: grid;
+    gap: var(--s-8);
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .story__grid { grid-template-columns: 1fr 1fr; align-items: center; }
+  }
+
+  .story__text { display: grid; gap: var(--s-5); }
+
+  .story__headline {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--c-cream);
+  }
+  .story__body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-cream-2);
+    max-width: 44ch;
+  }
+
+  .story__rule {
+    height: 1px;
+    background: var(--c-coral);
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  /* Photo */
+  .story__visual {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    /* clip-path set by GSAP */
+  }
+  .story__photo {
+    width: 100%;
+    height: clamp(360px, 60vw, 600px);
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.88) saturate(0.9);
+  }
+
+  /* Stats */
+  .story__stats { padding-top: 0; }
+  .story__stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-6);
+  }
+  @media (max-width: 480px) {
+    .story__stats-grid { grid-template-columns: 1fr; gap: var(--s-5); }
+  }
+
+  .story__stat { display: grid; gap: var(--s-2); }
+  .story__stat-num {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1;
+    color: var(--c-coral);
+    letter-spacing: 0.02em;
+  }
+  .story__stat-label { color: var(--c-cream-3); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+
+    gsap.fromTo('[data-anim="story-label"]',
+      { autoAlpha: 0, y: 12 }, {
+        autoAlpha: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: '[data-anim="story-label"]', start: 'top 85%' }
+      });
+
+    gsap.fromTo('[data-anim="story-text"]',
+      { autoAlpha: 0, y: 30 }, {
+        autoAlpha: 1, y: 0, duration: 0.9,
+        scrollTrigger: { trigger: '.story__grid', start: 'top 80%' }
+      });
+
+    // Coral rule draws in
+    gsap.to('[data-anim="story-rule"]', {
+      scaleX: 1, duration: 1.0, ease: 'power3.inOut',
+      scrollTrigger: { trigger: '[data-anim="story-rule"]', start: 'top 88%' }
+    });
+
+    // Photo clip-path reveal from bottom
+    gsap.fromTo('[data-anim="story-photo"]',
+      { clipPath: 'inset(0 0 100% 0)', autoAlpha: 1 }, {
+        clipPath: 'inset(0 0 0% 0)',
+        duration: 1.1, ease: 'power4.out',
+        scrollTrigger: { trigger: '.story__grid', start: 'top 75%' },
+        delay: 0.15,
+      });
+
+    // Counter animation
+    gsap.fromTo('[data-anim="story-stats"]',
+      { autoAlpha: 0, y: 20 }, {
+        autoAlpha: 1, y: 0, duration: 0.7,
+        scrollTrigger: {
+          trigger: '[data-anim="story-stats"]',
+          start: 'top 80%',
+          onEnter: () => {
+            document.querySelectorAll('.story__counter').forEach((el) => {
+              const target = parseInt((el as HTMLElement).dataset.target || '0');
+              gsap.fromTo(el, { textContent: 0 }, {
+                textContent: target,
+                duration: 2,
+                ease: 'power2.out',
+                snap: { textContent: 1 },
+                onUpdate() {
+                  (el as HTMLElement).textContent = Math.round(Number((el as HTMLElement).textContent)).toString();
+                }
+              });
+            });
+          }
+        }
+      });
+  });
+</script>

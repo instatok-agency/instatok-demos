@@ -1,0 +1,140 @@
+---
+const hours = [
+  { day: 'Δευ – Παρ', time: '10:00 – 02:00' },
+  { day: 'Σαββατοκύριακο', time: '11:00 – 03:00' },
+];
+---
+
+<section class="visit" id="visit" aria-label="Επίσκεψη">
+  <hr class="section-rule" style="border-color: var(--c-border);" aria-hidden="true" />
+
+  <div class="visit__inner nyx-inner" data-anim="visit">
+
+    <div class="visit__grid">
+
+      <div class="visit__info">
+        <p class="eyebrow eyebrow--coral" style="margin-bottom: var(--s-4);">Πότε &amp; πού</p>
+        <h2 class="visit__title">Έλα να μας βρεις.</h2>
+        <address class="visit__address">
+          <p>Βουτάδων 42, Γκάζι</p>
+          <p>Αθήνα 118 54</p>
+        </address>
+        <a href="#map" class="visit__map-btn">
+          Δες χάρτη
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="visit__hours">
+        <p class="eyebrow" style="margin-bottom: var(--s-4); color: var(--c-cream-3);">Ώρες λειτουργίας</p>
+        <table class="visit__table">
+          <tbody>
+            {hours.map(h => (
+              <tr>
+                <td class="visit__day">{h.day}</td>
+                <td class="visit__time">{h.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="visit__note">
+          Kitchen: μέχρι 01:00 / 02:00<br/>
+          Happy hour: 18:00 – 20:00 καθημερινά
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .visit {
+    background: var(--c-bg);
+    padding-block: var(--s-9);
+  }
+
+  .visit__grid {
+    display: grid;
+    gap: var(--s-8);
+  }
+  @media (min-width: 768px) {
+    .visit__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+
+  .visit__title {
+    font-family: var(--f-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--c-cream);
+    margin-bottom: var(--s-5);
+  }
+
+  .visit__address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--c-cream-2);
+    margin-bottom: var(--s-5);
+  }
+
+  .visit__map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--c-coral-border);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-coral-2);
+    transition: background 0.18s, color 0.18s;
+  }
+  .visit__map-btn svg { width: 14px; height: 14px; }
+  .visit__map-btn:hover { background: var(--c-coral-bg); }
+
+  .visit__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--s-5);
+  }
+  .visit__table tr {
+    border-bottom: 1px solid var(--c-border);
+  }
+  .visit__table tr:last-child { border-bottom: none; }
+  .visit__day, .visit__time {
+    padding: var(--s-4) 0;
+    font-size: 0.9375rem;
+  }
+  .visit__day { color: var(--c-cream-2); }
+  .visit__time {
+    color: var(--c-cream);
+    font-weight: 500;
+    text-align: right;
+    font-family: var(--f-body);
+  }
+
+  .visit__note {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--c-cream-3);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="visit"]',
+      { autoAlpha: 0, y: 30 }, {
+        autoAlpha: 1, y: 0, duration: 0.9,
+        scrollTrigger: { trigger: '[data-anim="visit"]', start: 'top 80%' }
+      });
+  });
+</script>

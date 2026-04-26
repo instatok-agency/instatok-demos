@@ -1,0 +1,273 @@
+---
+const chars = ['N','Y','X'];
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+
+  <!-- Full-screen background photo (clip-path reveal) -->
+  <div class="hero__bg" aria-hidden="true" data-anim="hero-photo">
+    <img
+      src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1600&q=85&fit=crop"
+      alt=""
+      class="hero__photo"
+      loading="eager"
+      width="1600"
+      height="1067"
+    />
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero__content">
+    <div class="hero__inner nyx-inner">
+
+      <p class="eyebrow hero__eyebrow" data-anim="hero-eyebrow">
+        Γκάζι · Αθήνα · 2019
+      </p>
+
+      <!-- Huge Bebas headline — each character animated individually -->
+      <h1 class="hero__headline" id="hero-headline" aria-label="NYX">
+        {chars.map(c => (
+          <span class="hero__char" aria-hidden="true" data-anim="hero-char">{c}</span>
+        ))}
+      </h1>
+
+      <p class="hero__sub" data-anim="hero-sub">
+        Cocktail Bar<span class="hero__dot">·</span>Specialty Coffee<span class="hero__dot">·</span>Φυσικά Κρασιά
+      </p>
+
+      <div class="hero__actions" data-anim="hero-actions">
+        <a href="#menu" class="hero__cta hero__cta--primary">Drinks menu</a>
+        <a href="#visit" class="hero__cta hero__cta--ghost">Πότε είμαστε</a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" data-anim="hero-scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span class="eyebrow">Scroll</span>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 600px;
+    overflow: hidden;
+    background: var(--c-bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Background */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* initial clip-path set by GSAP */
+  }
+  .hero__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: brightness(0.55) saturate(0.85);
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(7, 9, 15, 0.15) 0%,
+      rgba(7, 9, 15, 0.55) 60%,
+      rgba(7, 9, 15, 0.85) 100%
+    );
+  }
+
+  /* Content */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: var(--s-8);
+  }
+  .hero__inner {
+    display: grid;
+    gap: var(--s-5);
+  }
+
+  .hero__eyebrow { margin-bottom: calc(var(--s-3) * -1); }
+
+  /* Giant headline */
+  .hero__headline {
+    display: flex;
+    align-items: baseline;
+    margin: 0;
+    line-height: 0.85;
+    perspective: 600px;
+  }
+  .hero__char {
+    font-family: var(--f-display);
+    font-size: clamp(7rem, 24vw, 18rem);
+    font-weight: 400;
+    color: var(--c-cream);
+    letter-spacing: -0.01em;
+    display: inline-block;
+    /* GSAP sets initial state */
+  }
+
+  .hero__sub {
+    font-family: var(--f-body);
+    font-size: clamp(0.8rem, 2vw, 1.0625rem);
+    font-weight: 300;
+    color: var(--c-cream-2);
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+    letter-spacing: 0.04em;
+  }
+  .hero__dot {
+    color: var(--c-coral);
+    font-size: 1.2em;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.75rem;
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    border-radius: var(--r-sm);
+    white-space: nowrap;
+  }
+  .hero__cta--primary {
+    background: var(--c-coral);
+    color: #fff;
+    border: 1px solid var(--c-coral);
+  }
+  .hero__cta--primary:hover {
+    background: var(--c-coral-2);
+    border-color: var(--c-coral-2);
+  }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-cream);
+    border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover { border-color: var(--c-cream-2); }
+
+  /* Scroll indicator */
+  .hero__scroll {
+    position: absolute;
+    right: 2.5rem;
+    bottom: var(--s-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-2);
+    color: var(--c-cream-3);
+  }
+  .hero__scroll-line {
+    display: block;
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, var(--c-coral), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+  @media (max-width: 640px) { .hero__scroll { display: none; } }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-cafe-nyx';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+
+      if (isReduced) {
+        gsap.set(['[data-anim="hero-photo"]','[data-anim="hero-eyebrow"]',
+                  '[data-anim="hero-char"]','[data-anim="hero-sub"]',
+                  '[data-anim="hero-actions"]','[data-anim="hero-scroll"]'],
+          { autoAlpha: 1, clipPath: 'inset(0 0 0% 0)' });
+        return;
+      }
+
+      // Set initial states
+      gsap.set('[data-anim="hero-photo"]', { clipPath: 'inset(0 0 100% 0)' });
+      gsap.set(['[data-anim="hero-eyebrow"]','[data-anim="hero-char"]',
+                '[data-anim="hero-sub"]','[data-anim="hero-actions"]',
+                '[data-anim="hero-scroll"]'], { autoAlpha: 0 });
+      gsap.set('[data-anim="hero-char"]', { y: 80, rotateX: 80 });
+
+      const tl = gsap.timeline();
+
+      // 1. Photo wipes up from bottom
+      tl.to('[data-anim="hero-photo"]', {
+          clipPath: 'inset(0 0 0% 0)',
+          duration: 1.4,
+          ease: 'power4.inOut',
+        }, 0)
+
+      // 2. Eyebrow fades in
+        .to('[data-anim="hero-eyebrow"]', {
+          autoAlpha: 1,
+          duration: 0.5,
+        }, 0.7)
+
+      // 3. Characters flip in with 3D stagger
+        .to('[data-anim="hero-char"]', {
+          autoAlpha: 1,
+          y: 0,
+          rotateX: 0,
+          stagger: 0.07,
+          duration: 0.75,
+          ease: 'back.out(1.4)',
+        }, 0.95)
+
+      // 4. Sub-headline
+        .to('[data-anim="hero-sub"]', {
+          autoAlpha: 1,
+          duration: 0.55,
+        }, 1.35)
+
+      // 5. CTAs
+        .to('[data-anim="hero-actions"]', {
+          autoAlpha: 1,
+          duration: 0.5,
+        }, 1.55)
+
+      // 6. Scroll indicator
+        .to('[data-anim="hero-scroll"]', {
+          autoAlpha: 1,
+          duration: 0.5,
+        }, 1.8);
+    }
+  );
+</script>

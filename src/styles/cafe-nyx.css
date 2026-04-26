@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --c-bg:          #07090F;
+  --c-bg-2:        #0D1020;
+  --c-surface:     #131626;
+  --c-surface-2:   #1A1E30;
+
+  /* Text */
+  --c-cream:       #EEE9E0;
+  --c-cream-2:     #C0BAB1;
+  --c-cream-3:     #7A7570;
+
+  /* Accent */
+  --c-coral:       #FF5040;
+  --c-coral-2:     #FF7A68;
+  --c-coral-bg:    rgba(255, 80, 64, 0.12);
+  --c-coral-border:rgba(255, 80, 64, 0.30);
+
+  /* Borders */
+  --c-border:      rgba(238, 233, 224, 0.10);
+  --c-border-2:    rgba(238, 233, 224, 0.06);
+
+  /* Typography */
+  --f-display: 'Bebas Neue', 'Impact', sans-serif;
+  --f-body:    'Outfit', system-ui, sans-serif;
+  --f-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 5rem;     --s-9: 7rem;
+
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-pill: 100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-cream);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: var(--c-coral-bg);
+  color: var(--c-cream);
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* Layout */
+.nyx-inner {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 640px)  { .nyx-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .nyx-inner { padding-inline: 4rem; } }
+
+/* Eyebrow */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-cream-3);
+}
+.eyebrow--coral { color: var(--c-coral); }
+
+/* Pill */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--r-pill);
+  font-family: var(--f-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pill--coral   { background: var(--c-coral-bg); color: var(--c-coral-2); border: 1px solid var(--c-coral-border); }
+.pill--outline { background: transparent; border: 1px solid var(--c-border); color: var(--c-cream-3); }
+
+.section-rule { border: none; border-top: 1px solid var(--c-border); }

@@ -1,12 +1,23 @@
 ---
-import ShowcaseBase from '../../layouts/ShowcaseBase.astro';
+import CafeNyxBase from '../../layouts/CafeNyxBase.astro';
+import Hero from '../../components/cafe/nyx/Hero.astro';
+import Marquee from '../../components/cafe/nyx/Marquee.astro';
+import Story from '../../components/cafe/nyx/Story.astro';
+import Menu from '../../components/cafe/nyx/Menu.astro';
+import Gallery from '../../components/cafe/nyx/Gallery.astro';
+import Visit from '../../components/cafe/nyx/Visit.astro';
+import Footer from '../../components/cafe/nyx/Footer.astro';
 ---
-<ShowcaseBase title="Café Direction C — Σύντομα">
-  <main style="min-height:100dvh; display:flex; align-items:center; justify-content:center; background:#FAFAFA;">
-    <div style="text-align:center; padding:2rem;">
-      <p style="font-family:ui-monospace,monospace; font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:#ABABAB; margin-bottom:1rem;">Café · Direction 03</p>
-      <h1 style="font-size:clamp(1.5rem,4vw,2.5rem); font-weight:300; color:#0A0A0A; margin-bottom:1rem;">Σύντομα.</h1>
-      <a href="/cafe" style="font-size:0.75rem; color:#ABABAB; text-decoration:none;">← Πίσω στα café demos</a>
-    </div>
-  </main>
-</ShowcaseBase>
+
+<CafeNyxBase
+  title="Nyx · Cocktail Bar & Specialty Coffee Γκάζι Αθήνα"
+  description="Cocktails, φυσικά κρασιά και specialty coffee στο Γκάζι. Ανοιχτά κάθε μέρα μέχρι αργά. Demo: Nyx."
+>
+  <Hero />
+  <Marquee />
+  <Story />
+  <Menu />
+  <Gallery />
+  <Visit />
+  <Footer />
+</CafeNyxBase>

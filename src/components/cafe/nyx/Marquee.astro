@@ -1,0 +1,43 @@
+---
+const text = 'SPECIALTY COFFEE · COCKTAILS · ΦΥΣΙΚΑ ΚΡΑΣΙΑ · NYX ATHENS · ΑΝΟΙΧΤΑ ΚΑΘΕ ΜΕΡΑ · ';
+---
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__content">{text}</span>
+    <span class="marquee__content" aria-hidden="true">{text}</span>
+  </div>
+</div>
+
+<style>
+  .marquee {
+    background: var(--c-coral);
+    padding-block: 0.875rem;
+    overflow: hidden;
+  }
+
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 22s linear infinite;
+  }
+
+  .marquee__content {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: #fff;
+    white-space: nowrap;
+    padding-right: 2rem;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+</style>

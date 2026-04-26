@@ -1,0 +1,155 @@
+---
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__marquee" aria-hidden="true">
+    <div class="footer__marquee-track footer__marquee-track--reverse">
+      <span>NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · </span>
+      <span aria-hidden="true">NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · NYX · </span>
+    </div>
+  </div>
+
+  <div class="footer__inner nyx-inner">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <p class="footer__name">Nyx</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom: var(--s-4);">
+          <span class="pill pill--coral">Bar</span>
+          <span class="pill pill--outline">Coffee</span>
+          <span class="pill pill--outline">Γκάζι</span>
+        </div>
+        <p class="footer__tagline">Νύχτα, ξανά και ξανά.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <p class="footer__nav-label eyebrow">Περιήγηση</p>
+        <ul>
+          <li><a href="#menu">Drinks &amp; Coffee</a></li>
+          <li><a href="#gallery">Χώρος</a></li>
+          <li><a href="#visit">Επίσκεψη</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="footer__nav-label eyebrow">Επικοινωνία</p>
+        <a href="mailto:hello@nyx.bar" class="footer__link">hello@nyx.bar</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+           class="footer__link footer__ig">@nyx.athens →</a>
+        <p class="footer__address">Βουτάδων 42 · Γκάζι</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="eyebrow footer__copy">© {new Date().getFullYear()} Nyx Bar</p>
+      <p class="eyebrow footer__demo">Demo — Instatok Agency</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--c-bg);
+    border-top: 1px solid var(--c-border);
+    overflow: hidden;
+  }
+
+  /* Giant scrolling brand name strip */
+  .footer__marquee {
+    padding-block: var(--s-3);
+    border-bottom: 1px solid var(--c-border);
+    overflow: hidden;
+  }
+  .footer__marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 16s linear infinite;
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    color: var(--c-surface-2);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .footer__marquee-track--reverse {
+    animation-direction: reverse;
+    color: rgba(255, 80, 64, 0.08);
+  }
+  .footer__marquee-track span { flex-shrink: 0; }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer__marquee-track { animation: none; }
+  }
+
+  .footer__inner { padding-block: var(--s-8) var(--s-7); }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--s-7);
+    padding-bottom: var(--s-7);
+    border-bottom: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) {
+    .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  }
+
+  .footer__name {
+    font-family: var(--f-display);
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--c-cream);
+    letter-spacing: 0.04em;
+    margin-bottom: var(--s-4);
+  }
+  .footer__tagline {
+    font-size: 0.9375rem;
+    color: var(--c-cream-3);
+    font-style: italic;
+  }
+
+  .footer__nav-label { margin-bottom: var(--s-4); }
+  .footer__nav ul {
+    list-style: none;
+    display: grid;
+    gap: var(--s-3);
+  }
+  .footer__nav a {
+    font-size: 0.9375rem;
+    color: var(--c-cream-2);
+    transition: color 0.18s;
+  }
+  .footer__nav a:hover { color: var(--c-coral-2); }
+
+  .footer__contact {
+    display: grid;
+    gap: var(--s-3);
+    align-content: start;
+  }
+  .footer__link {
+    font-size: 0.9375rem;
+    color: var(--c-cream-2);
+    transition: color 0.18s;
+  }
+  .footer__link:hover { color: var(--c-coral-2); }
+  .footer__ig { font-weight: 500; }
+  .footer__address {
+    font-size: 0.875rem;
+    color: var(--c-cream-3);
+    margin-top: var(--s-1);
+  }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    padding-top: var(--s-5);
+    color: var(--c-cream-3);
+  }
+</style>
