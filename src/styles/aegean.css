@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --c-clay:       #E8D5C4;
+  --c-clay-2:     #DCC0A8;
+  --c-clay-3:     #E2C9B6;
+  --c-clay-4:     #EDD9CA;
+  --c-ink:        #2E1F25;
+  --c-ink-soft:   #5C4750;
+  --c-terra:      #C8553D;
+  --c-terra-deep: #A03E29;
+  --c-rose:       #E8A598;
+  --c-sage:       #7A8471;
+  --c-sage-light: #A8B49F;
+  --c-bone:       #F4E8D8;
+  --c-mute:       rgba(46, 31, 37, 0.35);
+
+  --f-display: "GFS Didot", Georgia, serif;
+  --f-body:    "Spectral", Georgia, serif;
+  --f-mono:    "DM Mono", ui-monospace, "SF Mono", monospace;
+
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 4.5rem;   --s-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-clay);
+  color: var(--c-ink);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-terra) 22%, transparent);
+  color: var(--c-ink);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+.aegean-section-inner {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px)  { .aegean-section-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .aegean-section-inner { padding-inline: 4rem; } }

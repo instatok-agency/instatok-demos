@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v '^\\\\.$')",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(node -e \"const a=require\\('./node_modules/astro/package.json'\\); const v=require\\('./node_modules/vite/package.json'\\); console.log\\('astro:', a.version, 'vite:', v.version\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/@tailwindcss/vite/package.json'\\); console.log\\('@tailwindcss/vite:', p.version\\)\")"
+    ]
+  }
+}

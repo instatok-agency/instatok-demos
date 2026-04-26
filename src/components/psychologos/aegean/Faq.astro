@@ -1,0 +1,229 @@
+---
+const faqs = [
+  {
+    q: 'Τι γίνεται αν κλάψω;',
+    a: 'Ό,τι χρειαστεί να κάνεις, κάνε. Εδώ δεν υπάρχει «υπερβολική» αντίδραση. Έχω χαρτομάντηλα, έχω χρόνο, και δεν θα ντραπείς.',
+  },
+  {
+    q: 'Πρέπει να θυμάμαι τα πάντα;',
+    a: 'Όχι. Το σώμα θυμάται ακόμα κι όταν το μυαλό δεν θυμάται. Δεν χρειάζεσαι πλήρη αφήγηση — αρκεί το τι νιώθεις τώρα.',
+  },
+  {
+    q: 'Κι αν δεν ταιριάξουμε;',
+    a: 'Ο δεσμός θεραπευτή-πελάτη είναι μέρος της θεραπείας. Αν μετά από 3–4 συνεδρίες νιώθεις ότι δεν υπάρχει σύνδεση, το λέμε ανοιχτά και σε βοηθώ να βρεις κάποιον που να ταιριάζει καλύτερα.',
+  },
+  {
+    q: 'Θα με κρίνεις;',
+    a: 'Δεν είναι η δουλειά μου να κρίνω. Αυτό που φέρνεις εδώ — όσο «σκοτεινό» κι αν φαίνεται — δεν με αιφνιδιάζει. Έχω ακούσει πολλά. Τα δικά σου αξίζουν χώρο.',
+  },
+  {
+    q: 'Πώς ξέρω αν χρειάζομαι θεραπεία;',
+    a: 'Αν η ερώτηση σε απασχολεί αρκετά ώστε να τη ψάξεις, πιθανόν ναι. Δεν χρειάζεσαι κρίση ή διάγνωση. Αρκεί ένα αίσθημα ότι κάτι «κολλάει» — κι ότι θέλεις να δεις τι είναι αυτό.',
+  },
+];
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="faq__inner aegean-section-inner">
+
+    <header class="faq__header" data-faq-anim="header">
+      <div class="faq__eyebrow">
+        <span class="faq__eyebrow-line"></span>
+        <span>Ερωτήσεις</span>
+      </div>
+      <h2 class="faq__heading" id="faq-heading">
+        Αυτό που σκέφτηκες<br>αλλά δεν ρώτησες
+      </h2>
+    </header>
+
+    <ul class="faq__list" role="list">
+      {faqs.map((item, i) => (
+        <li class="faq__item" data-faq-anim="item">
+          <button
+            class="faq__trigger"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+          >
+            <span class="faq__question">{item.q}</span>
+            <span class="faq__icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path class="faq__icon-v" d="M8 3v10"/>
+                <path d="M3 8h10"/>
+              </svg>
+            </span>
+          </button>
+          <div
+            class="faq__content"
+            id={`faq-answer-${i}`}
+            role="region"
+            aria-hidden="true"
+          >
+            <p class="faq__answer">{item.a}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding-block: var(--s-8);
+    background:
+      radial-gradient(ellipse 65% 45% at 10% 30%, rgba(122, 132, 113, 0.18) 0%, transparent 55%),
+      var(--c-clay-3);
+    position: relative;
+  }
+  .faq::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, var(--c-clay-2), transparent);
+  }
+
+  .faq__inner { display: grid; gap: var(--s-7); }
+
+  /* ── Header ──────────────────────────── */
+  .faq__eyebrow {
+    display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4);
+    font-family: var(--f-mono); font-size: 0.7rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-ink-soft);
+  }
+  .faq__eyebrow-line { width: 28px; height: 1px; background: var(--c-rose); }
+  .faq__heading {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(1.9rem, 6.5vw, 2.8rem); line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── List ────────────────────────────── */
+  .faq__list { list-style: none; }
+
+  .faq__item {
+    border-bottom: 1px solid color-mix(in srgb, var(--c-ink) 12%, transparent);
+  }
+  .faq__item:first-child {
+    border-top: 1px solid color-mix(in srgb, var(--c-ink) 12%, transparent);
+  }
+
+  .faq__trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-4); padding-block: var(--s-5);
+    background: none; border: none; cursor: pointer;
+    text-align: left; color: inherit; font: inherit;
+    position: relative;
+  }
+  .faq__trigger::before {
+    content: "";
+    position: absolute; left: calc(var(--s-5) * -1); top: 0; bottom: 0;
+    width: 2px; background: var(--c-terra);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .faq__item.is-open .faq__trigger::before { transform: scaleY(1); }
+  .faq__question {
+    font-family: var(--f-body); font-size: 1.05rem; font-weight: 500;
+    line-height: 1.4; color: var(--c-ink);
+  }
+  .faq__item.is-open .faq__question { color: var(--c-terra); }
+
+  .faq__icon {
+    flex-shrink: 0; width: 32px; height: 32px;
+    border-radius: 50%; border: 1px solid color-mix(in srgb, var(--c-ink) 20%, transparent);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .faq__icon svg { width: 14px; height: 14px; color: var(--c-ink); }
+  .faq__icon-v { transition: transform 0.3s ease, opacity 0.2s ease; }
+  .faq__item.is-open .faq__icon {
+    background: var(--c-terra); border-color: var(--c-terra);
+  }
+  .faq__item.is-open .faq__icon svg { color: var(--c-bone); }
+  .faq__item.is-open .faq__icon-v {
+    transform: scaleY(0); opacity: 0;
+  }
+
+  .faq__content {
+    overflow: hidden; height: 0;
+  }
+  .faq__answer {
+    padding-bottom: var(--s-5); font-size: 1rem; line-height: 1.7;
+    color: var(--c-ink-soft); max-width: 48ch;
+  }
+
+  @media (min-width: 1024px) {
+    .faq__inner { grid-template-columns: 1fr 2fr; gap: var(--s-8); }
+    .faq__header { position: sticky; top: var(--s-7); align-self: start; }
+    .faq__list { grid-column: 2; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-aegean';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Accordion ─────────────────────────────────────────────
+  const items = document.querySelectorAll<HTMLElement>('.faq__item');
+
+  items.forEach((item) => {
+    const trigger = item.querySelector<HTMLButtonElement>('.faq__trigger')!;
+    const content = item.querySelector<HTMLElement>('.faq__content')!;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      // Close all
+      items.forEach((i) => {
+        if (i === item) return;
+        if (i.classList.contains('is-open')) {
+          i.classList.remove('is-open');
+          const c = i.querySelector<HTMLElement>('.faq__content')!;
+          i.querySelector('.faq__trigger')!.setAttribute('aria-expanded', 'false');
+          c.setAttribute('aria-hidden', 'true');
+          gsap.to(c, { height: 0, duration: 0.32, ease: 'power2.inOut' });
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+        gsap.to(content, { height: 0, duration: 0.32, ease: 'power2.inOut' });
+      } else {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+        const naturalHeight = content.scrollHeight;
+        gsap.fromTo(content,
+          { height: 0 },
+          { height: naturalHeight, duration: 0.45, ease: 'power3.out',
+            onComplete: () => gsap.set(content, { height: 'auto' }) }
+        );
+      }
+    });
+  });
+
+  // ── Scroll reveals ─────────────────────────────────────────
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.querySelector('.faq');
+    if (!section) return;
+
+    gsap.from('[data-faq-anim="header"] > *', {
+      autoAlpha: 0, y: 20, stagger: 0.1, duration: 1,
+      scrollTrigger: { trigger: section, start: 'top 80%', once: true },
+    });
+
+    ScrollTrigger.batch('[data-faq-anim="item"]', {
+      onEnter: (batch) => gsap.from(batch, {
+        autoAlpha: 0, y: 16, stagger: 0.1, duration: 0.85, ease: 'power3.out',
+      }),
+      start: 'top 85%',
+      once: true,
+    });
+  });
+</script>

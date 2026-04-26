@@ -1,0 +1,248 @@
+---
+const facts = [
+  { label: "Διάρκεια συνεδρίας",    value: "50 λεπτά" },
+  { label: "Συχνότητα",             value: "1× εβδομαδιαία (συνιστάται)" },
+  { label: "Μέσος όρος θεραπείας",  value: "6–18 μήνες" },
+  { label: "Κόστος",                value: "70€ · 60€ φοιτητές" },
+  { label: "Χώρος",                 value: "Παγκράτι ή online" },
+  { label: "Πρώτη επικοινωνία",     value: "Απάντηση εντός 48 ωρών" },
+];
+---
+
+<section class="sessions" id="sessions" aria-labelledby="sessions-heading">
+  <hr class="section-rule sessions__top-rule" aria-hidden="true" />
+
+  <div class="sessions__inner pangrati-section-inner">
+
+    <!-- Left column -->
+    <div class="sessions__narrative">
+      <p class="eyebrow sessions__eyebrow" data-anim="reveal">Τι θα συμβεί</p>
+      <h2 class="sessions__heading" id="sessions-heading" data-anim="reveal">
+        Η πρώτη μας<br />συνάντηση
+      </h2>
+
+      <div class="sessions__paragraphs">
+        <p data-anim="reveal">
+          Δεν χρειάζεται να έρθεις προετοιμασμένος. Ούτε να έχεις ιστορία
+          έτοιμη. Ούτε να ξέρεις γιατί αισθάνεσαι αυτό που αισθάνεσαι.
+        </p>
+        <p data-anim="reveal">
+          Αρχίζουμε απλώς με το «τι σε έφερε εδώ σήμερα;» — και πηγαίνουμε
+          αργά, στον ρυθμό σου.
+        </p>
+        <p data-anim="reveal">
+          Η πρώτη συνάντηση δεν είναι αξιολόγηση. Είναι μια γνωριμία.
+          Δικαιούσαι να αισθάνεσαι άβολα — και να πεις ότι αισθάνεσαι άβολα.
+        </p>
+      </div>
+
+      <div class="sessions__modes" data-anim="reveal" role="group" aria-label="Τρόποι συνεδρίας">
+        <button class="sessions__mode sessions__mode--active" aria-pressed="true">
+          Παγκράτι, Αθήνα
+        </button>
+        <button class="sessions__mode" aria-pressed="false">
+          Online
+        </button>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="sessions__aside">
+      <figure class="sessions__figure" data-anim="photo" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop"
+          alt=""
+          class="sessions__photo"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+      </figure>
+
+      <div class="sessions__panel" data-anim="reveal">
+        <ul class="sessions__facts" aria-label="Πρακτικές πληροφορίες">
+          {facts.map((f) => (
+            <li class="sessions__fact">
+              <span class="sessions__fact-label eyebrow">{f.label}</span>
+              <span class="sessions__fact-value">{f.value}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="sessions__note eyebrow">
+          Δεν απαιτείται ασφαλιστική κάλυψη. Ρωτήστε για δυνατότητες
+          επιστροφής από ταμεία.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .sessions {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+
+  .sessions__inner {
+    padding-block-start: var(--s-7);
+    display: grid;
+    gap: var(--s-7);
+  }
+
+  /* ── Narrative (left) ───────────────────── */
+  .sessions__eyebrow { margin-bottom: var(--s-3); }
+
+  .sessions__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-6);
+  }
+
+  .sessions__paragraphs {
+    display: grid;
+    gap: var(--s-4);
+    margin-bottom: var(--s-6);
+  }
+  .sessions__paragraphs p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+    max-width: 48ch;
+  }
+
+  /* ── Mode pills ─────────────────────────── */
+  .sessions__modes { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+  .sessions__mode {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--c-border);
+    background: transparent;
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-ink-2);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .sessions__mode--active,
+  .sessions__mode[aria-pressed="true"] {
+    background: var(--c-ink);
+    color: var(--c-bg);
+    border-color: var(--c-ink);
+  }
+  .sessions__mode:hover:not([aria-pressed="true"]) {
+    border-color: var(--c-ink-2);
+    color: var(--c-ink);
+  }
+
+  /* ── Aside (right) ──────────────────────── */
+  .sessions__figure {
+    overflow: hidden;
+    border: 1px solid var(--c-border);
+    aspect-ratio: 4 / 3;
+    margin-bottom: var(--s-5);
+  }
+  .sessions__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(10%) contrast(1.03);
+  }
+
+  /* ── Facts panel ────────────────────────── */
+  .sessions__panel {
+    border: 1px solid var(--c-border);
+    padding: var(--s-5);
+  }
+  .sessions__facts {
+    list-style: none;
+    display: grid;
+    gap: 0;
+  }
+  .sessions__fact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-3);
+    padding-block: var(--s-3);
+    border-bottom: 1px solid var(--c-rule);
+  }
+  .sessions__fact:last-child { border-bottom: none; }
+  .sessions__fact-label {
+    color: var(--c-ink-3);
+  }
+  .sessions__fact-value {
+    font-size: 0.9375rem;
+    color: var(--c-ink);
+    font-weight: 500;
+  }
+  .sessions__note {
+    margin-top: var(--s-4);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border);
+    color: var(--c-ink-3);
+    font-size: 0.65rem;
+    line-height: 1.6;
+  }
+
+  /* ── ≥1024px ────────────────────────────── */
+  @media (min-width: 1024px) {
+    .sessions__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Accordion-style mode toggle */
+  const modes = document.querySelectorAll<HTMLButtonElement>('.sessions__mode');
+  modes.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modes.forEach(b => {
+        b.classList.remove('sessions__mode--active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('sessions__mode--active');
+      btn.setAttribute('aria-pressed', 'true');
+    });
+  });
+
+  /* Scroll animations */
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.sessions__top-rule',
+      { scaleX: 0 },
+      {
+        scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.sessions', start: 'top 90%' },
+      }
+    );
+
+    gsap.utils.toArray<HTMLElement>('.sessions [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 20 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.85,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+        }
+      );
+    });
+
+    gsap.fromTo('.sessions__figure',
+      { autoAlpha: 0, scale: 1.04 },
+      {
+        autoAlpha: 1, scale: 1, duration: 1.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.sessions__figure', start: 'top 85%' },
+      }
+    );
+  });
+</script>

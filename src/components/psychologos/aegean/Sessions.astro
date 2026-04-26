@@ -1,0 +1,223 @@
+---
+const facts = [
+  { label: 'Διάρκεια συνεδρίας', value: '50 λεπτά' },
+  { label: 'Συχνότητα', value: '1× εβδομαδιαία (συνιστάται)' },
+  { label: 'Μέσος όρος θεραπείας', value: '6–18 μήνες' },
+  { label: 'Κόστος', value: '70€ · 60€ φοιτητές' },
+  { label: 'Χώρος', value: 'Παγκράτι ή online' },
+  { label: 'Πρώτη επικοινωνία', value: 'Απάντηση εντός 48 ωρών' },
+];
+---
+
+<section class="sessions" id="sessions" aria-labelledby="sessions-heading">
+  <div class="sessions__inner aegean-section-inner">
+
+    <div class="sessions__narrative" data-sess-anim="narrative">
+      <div class="sessions__eyebrow">
+        <span class="sessions__eyebrow-line"></span>
+        <span>Τι θα συμβεί</span>
+      </div>
+      <h2 class="sessions__heading" id="sessions-heading">
+        Η πρώτη μας<br>συνάντηση
+      </h2>
+      <div class="sessions__text">
+        <p>
+          Δεν χρειάζεται να έρθεις προετοιμασμένος. Ούτε να έχεις ιστορία έτοιμη.
+          Ούτε να ξέρεις γιατί αισθάνεσαι αυτό που αισθάνεσαι.
+        </p>
+        <p>
+          Αρχίζουμε απλώς με το «τι σε έφερε εδώ σήμερα;» — και πηγαίνουμε
+          αργά, στον ρυθμό σου.
+        </p>
+        <p>
+          Η πρώτη συνάντηση δεν είναι αξιολόγηση. Είναι μια γνωριμία.
+          Δικαιούσαι να αισθάνεσαι άβολα — και να πεις ότι αισθάνεσαι άβολα.
+        </p>
+      </div>
+
+      <div class="sessions__mode-pills">
+        <span class="sessions__pill sessions__pill--active">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <path d="M10 2C6.69 2 4 4.69 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.31-2.69-6-6-6z" stroke-linecap="round"/>
+            <circle cx="10" cy="8" r="2"/>
+          </svg>
+          Παγκράτι, Αθήνα
+        </span>
+        <span class="sessions__pill">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <rect x="3" y="5" width="14" height="10" rx="2"/>
+            <path d="M13 9l4-3v8l-4-3" stroke-linecap="round"/>
+          </svg>
+          Online
+        </span>
+      </div>
+    </div>
+
+    <div class="sessions__panel" data-sess-anim="panel">
+      <div class="sessions__panel-header">
+        <span class="sessions__panel-label">Πρακτικές πληροφορίες</span>
+        <span class="sessions__panel-ornament">—</span>
+      </div>
+      <dl class="sessions__facts">
+        {facts.map((fact) => (
+          <div class="sessions__fact">
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="sessions__panel-note">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" width="14" height="14">
+          <circle cx="8" cy="8" r="6.5"/>
+          <path d="M8 7v5M8 5.5v-.5" stroke-linecap="round"/>
+        </svg>
+        <span>
+          Δεν απαιτείται ασφαλιστική κάλυψη. Ρωτήστε για
+          δυνατότητες επιστροφής από ταμεία.
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .sessions {
+    padding-block: var(--s-8);
+    background:
+      radial-gradient(ellipse 50% 60% at 100% 80%, rgba(200, 85, 61, 0.08) 0%, transparent 55%),
+      var(--c-clay);
+    position: relative;
+  }
+  .sessions::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--c-clay-2), transparent);
+  }
+
+  .sessions__inner {
+    display: grid;
+    gap: var(--s-7);
+    align-items: start;
+  }
+
+  /* ── Narrative ───────────────────────── */
+  .sessions__eyebrow {
+    display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4);
+    font-family: var(--f-mono); font-size: 0.7rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-ink-soft);
+  }
+  .sessions__eyebrow-line { width: 28px; height: 1px; background: var(--c-terra); }
+  .sessions__heading {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2rem, 7vw, 3rem); line-height: 1.02;
+    letter-spacing: -0.01em; margin-bottom: var(--s-5);
+  }
+  .sessions__text {
+    display: grid; gap: var(--s-4); margin-bottom: var(--s-6);
+  }
+  .sessions__text p {
+    font-size: 1.0625rem; line-height: 1.65; color: var(--c-ink-soft); max-width: 38ch;
+  }
+  .sessions__mode-pills { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+  .sessions__pill {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.5rem 0.9rem; border-radius: 999px;
+    font-family: var(--f-mono); font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    border: 1px solid color-mix(in srgb, var(--c-ink) 22%, transparent);
+    color: var(--c-ink-soft);
+  }
+  .sessions__pill svg { width: 15px; height: 15px; }
+  .sessions__pill--active {
+    background: var(--c-terra); color: var(--c-bone);
+    border-color: var(--c-terra);
+  }
+
+  /* ── Info panel ──────────────────────── */
+  .sessions__panel {
+    background: var(--c-ink);
+    border-radius: 6px; overflow: hidden;
+    color: var(--c-bone);
+    box-shadow: 0 20px 48px -8px color-mix(in srgb, var(--c-ink) 28%, transparent);
+  }
+  .sessions__panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--s-4) var(--s-5);
+    border-bottom: 1px solid color-mix(in srgb, var(--c-bone) 12%, transparent);
+  }
+  .sessions__panel-label {
+    font-family: var(--f-mono); font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--c-bone) 50%, transparent);
+  }
+  .sessions__panel-ornament {
+    font-family: var(--f-mono); font-size: 0.8rem;
+    color: var(--c-terra);
+  }
+
+  .sessions__facts { padding: var(--s-2) 0; }
+  .sessions__fact {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--s-3); align-items: baseline;
+    padding: var(--s-3) var(--s-5);
+    border-bottom: 1px solid color-mix(in srgb, var(--c-bone) 8%, transparent);
+  }
+  .sessions__fact:last-child { border-bottom: none; }
+  .sessions__fact dt {
+    font-family: var(--f-mono); font-size: 0.68rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--c-bone) 45%, transparent);
+    line-height: 1.4;
+  }
+  .sessions__fact dd {
+    font-family: var(--f-body); font-size: 0.95rem;
+    color: var(--c-bone); font-weight: 400; line-height: 1.4;
+  }
+
+  .sessions__panel-note {
+    display: flex; align-items: flex-start; gap: var(--s-3);
+    padding: var(--s-4) var(--s-5);
+    margin: var(--s-2);
+    background: color-mix(in srgb, var(--c-terra) 15%, transparent);
+    border-radius: 4px; font-size: 0.8rem; line-height: 1.5;
+    color: color-mix(in srgb, var(--c-bone) 70%, transparent);
+  }
+  .sessions__panel-note svg { flex-shrink: 0; margin-top: 0.1rem; color: var(--c-terra); }
+
+  /* ── ≥ 1024px ────────────────────────── */
+  @media (min-width: 1024px) {
+    .sessions__inner { grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-aegean';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.querySelector('.sessions');
+    if (!section) return;
+
+    gsap.from('[data-sess-anim="narrative"] > *', {
+      autoAlpha: 0, y: 22, stagger: 0.12, duration: 1,
+      scrollTrigger: { trigger: section, start: 'top 80%', once: true },
+    });
+
+    gsap.from('[data-sess-anim="panel"]', {
+      autoAlpha: 0, y: 32, duration: 1.1,
+      scrollTrigger: { trigger: section, start: 'top 75%', once: true },
+    });
+
+    gsap.from('.sessions__fact', {
+      autoAlpha: 0, x: 12, stagger: 0.07, duration: 0.75,
+      scrollTrigger: { trigger: '[data-sess-anim="panel"]', start: 'top 80%', once: true },
+    });
+  });
+</script>

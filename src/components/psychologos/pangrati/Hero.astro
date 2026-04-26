@@ -1,0 +1,392 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+  <!-- Left: text -->
+  <div class="hero__text">
+    <div class="hero__text-inner">
+
+      <p class="hero__stamp eyebrow" data-anim="stamp">
+        Αθήνα · Παγκράτι · est. 2019
+      </p>
+
+      <h1 class="hero__headline" id="hero-headline">
+        <span class="hero__hline" data-anim="hline">Όχι, δεν είσαι</span>
+        <span class="hero__hline hero__hline--em" data-anim="hline">«υπερβολική».</span>
+        <span class="hero__hline" data-anim="hline">Απλώς δεν είχες</span>
+        <span class="hero__hline" data-anim="hline">ποτέ τον χώρο.</span>
+      </h1>
+
+      <!-- Mobile photo — visible on small screens only -->
+      <div class="hero__mobile-photo" aria-hidden="true" data-anim="mobile-photo">
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80&fit=crop"
+          alt=""
+          loading="eager"
+          width="800"
+          height="500"
+        />
+      </div>
+
+      <p class="hero__lead" data-anim="lead">
+        Είμαι η <strong>Άννα Δημητρίου</strong> — ψυχοθεραπεύτρια με ειδίκευση στο τραύμα.
+        Αν τα δίκτυα σε εξουθενώνουν, η δουλειά τρώει το νόημά σου ή οι σχέσεις σου
+        γυρίζουν στους ίδιους κύκλους — εδώ ακούμε αργά.
+      </p>
+
+      <ol class="hero__list" data-anim="list" aria-label="Θέματα που αντιμετωπίζω">
+        <li>
+          <span class="hero__num" aria-hidden="true">01</span>
+          <span>Burnout που δεν λύνεται με Σαββατοκύριακο</span>
+        </li>
+        <li>
+          <span class="hero__num" aria-hidden="true">02</span>
+          <span>Άγχος από social media &amp; σύγκριση</span>
+        </li>
+        <li>
+          <span class="hero__num" aria-hidden="true">03</span>
+          <span>Σχέσεις που μοιάζουν με επανάληψη</span>
+        </li>
+        <li>
+          <span class="hero__num" aria-hidden="true">04</span>
+          <span>Ταυτότητα, πένθος, αλλαγές στα 30</span>
+        </li>
+      </ol>
+
+      <div class="hero__actions" data-anim="actions">
+        <a href="#booking" class="hero__cta hero__cta--primary">
+          <span>Ας μιλήσουμε</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#method" class="hero__cta hero__cta--ghost">Πώς δουλεύουμε</a>
+      </div>
+
+      <p class="hero__availability" data-anim="avail">
+        <span class="hero__pulse" aria-hidden="true"></span>
+        <span>
+          <strong>Δύο νέες θέσεις</strong> ανοιχτές αυτή την εβδομάδα
+          · διά ζώσης &amp; online
+        </span>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Right: editorial photo -->
+  <div class="hero__visual" aria-hidden="true" data-anim="photo">
+    <img
+      src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=80&fit=crop"
+      alt=""
+      class="hero__photo"
+      loading="eager"
+      width="900"
+      height="1200"
+    />
+    <div class="hero__photo-overlay"></div>
+    <p class="hero__caption">
+      <span>Παγκράτι</span>
+      <span>Αθήνα</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: calc(100svh - 3.625rem);
+    background: var(--c-bg);
+  }
+
+  /* ── Text panel ──────────────────────────── */
+  .hero__text {
+    padding: var(--s-7) 1.5rem var(--s-8);
+    display: flex;
+    align-items: center;
+  }
+  .hero__text-inner {
+    width: min(100%, 38rem);
+    margin-inline: auto;
+    display: grid;
+    gap: var(--s-5);
+  }
+
+  /* ── Stamp ──────────────────────────────── */
+  .hero__stamp {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+  .hero__stamp::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--c-terra);
+    flex-shrink: 0;
+  }
+
+  /* ── Headline ───────────────────────────── */
+  .hero__headline {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.8rem, 9vw, 5.25rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .hero__hline {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.05em;
+  }
+  .hero__hline > * { display: inline-block; will-change: transform, opacity; }
+  .hero__hline--em { color: var(--c-terra); font-style: italic; }
+
+  /* ── Mobile photo ───────────────────────── */
+  .hero__mobile-photo {
+    overflow: hidden;
+    border: 1px solid var(--c-border);
+    aspect-ratio: 16 / 9;
+  }
+  .hero__mobile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: sepia(12%) contrast(1.04);
+  }
+
+  /* ── Lead ───────────────────────────────── */
+  .hero__lead {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--c-ink-2);
+    max-width: 42ch;
+  }
+  .hero__lead strong { color: var(--c-ink); font-weight: 500; }
+
+  /* ── List ───────────────────────────────── */
+  .hero__list {
+    list-style: none;
+    padding-block: var(--s-4);
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+    display: grid;
+    gap: 0.65rem;
+  }
+  .hero__list li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    align-items: baseline;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+  }
+  .hero__num {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--c-terra);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Actions ────────────────────────────── */
+  .hero__actions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--s-3);
+  }
+  .hero__cta {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.35rem;
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .hero__cta svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .hero__cta--primary {
+    background: var(--c-ink);
+    color: var(--c-bg);
+    border: 1px solid var(--c-ink);
+  }
+  .hero__cta--primary:hover {
+    background: var(--c-terra);
+    border-color: var(--c-terra);
+  }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover {
+    border-color: var(--c-ink);
+  }
+
+  /* ── Availability ───────────────────────── */
+  .hero__availability {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    font-size: 0.85rem;
+    color: var(--c-ink-2);
+  }
+  .hero__availability strong { color: var(--c-ink); font-weight: 500; }
+  .hero__pulse {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--c-terra);
+    position: relative;
+  }
+  .hero__pulse::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: var(--c-terra);
+    opacity: 0;
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%       { transform: scale(0.7); opacity: 0.5; }
+    80%, 100% { transform: scale(2.4); opacity: 0; }
+  }
+
+  /* ── Photo panel ─────────────────────────── */
+  .hero__visual {
+    display: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: sepia(12%) contrast(1.04);
+  }
+  .hero__photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(249, 247, 244, 0.18) 0%,
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  .hero__caption {
+    position: absolute;
+    bottom: var(--s-5);
+    right: var(--s-5);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(249, 247, 244, 0.7);
+  }
+
+  /* ── ≥640px ─────────────────────────────── */
+  @media (min-width: 640px) {
+    .hero__text { padding-inline: 2.5rem; }
+  }
+
+  /* ── ≥1024px ────────────────────────────── */
+  @media (min-width: 1024px) {
+    .hero {
+      grid-template-columns: 58% 42%;
+    }
+    .hero__text {
+      padding: var(--s-8) 4rem var(--s-8) 4rem;
+      border-right: 1px solid var(--c-border);
+    }
+    .hero__text-inner { margin-inline: 0; }
+    .hero__visual { display: block; }
+    .hero__mobile-photo { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__pulse::before { animation: none; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-pangrati';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isMotion:  '(prefers-reduced-motion: no-preference)',
+      isReduced: '(prefers-reduced-motion: reduce)',
+    },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+
+      const stamp       = '[data-anim="stamp"]';
+      const hlines      = '[data-anim="hline"]';
+      const mobilePhoto = '[data-anim="mobile-photo"]';
+      const lead        = '[data-anim="lead"]';
+      const list        = '[data-anim="list"] li';
+      const actions     = '[data-anim="actions"]';
+      const avail       = '[data-anim="avail"]';
+      const photo       = '[data-anim="photo"]';
+
+      gsap.set([stamp, hlines, mobilePhoto, lead, list, actions, avail, photo], { autoAlpha: 0 });
+
+      if (isReduced) {
+        gsap.set([stamp, hlines, mobilePhoto, lead, list, actions, avail, photo], { autoAlpha: 1 });
+        return;
+      }
+
+      const tl = gsap.timeline();
+
+      tl.fromTo(stamp,
+          { autoAlpha: 0, y: -10 },
+          { autoAlpha: 1, y: 0, duration: 0.7 }, 0.1)
+        .fromTo(hlines,
+          { autoAlpha: 0, yPercent: 110 },
+          { autoAlpha: 1, yPercent: 0, duration: 1.1, stagger: 0.1, ease: 'power4.out' }, 0.2)
+        .fromTo(mobilePhoto,
+          { autoAlpha: 0, scale: 1.03 },
+          { autoAlpha: 1, scale: 1, duration: 0.9, ease: 'power2.out' }, '-=0.3')
+        .fromTo(lead,
+          { autoAlpha: 0, y: 16 },
+          { autoAlpha: 1, y: 0, duration: 0.85 }, '-=0.45')
+        .fromTo(list,
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.07 }, '-=0.5')
+        .fromTo(actions,
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.65 }, '-=0.35')
+        .fromTo(avail,
+          { autoAlpha: 0, y: 8 },
+          { autoAlpha: 1, y: 0, duration: 0.6 }, '-=0.38')
+        .fromTo(photo,
+          { autoAlpha: 0, scale: 1.04 },
+          { autoAlpha: 1, scale: 1, duration: 1.4, ease: 'power2.out' }, 0.15);
+    }
+  );
+</script>

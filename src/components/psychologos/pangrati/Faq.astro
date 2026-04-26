@@ -1,0 +1,236 @@
+---
+const faqs = [
+  {
+    q: "Τι γίνεται αν κλάψω;",
+    a: "Ό,τι χρειαστεί να κάνεις, κάνε. Εδώ δεν υπάρχει «υπερβολική» αντίδραση. Έχω χαρτομάντηλα, έχω χρόνο, και δεν θα ντραπείς.",
+  },
+  {
+    q: "Πρέπει να θυμάμαι τα πάντα;",
+    a: "Όχι. Το σώμα θυμάται ακόμα κι όταν το μυαλό δεν θυμάται. Δεν χρειάζεσαι πλήρη αφήγηση — αρκεί το τι νιώθεις τώρα.",
+  },
+  {
+    q: "Κι αν δεν ταιριάξουμε;",
+    a: "Ο δεσμός θεραπευτή-πελάτη είναι μέρος της θεραπείας. Αν μετά από 3–4 συνεδρίες νιώθεις ότι δεν υπάρχει σύνδεση, το λέμε ανοιχτά και σε βοηθώ να βρεις κάποιον που να ταιριάζει καλύτερα.",
+  },
+  {
+    q: "Θα με κρίνεις;",
+    a: "Δεν είναι η δουλειά μου να κρίνω. Αυτό που φέρνεις εδώ — όσο «σκοτεινό» κι αν φαίνεται — δεν με αιφνιδιάζει. Έχω ακούσει πολλά. Τα δικά σου αξίζουν χώρο.",
+  },
+  {
+    q: "Πώς ξέρω αν χρειάζομαι θεραπεία;",
+    a: "Αν η ερώτηση σε απασχολεί αρκετά ώστε να τη ψάξεις, πιθανόν ναι. Δεν χρειάζεσαι κρίση ή διάγνωση. Αρκεί ένα αίσθημα ότι κάτι «κολλάει» — κι ότι θέλεις να δεις τι είναι αυτό.",
+  },
+];
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <hr class="section-rule faq__top-rule" aria-hidden="true" />
+
+  <div class="faq__inner pangrati-section-inner">
+
+    <header class="faq__header">
+      <p class="eyebrow faq__eyebrow" data-anim="reveal">Ερωτήσεις</p>
+      <h2 class="faq__heading" id="faq-heading" data-anim="reveal">
+        Αυτό που σκέφτηκες<br />αλλά δεν ρώτησες
+      </h2>
+    </header>
+
+    <dl class="faq__list" data-anim="list">
+      {faqs.map((item, i) => (
+        <div class="faq__item" id={`faq-item-${i}`}>
+          <dt class="faq__question">
+            <button
+              class="faq__trigger"
+              aria-expanded="false"
+              aria-controls={`faq-answer-${i}`}
+              id={`faq-btn-${i}`}
+            >
+              <span class="faq__q-text">{item.q}</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-h"></span>
+                <span class="faq__icon-v"></span>
+              </span>
+            </button>
+          </dt>
+          <dd
+            class="faq__answer"
+            id={`faq-answer-${i}`}
+            aria-labelledby={`faq-btn-${i}`}
+            hidden
+          >
+            <p>{item.a}</p>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: var(--c-bg-2);
+    padding-block: 0 var(--s-9);
+  }
+
+  .faq__inner { padding-block-start: var(--s-7); }
+
+  /* ── Header ─────────────────────────────── */
+  .faq__header { margin-bottom: var(--s-7); }
+  .faq__eyebrow { margin-bottom: var(--s-3); }
+  .faq__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── List ───────────────────────────────── */
+  .faq__list { max-width: 56rem; }
+
+  .faq__item {
+    border-top: 1px solid var(--c-border);
+  }
+  .faq__item:last-child { border-bottom: 1px solid var(--c-border); }
+
+  /* ── Question / trigger ─────────────────── */
+  .faq__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding-block: var(--s-4);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .faq__q-text {
+    font-family: var(--f-display);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: var(--c-ink);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    flex: 1;
+    transition: color 0.18s;
+  }
+  .faq__trigger:hover .faq__q-text { color: var(--c-terra); }
+  .faq__trigger[aria-expanded="true"] .faq__q-text { color: var(--c-terra); }
+
+  /* ── Icon (plus / minus) ────────────────── */
+  .faq__icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .faq__icon-h,
+  .faq__icon-v {
+    position: absolute;
+    background: var(--c-ink-3);
+    border-radius: 1px;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s;
+  }
+  .faq__icon-h {
+    width: 14px; height: 1.5px;
+    top: 50%; left: 1px;
+    transform: translateY(-50%);
+  }
+  .faq__icon-v {
+    width: 1.5px; height: 14px;
+    top: 1px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .faq__trigger[aria-expanded="true"] .faq__icon-v {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+  }
+  .faq__trigger[aria-expanded="true"] .faq__icon-h { background: var(--c-terra); }
+
+  /* ── Answer ─────────────────────────────── */
+  .faq__answer {
+    padding-bottom: var(--s-5);
+    max-width: 56ch;
+  }
+  .faq__answer p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+  }
+  .faq__answer[hidden] { display: none; }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Accordion ──────────────────────────── */
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq__trigger');
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const answerId = btn.getAttribute('aria-controls')!;
+      const answer = document.getElementById(answerId) as HTMLElement;
+
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        gsap.to(answer, {
+          height: 0,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power2.in',
+          onComplete: () => { answer.hidden = true; },
+        });
+      } else {
+        answer.hidden = false;
+        answer.style.height = '0';
+        answer.style.overflow = 'hidden';
+        const fullH = answer.scrollHeight;
+        btn.setAttribute('aria-expanded', 'true');
+        gsap.fromTo(answer,
+          { height: 0, opacity: 0 },
+          { height: fullH, opacity: 1, duration: 0.38, ease: 'power2.out',
+            onComplete: () => { answer.style.height = 'auto'; answer.style.overflow = ''; } }
+        );
+      }
+    });
+  });
+
+  /* ── Scroll reveal ──────────────────────── */
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.faq__top-rule',
+      { scaleX: 0 },
+      {
+        scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.faq', start: 'top 90%' },
+      }
+    );
+
+    gsap.utils.toArray<HTMLElement>('.faq [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 20 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.85,
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+        }
+      );
+    });
+
+    gsap.utils.toArray<HTMLElement>('.faq__item').forEach((item, i) => {
+      gsap.fromTo(item,
+        { autoAlpha: 0, y: 14 },
+        {
+          autoAlpha: 1, y: 0, duration: 0.6, delay: i * 0.07,
+          scrollTrigger: { trigger: item, start: 'top 90%' },
+        }
+      );
+    });
+  });
+</script>
