@@ -7,8 +7,8 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth iframe { pointer-events: none; }
 
 :root {
-  --c-bg:        #F9F8F5;
-  --c-bg-2:      #F0EEE8;
+  --c-bg:        #EDF0F5;
+  --c-bg-2:      #E2E6ED;
   --c-ink:       #1A1A17;
   --c-ink-2:     #4E4B44;
   --c-ink-3:     #9A9590;
