@@ -2,15 +2,15 @@
 const groups = [
   {
     title: 'Διαμονή',
-    items: ['3 υπνοδωμάτια (6 άτομα)', 'King & twin κρεβάτια', 'Πολυτελή λευκά είδη', 'Ιδιωτική αυλή 30m²', 'Μπαλκόνια θαλάσσιας θέας', 'Πέτρινοι παραδοσιακοί τοίχοι'],
+    items: ['3 υπνοδωμάτια (6 άτομα)', 'King & twin κρεβάτια', 'Πολυτελή λινά', 'Ιδιωτική αυλή 30m²', 'Θέα Αιγαίου παντού', 'Παραδοσιακοί πέτρινοι τοίχοι'],
   },
   {
     title: 'Κουζίνα',
-    items: ['Πλήρης εξοπλισμός', 'Espresso machine', 'Πλυντήριο πιάτων', 'Πλυντήριο ρούχων', 'Ψυγείο & καταψύκτης', 'Τοπικά αναλώσιμα'],
+    items: ['Πλήρης εξοπλισμός', 'Espresso machine', 'Πλυντήριο πιάτων', 'Πλυντήριο ρούχων', 'Ψυγείο & καταψύκτης', 'Τοπικά προϊόντα Σύρου'],
   },
   {
     title: 'Τεχνολογία',
-    items: ['WiFi Fiber 400Mbps', 'Smart TV 4K', 'Κλιματισμός Daikin', 'Έξυπνες κλειδαριές', 'Φορτιστές ασύρματοι', 'Εξωτερικός BBQ'],
+    items: ['WiFi Fiber 400Mbps', 'Smart TV 4K', 'Κλιματισμός Daikin', 'Έξυπνες κλειδαριές', 'Blackout κουρτίνες', 'Εξωτερική BBQ εστία'],
   },
 ];
 ---
@@ -20,17 +20,20 @@ const groups = [
 
     <div class="ar-amen__head" data-anim="ar-amen-head">
       <p class="eyebrow">Παροχές</p>
-      <h2 class="ar-section-title">Τι περιλαμβάνεται.</h2>
+      <h2 class="ar-sec-title">Τι περιλαμβάνεται.</h2>
     </div>
 
     <div class="ar-amen__grid" data-anim="ar-amen-grid">
-      {groups.map(g => (
+      {groups.map((g, i) => (
         <div class="ar-amen__group">
-          <p class="ar-amen__group-title eyebrow eyebrow--sage">{g.title}</p>
+          <div class="ar-amen__group-head">
+            <span class="ar-amen__num eyebrow eyebrow--sea">0{i + 1}</span>
+            <p class="ar-amen__group-title">{g.title}</p>
+          </div>
           <ul class="ar-amen__list">
             {g.items.map(item => (
               <li class="ar-amen__item">
-                <span class="ar-amen__dot" aria-hidden="true">·</span>
+                <span class="ar-amen__dot" aria-hidden="true">—</span>
                 {item}
               </li>
             ))}
@@ -40,44 +43,63 @@ const groups = [
     </div>
 
     <p class="ar-amen__note eyebrow" data-anim="ar-amen-note">
-      + Καλωσόρισμα με τοπικά προϊόντα Σύρου · Check-in / out ευέλικτο κατόπιν συνεννόησης · Επαγγελματική καθαριότητα
+      + Καλωσόρισμα με τοπικά προϊόντα Σύρου · Καθαρισμός · Check-in ευέλικτο
     </p>
 
   </div>
 </section>
 
 <style>
-  .ar-amen { background: var(--c-bg-2); padding-block: var(--s-9); }
+  .ar-amen { background: var(--c-bg); padding-block: var(--s-9); }
   .ar-amen__inner { display: grid; gap: var(--s-8); }
 
   .ar-amen__head { display: grid; gap: var(--s-4); }
 
-  .ar-section-title {
-    font-family: var(--f-display);
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 400; font-style: italic;
-    letter-spacing: -0.02em;
-    color: var(--c-ink); line-height: 1.0;
+  .ar-sec-title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--c-sea); line-height: 1.0;
   }
 
   .ar-amen__grid {
-    display: grid; gap: var(--s-8);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    display: grid; gap: 0;
+    border-top: 2px solid var(--c-sea);
+  }
+  @media (min-width: 768px) {
+    .ar-amen__grid { grid-template-columns: repeat(3, 1fr); }
+    .ar-amen__group { border-right: 1px solid var(--c-border-2); }
+    .ar-amen__group:last-child { border-right: none; }
   }
 
-  .ar-amen__group { display: grid; gap: var(--s-4); align-content: start; }
-  .ar-amen__group-title { margin-bottom: var(--s-1); }
+  .ar-amen__group {
+    padding: var(--s-6) var(--s-5) var(--s-6) 0;
+    display: grid; gap: var(--s-5); align-content: start;
+    border-bottom: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) {
+    .ar-amen__group { border-bottom: none; }
+    .ar-amen__group:not(:first-child) { padding-left: var(--s-6); }
+  }
+
+  .ar-amen__group-head { display: flex; align-items: baseline; gap: var(--s-3); }
+  .ar-amen__num { font-style: normal !important; }
+  .ar-amen__group-title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.25rem; font-weight: 400; color: var(--c-ink);
+  }
+
   .ar-amen__list { list-style: none; display: grid; gap: var(--s-3); }
   .ar-amen__item {
     display: flex; align-items: baseline; gap: var(--s-3);
     font-family: var(--f-body); font-size: 0.9375rem;
     font-weight: 300; color: var(--c-ink-2);
   }
-  .ar-amen__dot { color: var(--c-sage-3); font-size: 1rem; flex-shrink: 0; }
+  .ar-amen__dot { color: var(--c-cobalt); font-size: 0.75rem; flex-shrink: 0; }
 
   .ar-amen__note {
-    padding-top: var(--s-6); border-top: 1px solid var(--c-border);
-    color: var(--c-ink-3); letter-spacing: 0.1em;
+    padding-top: var(--s-6); border-top: 1px solid var(--c-border-2);
+    color: var(--c-ink-3);
   }
 
   [data-anim="ar-amen-head"], [data-anim="ar-amen-grid"], [data-anim="ar-amen-note"] { opacity: 0; }
@@ -91,8 +113,10 @@ const groups = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.to('[data-anim="ar-amen-head"]', { opacity: 1, duration: 0.75, scrollTrigger: { trigger: '.ar-amen__head', start: 'top 85%' } });
-    gsap.to('[data-anim="ar-amen-grid"]', { opacity: 1, duration: 0.85, scrollTrigger: { trigger: '.ar-amen__grid', start: 'top 82%' } });
+    gsap.set('[data-anim="ar-amen-head"]', { y: 20 });
+    gsap.set('[data-anim="ar-amen-grid"]', { y: 24 });
+    gsap.to('[data-anim="ar-amen-head"]', { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '.ar-amen__head', start: 'top 85%' } });
+    gsap.to('[data-anim="ar-amen-grid"]', { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.ar-amen__grid', start: 'top 82%' } });
     gsap.to('[data-anim="ar-amen-note"]', { opacity: 1, duration: 0.6,  scrollTrigger: { trigger: '[data-anim="ar-amen-note"]', start: 'top 88%' } });
   });
 </script>

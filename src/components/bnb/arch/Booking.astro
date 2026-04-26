@@ -5,12 +5,12 @@
 
     <div class="ar-booking__head" data-anim="ar-bk-head">
       <p class="eyebrow">Κράτηση</p>
-      <h2 class="ar-section-title ar-booking__title">
-        <span class="line-wrap"><span data-anim="ar-bk-hl">Ας το κανονίσουμε</span></span>
-        <span class="line-wrap"><span data-anim="ar-bk-hl"><em>μαζί.</em></span></span>
+      <h2 class="ar-sec-title ar-booking__title">
+        <span class="line-wrap"><span class="ar-bk-hl" data-anim="ar-bk-hl">Ας το κανονίσουμε</span></span>
+        <span class="line-wrap"><span class="ar-bk-hl" data-anim="ar-bk-hl"><em>μαζί.</em></span></span>
       </h2>
       <p class="ar-booking__sub">
-        Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε εντός λίγων ωρών για επιβεβαίωση.
+        Συμπλήρωσε τα στοιχεία σου — επικοινωνούμε εντός λίγων ωρών.
       </p>
     </div>
 
@@ -38,13 +38,13 @@
           <label for="ar-guests" class="ar-booking__label">Άτομα</label>
           <select id="ar-guests" name="guests" class="ar-booking__input">
             <option>1</option><option>2</option><option>3</option>
-            <option>4</option><option>5</option><option>6</option>
+            <option>4</option><option>5</option><option selected>6</option>
           </select>
         </div>
       </div>
       <div class="ar-booking__field">
         <label for="ar-msg" class="ar-booking__label">Σχόλια <span style="font-weight:300; color:var(--c-ink-3);">(προαιρετικό)</span></label>
-        <textarea id="ar-msg" name="message" class="ar-booking__input ar-booking__textarea" placeholder="Π.χ. ιδιαίτερες εορτές, αφίξεις αργά, μεταφορά…" rows="3"></textarea>
+        <textarea id="ar-msg" name="message" class="ar-booking__input ar-booking__textarea" placeholder="Π.χ. εορτασμός, αφίξεις αργά, μεταφορά από λιμάνι…" rows="3"></textarea>
       </div>
       <button type="submit" class="ar-booking__submit">Αποστολή αιτήματος</button>
     </form>
@@ -55,22 +55,21 @@
     <div class="ar-footer__inner ar-inner">
       <div class="ar-footer__brand">
         <p class="ar-footer__name">Αρχόντισσα</p>
-        <p class="eyebrow" style="color:var(--c-ink-3); margin-top:4px;">Άνω Σύρος · Κυκλάδες</p>
+        <p class="eyebrow eyebrow--sea" style="margin-top:4px;">Άνω Σύρος · Κυκλάδες</p>
       </div>
       <div class="ar-footer__links">
         <a href="mailto:stay@archontissa.gr" class="ar-footer__link">stay@archontissa.gr</a>
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="ar-footer__link">@archontissa.syros →</a>
       </div>
-      <p class="eyebrow" style="color:var(--c-border-2);">Demo — Instatok Agency</p>
+      <p class="eyebrow" style="color:rgba(200,217,245,0.35);">Demo — Instatok Agency</p>
     </div>
   </footer>
 </section>
 
 <style>
-  .ar-booking { background: var(--c-bg); padding-block-start: var(--s-9); }
+  .ar-booking { background: var(--c-bg-2); padding-block-start: var(--s-9); }
   .ar-booking__inner {
-    display: grid; gap: var(--s-8);
-    padding-block-end: var(--s-9);
+    display: grid; gap: var(--s-8); padding-block-end: var(--s-9);
   }
   @media (min-width: 860px) {
     .ar-booking__inner { grid-template-columns: 5fr 7fr; align-items: start; }
@@ -78,15 +77,14 @@
 
   .ar-booking__head { display: grid; gap: var(--s-5); }
 
-  .ar-section-title {
-    font-family: var(--f-display);
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 400; font-style: italic;
-    letter-spacing: -0.02em;
-    color: var(--c-ink); line-height: 1.0;
+  .ar-sec-title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--c-sea); line-height: 1.0;
   }
-  .ar-booking__title [data-anim="ar-bk-hl"] { display: block; opacity: 0; filter: blur(4px); }
-  .ar-booking__title em { font-style: italic; color: var(--c-sage); }
+  .ar-bk-hl { display: block; opacity: 0; }
+  .ar-booking__title em { font-style: italic; color: var(--c-cobalt); }
 
   .ar-booking__sub {
     font-family: var(--f-body); font-size: 0.9375rem;
@@ -101,51 +99,52 @@
   }
 
   .ar-booking__field { display: grid; gap: var(--s-2); }
-  .ar-booking__label { font-size: 0.75rem; font-weight: 500; color: var(--c-ink-2); }
+  .ar-booking__label {
+    font-family: var(--f-body); font-size: 0.6875rem;
+    font-weight: 500; color: var(--c-ink-2);
+  }
   .ar-booking__input {
     padding: 0.75rem 1rem;
-    background: var(--c-bg-2); border: 1px solid var(--c-border-2);
+    background: var(--c-bg); border: 1px solid var(--c-border-2);
     border-radius: var(--r-sm);
     font-family: var(--f-body); font-size: 0.9375rem; color: var(--c-ink);
     outline: none; width: 100%; appearance: none; -webkit-appearance: none;
     transition: border-color 0.2s;
   }
   .ar-booking__input::placeholder { color: var(--c-ink-3); }
-  .ar-booking__input:focus { border-color: var(--c-sage-3); }
+  .ar-booking__input:focus { border-color: var(--c-cobalt); }
   .ar-booking__textarea { resize: vertical; min-height: 5rem; }
   .ar-booking__submit {
     padding: 0.9rem 2rem; width: 100%;
-    background: var(--c-sage); color: #fff;
-    border: 1px solid var(--c-sage); border-radius: var(--r-sm);
-    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
+    background: var(--c-sea); color: #fff;
+    border: 1px solid var(--c-sea); border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.875rem; font-weight: 500;
     cursor: pointer; transition: background 0.2s, border-color 0.2s;
   }
-  .ar-booking__submit:hover { background: var(--c-sage-2); border-color: var(--c-sage-2); }
+  .ar-booking__submit:hover { background: var(--c-sea-2); border-color: var(--c-sea-2); }
 
   .ar-footer {
-    background: var(--c-ink);
+    background: var(--c-sea);
     padding-block: var(--s-7);
-    border-top: 1px solid rgba(249,248,245,0.06);
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
   .ar-footer__inner {
     display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: var(--s-5);
   }
   .ar-footer__name {
-    font-family: var(--f-display); font-size: 1.125rem;
-    font-weight: 400; font-style: italic;
-    color: var(--c-bg); letter-spacing: -0.01em;
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.375rem; font-weight: 400; color: #fff;
   }
   .ar-footer__links { display: flex; gap: var(--s-5); flex-wrap: wrap; }
   .ar-footer__link {
-    font-size: 0.8125rem; color: rgba(249,248,245,0.4); transition: color 0.2s;
+    font-size: 0.8125rem; color: rgba(200,217,245,0.5); transition: color 0.2s;
   }
-  .ar-footer__link:hover { color: var(--c-sage-3); }
+  .ar-footer__link:hover { color: var(--c-cobalt-2); }
 
   [data-anim="ar-bk-form"] { opacity: 0; }
   @media (prefers-reduced-motion: reduce) {
-    [data-anim="ar-bk-hl"] { opacity: 1 !important; filter: none !important; }
-    [data-anim="ar-bk-form"] { opacity: 1 !important; }
+    .ar-bk-hl, [data-anim="ar-bk-form"] { opacity: 1 !important; }
   }
 </style>
 
@@ -154,7 +153,8 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.to('[data-anim="ar-bk-hl"]',  { opacity: 1, filter: 'blur(0px)', duration: 0.8, stagger: 0.12, scrollTrigger: { trigger: '.ar-booking__title', start: 'top 85%' } });
+    gsap.set('.ar-bk-hl', { y: 20 });
+    gsap.to('.ar-bk-hl',            { opacity: 1, y: 0, duration: 0.85, stagger: 0.12, scrollTrigger: { trigger: '.ar-booking__title', start: 'top 85%' } });
     gsap.to('[data-anim="ar-bk-form"]', { opacity: 1, duration: 0.75, scrollTrigger: { trigger: '[data-anim="ar-bk-form"]', start: 'top 85%' } });
   });
 </script>
