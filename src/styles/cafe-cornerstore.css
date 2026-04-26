@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --c-ink:        #2C2C2C;
+  --c-ink-2:      #6B5A4E;
+  --c-ink-3:      #9B8070;
+  --c-bg:         #FDF8F2;
+  --c-bg-2:       #F5EDE3;
+  --c-terra:      #C67B5C;
+  --c-terra-deep: #A85E3F;
+  --c-sage:       #6B7B3C;
+  --c-sage-light: #8A9B58;
+  --c-border:     #DDD0C4;
+  --c-rule:       rgba(44, 44, 44, 0.09);
+
+  --f-display: "Playfair Display", Georgia, serif;
+  --f-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --f-mono:    "DM Mono", ui-monospace, "SF Mono", monospace;
+
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 4.5rem;   --s-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-terra) 18%, transparent);
+  color: var(--c-ink);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+.cafe-section-inner {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px)  { .cafe-section-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .cafe-section-inner { padding-inline: 4rem; } }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.section-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  border: none;
+  margin: 0;
+  transform-origin: left center;
+}

@@ -1,0 +1,190 @@
+---
+const schedule = [
+  { day: 'Δευτέρα',   time: '08:00',  type: 'Vinyasa Flow',    duration: '60΄', level: 'Όλα τα επίπεδα', spots: 3 },
+  { day: 'Τρίτη',     time: '07:30',  type: 'Vinyasa Flow',    duration: '60΄', level: 'Αρχάριοι+',      spots: 5 },
+  { day: 'Τρίτη',     time: '19:30',  type: 'Restorative',     duration: '75΄', level: 'Όλα τα επίπεδα', spots: 2 },
+  { day: 'Τετάρτη',   time: '08:00',  type: 'Vinyasa Flow',    duration: '60΄', level: 'Intermediate',   spots: 4 },
+  { day: 'Πέμπτη',    time: '07:30',  type: 'Vinyasa Flow',    duration: '60΄', level: 'Αρχάριοι+',      spots: 6 },
+  { day: 'Παρασκευή', time: '08:00',  type: 'Restorative',     duration: '75΄', level: 'Όλα τα επίπεδα', spots: 0 },
+  { day: 'Σάββατο',   time: '10:00',  type: 'Vinyasa Flow',    duration: '75΄', level: 'Intermediate',   spots: 1 },
+];
+---
+
+<section class="schedule" id="schedule" aria-labelledby="schedule-heading">
+  <hr class="section-rule schedule__rule" aria-hidden="true" />
+
+  <div class="schedule__inner yoga-section-inner">
+
+    <header class="schedule__header">
+      <p class="eyebrow" data-anim="reveal">Εβδομαδιαίο πρόγραμμα</p>
+      <h2 class="schedule__heading" id="schedule-heading" data-anim="reveal">
+        Βρες τη θέση σου
+      </h2>
+      <p class="schedule__note" data-anim="reveal">
+        Ιδιωτικά μαθήματα διαθέσιμα κατόπιν συνεννόησης — επικοινώνησε απευθείας.
+      </p>
+    </header>
+
+    <div class="schedule__table-wrap" role="region" aria-label="Πρόγραμμα μαθημάτων" tabindex="0">
+      <table class="schedule__table">
+        <thead>
+          <tr>
+            <th scope="col">Ημέρα</th>
+            <th scope="col">Ώρα</th>
+            <th scope="col">Τύπος</th>
+            <th scope="col">Διάρκεια</th>
+            <th scope="col">Επίπεδο</th>
+            <th scope="col">Θέσεις</th>
+          </tr>
+        </thead>
+        <tbody>
+          {schedule.map((row, i) => (
+            <tr class="schedule__row" data-anim="row" data-index={i}>
+              <td class="schedule__day">{row.day}</td>
+              <td class="schedule__time">{row.time}</td>
+              <td class="schedule__type">
+                <span class={`schedule__badge ${row.type === 'Restorative' ? 'schedule__badge--restore' : ''}`}>
+                  {row.type}
+                </span>
+              </td>
+              <td class="schedule__dur">{row.duration}</td>
+              <td class="schedule__level">{row.level}</td>
+              <td class="schedule__spots">
+                {row.spots === 0
+                  ? <span class="schedule__full eyebrow">Πλήρης</span>
+                  : <a href="#booking" class="schedule__book">{row.spots} θέσεις →</a>
+                }
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .schedule {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+  .schedule__rule { margin-bottom: 0; }
+  .schedule__inner { padding-block-start: var(--s-7); }
+
+  .schedule__header { margin-bottom: var(--s-7); }
+  .schedule__header .eyebrow { margin-bottom: var(--s-3); }
+  .schedule__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-4);
+  }
+  .schedule__note {
+    font-size: 0.9rem;
+    color: var(--c-ink-2);
+    max-width: 48ch;
+  }
+
+  .schedule__table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--c-border);
+  }
+
+  .schedule__table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+  }
+  .schedule__table thead tr {
+    border-bottom: 1px solid var(--c-border);
+  }
+  .schedule__table th {
+    font-family: var(--f-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    padding: var(--s-3) var(--s-4);
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .schedule__row {
+    border-bottom: 1px solid var(--c-rule);
+    transition: background 0.15s;
+  }
+  .schedule__row:last-child { border-bottom: none; }
+  .schedule__row:hover { background: var(--c-bg-2); }
+
+  .schedule__table td {
+    padding: var(--s-3) var(--s-4);
+    font-size: 0.9375rem;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .schedule__day { font-weight: 500; color: var(--c-ink); }
+  .schedule__time { font-family: var(--f-mono); font-size: 0.82rem; color: var(--c-ink-2); }
+  .schedule__dur  { font-family: var(--f-mono); font-size: 0.82rem; color: var(--c-ink-3); }
+  .schedule__level { font-size: 0.875rem; color: var(--c-ink-2); }
+
+  .schedule__badge {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    background: color-mix(in srgb, var(--c-clay) 12%, transparent);
+    color: var(--c-clay-deep);
+  }
+  .schedule__badge--restore {
+    background: color-mix(in srgb, var(--c-ink-3) 12%, transparent);
+    color: var(--c-ink-2);
+  }
+
+  .schedule__full {
+    color: var(--c-ink-3);
+    font-size: 0.62rem;
+  }
+  .schedule__book {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--c-clay);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .schedule__book:hover { border-color: var(--c-clay); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.schedule__rule',
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.schedule', start: 'top 90%' } });
+
+    gsap.utils.toArray<HTMLElement>('.schedule [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 0.8,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    gsap.utils.toArray<HTMLElement>('.schedule__row').forEach((el, i) => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, x: -12 },
+        { autoAlpha: 1, x: 0, duration: 0.5, delay: i * 0.055,
+          scrollTrigger: { trigger: '.schedule__table', start: 'top 85%', toggleActions: 'play none none none' } });
+    });
+  });
+</script>

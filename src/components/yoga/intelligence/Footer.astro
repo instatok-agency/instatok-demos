@@ -1,0 +1,101 @@
+---
+---
+
+<footer class="footer" role="contentinfo">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="footer__inner yoga-section-inner">
+
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <p class="footer__name">Έλενα Παπαδάκη</p>
+        <p class="footer__tagline eyebrow">Yoga · Παγκράτι · Αθήνα</p>
+        <p class="footer__cert eyebrow">RYT-500 · Yoga Alliance</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#about">Ποια είμαι</a></li>
+          <li><a href="#classes">Τάξεις</a></li>
+          <li><a href="#schedule">Πρόγραμμα</a></li>
+          <li><a href="#pricing">Τιμές</a></li>
+          <li><a href="#booking">Κράτηση</a></li>
+          <li><a href="#studio">Studio</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="eyebrow footer__contact-label">Επικοινωνία</p>
+        <a href="tel:+302101234567" class="footer__contact-link">+30 210 123 4567</a>
+        <a href="mailto:elena@yoga-papadaki.gr" class="footer__contact-link">elena@yoga-papadaki.gr</a>
+        <p class="footer__address eyebrow">Υμηττού 42, Παγκράτι · 116 35 Αθήνα</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="eyebrow footer__copy">© {new Date().getFullYear()} Έλενα Παπαδάκη · Yoga Studio</p>
+      <p class="eyebrow footer__demo-note">Demo — Instatok Agency</p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-6);
+  }
+  .footer > .section-rule { margin-bottom: 0; }
+  .footer__inner { padding-block-start: var(--s-7); }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--s-7);
+    padding-bottom: var(--s-7);
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .footer__name {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--s-2);
+  }
+  .footer__tagline { margin-bottom: var(--s-1); }
+  .footer__cert { color: var(--c-clay); }
+
+  .footer__nav ul { list-style: none; display: grid; gap: var(--s-2); }
+  .footer__nav a {
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    transition: color 0.18s;
+  }
+  .footer__nav a:hover { color: var(--c-clay); }
+
+  .footer__contact { display: grid; gap: var(--s-2); }
+  .footer__contact-label { margin-bottom: var(--s-1); }
+  .footer__contact-link {
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    transition: color 0.18s;
+  }
+  .footer__contact-link:hover { color: var(--c-clay); }
+  .footer__address { margin-top: var(--s-2); }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    padding-top: var(--s-5);
+    color: var(--c-ink-3);
+  }
+
+  @media (min-width: 768px) {
+    .footer__grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>

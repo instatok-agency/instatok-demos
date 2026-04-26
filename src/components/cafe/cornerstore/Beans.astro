@@ -1,0 +1,229 @@
+---
+const origins = [
+  {
+    country: 'Αιθιοπία',
+    region: 'Yirgacheffe, Gedeo Zone',
+    producer: 'Kochere Washing Station',
+    process: 'Washed',
+    altitude: '1.800–2.100m',
+    roast: 'Light',
+    notes: ['Τριαντάφυλλο', 'Βερίκοκο', 'Γιασεμί', 'Πορτοκάλι'],
+    story: 'Από τις καλύτερες περιοχές καφέ στον κόσμο. Το Kochere washing station επεξεργάζεται χερσαία cherry από μικροκαλλιεργητές της περιοχής.',
+    available: true,
+  },
+  {
+    country: 'Κολομβία',
+    region: 'Huila, Acevedo',
+    producer: 'Luis Aníbal Calderón',
+    process: 'Natural',
+    altitude: '1.650m',
+    roast: 'Medium-Light',
+    notes: ['Μπανάνα', 'Σταφίδα', 'Κακάο', 'Brown sugar'],
+    story: 'Ο Luis καλλιεργεί καφέ τρίτης γενιάς στο Huila. Η natural επεξεργασία δίνει ένα γλυκό, φρουτώδες προφίλ που συνδυάζεται εξαιρετικά σε V60.',
+    available: true,
+  },
+  {
+    country: 'Κένυα',
+    region: 'Kirinyaga County',
+    producer: 'Baragwi Farmers Cooperative',
+    process: 'Washed (Double)',
+    altitude: '1.700–1.900m',
+    roast: 'Light-Medium',
+    notes: ['Μαύρο σταφύλι', 'Γκρέιπφρουτ', 'Ντομάτα', 'Κασίς'],
+    story: 'Κενυάτικος καφέ με την χαρακτηριστική υψηλή οξύτητα και πολυπλοκότητα. Ιδανικό για filter — αποκαλύπτεται αργά καθώς κρυώνει.',
+    available: false,
+  },
+];
+---
+
+<section class="beans" id="beans" aria-labelledby="beans-heading">
+  <hr class="section-rule beans__rule" aria-hidden="true" />
+
+  <div class="beans__inner cafe-section-inner">
+
+    <header class="beans__header">
+      <p class="eyebrow" data-anim="reveal">Το Roastery μας</p>
+      <h2 class="beans__heading" id="beans-heading" data-anim="reveal">
+        Τα origins<br />που ψήνουμε τώρα
+      </h2>
+      <p class="beans__note" data-anim="reveal">
+        Ψήνουμε μικρές παρτίδες σε εβδομαδιαία βάση. Τα origins αλλάζουν εποχιακά
+        — ακολουθούμε τις παρτίδες που κάνουν καλή δουλειά, όχι το δημοφιλές.
+      </p>
+    </header>
+
+    <div class="beans__grid">
+      {origins.map((origin, i) => (
+        <article class={`bean-card ${!origin.available ? 'bean-card--unavailable' : ''}`} data-anim="card">
+          <div class="bean-card__top">
+            <div class="bean-card__country-row">
+              <span class="bean-card__country">{origin.country}</span>
+              {!origin.available && (
+                <span class="bean-card__status eyebrow">Εποχικό — επιστρέφει</span>
+              )}
+              {origin.available && (
+                <span class="bean-card__status bean-card__status--live eyebrow">● Live</span>
+              )}
+            </div>
+            <p class="bean-card__region eyebrow">{origin.region}</p>
+          </div>
+
+          <div class="bean-card__meta">
+            <div class="bean-card__meta-item">
+              <span class="eyebrow bean-card__meta-label">Παραγωγός</span>
+              <span class="bean-card__meta-val">{origin.producer}</span>
+            </div>
+            <div class="bean-card__meta-item">
+              <span class="eyebrow bean-card__meta-label">Επεξεργασία</span>
+              <span class="bean-card__meta-val">{origin.process}</span>
+            </div>
+            <div class="bean-card__meta-item">
+              <span class="eyebrow bean-card__meta-label">Υψόμετρο</span>
+              <span class="bean-card__meta-val">{origin.altitude}</span>
+            </div>
+            <div class="bean-card__meta-item">
+              <span class="eyebrow bean-card__meta-label">Roast</span>
+              <span class="bean-card__meta-val">{origin.roast}</span>
+            </div>
+          </div>
+
+          <div class="bean-card__notes">
+            <p class="eyebrow bean-card__notes-label">Γευστικές νότες</p>
+            <ul class="bean-card__notes-list">
+              {origin.notes.map(note => (
+                <li class="bean-card__note-tag">{note}</li>
+              ))}
+            </ul>
+          </div>
+
+          <p class="bean-card__story">{origin.story}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .beans {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+  .beans__rule { margin-bottom: 0; }
+  .beans__inner { padding-block-start: var(--s-7); }
+
+  .beans__header { margin-bottom: var(--s-7); }
+  .beans__header .eyebrow { margin-bottom: var(--s-3); }
+  .beans__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-4);
+  }
+  .beans__note {
+    font-size: 0.9rem;
+    color: var(--c-ink-2);
+    max-width: 52ch;
+  }
+
+  .beans__grid {
+    display: grid;
+    gap: 1px;
+    background: var(--c-border);
+    border: 1px solid var(--c-border);
+  }
+
+  .bean-card {
+    background: var(--c-bg);
+    padding: var(--s-5) var(--s-5) var(--s-6);
+    display: grid;
+    gap: var(--s-4);
+  }
+  .bean-card--unavailable { opacity: 0.55; }
+
+  .bean-card__country-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .bean-card__country {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+  }
+  .bean-card__status { color: var(--c-ink-3); }
+  .bean-card__status--live { color: var(--c-sage); }
+  .bean-card__region { color: var(--c-terra); margin-top: var(--s-1); }
+
+  .bean-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-3) var(--s-5);
+    padding-block: var(--s-4);
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+  }
+  .bean-card__meta-item { display: flex; flex-direction: column; gap: var(--s-1); }
+  .bean-card__meta-label { color: var(--c-ink-3); }
+  .bean-card__meta-val { font-size: 0.9rem; color: var(--c-ink-2); }
+
+  .bean-card__notes-label { margin-bottom: var(--s-2); }
+  .bean-card__notes-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+  .bean-card__note-tag {
+    font-family: var(--f-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--c-border);
+    color: var(--c-ink-2);
+  }
+
+  .bean-card__story {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--c-ink-3);
+    max-width: 55ch;
+  }
+
+  @media (min-width: 768px) { .beans__grid { grid-template-columns: repeat(3, 1fr); } }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.beans__rule',
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.beans', start: 'top 90%' } });
+
+    gsap.utils.toArray<HTMLElement>('.beans [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 0.8,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    gsap.utils.toArray<HTMLElement>('.bean-card').forEach((el, i) => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 28 },
+        { autoAlpha: 1, y: 0, duration: 0.8, delay: i * 0.1,
+          scrollTrigger: { trigger: '.beans__grid', start: 'top 85%', toggleActions: 'play none none none' } });
+    });
+  });
+</script>

@@ -1,0 +1,188 @@
+---
+const cases = [
+  {
+    initial: 'Μ.Κ.',
+    role: 'Senior Brand Manager, FMCG · 38 ετών',
+    duration: '6 μήνες coaching',
+    narrative: `Ήρθε με το ερώτημα: «Πώς να πάρω promotion;» Μέχρι το τέλος του τρίτου μήνα, το ερώτημα είχε γίνει: «Θέλω πράγματι αυτή τη δουλειά;»
+
+Είχε δουλέψει 8 χρόνια στον ίδιο οργανισμό, ήξερε πώς να παίζει το game, και ήταν καλή σε αυτό. Αλλά όταν της ρώτησα πότε ένιωσε τελευταία φορά ότι κάτι στη δουλειά της είχε νόημα — σταμάτησε και σκέφτηκε για πολύ ώρα.
+
+Έξι μήνες μετά, βρίσκεται σε μικρότερη εταιρεία του κλάδου σε διπλό ρόλο strategy/marketing, με λιγότερα χρήματα αλλά με σαφώς μεγαλύτερη αίσθηση ότι η δουλειά της είναι δική της. Αυτό ήταν το transition — όχι ο τίτλος.`,
+    outcome: 'Career pivot σε μικρότερο, ανθρωπιστικό περιβάλλον',
+  },
+  {
+    initial: 'Δ.Π.',
+    role: 'Head of Operations, Consulting · 45 ετών',
+    duration: '12 μήνες coaching',
+    narrative: `Τον γνώρισα σε μια φάση που ήδη ήξερε ότι ήθελε να φύγει — απλώς δεν ήξερε τι σήμαινε «φύγω» όταν η ταυτότητά σου είναι τόσο συνδεδεμένη με τον τίτλο και τον οργανισμό που εκπροσωπείς.
+
+Η δουλειά μας ήταν σε δύο επίπεδα: πρακτικό (πότε, πώς, με τι fallback plan) και ψυχολογικό (τι χάνει πραγματικά, τι φοβάται να παραδεχτεί ότι χάνει, και τι κερδίζει που δεν το λέει φωναχτά).
+
+Δώδεκα μήνες μετά έχει ιδρύσει boutique consulting με εξειδίκευση σε change management. Οι πρώτοι δύο πελάτες ήρθαν από το network που είχε χτίσει — αλλά ποτέ δεν είχε σκεφτεί ότι μπορούσε να το χρησιμοποιήσει διαφορετικά.`,
+    outcome: 'Ίδρυση ανεξάρτητου consulting firm',
+  },
+];
+---
+
+<section class="transformations" id="transformations" aria-labelledby="transformations-heading">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="transformations__inner coach-section-inner">
+
+    <header class="transformations__header">
+      <p class="eyebrow">Case Studies</p>
+      <h2 class="transformations__heading" id="transformations-heading">
+        Ιστορίες που<br />αναγνωρίζεις
+      </h2>
+      <p class="transformations__note">
+        Δύο careers, δύο διαφορετικά σταυροδρόμια, μία κοινή απόφαση:
+        να σταματήσουν να φοβούνται την ερώτηση.
+      </p>
+    </header>
+
+    <div class="transformations__list">
+      {cases.map((c, i) => (
+        <article class="case" aria-labelledby={`case-heading-${i}`}>
+
+          <div class="case__meta">
+            <div class="case__id">
+              <span class="case__initial">{c.initial}</span>
+              <div>
+                <p class="case__role eyebrow">{c.role}</p>
+                <p class="case__duration eyebrow">{c.duration}</p>
+              </div>
+            </div>
+            <div class="case__outcome-tag eyebrow">
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true" width="10" height="10">
+                <path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {c.outcome}
+            </div>
+          </div>
+
+          <div class="case__narrative">
+            {c.narrative.split('\n\n').map(para => (
+              <p>{para}</p>
+            ))}
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+    <footer class="transformations__disclaimer" role="note">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="13" height="13">
+        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M8 7v4M8 5.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <p>
+        Όλες οι ιστορίες είναι αληθινές. Ονόματα και λεπτομέρειες έχουν αλλαχθεί
+        για προστασία της εμπιστευτικότητας. Δημοσιεύονται με συγκατάθεση των
+        πελατών σύμφωνα με τις κατευθυντήριες γραμμές ICF.
+      </p>
+    </footer>
+
+  </div>
+</section>
+
+<style>
+  .transformations {
+    background: var(--c-bg-2);
+    padding-block: 0 var(--s-9);
+  }
+  .transformations__inner { padding-block-start: var(--s-7); }
+
+  .transformations__header { margin-bottom: var(--s-8); }
+  .transformations__header .eyebrow { margin-bottom: var(--s-3); }
+  .transformations__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-4);
+  }
+  .transformations__note {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+    max-width: 52ch;
+  }
+
+  .transformations__list { display: grid; gap: 0; }
+
+  .case {
+    padding-block: var(--s-7);
+    border-top: 1px solid var(--c-border);
+    display: grid;
+    gap: var(--s-6);
+  }
+  .case:last-of-type { border-bottom: 1px solid var(--c-border); }
+
+  .case__meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-4);
+  }
+  .case__id {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+  }
+  .case__initial {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-display);
+    font-size: 1.1rem;
+    color: var(--c-ink);
+    flex-shrink: 0;
+    background: var(--c-bg);
+  }
+  .case__role { color: var(--c-ink-2); margin-bottom: var(--s-1); }
+  .case__duration { color: var(--c-amber); }
+  .case__outcome-tag {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+    color: var(--c-ink-3);
+    font-size: 0.62rem;
+  }
+  .case__outcome-tag svg { color: var(--c-amber); flex-shrink: 0; }
+
+  .case__narrative { display: grid; gap: var(--s-4); }
+  .case__narrative p {
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--c-ink-2);
+    max-width: 68ch;
+  }
+
+  .transformations__disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--s-3);
+    margin-top: var(--s-7);
+    padding: var(--s-4);
+    border: 1px solid var(--c-border);
+    background: var(--c-bg);
+  }
+  .transformations__disclaimer svg { flex-shrink: 0; color: var(--c-ink-3); margin-top: 0.15rem; }
+  .transformations__disclaimer p {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--c-ink-3);
+    line-height: 1.65;
+  }
+
+  @media (min-width: 1024px) {
+    .case { grid-template-columns: 280px 1fr; align-items: start; }
+  }
+</style>

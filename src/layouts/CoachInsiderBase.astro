@@ -1,0 +1,52 @@
+---
+import '../styles/coach-insider.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Νίκος Σπυρόπουλος · Executive Coach Αθήνα',
+  description = 'Career transition coaching για professionals 35–50. Ex-corporate executive, ICF-PCC certified. Πακέτα €1.200–€4.500. Discovery call δωρεάν.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FAFAF9" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="/coach" class="back-link">← demos</a>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body { position: relative; }
+  .back-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: rgba(155, 143, 137, 0.6);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #1C1917; }
+</style>

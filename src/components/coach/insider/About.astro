@@ -1,0 +1,134 @@
+---
+---
+
+<section class="about" id="about" aria-labelledby="about-heading">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="about__inner coach-section-inner">
+
+    <div class="about__grid">
+
+      <div class="about__text">
+        <p class="eyebrow about__eyebrow">Ποιος είμαι</p>
+        <h2 class="about__heading" id="about-heading">
+          12 χρόνια μέσα.<br />Τώρα βοηθώ άλλους<br />να βγουν.
+        </h2>
+
+        <p class="about__para">
+          Ξεκίνησα στη διαφήμιση, πέρασα από project management σε ανώτατη διοίκηση,
+          και σε 10 χρόνια διαχειρίστηκα ομάδες, budgets και αποφάσεις που ένιωθαν
+          σαν να έχουν πάντα κάποιο κόστος που δεν αναφέρεται στο slide.
+        </p>
+        <p class="about__para">
+          Στα 40 μου, σε μια θέση που άλλοι θεωρούσαν «επιτυχία», κατάλαβα ότι
+          έκανα πολύ καλά μια δουλειά που δεν ήθελα πλέον να κάνω. Αυτό δεν είναι
+          κρίση. Είναι σήμα. Και χρειάζεται κάποιον που έχει ακούσει το ίδιο σήμα
+          — και ξέρει πώς να το αποκωδικοποιήσει.
+        </p>
+        <p class="about__para">
+          Εκπαιδεύτηκα ως coach μετά, πήρα πιστοποίηση ICF-PCC, και δουλεύω
+          αποκλειστικά με professionals 35–50 που βρίσκονται σε παρόμοιο σταυροδρόμι.
+          Όχι burnout coaches, όχι mindset gurus. Δουλειά.
+        </p>
+
+        <ul class="about__creds eyebrow">
+          <li>ICF Professional Certified Coach (PCC)</li>
+          <li>12 χρόνια senior corporate leadership</li>
+          <li>Τομείς: Media, FMCG, Consulting</li>
+          <li>Remote sessions · Αθήνα-based</li>
+        </ul>
+      </div>
+
+      <figure class="about__figure" aria-label="Νίκος Σπυρόπουλος">
+        <div class="about__frame">
+          <img
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&fit=crop&crop=top"
+            alt="Νίκος Σπυρόπουλος, Executive Coach"
+            class="about__photo"
+            loading="lazy"
+            width="600"
+            height="780"
+          />
+        </div>
+        <figcaption class="about__figcaption eyebrow">
+          Νίκος Σπυρόπουλος<br />
+          <em>Executive Coach · ICF-PCC · Αθήνα</em>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+  .about__inner { padding-block-start: var(--s-7); }
+
+  .about__grid { display: grid; gap: var(--s-7); }
+
+  .about__eyebrow { margin-bottom: var(--s-3); }
+  .about__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-6);
+  }
+
+  .about__para {
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--c-ink-2);
+    max-width: 58ch;
+  }
+  .about__para + .about__para { margin-top: var(--s-4); }
+
+  .about__creds {
+    list-style: none;
+    margin-top: var(--s-6);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-5);
+  }
+  .about__creds li { position: relative; }
+  .about__creds li + li::before {
+    content: "·";
+    position: absolute;
+    left: calc(var(--s-5) * -1 - 0.3ch);
+    color: var(--c-amber);
+  }
+
+  .about__figure { display: grid; gap: var(--s-3); }
+  .about__frame {
+    border: 1px solid var(--c-border);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .about__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: sepia(5%) contrast(1.03) grayscale(10%);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .about__frame:hover .about__photo { transform: scale(1.02); }
+  .about__figcaption { color: var(--c-ink-3); line-height: 1.5; }
+  .about__figcaption em {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--c-ink-2);
+  }
+
+  @media (min-width: 1024px) {
+    .about__grid { grid-template-columns: 1fr 300px; align-items: start; }
+    .about__frame { aspect-ratio: auto; height: 480px; }
+  }
+</style>

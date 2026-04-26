@@ -1,0 +1,89 @@
+---
+---
+
+<footer class="footer" role="contentinfo">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="footer__inner coach-section-inner">
+
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <p class="footer__name">Νίκος Σπυρόπουλος</p>
+        <p class="footer__cred eyebrow">Executive Coach · ICF-PCC</p>
+        <p class="footer__location eyebrow">Αθήνα · Remote Sessions</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#about">Ποιος είμαι</a></li>
+          <li><a href="#approach">Προσέγγιση</a></li>
+          <li><a href="#packages">Πακέτα</a></li>
+          <li><a href="#transformations">Case Studies</a></li>
+          <li><a href="#contact">Discovery Call</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="eyebrow footer__contact-label">Επικοινωνία</p>
+        <a href="mailto:nikos@spyropoulos.coach" class="footer__link">nikos@spyropoulos.coach</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer__link footer__linkedin eyebrow">LinkedIn →</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="eyebrow footer__copy">© {new Date().getFullYear()} Νίκος Σπυρόπουλος · Executive Coach</p>
+      <p class="eyebrow footer__demo">Demo — Instatok Agency</p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-6);
+  }
+  .footer > .section-rule { margin-bottom: 0; }
+  .footer__inner { padding-block-start: var(--s-7); }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--s-7);
+    padding-bottom: var(--s-7);
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .footer__name {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--s-2);
+  }
+  .footer__cred { color: var(--c-amber); margin-bottom: var(--s-1); }
+  .footer__location { color: var(--c-ink-3); }
+
+  .footer__nav ul { list-style: none; display: grid; gap: var(--s-2); }
+  .footer__nav a { font-size: 0.9375rem; color: var(--c-ink-2); transition: color 0.18s; }
+  .footer__nav a:hover { color: var(--c-amber); }
+
+  .footer__contact { display: grid; gap: var(--s-2); }
+  .footer__contact-label { margin-bottom: var(--s-1); }
+  .footer__link { font-size: 0.9375rem; color: var(--c-ink-2); transition: color 0.18s; }
+  .footer__link:hover { color: var(--c-amber); }
+  .footer__linkedin { font-size: 0.7rem; margin-top: var(--s-2); }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    padding-top: var(--s-5);
+    color: var(--c-ink-3);
+  }
+
+  @media (min-width: 768px) { .footer__grid { grid-template-columns: 1fr 1fr 1fr; } }
+</style>

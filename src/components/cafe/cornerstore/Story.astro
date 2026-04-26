@@ -1,0 +1,194 @@
+---
+---
+
+<section class="story" id="story" aria-labelledby="story-heading">
+  <hr class="section-rule story__rule" aria-hidden="true" />
+
+  <div class="story__inner cafe-section-inner">
+
+    <div class="story__grid">
+
+      <figure class="story__figure" data-anim="photo" aria-hidden="true">
+        <div class="story__frame">
+          <img
+            src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=700&q=80&fit=crop&crop=top"
+            alt="Barista στο Aletri Coffee"
+            class="story__photo"
+            loading="lazy"
+            width="700"
+            height="900"
+          />
+        </div>
+        <figcaption class="story__caption eyebrow">
+          Ανδρέας &amp; Σοφία<br />
+          <em>Ιδιοκτήτες · Aletri Coffee</em>
+        </figcaption>
+      </figure>
+
+      <div class="story__text">
+        <p class="eyebrow" data-anim="reveal">Η ιστορία μας</p>
+        <h2 class="story__heading" id="story-heading" data-anim="reveal">
+          Γιατί ανοίξαμε<br />αυτό το καφέ
+        </h2>
+
+        <div class="story__body">
+          <p data-anim="reveal">
+            Φύγαμε για Μελβούρνη σε μια εποχή που η Αθήνα έμοιαζε πολύ μικρή.
+            Εκεί ανακαλύψαμε κάτι που δεν είχαμε όνομα γι' αυτό τότε:
+            specialty coffee. Καφέ με ιστορία, τόπο και γεύση που δεν
+            χρειαζόταν ζάχαρη για να γίνει πιο ευχάριστος.
+          </p>
+          <p data-anim="reveal">
+            Πέντε χρόνια μετά, γυρίσαμε. Φέραμε μαζί μας ό,τι μάθαμε
+            — τεχνική, σεβασμό για τον παραγωγό, και την πεποίθηση ότι
+            ένα καλό καφέ αλλάζει πώς μοιάζει η μέρα σου.
+          </p>
+          <p data-anim="reveal">
+            Το Aletri ξεκίνησε ως μια ιδέα σε ένα σημειωματάριο στο Fitzroy.
+            Σήμερα ψήνουμε μόνοι μας, επιλέγουμε origins που μας λένε κάτι,
+            και μαγειρεύουμε brunch που αξίζει να στείλεις αργά το πρωί.
+          </p>
+        </div>
+
+        <blockquote class="story__quote" data-anim="reveal">
+          <p>«Δεν θέλαμε να ανοίξουμε ένα ακόμα καφέ. Θέλαμε να ανοίξουμε
+          αυτό που θα θέλαμε να βρούμε εμείς.»</p>
+          <footer class="story__quote-attr eyebrow">— Ανδρέας &amp; Σοφία, ιδιοκτήτες</footer>
+        </blockquote>
+
+        <div class="story__stats" data-anim="reveal">
+          <div class="story__stat">
+            <span class="story__stat-num">5</span>
+            <span class="eyebrow story__stat-label">χρόνια λειτουργίας</span>
+          </div>
+          <div class="story__stat">
+            <span class="story__stat-num">8+</span>
+            <span class="eyebrow story__stat-label">single origins / εποχή</span>
+          </div>
+          <div class="story__stat">
+            <span class="story__stat-num">100%</span>
+            <span class="eyebrow story__stat-label">δικό μας ψήσιμο</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+  .story__rule { margin-bottom: 0; }
+  .story__inner { padding-block-start: var(--s-7); }
+
+  .story__grid { display: grid; gap: var(--s-7); }
+
+  .story__figure { display: grid; gap: var(--s-3); }
+  .story__frame {
+    border: 1px solid var(--c-border);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .story__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: sepia(12%) contrast(1.04) saturate(0.9);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .story__frame:hover .story__photo { transform: scale(1.02); }
+  .story__caption { color: var(--c-ink-3); line-height: 1.5; }
+  .story__caption em {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--c-ink-2);
+  }
+
+  .story__text .eyebrow { margin-bottom: var(--s-3); }
+  .story__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-6);
+  }
+
+  .story__body { display: grid; gap: var(--s-4); margin-bottom: var(--s-6); }
+  .story__body p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-ink-2);
+    max-width: 55ch;
+  }
+
+  .story__quote {
+    padding: var(--s-5);
+    border-left: 2px solid var(--c-terra);
+    background: var(--c-bg-2);
+    margin-bottom: var(--s-6);
+  }
+  .story__quote p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--c-ink);
+    margin-bottom: var(--s-3);
+  }
+  .story__quote-attr { color: var(--c-ink-3); }
+
+  .story__stats {
+    display: flex;
+    gap: var(--s-6);
+    flex-wrap: wrap;
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+  }
+  .story__stat { display: flex; flex-direction: column; gap: var(--s-1); }
+  .story__stat-num {
+    font-family: var(--f-display);
+    font-size: 2.25rem;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--c-ink);
+    line-height: 1;
+  }
+  .story__stat-label { color: var(--c-ink-3); }
+
+  @media (min-width: 1024px) {
+    .story__grid { grid-template-columns: 340px 1fr; align-items: start; }
+    .story__frame { aspect-ratio: auto; height: 520px; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.story__rule',
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.story', start: 'top 90%' } });
+
+    gsap.utils.toArray<HTMLElement>('.story [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 22 },
+        { autoAlpha: 1, y: 0, duration: 0.85,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    gsap.fromTo('.story__frame',
+      { autoAlpha: 0, scale: 1.04 },
+      { autoAlpha: 1, scale: 1, duration: 1.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.story__figure', start: 'top 85%' } });
+  });
+</script>

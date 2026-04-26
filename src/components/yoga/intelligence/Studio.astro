@@ -1,0 +1,175 @@
+---
+---
+
+<section class="studio" id="studio" aria-labelledby="studio-heading">
+  <hr class="section-rule studio__rule" aria-hidden="true" />
+
+  <div class="studio__inner yoga-section-inner">
+
+    <div class="studio__grid">
+
+      <div class="studio__photo-col" data-anim="photo">
+        <div class="studio__frame">
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=80&fit=crop"
+            alt="Το studio yoga της Έλενας Παπαδάκη στο Παγκράτι"
+            class="studio__photo"
+            loading="lazy"
+            width="900"
+            height="600"
+          />
+        </div>
+      </div>
+
+      <div class="studio__info">
+        <p class="eyebrow" data-anim="reveal">Το studio</p>
+        <h2 class="studio__heading" id="studio-heading" data-anim="reveal">
+          Στο κέντρο<br />του Παγκρατίου
+        </h2>
+
+        <p class="studio__para" data-anim="reveal">
+          Ένας ήσυχος χώρος 80τμ με φυσικό φως, ξύλινο πάτωμα και όλα τα props
+          που χρειάζεσαι. Χωρητικότητα έως 10 άτομα — επίτηδες μικρός, για να
+          μπορούμε να εργαστούμε με πρόσοχή.
+        </p>
+
+        <dl class="studio__facts" data-anim="reveal">
+          <div class="studio__fact">
+            <dt class="eyebrow">Διεύθυνση</dt>
+            <dd>Υμηττού 42, Παγκράτι<br />116 35 Αθήνα</dd>
+          </div>
+          <div class="studio__fact">
+            <dt class="eyebrow">Μεταφορά</dt>
+            <dd>5΄ από Μετρό Ευαγγελισμός<br />Στάση λεωφορείου: Ιμηττού</dd>
+          </div>
+          <div class="studio__fact">
+            <dt class="eyebrow">Ωράριο γραφείου</dt>
+            <dd>Δευτ–Παρ: 07:00–21:00<br />Σαββ: 09:30–13:30</dd>
+          </div>
+          <div class="studio__fact">
+            <dt class="eyebrow">Τηλέφωνο</dt>
+            <dd><a href="tel:+302101234567">+30 210 123 4567</a></dd>
+          </div>
+        </dl>
+
+        <a
+          href="https://maps.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="studio__map-link"
+          data-anim="reveal"
+        >
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="14" height="14">
+            <path d="M10 2C6.686 2 4 4.686 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Οδηγίες στο χάρτη →</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .studio {
+    background: var(--c-bg-2);
+    padding-block: 0 var(--s-9);
+  }
+  .studio__rule { margin-bottom: 0; }
+  .studio__inner { padding-block-start: var(--s-7); }
+
+  .studio__grid { display: grid; gap: var(--s-7); }
+
+  .studio__frame {
+    border: 1px solid var(--c-border);
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+  }
+  .studio__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(8%) contrast(1.03);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .studio__frame:hover .studio__photo { transform: scale(1.02); }
+
+  .studio__info .eyebrow { margin-bottom: var(--s-3); }
+  .studio__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-5);
+  }
+  .studio__para {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+    max-width: 48ch;
+    margin-bottom: var(--s-6);
+  }
+
+  .studio__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-4) var(--s-6);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    margin-bottom: var(--s-5);
+  }
+  .studio__fact dt { margin-bottom: var(--s-1); }
+  .studio__fact dd {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--c-ink-2);
+  }
+  .studio__fact dd a { color: var(--c-clay); }
+  .studio__fact dd a:hover { text-decoration: underline; }
+
+  .studio__map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-clay);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.125rem;
+    transition: color 0.2s;
+  }
+  .studio__map-link:hover { color: var(--c-clay-deep); }
+
+  @media (min-width: 1024px) {
+    .studio__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.studio__rule',
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.studio', start: 'top 90%' } });
+
+    gsap.utils.toArray<HTMLElement>('.studio [data-anim="reveal"]').forEach(el => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 0.8,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    gsap.fromTo('[data-anim="photo"]',
+      { autoAlpha: 0, scale: 1.04 },
+      { autoAlpha: 1, scale: 1, duration: 1.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '[data-anim="photo"]', start: 'top 85%' } });
+  });
+</script>

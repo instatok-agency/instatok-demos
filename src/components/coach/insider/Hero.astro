@@ -1,0 +1,148 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+  <div class="hero__inner coach-section-inner">
+
+    <div class="hero__content">
+
+      <p class="hero__eyebrow eyebrow" >
+        Executive Coach · Αθήνα · ICF-PCC
+      </p>
+
+      <h1 class="hero__name" id="hero-headline">
+        Νίκος<br />Σπυρόπουλος
+      </h1>
+
+      <p class="hero__statement">
+        Βοηθώ executives να βγουν από θέσεις<br class="hero__br" />
+        που δεν τους χωράνε πλέον.
+      </p>
+
+      <div class="hero__metrics" aria-label="Εμπειρία και στοιχεία">
+        <div class="hero__metric">
+          <span class="hero__metric-num">12</span>
+          <span class="hero__metric-label eyebrow">χρόνια corporate<br />leadership</span>
+        </div>
+        <div class="hero__metric">
+          <span class="hero__metric-num">30+</span>
+          <span class="hero__metric-label eyebrow">professionals<br />coached σε transition</span>
+        </div>
+        <div class="hero__metric">
+          <span class="hero__metric-num">ICF</span>
+          <span class="hero__metric-label eyebrow">PCC certified<br />coach</span>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <a href="#contact" class="hero__cta hero__cta--primary">
+          <span>Δωρεάν discovery call</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#packages" class="hero__cta hero__cta--ghost">Δες τα πακέτα</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--c-bg);
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--s-9) var(--s-7);
+  }
+  .hero__inner { width: 100%; }
+
+  .hero__content {
+    display: grid;
+    gap: var(--s-6);
+    max-width: 52rem;
+  }
+
+  .hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+  .hero__eyebrow::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--c-amber);
+    flex-shrink: 0;
+  }
+
+  .hero__name {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--c-ink);
+  }
+
+  .hero__statement {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    line-height: 1.45;
+    color: var(--c-ink-2);
+    max-width: 42ch;
+  }
+  .hero__br { display: none; }
+  @media (min-width: 640px) { .hero__br { display: block; } }
+
+  .hero__metrics {
+    display: flex;
+    gap: var(--s-7);
+    flex-wrap: wrap;
+    padding-block: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+  }
+  .hero__metric { display: flex; flex-direction: column; gap: var(--s-1); }
+  .hero__metric-num {
+    font-family: var(--f-display);
+    font-size: 2.25rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--c-ink);
+    line-height: 1;
+  }
+  .hero__metric-label { color: var(--c-ink-3); line-height: 1.4; }
+
+  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: 0.875rem 1.75rem;
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .hero__cta svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .hero__cta--primary {
+    background: var(--c-ink);
+    color: var(--c-bg);
+    border: 1px solid var(--c-ink);
+  }
+  .hero__cta--primary:hover { background: var(--c-amber); border-color: var(--c-amber); }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover { border-color: var(--c-ink); }
+</style>

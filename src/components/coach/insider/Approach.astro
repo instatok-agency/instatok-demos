@@ -1,0 +1,126 @@
+---
+---
+
+<section class="approach" id="approach" aria-labelledby="approach-heading">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="approach__inner coach-section-inner">
+
+    <header class="approach__header">
+      <p class="eyebrow">Προσέγγιση</p>
+      <h2 class="approach__heading" id="approach-heading">
+        Πώς δουλεύουμε
+      </h2>
+    </header>
+
+    <div class="approach__body">
+
+      <div class="approach__text">
+        <p class="approach__para">
+          Δεν πιστεύω στον coaching ως εργαλείο αυτοβελτίωσης. Πιστεύω σε αυτόν
+          ως εργαλείο αποσαφήνισης. Η δουλειά μας δεν είναι να φτιάξουμε καλύτερη
+          έκδοση του ατόμου που είσαι τώρα — είναι να καταλάβουμε τι θέλεις
+          πραγματικά να κάνεις, και τι σε εμποδίζει να το κάνεις.
+        </p>
+        <p class="approach__para">
+          Χρησιμοποιώ ICF-approved μεθοδολογία — δηλαδή ερωτήσεις που ανοίγουν
+          αντί να κλείνουν, αντανάκλαση χωρίς κρίση, και accountability που
+          δεν μοιάζει με εξέταση. Κάθε session έχει δομή, αλλά η κατεύθυνση
+          πάντα ακολουθεί αυτό που εμφανίζεται, όχι αυτό που έχω στο notepad.
+        </p>
+        <p class="approach__para">
+          Εξειδικεύομαι σε career transitions — κυρίως για ανθρώπους 35–50 που
+          έχουν ήδη πετύχει αρκετά σε εταιρικό περιβάλλον και βρίσκονται στο
+          σημείο: «Και τώρα τι;» Αυτό το ερώτημα, όταν απαντηθεί σωστά, αλλάζει
+          τη δεκαετία που ακολουθεί.
+        </p>
+      </div>
+
+      <div class="approach__sidebar">
+
+        <div class="approach__principle">
+          <span class="approach__principle-num eyebrow">01</span>
+          <div>
+            <h3 class="approach__principle-title">Αποσαφήνιση πρώτα</h3>
+            <p class="approach__principle-desc">Πριν μιλήσουμε για στρατηγική, θέλω να ξέρουμε και οι δύο τι θέλεις. Χωρίς αυτό, όλα τα υπόλοιπα είναι θόρυβος.</p>
+          </div>
+        </div>
+
+        <div class="approach__principle">
+          <span class="approach__principle-num eyebrow">02</span>
+          <div>
+            <h3 class="approach__principle-title">Χωρίς τζαρτζάρισμα</h3>
+            <p class="approach__principle-desc">Δεν πουλώ motivation. Δεν στέλνω daily affirmations. Κάνουμε δουλειά που φαίνεται σε συγκεκριμένες αποφάσεις και κινήσεις.</p>
+          </div>
+        </div>
+
+        <div class="approach__principle">
+          <span class="approach__principle-num eyebrow">03</span>
+          <div>
+            <h3 class="approach__principle-title">Το tempo είναι δικό σου</h3>
+            <p class="approach__principle-desc">Κάποιοι χρειάζονται ένα εξάμηνο. Κάποιοι ένα χρόνο. Δεν βιαζόμαστε — αλλά δεν σταματάμε να κινούμαστε.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .approach {
+    background: var(--c-bg-2);
+    padding-block: 0 var(--s-9);
+  }
+  .approach__inner { padding-block-start: var(--s-7); }
+
+  .approach__header { margin-bottom: var(--s-7); }
+  .approach__header .eyebrow { margin-bottom: var(--s-3); }
+  .approach__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .approach__body { display: grid; gap: var(--s-8); }
+
+  .approach__para {
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--c-ink-2);
+    max-width: 60ch;
+  }
+  .approach__para + .approach__para { margin-top: var(--s-4); }
+
+  .approach__sidebar { display: grid; gap: var(--s-5); }
+
+  .approach__principle {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: var(--s-4);
+    padding-block: var(--s-5);
+    border-top: 1px solid var(--c-border);
+  }
+  .approach__principle:last-child { border-bottom: 1px solid var(--c-border); }
+  .approach__principle-num { color: var(--c-amber); padding-top: 0.2rem; }
+  .approach__principle-title {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--s-2);
+  }
+  .approach__principle-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+  }
+
+  @media (min-width: 1024px) {
+    .approach__body { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+</style>

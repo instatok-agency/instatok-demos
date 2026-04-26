@@ -1,0 +1,168 @@
+---
+---
+
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="contact__inner coach-section-inner">
+
+    <div class="contact__grid">
+
+      <div class="contact__text">
+        <p class="eyebrow">Discovery Call</p>
+        <h2 class="contact__heading" id="contact-heading">
+          Αν αναγνωρίζεις<br />κάτι σε αυτά<br />που διάβασες.
+        </h2>
+
+        <p class="contact__lead">
+          Το discovery call είναι 30 λεπτά, δωρεάν, χωρίς δεσμεύσεις.
+          Δεν είναι sales call. Είναι μια πρώτη συνομιλία για να δούμε
+          αν έχει νόημα να δουλέψουμε μαζί.
+        </p>
+
+        <p class="contact__lead">
+          Αν δεν έχει νόημα, θα το πω. Αν έχει, θα το πούμε και οι δύο.
+        </p>
+
+        <div class="contact__info">
+          <p class="contact__info-item eyebrow">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" width="13" height="13">
+              <circle cx="8" cy="8" r="7"/><path d="M8 5v3l2 2" stroke-linecap="round"/>
+            </svg>
+            Απάντηση εντός 24 ωρών
+          </p>
+          <p class="contact__info-item eyebrow">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" width="13" height="13">
+              <path d="M2 4a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V4z"/><path d="M2 7h12" stroke-linecap="round"/>
+            </svg>
+            Remote session — Zoom ή Google Meet
+          </p>
+          <a href="mailto:nikos@spyropoulos.coach" class="contact__info-item eyebrow contact__email">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" width="13" height="13">
+              <path d="M2 4l6 5 6-5M2 4h12v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/>
+            </svg>
+            nikos@spyropoulos.coach
+          </a>
+        </div>
+      </div>
+
+      <form class="contact__form" action="#" method="post" novalidate>
+
+        <div class="contact__field">
+          <label class="contact__label eyebrow" for="c-name">Ονοματεπώνυμο <span aria-hidden="true">*</span></label>
+          <input class="contact__input" type="text" id="c-name" name="name" required autocomplete="name" placeholder="Π.χ. Κωνσταντίνος Παπαδόπουλος" />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label eyebrow" for="c-email">Email <span aria-hidden="true">*</span></label>
+          <input class="contact__input" type="email" id="c-email" name="email" required autocomplete="email" placeholder="kostas@company.gr" />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label eyebrow" for="c-role">Τρέχον ρόλο</label>
+          <input class="contact__input" type="text" id="c-role" name="role" autocomplete="organization-title" placeholder="Π.χ. Head of Marketing, Telecom" />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label eyebrow" for="c-context">Πες μου λίγα λόγια <span class="contact__optional">(προαιρετικό)</span></label>
+          <textarea class="contact__input contact__textarea" id="c-context" name="context" rows="5"
+            placeholder="Τι σε έφερε εδώ; Δεν χρειάζεται να είναι τακτοποιημένο."></textarea>
+        </div>
+
+        <button type="submit" class="contact__submit">
+          Αποστολή — Θα επικοινωνήσω εντός 24 ωρών
+        </button>
+
+        <p class="contact__privacy eyebrow">
+          Τα στοιχεία σου δεν μοιράζονται σε τρίτους και χρησιμοποιούνται
+          αποκλειστικά για επικοινωνία μαζί σου.
+        </p>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--c-bg);
+    padding-block: 0 var(--s-9);
+  }
+  .contact__inner { padding-block-start: var(--s-7); }
+
+  .contact__grid { display: grid; gap: var(--s-8); }
+
+  .contact__text .eyebrow { margin-bottom: var(--s-3); }
+  .contact__heading {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s-5);
+  }
+  .contact__lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-ink-2);
+    max-width: 46ch;
+    margin-bottom: var(--s-4);
+  }
+
+  .contact__info { margin-top: var(--s-6); display: grid; gap: var(--s-3); }
+  .contact__info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    color: var(--c-ink-3);
+  }
+  .contact__info-item svg { color: var(--c-amber); flex-shrink: 0; }
+  .contact__email { color: var(--c-amber); transition: color 0.2s; }
+  .contact__email:hover { color: var(--c-amber-deep); }
+
+  .contact__form { display: grid; gap: var(--s-4); }
+  .contact__field { display: grid; gap: var(--s-2); }
+  .contact__label { color: var(--c-ink-2); }
+  .contact__label span[aria-hidden] { color: var(--c-amber); margin-left: 2px; }
+  .contact__optional { color: var(--c-ink-3); font-style: normal; }
+
+  .contact__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--c-border);
+    background: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .contact__input:focus { outline: none; border-color: var(--c-amber); }
+  .contact__input::placeholder { color: var(--c-ink-3); }
+  .contact__textarea { resize: vertical; min-height: 8rem; }
+
+  .contact__submit {
+    padding: 0.9rem 1.75rem;
+    background: var(--c-ink);
+    color: var(--c-bg);
+    border: 1px solid var(--c-ink);
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    text-align: center;
+  }
+  .contact__submit:hover { background: var(--c-amber); border-color: var(--c-amber); }
+
+  .contact__privacy {
+    color: var(--c-ink-3);
+    line-height: 1.6;
+    font-size: 0.62rem;
+  }
+
+  @media (min-width: 1024px) {
+    .contact__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+</style>

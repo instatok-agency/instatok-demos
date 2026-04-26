@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --c-ink:        #1C1917;
+  --c-ink-2:      #6B5E55;
+  --c-ink-3:      #9B8F89;
+  --c-bg:         #FAFAF9;
+  --c-bg-2:       #F0EDE8;
+  --c-amber:      #A16207;
+  --c-amber-deep: #854F04;
+  --c-border:     #D6D0C8;
+  --c-rule:       rgba(28, 25, 23, 0.09);
+
+  --f-display: "Playfair Display", Georgia, serif;
+  --f-body:    "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --f-mono:    "DM Mono", ui-monospace, "SF Mono", monospace;
+
+  --s-1: 0.25rem;  --s-2: 0.5rem;   --s-3: 0.75rem;
+  --s-4: 1rem;     --s-5: 1.5rem;   --s-6: 2rem;
+  --s-7: 3rem;     --s-8: 4.5rem;   --s-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--f-body);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-amber) 15%, transparent);
+  color: var(--c-ink);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.coach-section-inner {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px)  { .coach-section-inner { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .coach-section-inner { padding-inline: 4rem; } }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.section-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  border: none;
+  margin: 0;
+}
