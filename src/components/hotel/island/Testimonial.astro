@@ -1,0 +1,114 @@
+---
+---
+<section class="hi-testi" aria-label="Κριτική επισκέπτη">
+  <div class="hi-testi__bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80&fit=crop"
+      alt=""
+      width="1800" height="900"
+      loading="lazy"
+    />
+    <div class="hi-testi__overlay"></div>
+  </div>
+
+  <div class="hi-testi__inner hi-inner" data-anim="hi-testi">
+    <p class="hi-eyebrow hi-eyebrow--gold">Voice From Our Guests</p>
+
+    <div class="hi-testi__quote-wrap">
+      <span class="hi-testi__mark" aria-hidden="true">"</span>
+      <blockquote class="hi-testi__quote">
+        Η εμπειρία στο Ithaca Bay ξεπέρασε κάθε προσδοκία μας. Ο χώρος, η ζεστασιά του προσωπικού, η γαστρονομία — όλα άψογα. Αλλά η στιγμή που δεν θα ξεχάσουμε ποτέ είναι η θέα από τη βεράντα μας στο ηλιοβασίλεμα πάνω στο Ιόνιο.
+      </blockquote>
+    </div>
+
+    <footer class="hi-testi__footer">
+      <img
+        src="https://i.pravatar.cc/64?img=47"
+        alt="Anna W."
+        class="hi-testi__avatar"
+        width="48" height="48"
+        loading="lazy"
+      />
+      <div class="hi-testi__author">
+        <span class="hi-testi__name">Anna Williams</span>
+        <span class="hi-eyebrow hi-eyebrow--white">TripAdvisor · Verified Guest</span>
+      </div>
+      <div class="hi-testi__rating">
+        <span class="hi-testi__stars">★★★★★</span>
+        <span class="hi-eyebrow hi-eyebrow--gold">5 / 5</span>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .hi-testi {
+    position: relative; overflow: hidden;
+    padding-block: var(--s-9);
+    background: var(--hi-forest-3);
+  }
+
+  .hi-testi__bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hi-testi__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hi-testi__overlay {
+    position: absolute; inset: 0;
+    background: rgba(15,32,24,0.82);
+  }
+
+  .hi-testi__inner {
+    position: relative; z-index: 1;
+    max-width: 56rem; margin-inline: auto;
+    display: grid; gap: var(--s-7); justify-items: center; text-align: center;
+  }
+
+  .hi-testi__quote-wrap {
+    position: relative; display: grid; gap: var(--s-4);
+  }
+  .hi-testi__mark {
+    font-family: var(--f-display); font-size: 8rem; font-weight: 400;
+    color: var(--hi-gold); line-height: 0.5;
+    display: block; opacity: 0.4;
+  }
+  .hi-testi__quote {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+    font-weight: 400; color: var(--hi-white);
+    line-height: 1.65;
+  }
+
+  .hi-testi__footer {
+    display: flex; align-items: center; gap: var(--s-5); flex-wrap: wrap;
+    justify-content: center;
+    padding-top: var(--s-6); border-top: 1px solid rgba(255,255,255,0.15);
+    width: 100%;
+  }
+  .hi-testi__avatar {
+    width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--hi-gold);
+    flex-shrink: 0;
+  }
+  .hi-testi__author { display: grid; gap: 4px; text-align: left; }
+  .hi-testi__name {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 500; color: var(--hi-white);
+  }
+  .hi-testi__rating { display: flex; flex-direction: column; gap: 4px; align-items: center; margin-left: auto; }
+  .hi-testi__stars { color: var(--hi-gold); font-size: 0.875rem; letter-spacing: 0.12em; }
+
+  [data-anim="hi-testi"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hi-testi"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="hi-testi"]', { y: 28 });
+    gsap.to('[data-anim="hi-testi"]', { opacity: 1, y: 0, duration: 1.0, scrollTrigger: { trigger: '.hi-testi', start: 'top 80%' } });
+  });
+</script>

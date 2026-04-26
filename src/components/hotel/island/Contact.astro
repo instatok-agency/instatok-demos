@@ -1,0 +1,321 @@
+---
+---
+<section class="hi-contact" id="contact" aria-label="Επικοινωνία">
+
+  <!-- NEWSLETTER STRIP -->
+  <div class="hi-newsletter">
+    <div class="hi-newsletter__inner hi-inner" data-anim="hi-nl">
+      <div class="hi-newsletter__text">
+        <p class="hi-eyebrow hi-eyebrow--gold">Newsletter</p>
+        <h2 class="hi-newsletter__title">Stay Tuned with<br/><em>Ithaca Bay Resort</em></h2>
+        <p class="hi-newsletter__sub">Εγγραφείτε για αποκλειστικές προσφορές, νέα και special offers.</p>
+      </div>
+      <form class="hi-newsletter__form" onsubmit="return false">
+        <input
+          type="email"
+          class="hi-nl-input"
+          placeholder="Το email σας"
+          aria-label="Email για newsletter"
+        />
+        <button type="submit" class="hi-btn hi-btn--gold">Εγγραφή</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="hi-bk-section" id="booking">
+    <div class="hi-bk-inner hi-inner">
+
+      <div class="hi-bk-info" data-anim="hi-bk-info">
+        <p class="hi-eyebrow hi-eyebrow--gold">Κρατήσεις</p>
+        <h2 class="hi-bk-title">Κάντε την Κράτησή σας</h2>
+        <p class="hi-bk-desc">
+          Επικοινωνήστε μαζί μας για να οργανώσουμε μαζί τη διαμονή των ονείρων σας.
+          Ανταποκρινόμαστε εντός 2 ωρών.
+        </p>
+        <div class="hi-bk-props">
+          <div class="hi-bk-prop">
+            <span class="hi-eyebrow hi-eyebrow--gold">Διεύθυνση</span>
+            <p>Παραλία Πλατύς Γιαλός, Κεφαλονιά 280 82</p>
+          </div>
+          <div class="hi-bk-prop">
+            <span class="hi-eyebrow hi-eyebrow--gold">Τηλέφωνο</span>
+            <a href="tel:+302671000000" class="hi-bk-link">+30 2671 000 000</a>
+          </div>
+          <div class="hi-bk-prop">
+            <span class="hi-eyebrow hi-eyebrow--gold">Email</span>
+            <a href="mailto:reservation@ithacabay.gr" class="hi-bk-link">reservation@ithacabay.gr</a>
+          </div>
+        </div>
+        <div class="hi-bk-price-card">
+          <span class="hi-eyebrow hi-eyebrow--white">Δωμάτια από</span>
+          <span class="hi-bk-price">€280 <em>/νύκτα</em></span>
+          <span class="hi-eyebrow hi-eyebrow--white" style="opacity:0.4;">Check-in 15:00 · Check-out 11:00</span>
+        </div>
+      </div>
+
+      <form class="hi-bk-form" onsubmit="return false" data-anim="hi-bk-form">
+        <div class="hi-bk-row">
+          <div class="hi-bk-field">
+            <label for="hi-name" class="hi-bk-label">Ονοματεπώνυμο</label>
+            <input type="text" id="hi-name" name="name" class="hi-bk-input" placeholder="Το όνομά σας" autocomplete="name" />
+          </div>
+          <div class="hi-bk-field">
+            <label for="hi-email" class="hi-bk-label">Email</label>
+            <input type="email" id="hi-email" name="email" class="hi-bk-input" placeholder="email@example.com" autocomplete="email" />
+          </div>
+        </div>
+        <div class="hi-bk-row hi-bk-row--3">
+          <div class="hi-bk-field">
+            <label for="hi-in" class="hi-bk-label">Άφιξη</label>
+            <input type="date" id="hi-in" name="checkin" class="hi-bk-input" />
+          </div>
+          <div class="hi-bk-field">
+            <label for="hi-out" class="hi-bk-label">Αναχώρηση</label>
+            <input type="date" id="hi-out" name="checkout" class="hi-bk-input" />
+          </div>
+          <div class="hi-bk-field">
+            <label for="hi-guests" class="hi-bk-label">Άτομα</label>
+            <select id="hi-guests" name="guests" class="hi-bk-input">
+              <option>1</option><option selected>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6+</option>
+            </select>
+          </div>
+        </div>
+        <div class="hi-bk-field">
+          <label for="hi-room" class="hi-bk-label">Τύπος δωματίου</label>
+          <select id="hi-room" name="room" class="hi-bk-input">
+            <option value="">Επιλέξτε κατηγορία</option>
+            <option>Ocean View Suite</option>
+            <option>Beachfront Villa</option>
+            <option>Garden Residence</option>
+            <option>Grand Ocean Residence</option>
+          </select>
+        </div>
+        <div class="hi-bk-field">
+          <label for="hi-msg" class="hi-bk-label">
+            Σχόλια <span style="font-weight:300;color:var(--hi-muted-2);">(προαιρετικό)</span>
+          </label>
+          <textarea id="hi-msg" name="message" class="hi-bk-input hi-bk-textarea" rows="3"
+            placeholder="Ειδικά αιτήματα, γενέθλια, transfer από αεροδρόμιο…"></textarea>
+        </div>
+        <button type="submit" class="hi-btn hi-btn--forest hi-bk-submit">
+          Αποστολή Αιτήματος Κράτησης
+        </button>
+        <p class="hi-bk-note hi-eyebrow">Ανταποκρινόμαστε εντός 2 ωρών · Χωρίς προμήθεια</p>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="hi-footer">
+    <div class="hi-footer__inner hi-inner">
+      <div class="hi-footer__brand">
+        <span class="hi-footer__name">Ithaca Bay Resort</span>
+        <span class="hi-eyebrow hi-eyebrow--gold" style="margin-top:4px;">Boutique Private Island Resort · Κεφαλονιά</span>
+        <p class="hi-footer__addr">Παραλία Πλατύς Γιαλός, Κεφαλονιά 280 82, Ελλάδα</p>
+      </div>
+      <nav class="hi-footer__nav" aria-label="Footer">
+        <div class="hi-footer__nav-col">
+          <span class="hi-eyebrow hi-eyebrow--gold">Κατάλυμα</span>
+          <a href="#rooms">Ocean View Suite</a>
+          <a href="#rooms">Beachfront Villa</a>
+          <a href="#rooms">Garden Residence</a>
+          <a href="#rooms">Grand Ocean Residence</a>
+        </div>
+        <div class="hi-footer__nav-col">
+          <span class="hi-eyebrow hi-eyebrow--gold">Εμπειρίες</span>
+          <a href="#experiences">Spa & Ευεξία</a>
+          <a href="#experiences">Γαστρονομία</a>
+          <a href="#experiences">Island Activities</a>
+          <a href="#amenities">Υπηρεσίες</a>
+        </div>
+        <div class="hi-footer__nav-col">
+          <span class="hi-eyebrow hi-eyebrow--gold">Επικοινωνία</span>
+          <a href="tel:+302671000000">+30 2671 000 000</a>
+          <a href="mailto:reservation@ithacabay.gr">reservation@ithacabay.gr</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">@ithacabay.resort</a>
+        </div>
+      </nav>
+    </div>
+    <div class="hi-footer__bottom hi-inner">
+      <p class="hi-eyebrow" style="color:rgba(255,255,255,0.2);">© 2025 Ithaca Bay Resort · Privacy · Terms</p>
+      <p class="hi-eyebrow" style="color:rgba(255,255,255,0.15);">Demo — Instatok Agency</p>
+    </div>
+  </footer>
+
+</section>
+
+<style>
+  /* NEWSLETTER */
+  .hi-newsletter {
+    background: var(--hi-sand);
+    padding-block: var(--s-8);
+    border-top: 3px solid var(--hi-forest);
+  }
+  .hi-newsletter__inner {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: var(--s-8); flex-wrap: wrap;
+  }
+  .hi-newsletter__text { display: grid; gap: var(--s-4); }
+  .hi-newsletter__title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    font-weight: 400; color: var(--hi-ink); line-height: 1.1;
+  }
+  .hi-newsletter__title em { color: var(--hi-forest); }
+  .hi-newsletter__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; color: var(--hi-muted); max-width: 32rem;
+  }
+  .hi-newsletter__form {
+    display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center;
+    flex-shrink: 0;
+  }
+  .hi-nl-input {
+    padding: 0.875rem 1.25rem;
+    background: var(--hi-white); border: 1px solid var(--hi-border-2);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--hi-ink);
+    outline: none; min-width: 16rem;
+    transition: border-color 0.2s;
+  }
+  .hi-nl-input::placeholder { color: var(--hi-muted-2); }
+  .hi-nl-input:focus { border-color: var(--hi-gold); }
+
+  [data-anim="hi-nl"] { opacity: 0; }
+
+  /* BOOKING */
+  .hi-bk-section { background: var(--hi-white); }
+  .hi-bk-inner {
+    display: grid; gap: var(--s-8); padding-block: var(--s-9);
+  }
+  @media (min-width: 900px) {
+    .hi-bk-inner { grid-template-columns: 4fr 6fr; align-items: start; }
+  }
+
+  .hi-bk-info { display: grid; gap: var(--s-6); align-content: start; }
+  .hi-bk-title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 400; color: var(--hi-forest); line-height: 1.1;
+  }
+  .hi-bk-desc {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.8; color: var(--hi-muted);
+  }
+  .hi-bk-props { display: grid; gap: var(--s-4); }
+  .hi-bk-prop { display: grid; gap: 4px; }
+  .hi-bk-prop p,
+  .hi-bk-link {
+    font-family: var(--f-body); font-size: 0.875rem;
+    font-weight: 300; color: var(--hi-muted);
+  }
+  .hi-bk-link { transition: color 0.2s; }
+  .hi-bk-link:hover { color: var(--hi-forest); }
+
+  .hi-bk-price-card {
+    background: var(--hi-forest);
+    border-radius: var(--r-lg); padding: var(--s-5) var(--s-6);
+    display: grid; gap: var(--s-2);
+  }
+  .hi-bk-price {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 2.25rem; font-weight: 400; color: var(--hi-gold); line-height: 1;
+  }
+  .hi-bk-price em {
+    font-size: 0.875rem; font-style: normal; font-weight: 400;
+    color: rgba(255,255,255,0.4); margin-left: 2px;
+  }
+
+  /* FORM */
+  .hi-bk-form {
+    background: var(--hi-cream); border: 1px solid var(--hi-border);
+    border-radius: var(--r-lg); padding: var(--s-7);
+    display: grid; gap: var(--s-5);
+  }
+  .hi-bk-row { display: grid; gap: var(--s-4); grid-template-columns: 1fr 1fr; }
+  .hi-bk-row--3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 500px) {
+    .hi-bk-row, .hi-bk-row--3 { grid-template-columns: 1fr; }
+  }
+  .hi-bk-field { display: grid; gap: var(--s-2); }
+  .hi-bk-label {
+    font-family: var(--f-body); font-size: 0.6875rem;
+    font-weight: 500; color: var(--hi-muted); letter-spacing: 0.04em;
+  }
+  .hi-bk-input {
+    padding: 0.75rem 1rem;
+    background: var(--hi-white); border: 1px solid var(--hi-border-2);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--hi-ink);
+    outline: none; width: 100%; appearance: none; -webkit-appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hi-bk-input::placeholder { color: var(--hi-muted-2); }
+  .hi-bk-input:focus { border-color: var(--hi-forest); box-shadow: 0 0 0 3px rgba(30,59,44,0.08); }
+  .hi-bk-textarea { resize: vertical; min-height: 5rem; }
+  .hi-bk-submit { width: 100%; justify-content: center; padding-block: 1rem; }
+  .hi-bk-note { color: var(--hi-muted-2); text-align: center; }
+
+  [data-anim="hi-bk-info"], [data-anim="hi-bk-form"] { opacity: 0; }
+
+  /* FOOTER */
+  .hi-footer { background: var(--hi-forest-3); }
+  .hi-footer__inner {
+    display: flex; flex-wrap: wrap; gap: var(--s-8);
+    padding-block: var(--s-9);
+  }
+  .hi-footer__brand {
+    display: flex; flex-direction: column; gap: var(--s-3); min-width: 16rem;
+    flex: 1;
+  }
+  .hi-footer__name {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.75rem; font-weight: 400; color: var(--hi-white);
+  }
+  .hi-footer__addr {
+    font-family: var(--f-body); font-size: 0.8125rem;
+    font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.6;
+    max-width: 22rem; margin-top: var(--s-2);
+  }
+  .hi-footer__nav {
+    display: flex; gap: var(--s-8); flex-wrap: wrap; flex: 2;
+    justify-content: flex-end;
+  }
+  .hi-footer__nav-col {
+    display: flex; flex-direction: column; gap: var(--s-3);
+  }
+  .hi-footer__nav-col a {
+    font-family: var(--f-body); font-size: 0.8125rem;
+    font-weight: 300; color: rgba(255,255,255,0.4); transition: color 0.2s;
+  }
+  .hi-footer__nav-col a:hover { color: var(--hi-gold); }
+  .hi-footer__bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: var(--s-4);
+    padding-block: var(--s-5);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hi-nl"],
+    [data-anim="hi-bk-info"],
+    [data-anim="hi-bk-form"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="hi-nl"]',      { y: 20 });
+    gsap.set('[data-anim="hi-bk-info"]', { y: 24, x: -16 });
+    gsap.set('[data-anim="hi-bk-form"]', { y: 24 });
+    gsap.to('[data-anim="hi-nl"]',      { opacity: 1, y: 0, duration: 0.9, scrollTrigger: { trigger: '.hi-newsletter', start: 'top 85%' } });
+    gsap.to('[data-anim="hi-bk-info"]', { opacity: 1, y: 0, x: 0, duration: 0.9, scrollTrigger: { trigger: '.hi-bk-inner', start: 'top 85%' } });
+    gsap.to('[data-anim="hi-bk-form"]', { opacity: 1, y: 0, duration: 0.9, delay: 0.1, scrollTrigger: { trigger: '.hi-bk-inner', start: 'top 85%' } });
+  });
+</script>

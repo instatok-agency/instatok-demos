@@ -1,0 +1,293 @@
+---
+---
+<header class="hi-hero">
+
+  <!-- NAV -->
+  <nav class="hi-nav" id="hi-nav" data-anim="hi-nav">
+    <div class="hi-nav__inner hi-inner">
+      <div class="hi-nav__brand">
+        <a href="/" class="hi-nav__logo">
+          <span class="hi-nav__logo-name">Ithaca Bay</span>
+          <span class="hi-eyebrow hi-eyebrow--white hi-nav__logo-sub">Resort &amp; Spa · Κεφαλονιά</span>
+        </a>
+      </div>
+      <ul class="hi-nav__links" aria-label="Navigation">
+        <li><a href="#rooms">Δωμάτια</a></li>
+        <li><a href="#experiences">Εμπειρίες</a></li>
+        <li><a href="#amenities">Υπηρεσίες</a></li>
+        <li><a href="#contact">Επικοινωνία</a></li>
+      </ul>
+      <div class="hi-nav__right">
+        <a href="tel:+302671000000" class="hi-nav__phone">+30 2671 000 000</a>
+        <a href="#booking" class="hi-btn hi-btn--gold hi-nav__cta">Κράτηση</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="hi-hero__media" data-anim="hi-hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2200&q=90&fit=crop&crop=center"
+      alt="Θέα από το Ithaca Bay Resort"
+      class="hi-hero__img"
+      width="2200" height="1400"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hi-hero__overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- HERO CONTENT -->
+  <div class="hi-hero__body hi-inner">
+    <div class="hi-hero__content" data-anim="hi-hero-content">
+      <p class="hi-eyebrow hi-eyebrow--gold hi-hero__tag">Boutique Private Island Resort</p>
+      <h1 class="hi-hero__title">
+        <span class="line-wrap"><em class="hi-hl" data-anim="hi-hl">Το καταφύγιο</em></span>
+        <span class="line-wrap"><span class="hi-hl" data-anim="hi-hl">θαλπωρής, γαλήνης</span></span>
+        <span class="line-wrap"><span class="hi-hl" data-anim="hi-hl">και αναγέννησης.</span></span>
+      </h1>
+      <div class="hi-hero__stars" data-anim="hi-hero-stars">
+        <span class="hi-hero__star-row">★★★★★</span>
+        <span class="hi-eyebrow hi-eyebrow--white">5-Star Luxury · Κεφαλονιά, Ιόνιο</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING WIDGET -->
+  <div class="hi-hero__widget-wrap" data-anim="hi-hero-widget">
+    <div class="hi-booking-widget hi-inner">
+      <form class="hi-booking-form" onsubmit="return false">
+        <div class="hi-booking-field">
+          <label class="hi-booking-label">Check-In</label>
+          <input type="date" class="hi-booking-input" />
+        </div>
+        <div class="hi-booking-sep" aria-hidden="true"></div>
+        <div class="hi-booking-field">
+          <label class="hi-booking-label">Check-Out</label>
+          <input type="date" class="hi-booking-input" />
+        </div>
+        <div class="hi-booking-sep" aria-hidden="true"></div>
+        <div class="hi-booking-field">
+          <label class="hi-booking-label">Δωμάτια</label>
+          <select class="hi-booking-input hi-booking-select">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+        </div>
+        <div class="hi-booking-sep" aria-hidden="true"></div>
+        <div class="hi-booking-field">
+          <label class="hi-booking-label">Ενήλικες</label>
+          <select class="hi-booking-input hi-booking-select">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+          </select>
+        </div>
+        <div class="hi-booking-sep" aria-hidden="true"></div>
+        <div class="hi-booking-field">
+          <label class="hi-booking-label">Παιδιά</label>
+          <select class="hi-booking-input hi-booking-select">
+            <option selected>0</option><option>1</option><option>2</option><option>3</option>
+          </select>
+        </div>
+        <button type="submit" class="hi-btn hi-btn--forest hi-booking-submit">
+          Έλεγχος Διαθεσιμότητας
+        </button>
+      </form>
+      <p class="hi-booking-note hi-eyebrow">Check-in: 15:00 · Check-out: 11:00 · Ελάχιστη ηλικία: 18</p>
+    </div>
+  </div>
+
+</header>
+
+<style>
+  .hi-hero {
+    position: relative;
+    background: var(--hi-forest-3);
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding-bottom: 0;
+  }
+
+  /* NAV */
+  .hi-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--hi-forest);
+    transition: background 0.35s;
+  }
+  .hi-nav.hi-nav--scrolled {
+    background: rgba(30,59,44,0.97);
+    backdrop-filter: blur(12px);
+  }
+  [data-anim="hi-nav"] { opacity: 0; }
+
+  .hi-nav__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1rem; padding-bottom: 1rem;
+    gap: var(--s-5);
+  }
+
+  .hi-nav__logo { display: flex; flex-direction: column; gap: 2px; }
+  .hi-nav__logo-name {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.375rem; font-weight: 500; color: var(--hi-white); line-height: 1;
+  }
+  .hi-nav__logo-sub { line-height: 1; }
+
+  .hi-nav__links {
+    display: none; list-style: none; gap: var(--s-6); align-items: center;
+  }
+  @media (min-width: 1000px) { .hi-nav__links { display: flex; } }
+  .hi-nav__links a {
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); transition: color 0.2s;
+  }
+  .hi-nav__links a:hover { color: var(--hi-gold); }
+
+  .hi-nav__right { display: flex; align-items: center; gap: var(--s-4); }
+  .hi-nav__phone {
+    display: none; font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 400; letter-spacing: 0.1em; color: rgba(255,255,255,0.45);
+    transition: color 0.2s;
+  }
+  @media (min-width: 768px) { .hi-nav__phone { display: block; } }
+  .hi-nav__phone:hover { color: var(--hi-gold); }
+  .hi-nav__cta { font-size: 0.45rem; padding: 0.65rem 1.5rem; }
+
+  /* HERO MEDIA */
+  .hi-hero__media {
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden;
+    clip-path: inset(0 0 100% 0);
+  }
+  .hi-hero__img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 55%;
+  }
+  .hi-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15,32,24,0.55) 0%,
+      rgba(15,32,24,0.15) 35%,
+      rgba(15,32,24,0.60) 75%,
+      rgba(15,32,24,0.88) 100%
+    );
+  }
+
+  /* HERO CONTENT */
+  .hi-hero__body {
+    position: relative; z-index: 2;
+    padding-top: clamp(9rem, 22vh, 16rem);
+    padding-bottom: var(--s-7);
+  }
+  .hi-hero__content { display: grid; gap: var(--s-5); max-width: 52rem; }
+  [data-anim="hi-hero-content"] { opacity: 0; }
+
+  .hi-hero__tag { margin-bottom: var(--s-2); }
+
+  .hi-hero__title {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-weight: 400; color: var(--hi-white); line-height: 1.0;
+  }
+  .hi-hl { display: block; opacity: 0; }
+
+  .hi-hero__stars { display: flex; align-items: center; gap: var(--s-4); opacity: 0; }
+  .hi-hero__star-row { color: var(--hi-gold); font-size: 0.875rem; letter-spacing: 0.12em; }
+
+  /* BOOKING WIDGET */
+  .hi-hero__widget-wrap {
+    position: relative; z-index: 2;
+    background: transparent;
+    padding-bottom: 0;
+    opacity: 0;
+  }
+
+  .hi-booking-widget {
+    background: var(--hi-white);
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    padding: var(--s-6);
+    box-shadow: 0 -8px 40px rgba(15,32,24,0.2);
+  }
+
+  .hi-booking-form {
+    display: flex; align-items: stretch; gap: 0;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 900px) { .hi-booking-form { flex-direction: column; gap: var(--s-3); } }
+
+  .hi-booking-field {
+    flex: 1; min-width: 8rem;
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 0 var(--s-4);
+  }
+  .hi-booking-field:first-child { padding-left: 0; }
+  @media (max-width: 900px) { .hi-booking-field { padding: 0; } }
+
+  .hi-booking-label {
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--hi-forest);
+  }
+  .hi-booking-input {
+    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 400;
+    color: var(--hi-ink); background: transparent; border: none; outline: none;
+    padding: 0.25rem 0; border-bottom: 1px solid var(--hi-border-2);
+    width: 100%; appearance: none; -webkit-appearance: none;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+  .hi-booking-input:focus { border-color: var(--hi-gold); }
+  .hi-booking-select { cursor: pointer; }
+
+  .hi-booking-sep {
+    width: 1px; background: var(--hi-border);
+    align-self: stretch; margin-block: 4px; flex-shrink: 0;
+  }
+  @media (max-width: 900px) { .hi-booking-sep { display: none; } }
+
+  .hi-booking-submit {
+    flex-shrink: 0; white-space: nowrap; align-self: flex-end;
+    padding: 0.875rem 1.75rem; font-size: 0.45rem; letter-spacing: 0.18em;
+    margin-left: var(--s-4);
+  }
+  @media (max-width: 900px) {
+    .hi-booking-submit { margin-left: 0; width: 100%; margin-top: var(--s-3); }
+  }
+
+  .hi-booking-note {
+    margin-top: var(--s-3); color: var(--hi-muted-2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hi-nav"],
+    [data-anim="hi-hero-content"],
+    .hi-hl,
+    .hi-hero__stars,
+    [data-anim="hi-hero-widget"] { opacity: 1 !important; }
+    .hi-hero__media { clip-path: none !important; }
+  }
+</style>
+
+<script>
+  import { initGSAP } from '../../../scripts/gsap-hotel-island';
+  import { gsap } from 'gsap';
+  initGSAP();
+
+  const nav = document.getElementById('hi-nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('hi-nav--scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('.hi-hl', { y: 32 });
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('.hi-hero__media',          { clipPath: 'inset(0 0 0% 0)', duration: 1.7, ease: 'power4.inOut' }, 0)
+      .to('[data-anim="hi-nav"]',     { opacity: 1, duration: 0.5 }, 0.5)
+      .to('[data-anim="hi-hero-content"]', { opacity: 1, duration: 0.6 }, 0.8)
+      .to('.hi-hl',                   { opacity: 1, y: 0, duration: 1.1, stagger: 0.15 }, 0.9)
+      .to('.hi-hero__stars',          { opacity: 1, duration: 0.5 }, 1.4)
+      .to('[data-anim="hi-hero-widget"]', { opacity: 1, y: 0, duration: 0.7 }, 1.55);
+    gsap.set('[data-anim="hi-hero-widget"]', { y: 20 });
+  });
+</script>

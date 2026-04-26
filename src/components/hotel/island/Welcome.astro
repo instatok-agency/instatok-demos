@@ -1,0 +1,148 @@
+---
+---
+<section class="hi-welcome" id="welcome" aria-label="Καλωσόρισμα">
+  <div class="hi-welcome__inner hi-inner">
+
+    <div class="hi-welcome__text" data-anim="hi-welcome-text">
+      <p class="hi-eyebrow hi-eyebrow--forest" style="margin-bottom:var(--s-5);">Καλωσήρθατε</p>
+      <h2 class="hi-sec-title hi-welcome__title">
+        Welcome to<br/>Ithaca Bay Resort
+      </h2>
+      <p class="hi-welcome__subtitle">
+        Στην καρδιά του Ιονίου Πελάγους, με ανεμπόδιστη θέα
+      </p>
+      <div class="hi-welcome__body">
+        <p>Το Ithaca Bay Resort είναι ένα ιδιωτικό boutique resort σε μία από τις ομορφότερες ακτές της Κεφαλονιάς. Ένα καταφύγιο θαλπωρής, γαλήνης και αναγέννησης — εμπνευσμένο από τη φυσική ομορφιά του Ιονίου και τις αρχαίες παραδόσεις φιλοξενίας.</p>
+        <p>Με θέα σε τιρκουάζ νερά, κρυφές αμμουδιές και πευκόφυτα λόφους, το resort προσφέρει μια μοναδική εμπειρία πολυτέλειας — μακριά από τον θόρυβο, κοντά στο ουσιαστικό.</p>
+      </div>
+      <div class="hi-welcome__badges">
+        <div class="hi-welcome__badge">
+          <span class="hi-welcome__badge-n">5</span>
+          <span class="hi-eyebrow">Αστέρια</span>
+        </div>
+        <div class="hi-welcome__badge">
+          <span class="hi-welcome__badge-n">24</span>
+          <span class="hi-eyebrow">Villas</span>
+        </div>
+        <div class="hi-welcome__badge">
+          <span class="hi-welcome__badge-n">4.9</span>
+          <span class="hi-eyebrow">Βαθμολογία</span>
+        </div>
+      </div>
+      <a href="#rooms" class="hi-welcome__link hi-eyebrow hi-eyebrow--forest">
+        Δείτε τα Δωμάτια →
+      </a>
+    </div>
+
+    <div class="hi-welcome__gallery" data-anim="hi-welcome-gallery">
+      <div class="hi-welcome__img-main">
+        <img
+          src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85&fit=crop"
+          alt="Infinity pool με θέα Ιονίου"
+          width="900" height="700"
+          loading="lazy"
+        />
+      </div>
+      <div class="hi-welcome__img-grid">
+        <img
+          src="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=600&q=85&fit=crop"
+          alt="Παραλία resort"
+          width="600" height="400"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=85&fit=crop"
+          alt="Spa του resort"
+          width="600" height="400"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85&fit=crop"
+          alt="Γαστρονομικό εστιατόριο"
+          width="600" height="400"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hi-welcome {
+    background: var(--hi-white);
+    padding-block: var(--s-9);
+  }
+  .hi-welcome__inner {
+    display: grid; gap: var(--s-8); align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hi-welcome__inner { grid-template-columns: 5fr 7fr; }
+  }
+
+  /* TEXT */
+  .hi-welcome__text { display: grid; gap: var(--s-5); align-content: start; }
+  .hi-welcome__title em { color: var(--hi-forest); }
+  .hi-welcome__subtitle {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.375rem);
+    font-weight: 400; color: var(--hi-muted); line-height: 1.4;
+  }
+  .hi-welcome__body {
+    display: grid; gap: var(--s-4);
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.85; color: var(--hi-muted);
+    max-width: 38rem;
+  }
+  .hi-welcome__badges {
+    display: flex; gap: var(--s-7); flex-wrap: wrap;
+    padding-top: var(--s-5); border-top: 1px solid var(--hi-border-2);
+  }
+  .hi-welcome__badge { display: grid; gap: 4px; }
+  .hi-welcome__badge-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    color: var(--hi-forest); line-height: 1;
+  }
+  .hi-welcome__link {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    border-bottom: 1px solid var(--hi-forest);
+    padding-bottom: 2px; justify-self: start;
+    transition: opacity 0.2s;
+  }
+  .hi-welcome__link:hover { opacity: 0.6; }
+
+  /* GALLERY */
+  .hi-welcome__gallery { display: grid; gap: var(--s-3); }
+  .hi-welcome__img-main {
+    border-radius: var(--r-lg); overflow: hidden;
+    height: clamp(260px, 35vw, 420px);
+  }
+  .hi-welcome__img-main img { width: 100%; height: 100%; object-fit: cover; }
+  .hi-welcome__img-grid {
+    display: grid; gap: var(--s-3);
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hi-welcome__img-grid img {
+    border-radius: var(--r-md); overflow: hidden;
+    width: 100%; height: clamp(100px, 12vw, 160px);
+    object-fit: cover;
+  }
+
+  [data-anim="hi-welcome-text"], [data-anim="hi-welcome-gallery"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hi-welcome-text"], [data-anim="hi-welcome-gallery"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="hi-welcome-text"]',    { y: 28, x: -16 });
+    gsap.set('[data-anim="hi-welcome-gallery"]', { y: 28 });
+    gsap.to('[data-anim="hi-welcome-text"]',    { opacity: 1, y: 0, x: 0, duration: 1.0, scrollTrigger: { trigger: '.hi-welcome__inner', start: 'top 82%' } });
+    gsap.to('[data-anim="hi-welcome-gallery"]', { opacity: 1, y: 0,       duration: 1.0, delay: 0.12, scrollTrigger: { trigger: '.hi-welcome__inner', start: 'top 82%' } });
+  });
+</script>

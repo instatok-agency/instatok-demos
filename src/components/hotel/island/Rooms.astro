@@ -1,0 +1,219 @@
+---
+const rooms = [
+  {
+    name: 'Ocean View Suite',
+    desc: 'Κομψή σουίτα με πανοραμική θέα στο Ιόνιο. Βεράντα ιδιωτική, king size κρεβάτι, μπάνιο με υδρομασάζ.',
+    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=85&fit=crop',
+    alt: 'Ocean View Suite',
+    size: '45 m²',
+    guests: '2 Άτομα',
+    bed: '1 King',
+    price: '€280',
+    badge: null,
+  },
+  {
+    name: 'Beachfront Villa',
+    desc: 'Ιδιωτική βίλα απευθείας στην παραλία. Ιδιωτική πισίνα, υπαίθρια dining area, απεριόριστη θέα.',
+    img: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=85&fit=crop',
+    alt: 'Beachfront Villa',
+    size: '75 m²',
+    guests: '4 Άτομα',
+    bed: '1 King + 1 Queen',
+    price: '€480',
+    badge: 'Best Seller',
+  },
+  {
+    name: 'Garden Residence',
+    desc: 'Πολυτελής κατοικία εντός κήπου. Δύο υπνοδωμάτια, ιδιωτική τζακούζι, ήρεμο φυσικό περιβάλλον.',
+    img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=85&fit=crop',
+    alt: 'Garden Residence',
+    size: '65 m²',
+    guests: '4 Άτομα',
+    bed: '2 Kings',
+    price: '€380',
+    badge: null,
+  },
+  {
+    name: 'Grand Ocean Residence',
+    desc: 'Η αποκορύφωση της πολυτέλειας. Τέσσερα υπνοδωμάτια, ιδιωτική πισίνα infinity, butler service.',
+    img: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=85&fit=crop',
+    alt: 'Grand Ocean Residence',
+    size: '140 m²',
+    guests: '8 Άτομα',
+    bed: '4 Kings',
+    price: '€780',
+    badge: 'Flagship',
+  },
+];
+---
+
+<section class="hi-rooms" id="rooms" aria-label="Δωμάτια">
+  <div class="hi-rooms__inner hi-inner">
+
+    <div class="hi-rooms__head" data-anim="hi-rooms-head">
+      <p class="hi-eyebrow">Καταλύματα</p>
+      <h2 class="hi-sec-title">The Accommodations</h2>
+      <p class="hi-rooms__sub">
+        Κάθε κατάλυμα σχεδιάστηκε για να προσφέρει μια μοναδική εμπειρία —
+        συνδυάζοντας σύγχρονη πολυτέλεια με την αυθεντική ομορφιά του Ιονίου.
+      </p>
+    </div>
+
+    <div class="hi-rooms__grid" data-anim="hi-rooms-grid">
+      {rooms.map(r => (
+        <article class="hi-room-card">
+          <div class="hi-room-card__img-wrap">
+            <img src={r.img} alt={r.alt} class="hi-room-card__img" width="800" height="560" loading="lazy" />
+            {r.badge && <span class="hi-room-card__badge">{r.badge}</span>}
+            <div class="hi-room-card__img-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="hi-room-card__body">
+            <div class="hi-room-card__header">
+              <h3 class="hi-room-card__name">{r.name}</h3>
+              <div class="hi-room-card__price-wrap">
+                <span class="hi-eyebrow hi-eyebrow--gold">Από</span>
+                <span class="hi-room-card__price">{r.price}</span>
+                <span class="hi-room-card__per hi-eyebrow">/νύκτα</span>
+              </div>
+            </div>
+            <p class="hi-room-card__desc">{r.desc}</p>
+            <ul class="hi-room-card__specs">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                {r.size}
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                {r.guests}
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                {r.bed}
+              </li>
+            </ul>
+            <a href="#contact" class="hi-room-card__cta">
+              Discover More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hi-rooms { background: var(--hi-sand); padding-block: var(--s-9); }
+  .hi-rooms__inner { display: grid; gap: var(--s-8); }
+
+  .hi-rooms__head { display: grid; gap: var(--s-4); max-width: 48rem; }
+  .hi-rooms__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.8; color: var(--hi-muted);
+  }
+
+  /* GRID — 2 columns on desktop, 1 on mobile */
+  .hi-rooms__grid {
+    display: grid; gap: var(--s-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  }
+
+  /* CARD */
+  .hi-room-card {
+    background: var(--hi-white);
+    border-radius: var(--r-lg); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .hi-room-card:hover {
+    box-shadow: 0 12px 48px rgba(30,59,44,0.12);
+    transform: translateY(-4px);
+  }
+
+  .hi-room-card__img-wrap {
+    position: relative; overflow: hidden;
+    height: clamp(220px, 30vw, 300px);
+  }
+  .hi-room-card__img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .hi-room-card:hover .hi-room-card__img { transform: scale(1.05); }
+  .hi-room-card__img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(30,59,44,0.3) 0%, transparent 50%);
+  }
+
+  .hi-room-card__badge {
+    position: absolute; top: var(--s-4); right: var(--s-4);
+    background: var(--hi-gold); color: var(--hi-white);
+    font-family: var(--f-body); font-size: 0.45rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.3rem 0.75rem; border-radius: var(--r-sm);
+  }
+
+  .hi-room-card__body {
+    padding: var(--s-5) var(--s-6);
+    display: flex; flex-direction: column; gap: var(--s-4);
+    flex: 1;
+  }
+
+  .hi-room-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-4); }
+  .hi-room-card__name {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+    font-weight: 400; color: var(--hi-forest); line-height: 1.15;
+  }
+  .hi-room-card__price-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0; }
+  .hi-room-card__price {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.75rem; font-weight: 400; color: var(--hi-gold); line-height: 1;
+  }
+  .hi-room-card__per { color: var(--hi-muted-2); }
+
+  .hi-room-card__desc {
+    font-family: var(--f-body); font-size: 0.875rem;
+    font-weight: 300; line-height: 1.8; color: var(--hi-muted);
+    flex: 1;
+  }
+
+  .hi-room-card__specs {
+    display: flex; gap: var(--s-5); flex-wrap: wrap; list-style: none;
+    padding-top: var(--s-4); border-top: 1px solid var(--hi-border);
+  }
+  .hi-room-card__specs li {
+    display: flex; align-items: center; gap: var(--s-2);
+    font-family: var(--f-body); font-size: 0.75rem;
+    font-weight: 400; color: var(--hi-muted);
+  }
+  .hi-room-card__specs svg { color: var(--hi-forest); flex-shrink: 0; }
+
+  .hi-room-card__cta {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--hi-forest);
+    border-bottom: 1px solid rgba(30,59,44,0.3);
+    padding-bottom: 2px; justify-self: start; align-self: flex-start;
+    transition: gap 0.2s, border-color 0.2s;
+  }
+  .hi-room-card__cta:hover { gap: var(--s-3); border-color: var(--hi-forest); }
+
+  [data-anim="hi-rooms-head"], [data-anim="hi-rooms-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hi-rooms-head"], [data-anim="hi-rooms-grid"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="hi-rooms-head"]', { y: 24 });
+    gsap.set('[data-anim="hi-rooms-grid"]', { y: 28 });
+    gsap.to('[data-anim="hi-rooms-head"]', { opacity: 1, y: 0, duration: 0.9, scrollTrigger: { trigger: '.hi-rooms__head', start: 'top 85%' } });
+    gsap.to('[data-anim="hi-rooms-grid"]', { opacity: 1, y: 0, duration: 1.0, scrollTrigger: { trigger: '.hi-rooms__grid', start: 'top 82%' } });
+  });
+</script>
