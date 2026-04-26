@@ -1,0 +1,261 @@
+---
+const tiers = [
+  {
+    name: 'Drop-in',
+    price: '€22',
+    per: 'ανά μάθημα',
+    desc: 'Για όποτε θέλεις, χωρίς δέσμευση.',
+    features: [
+      'Ένα μάθημα επιλογής σου',
+      'Εγγύηση θέσης 24ώρ νωρίτερα',
+      'Χαλάκι + εξοπλισμός',
+    ],
+    cta: 'Κράτησε θέση',
+    highlight: false,
+  },
+  {
+    name: 'Μηνιαία',
+    price: '€120',
+    per: 'ανά μήνα · 8 μαθήματα',
+    desc: 'Το πιο δημοφιλές πρόγραμμα.',
+    features: [
+      '8 μαθήματα / μήνα',
+      'Προτεραιότητα κράτησης',
+      'Παρακολούθηση προόδου',
+      'Ένα δωρεάν private / εξάμηνο',
+    ],
+    cta: 'Ξεκίνα σήμερα',
+    highlight: true,
+  },
+  {
+    name: 'Unlimited',
+    price: '€180',
+    per: 'ανά μήνα · απεριόριστα',
+    desc: 'Για όσους θέλουν να πηγαίνουν κάθε μέρα.',
+    features: [
+      'Απεριόριστα μαθήματα',
+      'Προτεραιότητα σε όλες τις τάξεις',
+      'Παρακολούθηση προόδου',
+      'Δύο privates / μήνα',
+    ],
+    cta: 'Ξεκίνα σήμερα',
+    highlight: false,
+  },
+];
+---
+
+<section class="pricing" aria-label="Τιμολόγηση">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="pricing__inner modern-section-inner">
+
+    <div class="pricing__head" data-anim="pricing-head">
+      <p class="eyebrow eyebrow--mint">Τιμές</p>
+      <h2 class="pricing__title">Απλό, διαφανές τιμολόγιο.</h2>
+    </div>
+
+    <div class="pricing__grid">
+      {tiers.map((t, i) => (
+        <div class={`pricing__card${t.highlight ? ' pricing__card--highlight' : ''}`} data-anim="pricing-card">
+          {t.highlight && <span class="pill pill--mint pricing__badge">Δημοφιλές</span>}
+          <div class="pricing__card-head">
+            <p class="pricing__tier-name">{t.name}</p>
+            <div class="pricing__price-row">
+              <span class="pricing__price">{t.price}</span>
+              <span class="pricing__per">{t.per}</span>
+            </div>
+            <p class="pricing__desc">{t.desc}</p>
+          </div>
+          <ul class="pricing__features">
+            {t.features.map(f => (
+              <li class="pricing__feature">
+                <svg class="pricing__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#booking" class={`pricing__cta${t.highlight ? ' pricing__cta--primary' : ' pricing__cta--ghost'}`}>
+            {t.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing__note" data-anim="pricing-note">
+      Ιδιωτικά μαθήματα από <strong>€75/session</strong>. Πακέτα 5 και 10 sessions διαθέσιμα με έκπτωση.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--c-bg-2);
+    padding-block: var(--s-9);
+  }
+
+  .pricing__inner { display: grid; gap: var(--s-8); }
+
+  .pricing__head { display: grid; gap: var(--s-4); }
+  .pricing__title {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+    line-height: 1.1;
+  }
+
+  .pricing__grid {
+    display: grid;
+    gap: var(--s-5);
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .pricing__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pricing__card {
+    position: relative;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    padding: var(--s-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+  }
+  .pricing__card--highlight {
+    border-color: var(--c-mint);
+    box-shadow: 0 0 0 1px var(--c-mint-border);
+  }
+
+  .pricing__badge {
+    position: absolute;
+    top: var(--s-4);
+    right: var(--s-4);
+  }
+
+  .pricing__card-head { display: grid; gap: var(--s-3); }
+  .pricing__tier-name {
+    font-family: var(--f-display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+
+  .pricing__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-2);
+    flex-wrap: wrap;
+  }
+  .pricing__price {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--c-ink);
+    letter-spacing: -0.03em;
+  }
+  .pricing__per {
+    font-size: 0.8125rem;
+    color: var(--c-ink-3);
+    line-height: 1.4;
+  }
+
+  .pricing__desc {
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    line-height: 1.55;
+  }
+
+  .pricing__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    flex: 1;
+  }
+  .pricing__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    line-height: 1.5;
+  }
+  .pricing__check {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--c-mint);
+    margin-top: 0.15rem;
+  }
+
+  .pricing__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--r-sm);
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    margin-top: auto;
+  }
+  .pricing__cta--primary {
+    background: var(--c-mint);
+    color: var(--c-ink);
+    border: 1px solid var(--c-mint);
+  }
+  .pricing__cta--primary:hover {
+    background: var(--c-mint-dark);
+    border-color: var(--c-mint-dark);
+    color: #fff;
+  }
+  .pricing__cta--ghost {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid var(--c-border);
+  }
+  .pricing__cta--ghost:hover { border-color: var(--c-ink-3); }
+
+  .pricing__note {
+    font-size: 0.875rem;
+    color: var(--c-ink-3);
+    text-align: center;
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border);
+  }
+  .pricing__note strong { color: var(--c-ink); font-weight: 600; }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="pricing-head"]',
+      { autoAlpha: 0, y: 16 }, {
+        autoAlpha: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: '[data-anim="pricing-head"]', start: 'top 85%' }
+      });
+    gsap.fromTo('[data-anim="pricing-card"]',
+      { autoAlpha: 0, y: 24 }, {
+        autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.08,
+        scrollTrigger: { trigger: '.pricing__grid', start: 'top 80%' }
+      });
+    gsap.fromTo('[data-anim="pricing-note"]',
+      { autoAlpha: 0 }, {
+        autoAlpha: 1, duration: 0.5,
+        scrollTrigger: { trigger: '[data-anim="pricing-note"]', start: 'top 88%' }
+      });
+  });
+</script>

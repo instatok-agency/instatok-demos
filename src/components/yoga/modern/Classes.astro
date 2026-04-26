@@ -1,0 +1,211 @@
+---
+const classes = [
+  {
+    photo: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80&fit=crop',
+    badge: 'Δυναμικό',
+    name: 'Vinyasa Flow',
+    desc: 'Ρέουσα ακολουθία που συνδέει κίνηση με αναπνοή. Δυναμικό, εστιασμένο, ικανοποιητικό.',
+    levels: 'Όλα τα επίπεδα',
+    duration: '60 λεπτά',
+    from: '€22',
+  },
+  {
+    photo: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80&fit=crop',
+    badge: 'Δύναμη',
+    name: 'Pilates Mat',
+    desc: 'Εργασία με το βάρος του σώματος για βαθιά ενεργοποίηση του πυρήνα και ευθυγράμμιση.',
+    levels: 'Αρχάριοι · Μεσαίοι',
+    duration: '50 λεπτά',
+    from: '€22',
+  },
+  {
+    photo: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop',
+    badge: 'Αποκατάσταση',
+    name: 'Yin Yoga',
+    desc: 'Παρατεταμένες στάσεις στον συνδετικό ιστό. Ηρεμία, βάθος, ευλυγισία.',
+    levels: 'Όλα τα επίπεδα',
+    duration: '75 λεπτά',
+    from: '€22',
+  },
+  {
+    photo: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&q=80&fit=crop',
+    badge: 'Ιδιωτικό',
+    name: 'Ιδιωτικό Μάθημα',
+    desc: 'Εξατομικευμένο πρόγραμμα για τους δικούς σου στόχους. Yoga, pilates ή συνδυασμός.',
+    levels: 'Ανάλογα ανάγκης',
+    duration: '60 λεπτά',
+    from: '€75',
+  },
+];
+---
+
+<section class="classes" id="classes" aria-label="Τύποι μαθημάτων">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="classes__inner modern-section-inner">
+
+    <div class="classes__head" data-anim="classes-head">
+      <p class="eyebrow eyebrow--mint">Τι διδάσκουμε</p>
+      <h2 class="classes__title">Τα προγράμματά μας.</h2>
+    </div>
+
+    <div class="classes__grid">
+      {classes.map((c, i) => (
+        <article class="class-card" data-anim="class-card">
+          <div class="class-card__photo-wrap">
+            <img
+              src={c.photo}
+              alt={c.name}
+              class="class-card__photo"
+              loading="lazy"
+              width="700"
+              height="420"
+            />
+            <span class="pill pill--ink class-card__badge">{c.badge}</span>
+          </div>
+          <div class="class-card__body">
+            <div class="class-card__meta">
+              <span class="eyebrow">{c.levels}</span>
+              <span class="eyebrow">{c.duration}</span>
+            </div>
+            <h3 class="class-card__name">{c.name}</h3>
+            <p class="class-card__desc">{c.desc}</p>
+            <div class="class-card__foot">
+              <span class="class-card__price">από <strong>{c.from}</strong></span>
+              <a href="#booking" class="class-card__link">Κράτηση →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .classes {
+    background: var(--c-bg-2);
+    padding-block: var(--s-9);
+  }
+
+  .classes__inner { display: grid; gap: var(--s-8); }
+
+  .classes__head { display: grid; gap: var(--s-4); }
+  .classes__title {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+    line-height: 1.1;
+  }
+
+  .classes__grid {
+    display: grid;
+    gap: var(--s-5);
+  }
+  @media (min-width: 640px) { .classes__grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .class-card {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .class-card:hover {
+    border-color: var(--c-mint-border);
+    box-shadow: 0 4px 24px rgba(45, 182, 125, 0.08);
+  }
+
+  .class-card__photo-wrap {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  .class-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.96) saturate(1.04);
+    transition: transform 0.5s ease;
+  }
+  .class-card:hover .class-card__photo { transform: scale(1.03); }
+  .class-card__badge {
+    position: absolute;
+    top: var(--s-4);
+    left: var(--s-4);
+  }
+
+  .class-card__body {
+    padding: var(--s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    flex: 1;
+  }
+  .class-card__meta {
+    display: flex;
+    gap: var(--s-4);
+  }
+
+  .class-card__name {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--c-ink);
+    line-height: 1.2;
+  }
+  .class-card__desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--c-ink-2);
+    flex: 1;
+  }
+  .class-card__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border);
+    margin-top: auto;
+  }
+  .class-card__price {
+    font-size: 0.875rem;
+    color: var(--c-ink-3);
+  }
+  .class-card__price strong {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--c-ink);
+  }
+  .class-card__link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--c-mint-dark);
+    transition: color 0.18s;
+  }
+  .class-card__link:hover { color: var(--c-mint); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="classes-head"]',
+      { autoAlpha: 0, y: 16 }, {
+        autoAlpha: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: '[data-anim="classes-head"]', start: 'top 85%' }
+      });
+    gsap.fromTo('[data-anim="class-card"]',
+      { autoAlpha: 0, y: 24 }, {
+        autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.08,
+        scrollTrigger: { trigger: '.classes__grid', start: 'top 80%' }
+      });
+  });
+</script>

@@ -1,0 +1,235 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-headline">
+  <div class="hero__inner modern-section-inner">
+
+    <!-- Top bar -->
+    <div class="hero__top" data-anim="top">
+      <p class="eyebrow">Yoga &amp; Pilates Studio</p>
+      <span class="pill pill--outline">Κολωνάκι · Αθήνα</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero__headline" id="hero-headline">
+      <span class="hero__word" data-anim="word">Κίνηση.</span>
+      <span class="hero__word" data-anim="word">Δύναμη.</span>
+      <span class="hero__word hero__word--mint" data-anim="word">Ισορροπία.</span>
+    </h1>
+
+    <!-- Lead + CTAs -->
+    <div class="hero__sub" data-anim="sub">
+      <p class="hero__lead">
+        Vinyasa, Pilates και Yin Yoga στο κέντρο της Αθήνας.
+        Ομαδικά και ιδιωτικά, 6 ημέρες την εβδομάδα.
+      </p>
+      <div class="hero__actions">
+        <a href="#classes" class="hero__cta hero__cta--primary">Δες τα προγράμματα</a>
+        <a href="#schedule" class="hero__cta hero__cta--ghost">Πρόγραμμα εβδομάδας</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Photo strip -->
+  <div class="hero__visual modern-section-inner" data-anim="visual">
+    <div class="hero__frame">
+      <img
+        src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1400&q=80&fit=crop"
+        alt="Studio Kali — yoga & pilates Αθήνα"
+        class="hero__photo"
+        loading="eager"
+        width="1400"
+        height="840"
+      />
+      <div class="hero__chips" aria-hidden="true">
+        <div class="hero__chip">
+          <span class="hero__chip-n">200+</span>
+          <span class="hero__chip-l">Ενεργοί μαθητές</span>
+        </div>
+        <div class="hero__chip">
+          <span class="hero__chip-n">12</span>
+          <span class="hero__chip-l">Χρόνια εμπειρία</span>
+        </div>
+        <div class="hero__chip">
+          <span class="hero__chip-n">4.9 ★</span>
+          <span class="hero__chip-l">Google reviews</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    background: var(--c-bg);
+    padding-top: 4.5rem;
+    padding-bottom: var(--s-7);
+  }
+
+  .hero__inner {
+    display: grid;
+    gap: var(--s-6);
+    margin-bottom: var(--s-6);
+  }
+
+  .hero__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+  .hero__headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(3.5rem, 11vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--c-ink);
+    margin: 0;
+  }
+  .hero__word { display: block; }
+  .hero__word--mint { color: var(--c-mint); }
+
+  .hero__sub {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) {
+    .hero__sub {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--s-8);
+    }
+  }
+
+  .hero__lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--c-ink-2);
+    max-width: 42ch;
+    flex-shrink: 1;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    flex-shrink: 0;
+  }
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+  }
+  .hero__cta--primary {
+    background: var(--c-mint);
+    color: var(--c-ink);
+    border: 1px solid var(--c-mint);
+  }
+  .hero__cta--primary:hover {
+    background: var(--c-mint-dark);
+    border-color: var(--c-mint-dark);
+    color: #fff;
+  }
+  .hero__cta--ghost {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid var(--c-border);
+  }
+  .hero__cta--ghost:hover { border-color: var(--c-ink-3); }
+
+  /* Photo */
+  .hero__frame {
+    position: relative;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    height: clamp(280px, 50vw, 560px);
+  }
+  .hero__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(1.02) contrast(1.02) saturate(1.08);
+  }
+
+  /* Floating chips */
+  .hero__chips {
+    position: absolute;
+    bottom: var(--s-5);
+    left: var(--s-5);
+    display: flex;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .hero__chip {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0.55rem 0.875rem;
+    background: rgba(248, 250, 248, 0.90);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--r-sm);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .hero__chip-n {
+    font-family: var(--f-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--c-ink);
+    line-height: 1;
+  }
+  .hero__chip-l {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--c-ink-3);
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { initGSAP } from '../../../scripts/gsap-yoga-modern';
+
+  initGSAP();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
+    (ctx) => {
+      const { isReduced } = ctx.conditions ?? {};
+      const els = ['[data-anim="top"]', '[data-anim="word"]', '[data-anim="sub"]', '[data-anim="visual"]'];
+      gsap.set(els, { autoAlpha: 0 });
+      if (isReduced) { gsap.set(els, { autoAlpha: 1 }); return; }
+
+      const tl = gsap.timeline();
+      tl.fromTo('[data-anim="top"]',
+          { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.5 }, 0.1)
+        .fromTo('[data-anim="word"]',
+          { autoAlpha: 0, y: 24 },
+          { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.06, ease: 'power3.out' }, 0.25)
+        .fromTo('[data-anim="sub"]',
+          { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.55 }, '-=0.2')
+        .fromTo('[data-anim="visual"]',
+          { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power2.out' }, '-=0.3');
+    }
+  );
+</script>

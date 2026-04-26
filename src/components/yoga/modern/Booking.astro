@@ -1,0 +1,226 @@
+---
+---
+
+<section class="booking" id="booking" aria-label="Κράτηση">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="booking__inner modern-section-inner">
+
+    <div class="booking__grid">
+
+      <!-- Info side -->
+      <div class="booking__info" data-anim="booking-info">
+        <p class="eyebrow eyebrow--mint">Επικοινωνία</p>
+        <h2 class="booking__title">Ξεκίνα σήμερα.</h2>
+        <p class="booking__lead">
+          Στείλε μας ένα μήνυμα και θα επικοινωνήσουμε μαζί σου εντός 24 ωρών
+          για να βρούμε το πρόγραμμα που σε ταιριάζει.
+        </p>
+
+        <ul class="booking__details">
+          <li class="booking__detail">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M17.657 16.657L13.414 20.414a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Σκουφά 14, Κολωνάκι, Αθήνα</span>
+          </li>
+          <li class="booking__detail">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Δευ–Παρ 07:00–21:00 · Σαβ 09:00–14:00</span>
+          </li>
+          <li class="booking__detail">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>hello@studiokali.gr</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Form side -->
+      <div class="booking__form-wrap" data-anim="booking-form">
+        <form class="booking__form" onsubmit="return false">
+          <div class="booking__row">
+            <div class="booking__field">
+              <label for="bk-name" class="booking__label">Όνομα</label>
+              <input type="text" id="bk-name" name="name" class="booking__input"
+                placeholder="Το όνομά σου" autocomplete="given-name" />
+            </div>
+            <div class="booking__field">
+              <label for="bk-email" class="booking__label">Email</label>
+              <input type="email" id="bk-email" name="email" class="booking__input"
+                placeholder="email@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="booking__field">
+            <label for="bk-program" class="booking__label">Ενδιαφέρον</label>
+            <select id="bk-program" name="program" class="booking__input">
+              <option value="">Επίλεξε πρόγραμμα…</option>
+              <option>Vinyasa Flow</option>
+              <option>Pilates Mat</option>
+              <option>Yin Yoga</option>
+              <option>Ιδιωτικό Μάθημα</option>
+              <option>Θέλω να δω πρώτα</option>
+            </select>
+          </div>
+
+          <div class="booking__field">
+            <label for="bk-msg" class="booking__label">Μήνυμα <span class="booking__optional">(προαιρετικό)</span></label>
+            <textarea id="bk-msg" name="message" class="booking__input booking__textarea"
+              placeholder="Πες μας λίγα πράγματα για σένα ή τους στόχους σου…" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="booking__submit">
+            Αποστολή αίτησης
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .booking {
+    background: var(--c-bg);
+    padding-block: var(--s-9);
+  }
+
+  .booking__grid {
+    display: grid;
+    gap: var(--s-8);
+  }
+  @media (min-width: 768px) {
+    .booking__grid { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  .booking__info { display: grid; gap: var(--s-5); }
+  .booking__title {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+    line-height: 1.1;
+  }
+  .booking__lead {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--c-ink-2);
+  }
+
+  .booking__details {
+    list-style: none;
+    display: grid;
+    gap: var(--s-4);
+  }
+  .booking__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+    color: var(--c-ink-2);
+    line-height: 1.5;
+  }
+  .booking__detail svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--c-mint);
+    margin-top: 0.15rem;
+  }
+
+  /* Form */
+  .booking__form {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: var(--s-6);
+    display: grid;
+    gap: var(--s-5);
+  }
+  .booking__row {
+    display: grid;
+    gap: var(--s-4);
+  }
+  @media (min-width: 480px) {
+    .booking__row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .booking__field { display: grid; gap: var(--s-2); }
+  .booking__label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--c-ink);
+  }
+  .booking__optional { font-weight: 400; color: var(--c-ink-3); }
+
+  .booking__input {
+    padding: 0.7rem 0.875rem;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    color: var(--c-ink);
+    outline: none;
+    transition: border-color 0.18s;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+  .booking__input::placeholder { color: var(--c-ink-3); }
+  .booking__input:focus { border-color: var(--c-mint); }
+  .booking__textarea { resize: vertical; min-height: 6rem; }
+
+  .booking__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    background: var(--c-mint);
+    color: var(--c-ink);
+    border: 1px solid var(--c-mint);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+    width: 100%;
+  }
+  .booking__submit svg { width: 14px; height: 14px; }
+  .booking__submit:hover {
+    background: var(--c-mint-dark);
+    border-color: var(--c-mint-dark);
+    color: #fff;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="booking-info"]',
+      { autoAlpha: 0, y: 20 }, {
+        autoAlpha: 1, y: 0, duration: 0.65,
+        scrollTrigger: { trigger: '.booking__grid', start: 'top 80%' }
+      });
+    gsap.fromTo('[data-anim="booking-form"]',
+      { autoAlpha: 0, y: 24 }, {
+        autoAlpha: 1, y: 0, duration: 0.7,
+        scrollTrigger: { trigger: '.booking__grid', start: 'top 80%' },
+        delay: 0.1,
+      });
+  });
+</script>

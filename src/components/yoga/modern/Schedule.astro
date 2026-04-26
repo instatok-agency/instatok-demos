@@ -1,0 +1,186 @@
+---
+const schedule = [
+  { day: 'Δευτέρα',  slots: [
+    { time: '07:30', name: 'Vinyasa Flow',   level: 'Αρχάριοι', available: true },
+    { time: '18:30', name: 'Pilates Mat',    level: 'Μεσαίοι',  available: true },
+    { time: '20:00', name: 'Yin Yoga',       level: 'Όλοι',     available: false },
+  ]},
+  { day: 'Τρίτη',   slots: [
+    { time: '09:00', name: 'Pilates Mat',    level: 'Αρχάριοι', available: true },
+    { time: '19:00', name: 'Vinyasa Flow',   level: 'Μεσαίοι',  available: true },
+  ]},
+  { day: 'Τετάρτη', slots: [
+    { time: '07:30', name: 'Yin Yoga',       level: 'Όλοι',     available: true },
+    { time: '18:30', name: 'Vinyasa Flow',   level: 'Προχωρημένοι', available: false },
+    { time: '20:00', name: 'Pilates Mat',    level: 'Αρχάριοι', available: true },
+  ]},
+  { day: 'Πέμπτη',  slots: [
+    { time: '09:00', name: 'Vinyasa Flow',   level: 'Όλοι',     available: true },
+    { time: '19:00', name: 'Pilates Mat',    level: 'Μεσαίοι',  available: true },
+  ]},
+  { day: 'Παρασκευή', slots: [
+    { time: '07:30', name: 'Pilates Mat',    level: 'Αρχάριοι', available: true },
+    { time: '18:30', name: 'Yin Yoga',       level: 'Όλοι',     available: true },
+    { time: '20:00', name: 'Vinyasa Flow',   level: 'Μεσαίοι',  available: false },
+  ]},
+  { day: 'Σάββατο', slots: [
+    { time: '09:30', name: 'Vinyasa Flow',   level: 'Όλοι',     available: true },
+    { time: '11:00', name: 'Pilates Mat',    level: 'Όλοι',     available: true },
+  ]},
+];
+---
+
+<section class="schedule" id="schedule" aria-label="Εβδομαδιαίο πρόγραμμα">
+  <hr class="section-rule" aria-hidden="true" />
+
+  <div class="schedule__inner modern-section-inner">
+
+    <div class="schedule__head" data-anim="schedule-head">
+      <div>
+        <p class="eyebrow eyebrow--mint">Πρόγραμμα</p>
+        <h2 class="schedule__title">Εβδομαδιαίο πρόγραμμα.</h2>
+      </div>
+      <p class="schedule__note">
+        Ιδιωτικά μαθήματα κατόπιν ραντεβού.<br />
+        Ακύρωση έως 12 ώρες πριν.
+      </p>
+    </div>
+
+    <div class="schedule__grid" data-anim="schedule-grid">
+      {schedule.map(day => (
+        <div class="schedule__day">
+          <p class="schedule__day-name">{day.day}</p>
+          <div class="schedule__slots">
+            {day.slots.map(slot => (
+              <div class={`schedule__slot${!slot.available ? ' schedule__slot--full' : ''}`}>
+                <span class="schedule__time">{slot.time}</span>
+                <div class="schedule__slot-info">
+                  <span class="schedule__slot-name">{slot.name}</span>
+                  <span class="eyebrow schedule__level">{slot.level}</span>
+                </div>
+                <span class={`pill ${slot.available ? 'pill--mint' : 'pill--outline'}`}>
+                  {slot.available ? 'Διαθέσιμο' : 'Πλήρες'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .schedule {
+    background: var(--c-bg);
+    padding-block: var(--s-9);
+  }
+
+  .schedule__inner { display: grid; gap: var(--s-8); }
+
+  .schedule__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-5);
+  }
+  .schedule__title {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+    line-height: 1.1;
+    margin-top: var(--s-3);
+  }
+  .schedule__note {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--c-ink-3);
+    text-align: right;
+  }
+  @media (max-width: 640px) { .schedule__note { text-align: left; } }
+
+  .schedule__grid {
+    display: grid;
+    gap: var(--s-5);
+  }
+  @media (min-width: 768px) {
+    .schedule__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .schedule__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .schedule__day {
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .schedule__day-name {
+    padding: var(--s-3) var(--s-5);
+    background: var(--c-bg-2);
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--c-ink);
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .schedule__slots { display: flex; flex-direction: column; }
+  .schedule__slot {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-3) var(--s-4);
+    border-bottom: 1px solid var(--c-border-2);
+  }
+  .schedule__slot:last-child { border-bottom: none; }
+  .schedule__slot--full { opacity: 0.55; }
+
+  .schedule__time {
+    font-family: var(--f-display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--c-ink);
+    min-width: 3rem;
+    flex-shrink: 0;
+  }
+  .schedule__slot-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+  .schedule__slot-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .schedule__level { color: var(--c-ink-3); }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('[data-anim="schedule-head"]',
+      { autoAlpha: 0, y: 16 }, {
+        autoAlpha: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: '[data-anim="schedule-head"]', start: 'top 85%' }
+      });
+    gsap.fromTo('[data-anim="schedule-grid"]',
+      { autoAlpha: 0, y: 20 }, {
+        autoAlpha: 1, y: 0, duration: 0.65,
+        scrollTrigger: { trigger: '[data-anim="schedule-grid"]', start: 'top 82%' }
+      });
+  });
+</script>

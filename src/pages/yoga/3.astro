@@ -1,12 +1,23 @@
 ---
-import ShowcaseBase from '../../layouts/ShowcaseBase.astro';
+import YogaModernBase from '../../layouts/YogaModernBase.astro';
+import Hero from '../../components/yoga/modern/Hero.astro';
+import Approach from '../../components/yoga/modern/Approach.astro';
+import Classes from '../../components/yoga/modern/Classes.astro';
+import Schedule from '../../components/yoga/modern/Schedule.astro';
+import Pricing from '../../components/yoga/modern/Pricing.astro';
+import Booking from '../../components/yoga/modern/Booking.astro';
+import Footer from '../../components/yoga/modern/Footer.astro';
 ---
-<ShowcaseBase title="Yoga Direction C — Σύντομα">
-  <main style="min-height:100dvh; display:flex; align-items:center; justify-content:center; background:#FAFAFA;">
-    <div style="text-align:center; padding:2rem;">
-      <p style="font-family:ui-monospace,monospace; font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:#ABABAB; margin-bottom:1rem;">Yoga · Direction 03</p>
-      <h1 style="font-size:clamp(1.5rem,4vw,2.5rem); font-weight:300; color:#0A0A0A; margin-bottom:1rem;">Σύντομα.</h1>
-      <a href="/yoga" style="font-size:0.75rem; color:#ABABAB; text-decoration:none;">← Πίσω στα yoga demos</a>
-    </div>
-  </main>
-</ShowcaseBase>
+
+<YogaModernBase
+  title="Studio Kali · Yoga & Pilates Κολωνάκι Αθήνα — Modern"
+  description="Vinyasa, Pilates και Yin Yoga στο Κολωνάκι. Ομαδικά και ιδιωτικά μαθήματα, 6 ημέρες την εβδομάδα. Demo: Modern Studio."
+>
+  <Hero />
+  <Approach />
+  <Classes />
+  <Schedule />
+  <Pricing />
+  <Booking />
+  <Footer />
+</YogaModernBase>
