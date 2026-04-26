@@ -1,0 +1,142 @@
+---
+const faqs = [
+  {
+    q: 'Ποια είναι η πολιτική ακύρωσης;',
+    a: 'Δωρεάν ακύρωση έως 7 ημέρες πριν την άφιξη. Για ακυρώσεις 3–7 ημέρες πριν, επιστρέφεται το 50% της καταβληθείσας προκαταβολής. Για ακυρώσεις εντός 3 ημερών, δεν γίνεται επιστροφή.',
+  },
+  {
+    q: 'Ποιες είναι οι ώρες check-in και check-out;',
+    a: 'Check-in από τις 15:00, check-out μέχρι τις 11:00. Ευέλικτα ωράρια είναι δυνατά κατόπιν αιτήματος και ανάλογα με τη διαθεσιμότητα.',
+  },
+  {
+    q: 'Επιτρέπονται παιδιά;',
+    a: 'Ναι! Η κατοικία είναι ιδανική για οικογένειες. Βρεφική κούνια και παιδικό κάθισμα φαγητού είναι διαθέσιμα κατόπιν αιτήματος.',
+  },
+  {
+    q: 'Υπάρχει parking;',
+    a: 'Ναι, υπάρχει ιδιωτικό parking εντός της ιδιοκτησίας. Σημειώστε ότι οι δρόμοι της Άνω Σύρου είναι στενοί — συνιστώνται αυτοκίνητα μεσαίου μεγέθους.',
+  },
+  {
+    q: 'Επιτρέπονται κατοικίδια;',
+    a: 'Δυστυχώς δεν φιλοξενούνται κατοικίδια στην Αρχόντισσα λόγω της ιστορικής φύσης της κατοικίας.',
+  },
+  {
+    q: 'Παρέχεται μεταφορά από/προς το λιμάνι;',
+    a: 'Ναι, μπορούμε να κανονίσουμε μεταφορά από το λιμάνι της Σύρου (Ερμούπολη) κατόπιν αιτήματος. Επικοινωνήστε μαζί μας για λεπτομέρειες.',
+  },
+];
+---
+
+<section class="rv-faq" id="faq" aria-label="Συχνές ερωτήσεις">
+  <div class="rv-faq__inner rv-inner">
+
+    <div class="rv-faq__head" data-anim="rv-faq-head">
+      <p class="rv-eyebrow">FAQ</p>
+      <h2 class="rv-sec-title">Συχνές <em>ερωτήσεις.</em></h2>
+      <p class="rv-faq__sub">
+        Δεν βρίσκετε αυτό που ψάχνετε; <a href="#booking" class="rv-faq__contact">Επικοινωνήστε μαζί μας →</a>
+      </p>
+    </div>
+
+    <div class="rv-faq__list" data-anim="rv-faq-list">
+      {faqs.map((f, i) => (
+        <details class="rv-faq-item" name="faq-group">
+          <summary class="rv-faq-item__q">
+            <span class="rv-faq-item__num rv-eyebrow rv-eyebrow--gold">0{i + 1}</span>
+            <span class="rv-faq-item__text">{f.q}</span>
+            <span class="rv-faq-item__icon" aria-hidden="true">
+              <span class="rv-faq-item__plus">+</span>
+              <span class="rv-faq-item__minus">−</span>
+            </span>
+          </summary>
+          <div class="rv-faq-item__a">
+            <p>{f.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .rv-faq { background: var(--rv-cream); padding-block: var(--s-9); }
+  .rv-faq__inner { display: grid; gap: var(--s-8); }
+
+  .rv-faq__head { display: grid; gap: var(--s-4); max-width: 44rem; }
+  .rv-faq__head em { color: var(--rv-gold); }
+  .rv-faq__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; color: var(--rv-warm);
+  }
+  .rv-faq__contact {
+    color: var(--rv-gold); border-bottom: 1px solid rgba(191,145,80,0.35);
+    padding-bottom: 1px; transition: border-color 0.2s;
+  }
+  .rv-faq__contact:hover { border-color: var(--rv-gold); }
+
+  /* ACCORDION */
+  .rv-faq__list { display: grid; gap: 0; }
+
+  .rv-faq-item {
+    border-top: 1px solid var(--rv-border-2);
+  }
+  .rv-faq-item:last-child { border-bottom: 1px solid var(--rv-border-2); }
+
+  .rv-faq-item__q {
+    display: flex; align-items: center; gap: var(--s-4);
+    padding: var(--s-5) 0;
+    cursor: pointer; list-style: none;
+    font-family: var(--f-body); font-size: 1rem;
+    font-weight: 500; color: var(--rv-black);
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .rv-faq-item__q::-webkit-details-marker { display: none; }
+  .rv-faq-item__q:hover { color: var(--rv-gold); }
+
+  .rv-faq-item__num { flex-shrink: 0; }
+  .rv-faq-item__text { flex: 1; }
+
+  .rv-faq-item__icon {
+    flex-shrink: 0; width: 1.75rem; height: 1.75rem;
+    border: 1px solid var(--rv-border-2); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 300;
+    color: var(--rv-warm); transition: background 0.2s, border-color 0.2s, color 0.2s;
+    position: relative;
+  }
+  details[open] .rv-faq-item__icon {
+    background: var(--rv-gold); border-color: var(--rv-gold); color: var(--rv-white);
+  }
+  .rv-faq-item__plus  { display: block; }
+  .rv-faq-item__minus { display: none;  }
+  details[open] .rv-faq-item__plus  { display: none;  }
+  details[open] .rv-faq-item__minus { display: block; }
+
+  .rv-faq-item__a {
+    padding: 0 0 var(--s-5) calc(var(--s-4) + 3ch + var(--s-4));
+    max-width: 56rem;
+  }
+  .rv-faq-item__a p {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.8; color: var(--rv-warm);
+  }
+
+  [data-anim="rv-faq-head"], [data-anim="rv-faq-list"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-faq-head"], [data-anim="rv-faq-list"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-faq-head"]', { y: 20 });
+    gsap.set('[data-anim="rv-faq-list"]', { y: 24 });
+    gsap.to('[data-anim="rv-faq-head"]', { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.rv-faq__head', start: 'top 85%' } });
+    gsap.to('[data-anim="rv-faq-list"]', { opacity: 1, y: 0, duration: 0.9,  scrollTrigger: { trigger: '.rv-faq__list', start: 'top 82%' } });
+  });
+</script>

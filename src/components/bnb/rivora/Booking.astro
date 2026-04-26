@@ -1,0 +1,259 @@
+---
+const svgPin      = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+const svgMail     = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`;
+const svgPhone    = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
+const svgCamera   = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`;
+---
+<section class="rv-booking" id="booking" aria-label="Κράτηση">
+  <div class="rv-booking__inner rv-inner">
+
+    <!-- LEFT INFO PANEL -->
+    <div class="rv-booking__info" data-anim="rv-bk-info">
+      <p class="rv-eyebrow rv-eyebrow--gold">Κράτηση</p>
+      <h2 class="rv-booking__title">
+        Ας το κανονίσουμε<br/><em>μαζί.</em>
+      </h2>
+      <p class="rv-booking__desc">
+        Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε μαζί σου εντός λίγων ωρών.
+      </p>
+
+      <div class="rv-booking__props">
+        <div class="rv-booking__prop">
+          <span class="rv-booking__prop-icon" aria-hidden="true" set:html={svgPin}></span>
+          <div>
+            <span class="rv-eyebrow rv-eyebrow--gold">Διεύθυνση</span>
+            <p>Πλατεία Μητρόπολης 5, Άνω Σύρος · 841 00</p>
+          </div>
+        </div>
+        <div class="rv-booking__prop">
+          <span class="rv-booking__prop-icon" aria-hidden="true" set:html={svgMail}></span>
+          <div>
+            <span class="rv-eyebrow rv-eyebrow--gold">Email</span>
+            <a href="mailto:stay@archontissa.gr" class="rv-booking__link">stay@archontissa.gr</a>
+          </div>
+        </div>
+        <div class="rv-booking__prop">
+          <span class="rv-booking__prop-icon" aria-hidden="true" set:html={svgPhone}></span>
+          <div>
+            <span class="rv-eyebrow rv-eyebrow--gold">Τηλέφωνο</span>
+            <a href="tel:+302281000000" class="rv-booking__link">+30 2281 000 000</a>
+          </div>
+        </div>
+        <div class="rv-booking__prop">
+          <span class="rv-booking__prop-icon" aria-hidden="true" set:html={svgCamera}></span>
+          <div>
+            <span class="rv-eyebrow rv-eyebrow--gold">Instagram</span>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="rv-booking__link">@archontissa.syros</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv-booking__price-card">
+        <div class="rv-booking__price-row">
+          <span class="rv-eyebrow rv-eyebrow--white">Από</span>
+          <span class="rv-booking__price">€480 <em>/βράδυ</em></span>
+        </div>
+        <p class="rv-eyebrow rv-eyebrow--white" style="opacity:0.45;">Ολόκληρο το κτίριο · έως 6 άτομα · ελάχιστο 2 βράδια</p>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="rv-booking__form-wrap" data-anim="rv-bk-form">
+      <form class="rv-booking__form" onsubmit="return false">
+        <div class="rv-bk-row">
+          <div class="rv-bk-field">
+            <label for="rv-name" class="rv-bk-label">Όνομα</label>
+            <input type="text" id="rv-name" name="name" class="rv-bk-input" placeholder="Το όνομά σας" autocomplete="name" />
+          </div>
+          <div class="rv-bk-field">
+            <label for="rv-email" class="rv-bk-label">Email</label>
+            <input type="email" id="rv-email" name="email" class="rv-bk-input" placeholder="email@example.com" autocomplete="email" />
+          </div>
+        </div>
+        <div class="rv-bk-row rv-bk-row--3">
+          <div class="rv-bk-field">
+            <label for="rv-in" class="rv-bk-label">Άφιξη</label>
+            <input type="date" id="rv-in" name="checkin" class="rv-bk-input" />
+          </div>
+          <div class="rv-bk-field">
+            <label for="rv-out" class="rv-bk-label">Αναχώρηση</label>
+            <input type="date" id="rv-out" name="checkout" class="rv-bk-input" />
+          </div>
+          <div class="rv-bk-field">
+            <label for="rv-guests" class="rv-bk-label">Άτομα</label>
+            <select id="rv-guests" name="guests" class="rv-bk-input">
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option selected>6</option>
+            </select>
+          </div>
+        </div>
+        <div class="rv-bk-field">
+          <label for="rv-msg" class="rv-bk-label">
+            Σχόλια <span style="font-weight:300;color:var(--rv-warm-2);">(προαιρετικό)</span>
+          </label>
+          <textarea id="rv-msg" name="message" class="rv-bk-input rv-bk-textarea" rows="3"
+            placeholder="Εορτασμός, μεταφορά από λιμάνι, ειδικά αιτήματα…"></textarea>
+        </div>
+        <button type="submit" class="rv-btn rv-btn--gold rv-bk-submit">
+          Αποστολή αιτήματος κράτησης
+        </button>
+        <p class="rv-bk-note rv-eyebrow">Ανταποκρινόμαστε εντός 2 ωρών · Χωρίς χρέωση κράτησης</p>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="rv-footer">
+    <div class="rv-footer__inner rv-inner">
+      <div class="rv-footer__brand">
+        <span class="rv-footer__name">Αρχόντισσα</span>
+        <span class="rv-eyebrow rv-eyebrow--gold" style="margin-top:3px;">Άνω Σύρος · Κυκλάδες</span>
+      </div>
+      <nav class="rv-footer__nav" aria-label="Footer">
+        <a href="#spaces">Χώροι</a>
+        <a href="#amenities">Παροχές</a>
+        <a href="#reviews">Κριτικές</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <p class="rv-eyebrow" style="color:rgba(255,255,255,0.2);">Demo — Instatok Agency</p>
+    </div>
+  </footer>
+</section>
+
+<style>
+  /* SECTION */
+  .rv-booking { background: var(--rv-white); }
+
+  .rv-booking__inner {
+    display: grid; gap: var(--s-8);
+    padding-block: var(--s-9);
+  }
+  @media (min-width: 860px) {
+    .rv-booking__inner { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  /* INFO */
+  .rv-booking__info { display: grid; gap: var(--s-6); align-content: start; }
+
+  .rv-booking__title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 500; color: var(--rv-black); line-height: 1.05;
+  }
+  .rv-booking__title em { color: var(--rv-gold); }
+
+  .rv-booking__desc {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.8; color: var(--rv-warm);
+  }
+
+  .rv-booking__props { display: grid; gap: var(--s-5); }
+  .rv-booking__prop { display: flex; align-items: flex-start; gap: var(--s-4); }
+  .rv-booking__prop-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; flex-shrink: 0;
+    background: rgba(191,145,80,0.12); border-radius: var(--r-sm);
+    color: var(--rv-gold); margin-top: 1px;
+  }
+  .rv-booking__prop-icon svg { width: 16px; height: 16px; }
+  .rv-booking__prop div { display: grid; gap: 3px; }
+  .rv-booking__prop p,
+  .rv-booking__prop a {
+    font-family: var(--f-body); font-size: 0.875rem;
+    font-weight: 300; color: var(--rv-warm);
+  }
+  .rv-booking__link { transition: color 0.2s; }
+  .rv-booking__link:hover { color: var(--rv-gold); }
+
+  .rv-booking__price-card {
+    background: var(--rv-black);
+    border-radius: var(--r-lg);
+    padding: var(--s-5) var(--s-6);
+    display: grid; gap: var(--s-3);
+  }
+  .rv-booking__price-row { display: flex; align-items: baseline; gap: var(--s-3); }
+  .rv-booking__price {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 2.5rem; font-weight: 300; color: var(--rv-gold); line-height: 1;
+  }
+  .rv-booking__price em {
+    font-size: 0.875rem; font-style: normal; font-weight: 400;
+    color: rgba(255,255,255,0.45); margin-left: 2px;
+  }
+
+  /* FORM */
+  .rv-booking__form-wrap {
+    background: var(--rv-cream);
+    border: 1px solid var(--rv-border);
+    border-radius: var(--r-lg);
+    padding: var(--s-7);
+  }
+  .rv-booking__form { display: grid; gap: var(--s-5); }
+
+  .rv-bk-row { display: grid; gap: var(--s-4); grid-template-columns: 1fr 1fr; }
+  .rv-bk-row--3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 500px) {
+    .rv-bk-row, .rv-bk-row--3 { grid-template-columns: 1fr; }
+  }
+
+  .rv-bk-field { display: grid; gap: var(--s-2); }
+  .rv-bk-label {
+    font-family: var(--f-body); font-size: 0.6875rem;
+    font-weight: 500; color: var(--rv-warm); letter-spacing: 0.04em;
+  }
+  .rv-bk-input {
+    padding: 0.75rem 1rem;
+    background: var(--rv-white); border: 1px solid var(--rv-border-2);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--rv-black);
+    outline: none; width: 100%; appearance: none; -webkit-appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .rv-bk-input::placeholder { color: var(--rv-warm-2); }
+  .rv-bk-input:focus { border-color: var(--rv-gold); box-shadow: 0 0 0 3px rgba(191,145,80,0.1); }
+  .rv-bk-textarea { resize: vertical; min-height: 5rem; }
+
+  .rv-bk-submit {
+    width: 100%; justify-content: center;
+    padding-block: 1rem;
+    font-size: 0.5rem; letter-spacing: 0.22em;
+  }
+  .rv-bk-note { color: var(--rv-warm-2); text-align: center; }
+
+  /* FOOTER */
+  .rv-footer { background: var(--rv-black); padding-block: var(--s-6); }
+  .rv-footer__inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: var(--s-5);
+  }
+  .rv-footer__brand { display: flex; flex-direction: column; gap: 3px; }
+  .rv-footer__name {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.375rem; font-weight: 400; color: var(--rv-white);
+  }
+  .rv-footer__nav { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  .rv-footer__nav a {
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); transition: color 0.2s;
+  }
+  .rv-footer__nav a:hover { color: var(--rv-gold); }
+
+  [data-anim="rv-bk-info"], [data-anim="rv-bk-form"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-bk-info"], [data-anim="rv-bk-form"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-bk-info"]', { y: 24, x: -16 });
+    gsap.set('[data-anim="rv-bk-form"]', { y: 24 });
+    gsap.to('[data-anim="rv-bk-info"]', { opacity: 1, y: 0, x: 0, duration: 0.9, scrollTrigger: { trigger: '.rv-booking__inner', start: 'top 85%' } });
+    gsap.to('[data-anim="rv-bk-form"]', { opacity: 1, y: 0,       duration: 0.9, delay: 0.1, scrollTrigger: { trigger: '.rv-booking__inner', start: 'top 85%' } });
+  });
+</script>

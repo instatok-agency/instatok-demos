@@ -1,0 +1,266 @@
+---
+---
+<header class="rv-hero">
+
+  <!-- NAV -->
+  <nav class="rv-nav" id="rv-nav" data-anim="rv-nav">
+    <div class="rv-nav__inner rv-inner">
+      <a href="/" class="rv-nav__logo">
+        <span class="rv-nav__logo-text">Αρχόντισσα</span>
+        <span class="rv-eyebrow rv-eyebrow--white rv-nav__logo-sub">Άνω Σύρος · 1847</span>
+      </a>
+      <ul class="rv-nav__links" aria-label="Navigation">
+        <li><a href="#spaces">Χώροι</a></li>
+        <li><a href="#amenities">Παροχές</a></li>
+        <li><a href="#reviews">Κριτικές</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#booking" class="rv-btn rv-btn--gold rv-nav__cta">Κράτηση</a>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="rv-hero__media" data-anim="rv-hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2000&q=88&fit=crop&crop=center"
+      alt="Πολυτελής βεράντα με θέα Αιγαίου"
+      class="rv-hero__img"
+      width="2000" height="1200"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="rv-hero__overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- BADGE -->
+  <div class="rv-hero__badge" data-anim="rv-hero-badge">
+    <span class="rv-hero__badge-n">1847</span>
+    <span class="rv-eyebrow rv-eyebrow--white">Έτος ίδρυσης</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="rv-hero__body rv-inner">
+    <p class="rv-eyebrow rv-eyebrow--gold rv-hero__eyebrow" data-anim="rv-hero-ey">
+      Κυκλαδική Πολυτέλεια · Σύρος
+    </p>
+    <h1 class="rv-hero__title">
+      <span class="line-wrap"><em class="rv-hl" data-anim="rv-hl">Απόλυτη Αρμονία</em></span>
+      <span class="line-wrap"><span class="rv-hl rv-hl--plain" data-anim="rv-hl">Πολυτέλειας.</span></span>
+    </h1>
+    <div class="rv-hero__rating" data-anim="rv-hero-rating">
+      <span class="rv-hero__stars">★★★★★</span>
+      <span class="rv-eyebrow rv-eyebrow--white">300+ Κριτικές · 4.9 / 5</span>
+    </div>
+    <div class="rv-hero__ctas" data-anim="rv-hero-ctas">
+      <a href="#booking" class="rv-btn rv-btn--gold">Κάντε Κράτηση</a>
+      <a href="#spaces" class="rv-btn rv-btn--ghost">Δείτε τους Χώρους</a>
+    </div>
+  </div>
+
+  <!-- METRICS BAR -->
+  <div class="rv-hero__bar">
+    <div class="rv-hero__bar-inner rv-inner" data-anim="rv-hero-bar">
+      <div class="rv-hero__metric">
+        <span class="rv-hero__metric-n">3</span>
+        <span class="rv-eyebrow">Υπνοδωμάτια</span>
+      </div>
+      <span class="rv-hero__divider" aria-hidden="true"></span>
+      <div class="rv-hero__metric">
+        <span class="rv-hero__metric-n">160</span>
+        <span class="rv-eyebrow">τ.μ.</span>
+      </div>
+      <span class="rv-hero__divider" aria-hidden="true"></span>
+      <div class="rv-hero__metric">
+        <span class="rv-hero__metric-n">6</span>
+        <span class="rv-eyebrow">Άτομα</span>
+      </div>
+      <span class="rv-hero__divider" aria-hidden="true"></span>
+      <div class="rv-hero__metric">
+        <span class="rv-hero__metric-n">4.9</span>
+        <span class="rv-eyebrow">Βαθμολογία</span>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<style>
+  .rv-hero {
+    position: relative;
+    background: var(--rv-dark);
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+
+  /* NAV */
+  .rv-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--rv-black);
+    transition: background 0.35s;
+  }
+  .rv-nav.rv-nav--scrolled {
+    background: rgba(13,11,7,0.97);
+    backdrop-filter: blur(12px);
+  }
+  [data-anim="rv-nav"] { opacity: 0; }
+
+  .rv-nav__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1rem; padding-bottom: 1rem;
+    gap: var(--s-5);
+  }
+
+  .rv-nav__logo {
+    display: flex; flex-direction: column; gap: 1px;
+    text-decoration: none;
+  }
+  .rv-nav__logo-text {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.25rem; font-weight: 500; color: var(--rv-white);
+    line-height: 1;
+  }
+  .rv-nav__logo-sub { line-height: 1; }
+
+  .rv-nav__links {
+    display: none; list-style: none; gap: var(--s-6);
+    align-items: center;
+  }
+  @media (min-width: 900px) { .rv-nav__links { display: flex; } }
+  .rv-nav__links a {
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); transition: color 0.2s;
+  }
+  .rv-nav__links a:hover { color: var(--rv-white); }
+
+  .rv-nav__cta { font-size: 0.45rem; padding: 0.65rem 1.5rem; }
+
+  /* HERO MEDIA */
+  .rv-hero__media {
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden;
+    clip-path: inset(0 0 100% 0);
+  }
+  .rv-hero__img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 60%;
+  }
+  .rv-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,11,7,0.55) 0%,
+      rgba(13,11,7,0.25) 40%,
+      rgba(13,11,7,0.70) 80%,
+      rgba(13,11,7,0.85) 100%
+    );
+  }
+
+  /* BADGE */
+  .rv-hero__badge {
+    position: absolute; top: 6rem; right: clamp(1.25rem,5vw,3.5rem);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-1);
+    opacity: 0;
+  }
+  .rv-hero__badge-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-weight: 300; color: rgba(255,255,255,0.12);
+    line-height: 1; letter-spacing: -0.02em;
+  }
+
+  /* BODY */
+  .rv-hero__body {
+    position: relative; z-index: 2;
+    padding-top: clamp(8rem, 20vh, 15rem);
+    padding-bottom: var(--s-6);
+    display: grid; gap: var(--s-4); align-content: end;
+    max-width: 60rem;
+  }
+
+  .rv-hero__eyebrow { opacity: 0; }
+
+  .rv-hero__title {
+    font-family: var(--f-display);
+    font-size: clamp(3.5rem, 8.5vw, 8.5rem);
+    font-weight: 500; letter-spacing: -0.01em;
+    color: var(--rv-white); line-height: 0.95;
+  }
+  .rv-hl { display: block; opacity: 0; }
+  .rv-hl--plain { font-style: normal; font-weight: 300; }
+
+  .rv-hero__rating {
+    display: flex; align-items: center; gap: var(--s-3);
+    padding-top: var(--s-2);
+    opacity: 0;
+  }
+  .rv-hero__stars { color: var(--rv-gold); font-size: 0.75rem; letter-spacing: 0.12em; }
+
+  .rv-hero__ctas {
+    display: flex; gap: var(--s-3); flex-wrap: wrap;
+    padding-top: var(--s-2);
+    opacity: 0;
+  }
+
+  /* METRICS BAR */
+  .rv-hero__bar {
+    position: relative; z-index: 2;
+    background: var(--rv-white);
+    border-top: 3px solid var(--rv-gold);
+  }
+  .rv-hero__bar-inner {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: var(--s-5); padding-block: var(--s-5);
+    opacity: 0;
+  }
+  .rv-hero__metric { display: flex; align-items: baseline; gap: var(--s-2); }
+  .rv-hero__metric-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.75rem; font-weight: 400; color: var(--rv-gold);
+    line-height: 1;
+  }
+  .rv-hero__metric .rv-eyebrow { color: var(--rv-warm); }
+  .rv-hero__divider {
+    width: 1px; height: 1.5rem; background: var(--rv-border-2);
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-nav"],
+    .rv-hero__badge,
+    .rv-hero__eyebrow,
+    .rv-hl,
+    .rv-hero__rating,
+    .rv-hero__ctas,
+    .rv-hero__bar-inner { opacity: 1 !important; }
+    .rv-hero__media { clip-path: none !important; }
+  }
+</style>
+
+<script>
+  import { initGSAP } from '../../../scripts/gsap-bnb-rivora';
+  import { gsap } from 'gsap';
+  initGSAP();
+
+  // Nav scroll behavior
+  const nav = document.getElementById('rv-nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('rv-nav--scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('.rv-hero__media', { clipPath: 'inset(0 0 0% 0)', duration: 1.6, ease: 'power4.inOut' }, 0)
+      .to('[data-anim="rv-nav"]',      { opacity: 1, duration: 0.5 }, 0.4)
+      .to('.rv-hero__badge',           { opacity: 1, duration: 0.8 }, 0.7)
+      .to('.rv-hero__eyebrow',         { opacity: 1, duration: 0.5 }, 0.8)
+      .to('.rv-hl',                    { opacity: 1, y: 0, duration: 1.0, stagger: 0.12 }, 0.9)
+      .to('.rv-hero__rating',          { opacity: 1, duration: 0.5 }, 1.25)
+      .to('.rv-hero__ctas',            { opacity: 1, duration: 0.5 }, 1.4)
+      .to('.rv-hero__bar-inner',       { opacity: 1, duration: 0.6 }, 1.5);
+    gsap.set('.rv-hl', { y: 30 });
+  });
+</script>

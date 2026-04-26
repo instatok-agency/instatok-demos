@@ -1,0 +1,163 @@
+---
+const reviews = [
+  {
+    quote: 'Ο χώρος είναι μνημείο. Πέτρα, ξύλο, θέα που δεν ξεχνάς. Πήγαμε για 4 μέρες και μείναμε 8.',
+    name: 'Μαρία & Γιώργης Κ.',
+    from: 'Λονδίνο',
+    date: 'Σεπτέμβριος 2024',
+    stars: 5,
+    img: 'https://i.pravatar.cc/60?img=47',
+  },
+  {
+    quote: 'Η καλύτερη εμπειρία Airbnb που είχαμε ποτέ. Η γειτονιά στην Άνω Σύρο είναι σαν να γυρίσαμε στο χρόνο. Η θέα ασύγκριτη.',
+    name: 'Ζωή Π.',
+    from: 'Αθήνα',
+    date: 'Ιούλιος 2024',
+    stars: 5,
+    img: 'https://i.pravatar.cc/60?img=23',
+  },
+  {
+    quote: 'Φέραμε τους γονείς μας. Ήταν σαν δώρο. Κάθε πρωί ο καφές στο μπαλκόνι με θέα Αιγαίο.',
+    name: 'Σπύρος Α.',
+    from: 'Θεσσαλονίκη',
+    date: 'Αύγουστος 2024',
+    stars: 5,
+    img: 'https://i.pravatar.cc/60?img=12',
+  },
+  {
+    quote: 'Εντυπωσιακή αρχιτεκτονική, τέλεια καθαριότητα, απίστευτη τοποθεσία. Θα επιστρέψουμε σίγουρα.',
+    name: 'Ελένη & Νίκος Δ.',
+    from: 'Βερολίνο',
+    date: 'Ιούνιος 2024',
+    stars: 5,
+    img: 'https://i.pravatar.cc/60?img=32',
+  },
+  {
+    quote: 'Το σπίτι ξεπέρασε κάθε προσδοκία. Ο οικοδεσπότης εξαιρετικός, ανταποκρίθηκε άμεσα σε κάθε αίτημα.',
+    name: 'Thomas B.',
+    from: 'Παρίσι',
+    date: 'Μάιος 2024',
+    stars: 5,
+    img: 'https://i.pravatar.cc/60?img=15',
+  },
+];
+---
+
+<section class="rv-rev" id="reviews" aria-label="Κριτικές">
+  <div class="rv-rev__inner rv-inner">
+
+    <div class="rv-rev__head" data-anim="rv-rev-head">
+      <div class="rv-rev__head-text">
+        <p class="rv-eyebrow">Κριτικές Επισκεπτών</p>
+        <h2 class="rv-sec-title">Τι λένε οι <em>επισκέπτες μας.</em></h2>
+      </div>
+      <div class="rv-rev__score-block">
+        <span class="rv-rev__score-n">4.9</span>
+        <div class="rv-rev__score-right">
+          <span class="rv-rev__stars">★★★★★</span>
+          <span class="rv-eyebrow">47 αξιολογήσεις</span>
+          <span class="rv-eyebrow rv-eyebrow--gold">Airbnb Superhost</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-rev__grid" data-anim="rv-rev-grid">
+      {reviews.map(r => (
+        <blockquote class="rv-rev-card">
+          <div class="rv-rev-card__stars">{'★'.repeat(r.stars)}</div>
+          <p class="rv-rev-card__quote">"{r.quote}"</p>
+          <footer class="rv-rev-card__foot">
+            <img src={r.img} alt={r.name} class="rv-rev-card__avatar" width="40" height="40" loading="lazy" />
+            <div class="rv-rev-card__info">
+              <span class="rv-rev-card__name">{r.name}</span>
+              <span class="rv-eyebrow rv-rev-card__meta">{r.from} · {r.date}</span>
+            </div>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .rv-rev { background: var(--rv-white); padding-block: var(--s-9); }
+  .rv-rev__inner { display: grid; gap: var(--s-8); }
+
+  .rv-rev__head {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: var(--s-6); flex-wrap: wrap;
+  }
+  .rv-rev__head-text { display: grid; gap: var(--s-4); }
+  .rv-rev__head-text em { color: var(--rv-gold); }
+
+  .rv-rev__score-block { display: flex; align-items: center; gap: var(--s-4); flex-shrink: 0; }
+  .rv-rev__score-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300; color: var(--rv-gold); line-height: 1;
+  }
+  .rv-rev__score-right { display: grid; gap: 4px; }
+  .rv-rev__stars { color: var(--rv-gold); font-size: 1rem; letter-spacing: 0.1em; }
+
+  /* GRID */
+  .rv-rev__grid {
+    display: grid; gap: var(--s-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+
+  /* CARD */
+  .rv-rev-card {
+    background: var(--rv-cream);
+    border: 1px solid var(--rv-border);
+    border-radius: var(--r-lg);
+    padding: var(--s-6);
+    display: flex; flex-direction: column; gap: var(--s-5);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .rv-rev-card:hover {
+    box-shadow: 0 6px 32px rgba(13,11,7,0.07);
+    transform: translateY(-2px);
+  }
+
+  .rv-rev-card__stars { color: var(--rv-gold); font-size: 0.75rem; letter-spacing: 0.15em; }
+
+  .rv-rev-card__quote {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(0.9375rem, 1.5vw, 1.1rem);
+    line-height: 1.75; color: var(--rv-black); flex: 1;
+  }
+
+  .rv-rev-card__foot {
+    display: flex; align-items: center; gap: var(--s-4);
+    padding-top: var(--s-4); border-top: 1px solid var(--rv-border);
+  }
+  .rv-rev-card__avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    border: 2px solid var(--rv-gold-bg);
+  }
+  .rv-rev-card__info { display: grid; gap: 2px; }
+  .rv-rev-card__name {
+    font-family: var(--f-body); font-size: 0.875rem;
+    font-weight: 500; color: var(--rv-black);
+  }
+  .rv-rev-card__meta { color: var(--rv-warm-2); }
+
+  [data-anim="rv-rev-head"], [data-anim="rv-rev-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-rev-head"], [data-anim="rv-rev-grid"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-rev-head"]', { y: 20 });
+    gsap.set('[data-anim="rv-rev-grid"]', { y: 24 });
+    gsap.to('[data-anim="rv-rev-head"]', { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.rv-rev__head', start: 'top 85%' } });
+    gsap.to('[data-anim="rv-rev-grid"]', { opacity: 1, y: 0, duration: 0.9,  scrollTrigger: { trigger: '.rv-rev__grid', start: 'top 82%' } });
+  });
+</script>

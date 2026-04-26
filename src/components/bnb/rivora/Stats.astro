@@ -1,0 +1,111 @@
+---
+const stats = [
+  { n: '1847', label: 'Έτος ίδρυσης', suffix: '' },
+  { n: '300',  label: 'Ικανοποιημένοι επισκέπτες', suffix: '+' },
+  { n: '4.9',  label: 'Μέση βαθμολογία', suffix: '' },
+  { n: '47',   label: 'Κριτικές επισκεπτών', suffix: '' },
+];
+---
+
+<section class="rv-stats" aria-label="Στατιστικά">
+  <div class="rv-stats__inner rv-inner">
+    <div class="rv-stats__head" data-anim="rv-stats-head">
+      <p class="rv-eyebrow rv-eyebrow--white">Σε αριθμούς</p>
+      <h2 class="rv-stats__title">Η εμπιστοσύνη<br/>των επισκεπτών<br/><em>μας ορίζει.</em></h2>
+    </div>
+    <div class="rv-stats__grid" data-anim="rv-stats-grid">
+      {stats.map(s => (
+        <div class="rv-stat">
+          <div class="rv-stat__n-wrap">
+            <span class="rv-stat__n">{s.n}</span>
+            {s.suffix && <span class="rv-stat__suffix">{s.suffix}</span>}
+          </div>
+          <span class="rv-eyebrow rv-eyebrow--white rv-stat__label">{s.label}</span>
+          <span class="rv-stat__rule" aria-hidden="true"></span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rv-stats {
+    background: var(--rv-black);
+    padding-block: var(--s-9);
+    position: relative; overflow: hidden;
+  }
+  .rv-stats::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 60vw; height: 60vw; max-width: 700px;
+    background: radial-gradient(circle, rgba(191,145,80,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .rv-stats__inner {
+    display: grid; gap: var(--s-9); align-items: center;
+  }
+  @media (min-width: 860px) {
+    .rv-stats__inner { grid-template-columns: 5fr 7fr; }
+  }
+
+  .rv-stats__head { display: grid; gap: var(--s-5); }
+  .rv-stats__title {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 400; color: var(--rv-white); line-height: 1.1;
+  }
+  .rv-stats__title em { color: var(--rv-gold); }
+
+  .rv-stats__grid {
+    display: grid; gap: 0;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .rv-stat {
+    padding: var(--s-6) var(--s-5);
+    display: grid; gap: var(--s-3); align-content: start;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: background 0.25s;
+  }
+  .rv-stat:hover { background: rgba(255,255,255,0.025); }
+
+  .rv-stat__n-wrap { display: flex; align-items: baseline; gap: 2px; }
+  .rv-stat__n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300; color: var(--rv-gold); line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .rv-stat__suffix {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.75rem);
+    font-weight: 300; color: var(--rv-gold); line-height: 1;
+  }
+  .rv-stat__label { opacity: 0.5; }
+  .rv-stat__rule {
+    display: block; width: 1.5rem; height: 1px;
+    background: var(--rv-gold); opacity: 0.5;
+  }
+
+  [data-anim="rv-stats-head"], [data-anim="rv-stats-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-stats-head"], [data-anim="rv-stats-grid"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-stats-head"]', { y: 24 });
+    gsap.set('[data-anim="rv-stats-grid"]', { y: 24 });
+    gsap.to('[data-anim="rv-stats-head"]', { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.rv-stats__head', start: 'top 85%' } });
+    gsap.to('[data-anim="rv-stats-grid"]', { opacity: 1, y: 0, duration: 0.9,  scrollTrigger: { trigger: '.rv-stats__grid', start: 'top 82%' } });
+  });
+</script>

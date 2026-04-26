@@ -1,0 +1,145 @@
+---
+---
+<section class="rv-story" aria-label="Ιστορία">
+  <div class="rv-story__inner rv-inner">
+
+    <!-- IMAGE SIDE -->
+    <div class="rv-story__media" data-anim="rv-story-media">
+      <div class="rv-story__img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=85&fit=crop"
+          alt="Κυκλαδική αρχιτεκτονική εσωτερικό"
+          class="rv-story__img"
+          width="900" height="1100"
+          loading="lazy"
+        />
+      </div>
+      <blockquote class="rv-story__quote">
+        <span class="rv-story__quote-mark" aria-hidden="true">"</span>
+        <p>Ξύπνησα στις 6 το πρωί και στάθηκα για μισή ώρα στο παράθυρο. Δεν είχα κάτι να κάνω — μόνο να κοιτάζω το Αιγαίο.</p>
+        <footer>
+          <span class="rv-eyebrow">Νίκος Δ. · Αθήνα</span>
+          <span class="rv-story__stars">★★★★★</span>
+        </footer>
+      </blockquote>
+    </div>
+
+    <!-- TEXT SIDE -->
+    <div class="rv-story__text" data-anim="rv-story-text">
+      <p class="rv-eyebrow" style="margin-bottom: var(--s-5);">Το κτίριο</p>
+
+      <h2 class="rv-sec-title">Μία κατοικία<br/>που αντέχει<br/><em>στον χρόνο.</em></h2>
+
+      <div class="rv-story__body">
+        <p>Χτισμένο το 1847 από εμπορική οικογένεια της Σύρου, όταν η Ερμούπολη ήταν το μεγαλύτερο λιμάνι της Ελλάδας. Τα πέτρινα τοιχώματα, τα τοξωτά παράθυρα, η ψηφιδωτή αυλή — όλα πρωτότυπα.</p>
+        <p>Ανακαινίστηκε το 2023 με σεβασμό στην Κυκλαδική αρχιτεκτονική. Δεν αλλάξαμε αυτά που δεν χρειάζονταν αλλαγή.</p>
+        <p>Από το σαλόνι βλέπεις Ερμούπολη και Αιγαίο. Απλά ξυπνάς και κοιτάς.</p>
+      </div>
+
+      <div class="rv-story__specs">
+        <div class="rv-story__spec">
+          <span class="rv-story__spec-n">1847</span>
+          <span class="rv-eyebrow">Κτίσμα</span>
+        </div>
+        <div class="rv-story__spec">
+          <span class="rv-story__spec-n">160</span>
+          <span class="rv-eyebrow">τ.μ.</span>
+        </div>
+        <div class="rv-story__spec">
+          <span class="rv-story__spec-n">3</span>
+          <span class="rv-eyebrow">Υπνοδωμ.</span>
+        </div>
+        <div class="rv-story__spec">
+          <span class="rv-story__spec-n">2023</span>
+          <span class="rv-eyebrow">Ανακαίνιση</span>
+        </div>
+      </div>
+
+      <a href="#booking" class="rv-btn rv-btn--dark" style="margin-top: var(--s-3); justify-self: start;">
+        Κάντε Κράτηση
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .rv-story { background: var(--rv-white); padding-block: var(--s-9); }
+
+  .rv-story__inner {
+    display: grid; gap: var(--s-8); align-items: center;
+  }
+  @media (min-width: 860px) {
+    .rv-story__inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* MEDIA */
+  .rv-story__media { display: grid; gap: var(--s-5); }
+  .rv-story__img-wrap {
+    border-radius: var(--r-lg); overflow: hidden;
+    height: clamp(300px, 40vw, 500px);
+  }
+  .rv-story__img { width: 100%; height: 100%; object-fit: cover; }
+
+  .rv-story__quote {
+    background: var(--rv-gold-bg);
+    border-left: 3px solid var(--rv-gold);
+    border-radius: var(--r-md);
+    padding: var(--s-5) var(--s-5) var(--s-5) var(--s-6);
+    display: grid; gap: var(--s-4); position: relative;
+  }
+  .rv-story__quote-mark {
+    position: absolute; top: -0.5rem; left: var(--s-5);
+    font-family: var(--f-display); font-size: 5rem; font-weight: 300;
+    color: var(--rv-gold); line-height: 1; pointer-events: none;
+    opacity: 0.4;
+  }
+  .rv-story__quote p {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.65; color: var(--rv-black); position: relative; z-index: 1;
+  }
+  .rv-story__quote footer { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+  .rv-story__stars { color: var(--rv-gold); font-size: 0.75rem; letter-spacing: 0.1em; }
+
+  /* TEXT */
+  .rv-story__text { display: grid; gap: var(--s-6); align-content: start; }
+
+  .rv-story__text .rv-sec-title em { color: var(--rv-gold); }
+
+  .rv-story__body {
+    display: grid; gap: var(--s-4);
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.85; color: var(--rv-warm);
+    max-width: 36rem;
+  }
+
+  .rv-story__specs {
+    display: grid; grid-template-columns: repeat(4, auto);
+    gap: var(--s-6); justify-content: start;
+    padding-top: var(--s-6); border-top: 1px solid var(--rv-border-2);
+  }
+  .rv-story__spec { display: grid; gap: 4px; }
+  .rv-story__spec-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 500; color: var(--rv-gold); line-height: 1;
+  }
+
+  [data-anim="rv-story-media"], [data-anim="rv-story-text"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-story-media"], [data-anim="rv-story-text"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-story-media"]', { y: 28, x: -16 });
+    gsap.set('[data-anim="rv-story-text"]',  { y: 28 });
+    gsap.to('[data-anim="rv-story-media"]', { opacity: 1, y: 0, x: 0, duration: 1.0, scrollTrigger: { trigger: '.rv-story__inner', start: 'top 82%' } });
+    gsap.to('[data-anim="rv-story-text"]',  { opacity: 1, y: 0,       duration: 1.0, delay: 0.1, scrollTrigger: { trigger: '.rv-story__inner', start: 'top 82%' } });
+  });
+</script>

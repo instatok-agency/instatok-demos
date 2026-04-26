@@ -1,23 +1,25 @@
 ---
-import BnbArchBase from '../../layouts/BnbArchBase.astro';
-import Hero from '../../components/bnb/arch/Hero.astro';
-import Gallery from '../../components/bnb/arch/Gallery.astro';
-import Story from '../../components/bnb/arch/Story.astro';
-import Amenities from '../../components/bnb/arch/Amenities.astro';
-import Neighborhood from '../../components/bnb/arch/Neighborhood.astro';
-import Reviews from '../../components/bnb/arch/Reviews.astro';
-import Booking from '../../components/bnb/arch/Booking.astro';
+import BnbRivoraBase from '../../layouts/BnbRivoraBase.astro';
+import Hero from '../../components/bnb/rivora/Hero.astro';
+import Spaces from '../../components/bnb/rivora/Spaces.astro';
+import Story from '../../components/bnb/rivora/Story.astro';
+import Stats from '../../components/bnb/rivora/Stats.astro';
+import Amenities from '../../components/bnb/rivora/Amenities.astro';
+import Reviews from '../../components/bnb/rivora/Reviews.astro';
+import Faq from '../../components/bnb/rivora/Faq.astro';
+import Booking from '../../components/bnb/rivora/Booking.astro';
 ---
 
-<BnbArchBase
+<BnbRivoraBase
   title="Αρχόντισσα · Άνω Σύρος, Κυκλάδες"
   description="Κυκλαδική αρχοντική κατοικία 1847, ανακαινισμένη 2023. 3 υπνοδωμάτια, θέα Αιγαίο. Demo: Instatok Agency."
 >
   <Hero />
-  <Gallery />
+  <Spaces />
   <Story />
+  <Stats />
   <Amenities />
-  <Neighborhood />
   <Reviews />
+  <Faq />
   <Booking />
-</BnbArchBase>
+</BnbRivoraBase>

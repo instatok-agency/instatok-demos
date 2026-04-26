@@ -1,0 +1,210 @@
+---
+const spaces = [
+  {
+    name: 'Κυρίως Υπνοδωμάτιο',
+    desc: 'King size κρεβάτι με πανοραμική θέα στο Αιγαίο. Πολυτελή λινά, ιδιωτικό μπάνιο με υδρομασάζ.',
+    specs: ['King bed · 2 άτομα', '40 m² + μπαλκόνι', 'Θέα Αιγαίου'],
+    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=85&fit=crop',
+    alt: 'Κυρίως υπνοδωμάτιο με θέα θάλασσας',
+    badge: 'Επιλεγμένο',
+    price: '€480',
+  },
+  {
+    name: 'Δωμάτιο Αιγαίου',
+    desc: 'Queen size κρεβάτι, ξύλινη οροφή, παράθυρο-τοξωτό που ανοίγει στη θέα. Ιδιωτικό μπάνιο.',
+    specs: ['Queen bed · 2 άτομα', '28 m²', 'Θέα πόλης & θάλασσας'],
+    img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=85&fit=crop',
+    alt: 'Δωμάτιο με θέα Αιγαίου',
+    badge: null,
+    price: null,
+  },
+  {
+    name: 'Δίκλινο Δωμάτιο',
+    desc: 'Δύο single κρεβάτια, ιδανικό για φίλους ή παιδιά. Κοινόχρηστο μπάνιο. Θέα στην εσωτερική αυλή.',
+    specs: ['2× Single · 2 άτομα', '22 m²', 'Θέα αυλής'],
+    img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=85&fit=crop',
+    alt: 'Δίκλινο δωμάτιο',
+    badge: null,
+    price: null,
+  },
+];
+---
+
+<section class="rv-spaces" id="spaces" aria-label="Χώροι">
+  <div class="rv-spaces__inner rv-inner">
+
+    <div class="rv-spaces__head" data-anim="rv-spaces-head">
+      <div class="rv-spaces__head-text">
+        <p class="rv-eyebrow">Οι Χώροι</p>
+        <h2 class="rv-sec-title">Γνωρίστε την Ιδιοκτησία</h2>
+        <p class="rv-spaces__sub">
+          Τρία υπνοδωμάτια, πλήρης κουζίνα, ιδιωτική αυλή 30 τ.μ. και θέα στο Αιγαίο.
+          Ενοικιάζεται ολόκληρο — ιδανικό για ομάδες έως 6 ατόμων.
+        </p>
+      </div>
+      <div class="rv-spaces__price-badge">
+        <span class="rv-spaces__price-from rv-eyebrow rv-eyebrow--gold">Από</span>
+        <span class="rv-spaces__price-n">€480</span>
+        <span class="rv-eyebrow">/βράδυ · Ολόκληρο το κτίριο</span>
+      </div>
+    </div>
+
+    <div class="rv-spaces__grid" data-anim="rv-spaces-grid">
+      {spaces.map(s => (
+        <article class="rv-room-card">
+          <div class="rv-room-card__img-wrap">
+            <img src={s.img} alt={s.alt} class="rv-room-card__img" width="800" height="600" loading="lazy" />
+            {s.badge && <span class="rv-room-card__badge">{s.badge}</span>}
+          </div>
+          <div class="rv-room-card__body">
+            <h3 class="rv-room-card__name">{s.name}</h3>
+            <p class="rv-room-card__desc">{s.desc}</p>
+            <ul class="rv-room-card__specs">
+              {s.specs.map(spec => <li class="rv-eyebrow">{spec}</li>)}
+            </ul>
+            <div class="rv-room-card__foot">
+              {s.price
+                ? <span class="rv-room-card__price">{s.price}<em>/βράδυ</em></span>
+                : <span class="rv-room-card__included rv-eyebrow rv-eyebrow--gold">✓ Συμπεριλαμβάνεται</span>
+              }
+              <a href="#booking" class="rv-room-card__link">Κράτηση →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .rv-spaces {
+    background: var(--rv-cream);
+    padding-block: var(--s-9);
+  }
+  .rv-spaces__inner { display: grid; gap: var(--s-8); }
+
+  .rv-spaces__head {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: var(--s-6);
+    flex-wrap: wrap;
+  }
+  .rv-spaces__head-text { display: grid; gap: var(--s-4); max-width: 38rem; }
+  .rv-spaces__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.8; color: var(--rv-warm);
+  }
+
+  .rv-spaces__price-badge {
+    display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-1);
+    flex-shrink: 0;
+  }
+  .rv-spaces__price-from { margin-bottom: 0; }
+  .rv-spaces__price-n {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500; color: var(--rv-gold); line-height: 1;
+  }
+
+  /* GRID */
+  .rv-spaces__grid {
+    display: grid; gap: var(--s-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+
+  /* ROOM CARD */
+  .rv-room-card {
+    background: var(--rv-white);
+    border: 1px solid var(--rv-border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .rv-room-card:hover {
+    box-shadow: 0 8px 40px rgba(13,11,7,0.10);
+    transform: translateY(-3px);
+  }
+
+  .rv-room-card__img-wrap {
+    position: relative; overflow: hidden;
+    height: clamp(220px, 28vw, 320px);
+    background: var(--rv-dark);
+  }
+  .rv-room-card__img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.55s ease;
+  }
+  .rv-room-card:hover .rv-room-card__img { transform: scale(1.04); }
+
+  .rv-room-card__badge {
+    position: absolute; top: var(--s-4); left: var(--s-4);
+    background: var(--rv-gold); color: var(--rv-white);
+    font-family: var(--f-body); font-size: 0.45rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.35rem 0.875rem; border-radius: var(--r-sm);
+  }
+
+  .rv-room-card__body {
+    padding: var(--s-5);
+    display: flex; flex-direction: column; gap: var(--s-4);
+    flex: 1;
+  }
+  .rv-room-card__name {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.5rem; font-weight: 500; color: var(--rv-black);
+    line-height: 1.1;
+  }
+  .rv-room-card__desc {
+    font-family: var(--f-body); font-size: 0.875rem;
+    font-weight: 300; line-height: 1.75; color: var(--rv-warm);
+    flex: 1;
+  }
+  .rv-room-card__specs {
+    display: flex; flex-direction: column; gap: var(--s-2);
+    list-style: none;
+    padding-top: var(--s-3); border-top: 1px solid var(--rv-border);
+  }
+  .rv-room-card__specs li { color: var(--rv-warm-2); }
+
+  .rv-room-card__foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: var(--s-3); border-top: 1px solid var(--rv-border);
+    gap: var(--s-3);
+  }
+  .rv-room-card__price {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 1.5rem; font-weight: 500; color: var(--rv-gold);
+  }
+  .rv-room-card__price em {
+    font-size: 0.75rem; font-weight: 400; font-style: normal;
+    color: var(--rv-warm); margin-left: 2px;
+  }
+  .rv-room-card__included { align-self: center; }
+
+  .rv-room-card__link {
+    font-family: var(--f-body); font-size: 0.5rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--rv-black); border-bottom: 1px solid var(--rv-border-2);
+    padding-bottom: 2px; white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .rv-room-card__link:hover { border-color: var(--rv-gold); color: var(--rv-gold); }
+
+  [data-anim="rv-spaces-head"], [data-anim="rv-spaces-grid"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="rv-spaces-head"], [data-anim="rv-spaces-grid"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="rv-spaces-head"]', { y: 24 });
+    gsap.set('[data-anim="rv-spaces-grid"]', { y: 28 });
+    gsap.to('[data-anim="rv-spaces-head"]', { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.rv-spaces__head', start: 'top 85%' } });
+    gsap.to('[data-anim="rv-spaces-grid"]', { opacity: 1, y: 0, duration: 0.9,  scrollTrigger: { trigger: '.rv-spaces__grid',  start: 'top 82%' } });
+  });
+</script>
