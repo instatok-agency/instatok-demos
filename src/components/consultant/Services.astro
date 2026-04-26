@@ -2,44 +2,49 @@
 const services = [
   {
     num: '01',
-    title: 'Εταιρική Στρατηγική',
-    body: 'Ανάλυση αγοράς, ανταγωνιστική τοποθέτηση, 3-5ετή στρατηγικά σχέδια. Από startup έως established SME.',
-    tags: ['Market Analysis', 'Competitive Positioning', 'Growth Roadmap'],
+    name: 'Στρατηγικός Σχεδιασμός',
+    desc: 'Ανάλυση αγοράς, ανταγωνιστικό positioning, 3–5ετές roadmap. Από το whiteboard στο εκτελέσιμο σχέδιο.',
+    tags: ['Positioning', 'Roadmap', 'GTM'],
   },
   {
     num: '02',
-    title: 'Αναδιάρθρωση & Βελτιστοποίηση',
-    body: 'Operational excellence, cost optimization και reorganisation για εταιρείες σε μεταβατικές φάσεις ή κρίση.',
-    tags: ['Process Redesign', 'Cost Reduction', 'Team Structure'],
+    name: 'Αναδιοργάνωση & Scaling',
+    desc: 'Δομές που κλιμακώνουν. Οργανόγραμμα, διαδικασίες, KPIs, ρόλοι. Για εταιρείες που τρέχουν γρηγορότερα από τις δομές τους.',
+    tags: ['Operations', 'Structure', 'KPIs'],
   },
   {
     num: '03',
-    title: 'Χρηματοδότηση & M&A',
-    body: 'Προετοιμασία για επενδυτές, pitch decks, due diligence support και advisory σε M&A transactions.',
-    tags: ['Investor Readiness', 'Pitch Deck', 'Due Diligence'],
+    name: 'M&A Advisory',
+    desc: 'Αξιολόγηση στόχων, due diligence, διαπραγμάτευση, post-merger integration. 12+ deals στην ελληνική αγορά.',
+    tags: ['Due Diligence', 'Valuation', 'Integration'],
+  },
+  {
+    num: '04',
+    name: 'Είσοδος σε Νέες Αγορές',
+    desc: 'Go-to-market για ελληνικές εταιρείες που κοιτούν Βαλκάνια, ΝΑ Ευρώπη ή Μέση Ανατολή. Τοπική γνώση, διεθνής οπτική.',
+    tags: ['Expansion', 'Market Entry', 'Balkans'],
   },
 ];
 ---
 
 <section class="services" id="services" aria-label="Υπηρεσίες">
-  <hr class="section-rule" aria-hidden="true" />
   <div class="services__inner con-inner">
 
     <div class="services__head" data-anim="srv-head">
-      <p class="eyebrow eyebrow--blue">Υπηρεσίες</p>
-      <h2 class="services__title">Τι κάνω.</h2>
+      <p class="eyebrow">Τι κάνω</p>
+      <h2 class="services__title">Υπηρεσίες.</h2>
     </div>
 
-    <div class="services__grid">
-      {services.map((s, i) => (
-        <div class="service-card" data-anim="srv-card">
-          <div class="service-card__top">
-            <span class="service-card__num eyebrow">{s.num}</span>
-            <h3 class="service-card__title">{s.title}</h3>
+    <div class="services__list">
+      {services.map(s => (
+        <div class="srv-row" data-anim="srv-row">
+          <span class="srv-row__num eyebrow">{s.num}</span>
+          <div class="srv-row__center">
+            <h3 class="srv-row__name">{s.name}</h3>
+            <p class="srv-row__desc">{s.desc}</p>
           </div>
-          <p class="service-card__body">{s.body}</p>
-          <div class="service-card__tags">
-            {s.tags.map(t => <span class="pill pill--outline">{t}</span>)}
+          <div class="srv-row__tags">
+            {s.tags.map(t => <span class="pill pill--green">{t}</span>)}
           </div>
         </div>
       ))}
@@ -50,40 +55,71 @@ const services = [
 
 <style>
   .services { background: var(--c-bg); padding-block: var(--s-9); }
-  .services__inner { display: grid; gap: var(--s-8); }
+  .services__inner { display: grid; gap: var(--s-7); }
+
   .services__head { display: grid; gap: var(--s-4); }
   .services__title {
-    font-family: var(--f-display);
-    font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.025em; color: var(--c-ink); line-height: 1.0;
   }
-  .services__grid { display: grid; gap: var(--s-1); }
 
-  .service-card {
-    padding: var(--s-6) 0;
-    border-bottom: 1px solid var(--c-border);
+  .services__list { border-top: 1px solid var(--c-border); }
+
+  .srv-row {
+    position: relative;
     display: grid; gap: var(--s-4);
+    grid-template-columns: 2rem 1fr;
+    padding-block: var(--s-6);
+    border-bottom: 1px solid var(--c-border);
+    overflow: hidden;
+    cursor: default;
+    transition: padding-left 0.3s ease;
   }
-  .service-card:first-child { border-top: 1px solid var(--c-border); }
   @media (min-width: 768px) {
-    .service-card { grid-template-columns: 1fr 2fr auto; align-items: start; }
+    .srv-row { grid-template-columns: 2.5rem 1fr auto; align-items: center; }
   }
 
-  .service-card__top { display: grid; gap: var(--s-2); }
-  .service-card__num { color: var(--c-ink-3); }
-  .service-card__title {
-    font-family: var(--f-display);
-    font-weight: 600; font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  .srv-row::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(29, 71, 48, 0.04);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .srv-row:hover::before { transform: scaleX(1); }
+  .srv-row:hover .srv-row__num { color: var(--c-green); }
+  .srv-row:hover .srv-row__name { color: var(--c-green); }
+
+  .srv-row__num {
+    padding-top: 0.2em;
+    transition: color 0.2s;
+  }
+  .srv-row__center { display: grid; gap: var(--s-3); }
+  .srv-row__name {
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     color: var(--c-ink); line-height: 1.2;
+    transition: color 0.2s;
   }
-  .service-card__body {
-    font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2);
+  .srv-row__desc {
+    font-size: 0.9375rem; font-weight: 300; line-height: 1.75;
+    color: var(--c-ink-2); max-width: 38rem;
   }
-  .service-card__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); align-self: start; }
+  .srv-row__tags {
+    display: flex; flex-wrap: wrap; gap: var(--s-2);
+    align-self: start;
+    grid-column: 2;
+  }
+  @media (min-width: 768px) {
+    .srv-row__tags { grid-column: auto; justify-content: flex-end; }
+  }
 
-  [data-anim="srv-head"], [data-anim="srv-card"] { opacity: 0; }
+  [data-anim="srv-head"] { opacity: 0; }
+  [data-anim="srv-row"]  { opacity: 0; }
   @media (prefers-reduced-motion: reduce) {
-    [data-anim="srv-head"], [data-anim="srv-card"] { opacity: 1 !important; }
+    [data-anim="srv-head"],
+    [data-anim="srv-row"] { opacity: 1 !important; }
   }
 </style>
 
@@ -92,15 +128,16 @@ const services = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.set('[data-anim="srv-head"]', { y: 20 });
-    gsap.set('[data-anim="srv-card"]', { y: 24 });
+    gsap.set('[data-anim="srv-head"]', { y: 24 });
+    gsap.set('[data-anim="srv-row"]',  { y: 28 });
+
     gsap.to('[data-anim="srv-head"]', {
-      opacity: 1, y: 0, duration: 0.7,
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
       scrollTrigger: { trigger: '[data-anim="srv-head"]', start: 'top 85%' }
     });
-    gsap.to('[data-anim="srv-card"]', {
-      opacity: 1, y: 0, duration: 0.65, stagger: 0.1,
-      scrollTrigger: { trigger: '.services__grid', start: 'top 80%' }
+    gsap.to('[data-anim="srv-row"]', {
+      opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+      scrollTrigger: { trigger: '.services__list', start: 'top 82%' }
     });
   });
 </script>

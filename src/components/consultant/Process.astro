@@ -1,34 +1,55 @@
 ---
 const steps = [
-  { n: '01', title: 'Διάγνωση', body: 'Βαθιά ανάλυση της τρέχουσας κατάστασης: αγορά, ανταγωνισμός, εσωτερικές δυνατότητες. 2–3 εβδομάδες.' },
-  { n: '02', title: 'Στρατηγική', body: 'Ανάπτυξη σεναρίων και επιλογή κατεύθυνσης με συγκεκριμένους KPIs και χρονοδιαγράμματα.' },
-  { n: '03', title: 'Εκτέλεση', body: 'Hands-on συνεργασία με την ομάδα για implementation. Δεν αφήνω reports στο συρτάρι.' },
-  { n: '04', title: 'Παρακολούθηση', body: 'Μηνιαία check-ins για 6–12 μήνες. Προσαρμογή στρατηγικής όταν αλλάζουν οι συνθήκες.' },
+  {
+    num: '01',
+    title: 'Διάγνωση',
+    desc: '2–3 εβδομάδες εντατικής ανάλυσης. Συνεντεύξεις, δεδομένα, αγορά. Βγαίνω με συγκεκριμένη εικόνα — όχι assumptions.',
+  },
+  {
+    num: '02',
+    title: 'Στρατηγική',
+    desc: 'Σενάρια, προτεραιότητες, resource allocation. Επιλέγουμε μαζί ποιον δρόμο παίρνουμε — και τεκμηριώνουμε γιατί.',
+  },
+  {
+    num: '03',
+    title: 'Εκτέλεση',
+    desc: 'Δεν αφήνω το deck στο τραπέζι. Μπαίνω στην εκτέλεση — meetings, milestones, αλλαγές πορείας σε πραγματικό χρόνο.',
+  },
+  {
+    num: '04',
+    title: 'Αποτέλεσμα',
+    desc: 'Μετράμε τι αλλάξαμε, τι πήγε καλά, τι χρειάζεται βελτίωση. Η σχέση δεν τελειώνει στην υπογραφή.',
+  },
 ];
 ---
 
-<section class="process" aria-label="Μεθοδολογία">
-  <hr class="section-rule" aria-hidden="true" />
+<section class="process" id="process" aria-label="Μεθοδολογία">
   <div class="process__inner con-inner">
 
     <div class="process__head" data-anim="proc-head">
-      <p class="eyebrow eyebrow--blue">Μεθοδολογία</p>
-      <h2 class="process__title">Πώς δουλεύω.</h2>
+      <p class="eyebrow">Πώς δουλεύω</p>
+      <h2 class="process__title">Μεθοδολογία.</h2>
     </div>
 
-    <div class="process__steps">
-      {steps.map((s, i) => (
-        <div class="process__step" data-anim="proc-step">
-          <div class="process__step-num">
-            <span class="eyebrow">{s.n}</span>
-            {i < steps.length - 1 && <div class="process__connector" aria-hidden="true"></div>}
+    <div class="process__body">
+      <div class="process__vtrack" aria-hidden="true">
+        <div class="process__vline" data-anim="proc-vline"></div>
+      </div>
+
+      <div class="process__steps">
+        {steps.map(s => (
+          <div class="process__step" data-anim="proc-step">
+            <div class="process__step-marker">
+              <span class="process__step-dot" aria-hidden="true"></span>
+              <span class="process__step-num eyebrow">{s.num}</span>
+            </div>
+            <div class="process__step-content">
+              <h3 class="process__step-title">{s.title}</h3>
+              <p class="process__step-desc">{s.desc}</p>
+            </div>
           </div>
-          <div class="process__step-content">
-            <h3 class="process__step-title">{s.title}</h3>
-            <p class="process__step-body">{s.body}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
   </div>
@@ -40,42 +61,69 @@ const steps = [
 
   .process__head { display: grid; gap: var(--s-4); }
   .process__title {
-    font-family: var(--f-display); font-weight: 600;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em; color: var(--c-ink); line-height: 1.05;
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.025em; color: var(--c-ink); line-height: 1.0;
+  }
+
+  .process__body {
+    position: relative;
+    padding-left: 2rem;
+  }
+  @media (min-width: 640px) {
+    .process__body { padding-left: 3rem; }
+  }
+
+  .process__vtrack {
+    position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem;
+    width: 2px; background: var(--c-border);
+  }
+  .process__vline {
+    position: absolute; inset: 0;
+    background: var(--c-green);
+    transform-origin: top; transform: scaleY(0);
   }
 
   .process__steps { display: grid; gap: 0; }
 
   .process__step {
-    display: grid; grid-template-columns: 3rem 1fr;
-    gap: var(--s-5); padding-block: var(--s-6);
-    border-bottom: 1px solid var(--c-border-2);
+    display: grid; gap: var(--s-4);
+    grid-template-columns: 2rem 1fr;
+    padding-block: var(--s-6);
+    border-bottom: 1px solid var(--c-border);
   }
-  .process__step:first-child { border-top: 1px solid var(--c-border-2); }
+  .process__step:last-child { border-bottom: none; }
 
-  .process__step-num {
+  .process__step-marker {
     display: flex; flex-direction: column;
-    align-items: center; gap: var(--s-3);
+    align-items: center; gap: var(--s-2);
+    padding-top: 0.25rem;
   }
-  .process__connector {
-    flex: 1; width: 1px; background: var(--c-blue-border);
-    min-height: 2rem;
+  .process__step-dot {
+    display: block; width: 10px; height: 10px;
+    border-radius: 50%; border: 2px solid var(--c-green);
+    background: var(--c-bg);
+    flex-shrink: 0;
   }
+  .process__step-num { color: var(--c-green-3); }
 
-  .process__step-content { display: grid; gap: var(--s-3); padding-block: 0.1rem; }
+  .process__step-content { display: grid; gap: var(--s-3); }
   .process__step-title {
-    font-family: var(--f-display); font-weight: 600;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
     color: var(--c-ink); line-height: 1.2;
   }
-  .process__step-body {
-    font-size: 0.9375rem; line-height: 1.75; color: var(--c-ink-2);
+  .process__step-desc {
+    font-size: 0.9375rem; font-weight: 300;
+    line-height: 1.8; color: var(--c-ink-2); max-width: 36rem;
   }
 
-  [data-anim="proc-head"], [data-anim="proc-step"] { opacity: 0; }
+  [data-anim="proc-head"] { opacity: 0; }
+  [data-anim="proc-step"] { opacity: 0; }
   @media (prefers-reduced-motion: reduce) {
-    [data-anim="proc-head"], [data-anim="proc-step"] { opacity: 1 !important; }
+    [data-anim="proc-head"],
+    [data-anim="proc-step"] { opacity: 1 !important; }
+    [data-anim="proc-vline"] { transform: scaleY(1) !important; }
   }
 </style>
 
@@ -84,15 +132,27 @@ const steps = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   const mm = gsap.matchMedia();
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.set('[data-anim="proc-head"]', { y: 20 });
-    gsap.set('[data-anim="proc-step"]', { x: -20 });
+    gsap.set('[data-anim="proc-head"]', { y: 24 });
+    gsap.set('[data-anim="proc-step"]', { x: 20 });
+
     gsap.to('[data-anim="proc-head"]', {
-      opacity: 1, y: 0, duration: 0.7,
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
       scrollTrigger: { trigger: '[data-anim="proc-head"]', start: 'top 85%' }
     });
+
     gsap.to('[data-anim="proc-step"]', {
-      opacity: 1, x: 0, duration: 0.6, stagger: 0.1,
-      scrollTrigger: { trigger: '.process__steps', start: 'top 78%' }
+      opacity: 1, x: 0, duration: 0.65, stagger: 0.14, ease: 'power2.out',
+      scrollTrigger: { trigger: '.process__steps', start: 'top 80%' }
+    });
+
+    ScrollTrigger.create({
+      trigger: '.process__steps',
+      start: 'top 75%',
+      end: 'bottom 65%',
+      scrub: 1.2,
+      onUpdate(self) {
+        gsap.set('[data-anim="proc-vline"]', { scaleY: self.progress });
+      }
     });
   });
 </script>

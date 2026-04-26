@@ -1,112 +1,167 @@
 ---
 ---
 
-<section class="hero" aria-labelledby="hero-headline">
+<section class="hero" aria-label="Εισαγωγή">
+
   <div class="hero__inner con-inner">
 
-    <div class="hero__top" data-anim="c-top">
-      <hr class="hero__rule" aria-hidden="true" />
-      <div class="hero__top-row">
-        <p class="eyebrow eyebrow--on-dark">Νίκος Σταύρου · Στρατηγικός Σύμβουλος</p>
-        <span class="pill pill--dark">Αθήνα · Remote</span>
+    <div class="hero__meta" data-anim="hero-meta">
+      <p class="eyebrow">Νίκος Σταύρου · Στρατηγικός Σύμβουλος · Αθήνα</p>
+      <div class="hero__meta-r">
+        <span class="eyebrow">MBA INSEAD</span>
+        <span class="hero__sep" aria-hidden="true">·</span>
+        <span class="eyebrow">15+ Χρόνια</span>
       </div>
     </div>
 
-    <h1 class="hero__headline" id="hero-headline">
-      <span class="hero__hline" data-anim="c-line">Επιχειρήσεις</span>
-      <span class="hero__hline" data-anim="c-line">που <em>αναπτύσσονται.</em></span>
-      <span class="hero__hline" data-anim="c-line">Αποτελέσματα</span>
-      <span class="hero__hline" data-anim="c-line">που μετρώνται.</span>
+    <h1 class="hero__hl">
+      <span class="line-wrap"><span data-anim="hl">Επιχειρήσεις</span></span>
+      <span class="line-wrap"><span data-anim="hl">που <em>αναπτύσσονται</em></span></span>
+      <span class="line-wrap"><span data-anim="hl">με στρατηγική.</span></span>
     </h1>
 
-    <div class="hero__foot" data-anim="c-foot">
-      <p class="hero__lead">
-        15 χρόνια στρατηγικής συμβουλευτικής για ελληνικές
-        εταιρείες ανάπτυξης, οικογενειακές επιχειρήσεις και
-        startups πριν τη χρηματοδότηση.
-      </p>
-      <div class="hero__creds">
-        <span class="pill pill--dark">MBA ALBA</span>
-        <span class="pill pill--dark">40+ εταιρείες</span>
-        <span class="pill pill--dark">Ex-McKinsey</span>
-      </div>
-      <div class="hero__actions">
-        <a href="#contact" class="hero__cta hero__cta--primary">Κλείσε συνάντηση</a>
-        <a href="#services" class="hero__cta hero__cta--ghost">Υπηρεσίες →</a>
+    <div class="hero__rule-row" data-anim="hero-rule">
+      <span class="hero__rule"></span>
+    </div>
+
+    <div class="hero__foot" data-anim="hero-foot">
+      <p class="hero__sub">40+ εταιρείες, €280M+ σε αξία projects. Αθήνα & Διεθνώς.</p>
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn--fill">Μιλήστε μαζί μου</a>
+        <a href="#services" class="btn btn--ghost">Δείτε τη δουλειά →</a>
       </div>
     </div>
 
   </div>
+
+  <div class="hero__marquee" aria-hidden="true">
+    <div class="hero__mq-track">
+      {['ΣΤΡΑΤΗΓΙΚΗ', 'ΑΝΑΠΤΥΞΗ', 'ΑΛΛΑΓΗ', 'ΑΠΟΤΕΛΕΣΜΑ', 'ΕΜΠΕΙΡΙΑ', 'ΣΤΡΑΤΗΓΙΚΗ', 'ΑΝΑΠΤΥΞΗ', 'ΑΛΛΑΓΗ', 'ΑΠΟΤΕΛΕΣΜΑ', 'ΕΜΠΕΙΡΙΑ'].map(w => (
+        <span class="hero__mq-item"><span class="hero__mq-dot">◆</span>{w}</span>
+      ))}
+    </div>
+  </div>
+
+  <div class="hero__photo-wrap">
+    <div class="hero__photo-clip" data-anim="hero-photo">
+      <img
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80&fit=crop"
+        alt=""
+        class="hero__photo"
+        width="1400" height="520"
+        loading="eager"
+      />
+    </div>
+    <div class="hero__photo-fade" aria-hidden="true"></div>
+  </div>
+
 </section>
 
 <style>
-  .hero {
-    background: var(--c-dark);
-    padding-block: 5rem var(--s-9);
-    min-height: 85svh;
-    display: flex;
-    align-items: flex-end;
-  }
-  .hero__inner { display: grid; gap: var(--s-6); width: 100%; }
+  .hero { background: var(--c-bg); padding-block-start: var(--s-8); }
+  .hero__inner { display: grid; gap: var(--s-6); padding-block-end: var(--s-7); }
 
-  .hero__top { display: grid; gap: var(--s-4); }
-  .hero__rule {
-    border: none; border-top: 1px solid var(--c-dark-border);
-    transform-origin: left center; transform: scaleX(0);
-  }
-  .hero__top-row {
+  .hero__meta {
     display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: var(--s-3);
+    padding-block-end: var(--s-5);
+    border-bottom: 1px solid var(--c-border);
   }
+  .hero__meta-r { display: flex; align-items: center; gap: var(--s-3); }
+  .hero__sep { color: var(--c-ink-3); font-size: 0.5rem; }
 
-  .hero__headline {
-    font-family: var(--f-display);
-    font-weight: 600;
-    font-size: clamp(2.6rem, 7vw, 5.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--c-on-dark);
-    margin: 0;
+  .hero__hl {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 1.0; letter-spacing: -0.025em; color: var(--c-ink);
   }
-  .hero__hline { display: block; }
-  .hero__headline em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--c-blue-light);
+  .hero__hl [data-anim="hl"] { display: block; }
+  .hero__hl em { font-style: italic; color: var(--c-green); }
+
+  .hero__rule-row { padding-block: var(--s-1); }
+  .hero__rule {
+    display: block; height: 2px; width: 5rem;
+    background: var(--c-green); transform-origin: left;
   }
 
   .hero__foot {
-    display: grid; gap: var(--s-5);
-    padding-top: var(--s-5);
-    border-top: 1px solid var(--c-dark-border);
-    max-width: 36rem;
+    display: flex; align-items: flex-start;
+    justify-content: space-between; flex-wrap: wrap; gap: var(--s-6);
   }
-  .hero__lead {
-    font-size: 1rem; line-height: 1.75; color: var(--c-on-dark-2);
-    font-weight: 300;
+  .hero__sub {
+    font-size: 1rem; font-weight: 300; line-height: 1.75;
+    color: var(--c-ink-2); max-width: 28rem;
   }
-  .hero__creds { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+  .hero__ctas { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; }
 
-  .hero__cta {
+  .btn {
     display: inline-flex; align-items: center;
-    padding: 0.75rem 1.75rem;
-    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
-    text-decoration: none; border-radius: var(--r-sm);
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    padding: 0.85rem 1.75rem; border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.875rem; font-weight: 500;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     white-space: nowrap;
   }
-  .hero__cta--primary {
-    background: var(--c-blue); color: #fff; border: 1px solid var(--c-blue);
+  .btn--fill {
+    background: var(--c-ink); color: var(--c-bg);
+    border: 1px solid var(--c-ink);
   }
-  .hero__cta--primary:hover {
-    background: var(--c-blue-dark); border-color: var(--c-blue-dark);
+  .btn--fill:hover { background: var(--c-green); border-color: var(--c-green); }
+  .btn--ghost {
+    background: transparent; color: var(--c-ink);
+    border: 1px solid var(--c-border-mid);
   }
-  .hero__cta--ghost {
-    background: transparent; color: var(--c-on-dark);
-    border: 1px solid var(--c-dark-border);
+  .btn--ghost:hover { border-color: var(--c-ink); }
+
+  /* Marquee */
+  .hero__marquee {
+    background: var(--c-green); padding-block: 0.9rem;
+    overflow: hidden; white-space: nowrap;
   }
-  .hero__cta--ghost:hover { border-color: var(--c-on-dark-2); }
+  .hero__mq-track {
+    display: inline-flex; gap: var(--s-7);
+    animation: mq-scroll 22s linear infinite;
+  }
+  .hero__mq-item {
+    display: inline-flex; align-items: center; gap: var(--s-3);
+    font-family: var(--f-body); font-size: 0.5625rem;
+    font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--c-on-green);
+  }
+  .hero__mq-dot { color: var(--c-on-green-2); font-size: 0.35rem; }
+
+  @keyframes mq-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Photo strip */
+  .hero__photo-wrap {
+    position: relative;
+    height: clamp(220px, 36vw, 500px);
+    overflow: hidden;
+  }
+  .hero__photo-clip { height: 100%; }
+  .hero__photo { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) saturate(0.85); }
+  .hero__photo-fade {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom,
+      transparent 55%, rgba(244,241,236,0.6) 80%, var(--c-bg) 100%
+    );
+  }
+
+  /* Pre-hide for animation */
+  [data-anim="hero-meta"] { opacity: 0; }
+  [data-anim="hl"]        { display: block; }
+  .hero__rule             { transform: scaleX(0); }
+  [data-anim="hero-foot"] { opacity: 0; }
+  .hero__photo-clip       { clip-path: inset(0 0 100% 0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="hero-meta"],
+    [data-anim="hero-foot"] { opacity: 1 !important; }
+    .hero__rule             { transform: scaleX(1) !important; }
+    .hero__photo-clip       { clip-path: inset(0 0 0% 0) !important; }
+  }
 </style>
 
 <script>
@@ -115,21 +170,15 @@
   initGSAP();
 
   const mm = gsap.matchMedia();
-  mm.add(
-    { isMotion: '(prefers-reduced-motion: no-preference)', isReduced: '(prefers-reduced-motion: reduce)' },
-    (ctx) => {
-      const { isReduced } = ctx.conditions ?? {};
-      if (isReduced) return;
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="hl"]', { yPercent: 110 });
 
-      gsap.set('[data-anim="c-top"]', { autoAlpha: 0, y: -10 });
-      gsap.set('[data-anim="c-line"]', { autoAlpha: 0, y: 30 });
-      gsap.set('[data-anim="c-foot"]', { autoAlpha: 0, y: 20 });
-
-      const tl = gsap.timeline();
-      tl.to('.hero__rule', { scaleX: 1, duration: 0.8, ease: 'power3.inOut' }, 0)
-        .to('[data-anim="c-top"]', { autoAlpha: 1, y: 0, duration: 0.6 }, 0.3)
-        .to('[data-anim="c-line"]', { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.75 }, 0.55)
-        .to('[data-anim="c-foot"]', { autoAlpha: 1, y: 0, duration: 0.65 }, 1.1);
-    }
-  );
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl
+      .to('[data-anim="hero-meta"]', { opacity: 1, duration: 0.65 }, 0.1)
+      .to('[data-anim="hl"]',        { yPercent: 0, stagger: 0.11, duration: 1.0 }, 0.25)
+      .to('.hero__rule',             { scaleX: 1, duration: 0.7, ease: 'power2.inOut', transformOrigin: 'left' }, 0.85)
+      .to('[data-anim="hero-foot"]', { opacity: 1, duration: 0.7 }, 1.05)
+      .to('.hero__photo-clip',       { clipPath: 'inset(0 0 0% 0)', duration: 1.4, ease: 'power4.inOut' }, 1.15);
+  });
 </script>
