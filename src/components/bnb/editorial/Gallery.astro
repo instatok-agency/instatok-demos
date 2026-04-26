@@ -1,0 +1,97 @@
+---
+const photos = [
+  { src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&fit=crop', alt: 'Σαλόνι', caption: 'Σαλόνι — mid-century meets contemporary' },
+  { src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80&fit=crop', alt: 'Κύριο υπνοδωμάτιο', caption: 'Κύριο υπνοδωμάτιο' },
+  { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fit=crop', alt: 'Κουζίνα', caption: 'Κουζίνα — πλήρης εξοπλισμός' },
+  { src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=700&q=80&fit=crop', alt: 'Μπάνιο', caption: 'Μπάνιο' },
+  { src: 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=900&q=80&fit=crop', alt: 'Δεύτερο υπνοδωμάτιο', caption: 'Δεύτερο υπνοδωμάτιο' },
+];
+---
+
+<section class="gallery" aria-label="Gallery">
+  <div class="gallery__inner ed-inner">
+    <div class="gallery__head" data-anim="gal-head">
+      <p class="eyebrow">Ο χώρος</p>
+      <h2 class="gallery__title">The Space.</h2>
+    </div>
+  </div>
+
+  <div class="gallery__grid ed-inner">
+    <div class="gallery__main" data-anim="gal-img">
+      <img src={photos[0].src} alt={photos[0].alt} class="gallery__img" loading="lazy" width="900" height="600" />
+      <p class="gallery__caption eyebrow">{photos[0].caption}</p>
+    </div>
+    <div class="gallery__side">
+      {photos.slice(1, 3).map(p => (
+        <div class="gallery__side-item" data-anim="gal-img">
+          <img src={p.src} alt={p.alt} class="gallery__img" loading="lazy" width="700" height="500" />
+          <p class="gallery__caption eyebrow">{p.caption}</p>
+        </div>
+      ))}
+    </div>
+    <div class="gallery__strip">
+      {photos.slice(3).map(p => (
+        <div class="gallery__strip-item" data-anim="gal-img">
+          <img src={p.src} alt={p.alt} class="gallery__img" loading="lazy" width="700" height="500" />
+          <p class="gallery__caption eyebrow">{p.caption}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery { background: var(--c-bg); padding-block: var(--s-9); }
+
+  .gallery__head { display: grid; gap: var(--s-4); margin-bottom: var(--s-7); }
+  .gallery__title {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.025em; color: var(--c-ink); line-height: 1.0;
+  }
+
+  .gallery__grid { display: grid; gap: var(--s-4); }
+
+  .gallery__main { grid-column: 1 / -1; }
+  .gallery__main .gallery__img { width: 100%; height: clamp(300px, 45vw, 580px); object-fit: cover; border-radius: var(--r-md); }
+
+  .gallery__side { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+  .gallery__side-item .gallery__img { width: 100%; height: clamp(200px, 28vw, 380px); object-fit: cover; border-radius: var(--r-md); }
+
+  .gallery__strip { display: grid; grid-template-columns: 2fr 3fr; gap: var(--s-4); }
+  .gallery__strip-item .gallery__img { width: 100%; height: clamp(180px, 22vw, 300px); object-fit: cover; border-radius: var(--r-md); }
+
+  .gallery__caption { margin-top: var(--s-2); color: var(--c-ink-3); }
+
+  .gallery__img { filter: brightness(0.96) saturate(0.92); transition: transform 0.7s ease, filter 0.4s; }
+  .gallery__main:hover .gallery__img,
+  .gallery__side-item:hover .gallery__img,
+  .gallery__strip-item:hover .gallery__img {
+    transform: scale(1.02); filter: brightness(1.0) saturate(1.0);
+  }
+
+  [data-anim="gal-head"] { opacity: 0; }
+  [data-anim="gal-img"]  { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="gal-head"], [data-anim="gal-img"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="gal-head"]', { y: 20 });
+    gsap.set('[data-anim="gal-img"]',  { y: 32, scale: 0.98 });
+
+    gsap.to('[data-anim="gal-head"]', {
+      opacity: 1, y: 0, duration: 0.8,
+      scrollTrigger: { trigger: '[data-anim="gal-head"]', start: 'top 85%' }
+    });
+    gsap.to('[data-anim="gal-img"]', {
+      opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.12,
+      scrollTrigger: { trigger: '.gallery__grid', start: 'top 82%' }
+    });
+  });
+</script>

@@ -1,0 +1,146 @@
+---
+---
+<section class="booking" id="booking" aria-label="Κράτηση">
+  <div class="booking__inner ed-inner">
+
+    <div class="booking__head" data-anim="bk-head">
+      <p class="eyebrow">Κάνε κράτηση</p>
+      <h2 class="booking__title">
+        <span class="line-wrap"><span data-anim="bk-hl">Ας το κανονίσουμε</span></span>
+        <span class="line-wrap"><span data-anim="bk-hl"><em>μαζί.</em></span></span>
+      </h2>
+      <p class="booking__sub">Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε μέσα σε λίγες ώρες για επιβεβαίωση και τιμολόγηση.</p>
+    </div>
+
+    <form class="booking__form" onsubmit="return false" data-anim="bk-form">
+      <div class="booking__row">
+        <div class="booking__field">
+          <label for="bk-name" class="booking__label">Όνομα</label>
+          <input type="text" id="bk-name" name="name" class="booking__input" placeholder="Το όνομά σας" autocomplete="name" />
+        </div>
+        <div class="booking__field">
+          <label for="bk-email" class="booking__label">Email</label>
+          <input type="email" id="bk-email" name="email" class="booking__input" placeholder="email@example.com" autocomplete="email" />
+        </div>
+      </div>
+      <div class="booking__row">
+        <div class="booking__field">
+          <label for="bk-in" class="booking__label">Check-in</label>
+          <input type="date" id="bk-in" name="checkin" class="booking__input" />
+        </div>
+        <div class="booking__field">
+          <label for="bk-out" class="booking__label">Check-out</label>
+          <input type="date" id="bk-out" name="checkout" class="booking__input" />
+        </div>
+        <div class="booking__field">
+          <label for="bk-guests" class="booking__label">Άτομα</label>
+          <select id="bk-guests" name="guests" class="booking__input">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+        </div>
+      </div>
+      <div class="booking__field">
+        <label for="bk-msg" class="booking__label">Σχόλια <span style="font-weight:300; color:var(--c-ink-3);">(προαιρετικό)</span></label>
+        <textarea id="bk-msg" name="message" class="booking__input booking__textarea" placeholder="Π.χ. αφίξεις αργά, ζώα, ιδιαίτερες ανάγκες…" rows="3"></textarea>
+      </div>
+      <button type="submit" class="booking__submit">Αποστολή αιτήματος</button>
+    </form>
+
+  </div>
+
+  <footer class="ed-footer">
+    <div class="ed-footer__inner ed-inner">
+      <div class="ed-footer__brand">
+        <p class="ed-footer__name">Theodoraki Stays</p>
+        <p class="eyebrow" style="color:var(--c-ink-3); margin-top: 4px;">Κολωνάκι · Αθήνα</p>
+      </div>
+      <div class="ed-footer__links">
+        <a href="mailto:stays@theodoraki.gr" class="ed-footer__link">stays@theodoraki.gr</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="ed-footer__link">@theodoraki.stays →</a>
+      </div>
+      <p class="eyebrow" style="color:var(--c-border-2);">Demo — Instatok Agency</p>
+    </div>
+  </footer>
+</section>
+
+<style>
+  .booking { background: var(--c-bg-2); padding-block-start: var(--s-9); }
+  .booking__inner { display: grid; gap: var(--s-8); padding-block-end: var(--s-9); }
+  @media (min-width: 860px) {
+    .booking__inner { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  .booking__head { display: grid; gap: var(--s-5); }
+  .booking__title {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.025em; color: var(--c-ink); line-height: 1.0;
+  }
+  .booking__title [data-anim="bk-hl"] { display: block; }
+  .booking__title em { font-style: italic; color: var(--c-sand); }
+  .booking__sub { font-size: 0.9375rem; font-weight: 300; line-height: 1.75; color: var(--c-ink-2); }
+
+  .booking__form { display: grid; gap: var(--s-5); }
+  .booking__row { display: grid; gap: var(--s-4); grid-template-columns: 1fr 1fr; }
+  .booking__row:last-of-type { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 500px) {
+    .booking__row, .booking__row:last-of-type { grid-template-columns: 1fr; }
+  }
+
+  .booking__field { display: grid; gap: var(--s-2); }
+  .booking__label { font-size: 0.75rem; font-weight: 500; color: var(--c-ink-2); }
+  .booking__input {
+    padding: 0.75rem 1rem;
+    background: var(--c-bg); border: 1px solid var(--c-border-2);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--c-ink);
+    outline: none; width: 100%; appearance: none; -webkit-appearance: none;
+    transition: border-color 0.2s;
+  }
+  .booking__input::placeholder { color: var(--c-ink-3); }
+  .booking__input:focus { border-color: var(--c-sand); }
+  .booking__textarea { resize: vertical; min-height: 5rem; }
+  .booking__submit {
+    padding: 0.9rem 2rem; width: 100%;
+    background: var(--c-ink); color: var(--c-bg);
+    border: 1px solid var(--c-ink); border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; font-weight: 500;
+    cursor: pointer; transition: background 0.2s, border-color 0.2s;
+  }
+  .booking__submit:hover { background: var(--c-sand); border-color: var(--c-sand); }
+
+  .ed-footer {
+    background: var(--c-ink);
+    padding-block: var(--s-7);
+    border-top: 1px solid rgba(246,241,232,0.06);
+  }
+  .ed-footer__inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: var(--s-5);
+  }
+  .ed-footer__name {
+    font-family: var(--f-display); font-size: 1.25rem; font-weight: 400;
+    color: var(--c-bg); letter-spacing: -0.01em;
+  }
+  .ed-footer__links { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  .ed-footer__link { font-size: 0.8125rem; color: rgba(246,241,232,0.45); transition: color 0.2s; }
+  .ed-footer__link:hover { color: var(--c-sand-2); }
+
+  [data-anim="bk-hl"] { display: block; }
+  [data-anim="bk-form"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="bk-form"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="bk-hl"]', { yPercent: 110 });
+    gsap.set('[data-anim="bk-form"]', { y: 28 });
+    gsap.to('[data-anim="bk-hl"]',  { yPercent: 0, stagger: 0.12, duration: 0.95, ease: 'power3.out', scrollTrigger: { trigger: '.booking__title', start: 'top 85%' } });
+    gsap.to('[data-anim="bk-form"]', { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '[data-anim="bk-form"]', start: 'top 85%' } });
+  });
+</script>

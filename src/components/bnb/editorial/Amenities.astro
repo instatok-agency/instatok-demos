@@ -1,0 +1,95 @@
+---
+const groups = [
+  {
+    title: 'Διαμονή',
+    items: ['King-size κρεβάτι', 'Ορθοπεδικά στρώματα', 'Πολυτελή λευκά είδη', 'Ντουλάπες ενσωματωμένες', 'Γραφείο εργασίας', 'Συρτάρια & αποθήκευση'],
+  },
+  {
+    title: 'Κουζίνα',
+    items: ['Πλήρης εξοπλισμός', 'Espresso machine', 'Πλυντήριο πιάτων', 'Αναλώσιμα αφής', 'Πλυντήριο ρούχων', 'Ψυγείο & καταψύκτης'],
+  },
+  {
+    title: 'Τεχνολογία',
+    items: ['WiFi 1Gbps', 'Smart TV 55"', 'Φορτιστές ασύρματοι', 'Bluetooth ηχεία', 'Κλιματισμός A/C', 'Έξυπνες κλειδαριές'],
+  },
+];
+---
+
+<section class="amen" aria-label="Παροχές">
+  <div class="amen__inner ed-inner">
+
+    <div class="amen__head" data-anim="amen-head">
+      <p class="eyebrow">Περιλαμβάνονται</p>
+      <h2 class="amen__title">Παροχές.</h2>
+    </div>
+
+    <div class="amen__grid" data-anim="amen-grid">
+      {groups.map(g => (
+        <div class="amen__group">
+          <p class="amen__group-title eyebrow eyebrow--sand">{g.title}</p>
+          <ul class="amen__list">
+            {g.items.map(item => (
+              <li class="amen__item">
+                <span class="amen__dot" aria-hidden="true">—</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="amen__note eyebrow" data-anim="amen-note">
+      + Καλωσόρισμα με τοπικά προϊόντα · Check-in self-service 24/7 · Pet-friendly κατόπιν αιτήματος
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .amen { background: var(--c-bg); padding-block: var(--s-9); }
+  .amen__inner { display: grid; gap: var(--s-8); }
+
+  .amen__head { display: grid; gap: var(--s-4); }
+  .amen__title {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.025em; color: var(--c-ink); line-height: 1.0;
+  }
+
+  .amen__grid {
+    display: grid; gap: var(--s-8);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .amen__group { display: grid; gap: var(--s-4); align-content: start; }
+  .amen__group-title { margin-bottom: var(--s-1); }
+  .amen__list { list-style: none; display: grid; gap: var(--s-3); }
+  .amen__item {
+    display: flex; align-items: baseline; gap: var(--s-3);
+    font-size: 0.9375rem; font-weight: 300; color: var(--c-ink-2);
+  }
+  .amen__dot { color: var(--c-sand); font-size: 0.75rem; flex-shrink: 0; }
+
+  .amen__note {
+    padding-top: var(--s-6); border-top: 1px solid var(--c-border);
+    color: var(--c-ink-3); letter-spacing: 0.1em;
+  }
+
+  [data-anim="amen-head"], [data-anim="amen-grid"], [data-anim="amen-note"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="amen-head"], [data-anim="amen-grid"], [data-anim="amen-note"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="amen-head"]', { y: 20 });
+    gsap.set('[data-anim="amen-grid"]', { y: 28 });
+    gsap.to('[data-anim="amen-head"]', { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '.amen__head', start: 'top 85%' } });
+    gsap.to('[data-anim="amen-grid"]', { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '.amen__grid', start: 'top 82%' } });
+    gsap.to('[data-anim="amen-note"]', { opacity: 1, duration: 0.7, scrollTrigger: { trigger: '[data-anim="amen-note"]', start: 'top 88%' } });
+  });
+</script>

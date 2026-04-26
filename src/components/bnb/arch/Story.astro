@@ -1,0 +1,99 @@
+---
+---
+<section class="ar-story" aria-label="Ιστορία">
+  <div class="ar-story__inner ar-inner">
+
+    <div class="ar-story__text" data-anim="ar-story-text">
+      <p class="eyebrow" style="margin-bottom: var(--s-5);">Το κτίριο</p>
+
+      <div class="ar-story__body">
+        <p>Χτισμένο το 1847 από εύπορη εμπορική οικογένεια της Σύρου. Το κτίριο άντεξε σεισμούς, πολέμους, και εκατό χρόνια αλλαγών στον Αιγαίο.</p>
+        <p>Ανακαινίστηκε το 2023 με σεβασμό στην κυκλαδική αρχιτεκτονική: τα τοξωτά παράθυρα, οι πέτρινοι τοίχοι, τα μαρμάρινα δάπεδα — όλα έμειναν.</p>
+        <p>Προσθέσαμε μόνο αυτά που χρειάζονται: κλιματισμό, υπερυψηλής ταχύτητας WiFi, και κρεβάτια που σε κρατούν ξύπνιο μόνο για τη θέα.</p>
+      </div>
+
+      <div class="ar-story__specs">
+        <div class="ar-story__spec">
+          <span class="ar-story__spec-n">1847</span>
+          <span class="eyebrow">έτος κατασκευής</span>
+        </div>
+        <div class="ar-story__spec">
+          <span class="ar-story__spec-n">160</span>
+          <span class="eyebrow">τ.μ. χώρος</span>
+        </div>
+        <div class="ar-story__spec">
+          <span class="ar-story__spec-n">3</span>
+          <span class="eyebrow">υπνοδωμάτια</span>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="ar-story__quote" data-anim="ar-story-quote">
+      <p>"Ξύπνησα στις 6 το πρωί και στάθηκα μισή ώρα στο παράθυρο. Δεν είχα κάτι να κάνω — απλά το Αιγαίο."</p>
+      <footer class="ar-story__quote-foot">
+        <span class="eyebrow">Νίκος Δ. · Αθήνα</span>
+        <span class="ar-story__stars">★★★★★</span>
+      </footer>
+    </blockquote>
+
+  </div>
+</section>
+
+<style>
+  .ar-story { background: var(--c-bg); padding-block: var(--s-9); }
+
+  .ar-story__inner {
+    display: grid; gap: var(--s-8); align-items: start;
+  }
+  @media (min-width: 860px) {
+    .ar-story__inner { grid-template-columns: 7fr 5fr; }
+  }
+
+  .ar-story__text { display: grid; gap: var(--s-6); }
+  .ar-story__body {
+    display: grid; gap: var(--s-4);
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.85; color: var(--c-ink-2);
+    max-width: 38rem;
+  }
+
+  .ar-story__specs {
+    display: flex; flex-wrap: wrap; gap: var(--s-6);
+    padding-top: var(--s-6); border-top: 1px solid var(--c-border);
+  }
+  .ar-story__spec { display: grid; gap: 2px; }
+  .ar-story__spec-n {
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--c-ink); line-height: 1;
+  }
+
+  .ar-story__quote {
+    background: var(--c-bg-2); border: 1px solid var(--c-border);
+    border-left: 3px solid var(--c-sage);
+    border-radius: var(--r-lg); padding: var(--s-7);
+    display: grid; gap: var(--s-6); align-content: start;
+  }
+  .ar-story__quote p {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6; color: var(--c-ink);
+  }
+  .ar-story__quote-foot { display: flex; align-items: center; gap: var(--s-4); }
+  .ar-story__stars { color: var(--c-sage-2); font-size: 0.75rem; letter-spacing: 0.08em; }
+
+  [data-anim="ar-story-text"], [data-anim="ar-story-quote"] { opacity: 0; filter: blur(4px); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="ar-story-text"], [data-anim="ar-story-quote"] { opacity: 1 !important; filter: none !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="ar-story-text"]',  { opacity: 1, filter: 'blur(0px)', duration: 0.9, scrollTrigger: { trigger: '.ar-story__inner', start: 'top 82%' } });
+    gsap.to('[data-anim="ar-story-quote"]', { opacity: 1, filter: 'blur(0px)', duration: 0.9, delay: 0.15, scrollTrigger: { trigger: '.ar-story__inner', start: 'top 82%' } });
+  });
+</script>

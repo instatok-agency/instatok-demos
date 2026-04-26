@@ -1,0 +1,203 @@
+---
+---
+<header class="ar-hero">
+  <nav class="ar-nav ar-inner">
+    <span class="eyebrow" data-anim="ar-nav">Αρχόντισσα</span>
+    <a href="#booking" class="ar-nav__cta" data-anim="ar-nav">Κλείσε τώρα</a>
+  </nav>
+
+  <div class="ar-hero__layout ar-inner">
+
+    <div class="ar-hero__photo-col">
+      <div class="ar-hero__photo-wrap" data-anim="ar-photo">
+        <img
+          src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&q=80"
+          alt="Κυκλαδική κατοικία Άνω Σύρος"
+          class="ar-hero__photo"
+          width="1200" height="1400"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <div class="ar-hero__text-col">
+      <p class="eyebrow ar-hero__eyebrow" data-anim="ar-eyebrow">ΑΝΩ ΣΥΡΟΣ · ΚΥΚΛΑΔΕΣ · 1847</p>
+
+      <h1 class="ar-hero__title" data-anim="ar-title">
+        <span class="line-wrap"><span class="ar-hl">Αρχόντισσα.</span></span>
+      </h1>
+
+      <p class="ar-hero__sub" data-anim="ar-sub">
+        Κυκλαδική αρχοντική κατοικία 19ου αιώνα, ανακαινισμένη με σεβασμό στην αρχιτεκτονική της. Θέα στο Αιγαίο από κάθε δωμάτιο.
+      </p>
+
+      <div class="ar-hero__specs" data-anim="ar-specs">
+        <div class="ar-hero__spec">
+          <span class="ar-hero__spec-n">3</span>
+          <span class="eyebrow">υπνοδωμ.</span>
+        </div>
+        <div class="ar-hero__spec">
+          <span class="ar-hero__spec-n">160</span>
+          <span class="eyebrow">τ.μ.</span>
+        </div>
+        <div class="ar-hero__spec">
+          <span class="ar-hero__spec-n">6</span>
+          <span class="eyebrow">άτομα</span>
+        </div>
+      </div>
+
+      <div class="ar-hero__ctas" data-anim="ar-ctas">
+        <a href="#booking" class="ar-btn ar-btn--fill">Ζητήστε κράτηση</a>
+        <a href="#gallery" class="ar-btn ar-btn--ghost">Δείτε φωτογραφίες</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ar-hero__meta ar-inner" data-anim="ar-meta">
+    <span class="ar-meta-item">Θέα Αιγαίου</span>
+    <span class="ar-meta-sep" aria-hidden="true">·</span>
+    <span class="ar-meta-item">Ιδιωτική αυλή</span>
+    <span class="ar-meta-sep" aria-hidden="true">·</span>
+    <span class="ar-meta-item">Check-in self-service</span>
+    <span class="ar-meta-sep" aria-hidden="true">·</span>
+    <span class="ar-meta-item">Όχι pets</span>
+  </div>
+</header>
+
+<style>
+  .ar-hero { background: var(--c-bg); padding-bottom: 0; }
+
+  .ar-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1.25rem; padding-bottom: 1.25rem;
+    background: rgba(249,248,245,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--c-border);
+  }
+  [data-anim="ar-nav"] { opacity: 0; }
+
+  .ar-nav__cta {
+    font-family: var(--f-body); font-size: 0.5625rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--c-sage); border: 1px solid rgba(46,94,78,0.3);
+    padding: 0.4rem 1.1rem; border-radius: var(--r-sm);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .ar-nav__cta:hover { background: var(--c-sage-4); border-color: var(--c-sage); }
+
+  .ar-hero__layout {
+    display: grid; gap: var(--s-8);
+    padding-top: clamp(5rem, 10vh, 8rem);
+    padding-bottom: var(--s-8);
+    align-items: center;
+  }
+  @media (min-width: 860px) {
+    .ar-hero__layout { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  .ar-hero__photo-wrap {
+    border-radius: var(--r-lg); overflow: hidden;
+    height: clamp(320px, 50vw, 640px);
+    opacity: 0; filter: blur(12px);
+  }
+  .ar-hero__photo { width: 100%; height: 100%; object-fit: cover; }
+
+  .ar-hero__text-col { display: grid; gap: var(--s-6); }
+
+  .ar-hero__eyebrow { opacity: 0; }
+
+  .ar-hero__title {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 400; font-style: italic;
+    letter-spacing: -0.02em;
+    color: var(--c-ink); line-height: 1.0;
+  }
+  .ar-hl { display: block; opacity: 0; filter: blur(6px); }
+
+  .ar-hero__sub {
+    font-family: var(--f-body); font-size: 1rem;
+    font-weight: 300; line-height: 1.8;
+    color: var(--c-ink-2); max-width: 36rem;
+    opacity: 0;
+  }
+
+  .ar-hero__specs {
+    display: flex; gap: var(--s-6);
+    padding-top: var(--s-5); border-top: 1px solid var(--c-border);
+    opacity: 0;
+  }
+  .ar-hero__spec { display: grid; gap: 2px; }
+  .ar-hero__spec-n {
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: 2rem; color: var(--c-ink); line-height: 1;
+  }
+
+  .ar-hero__ctas {
+    display: flex; gap: var(--s-3); flex-wrap: wrap;
+    opacity: 0;
+  }
+
+  .ar-btn {
+    font-family: var(--f-body); font-size: 0.5625rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.875rem 1.75rem; border-radius: var(--r-sm);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .ar-btn--fill {
+    background: var(--c-sage); color: #fff;
+    border: 1px solid var(--c-sage);
+  }
+  .ar-btn--fill:hover { background: var(--c-sage-2); border-color: var(--c-sage-2); }
+  .ar-btn--ghost {
+    background: transparent; color: var(--c-ink-2);
+    border: 1px solid var(--c-border-2);
+  }
+  .ar-btn--ghost:hover { border-color: var(--c-ink-2); color: var(--c-ink); }
+
+  .ar-hero__meta {
+    display: flex; align-items: center; gap: var(--s-4); flex-wrap: wrap;
+    padding-block: var(--s-5);
+    border-top: 1px solid var(--c-border);
+    opacity: 0;
+  }
+  .ar-meta-item {
+    font-family: var(--f-body); font-size: 0.5625rem;
+    font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+  .ar-meta-sep { color: var(--c-border-2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="ar-nav"],
+    .ar-hero__eyebrow,
+    .ar-hl,
+    .ar-hero__photo-wrap,
+    .ar-hero__sub,
+    .ar-hero__specs,
+    .ar-hero__ctas,
+    .ar-hero__meta { opacity: 1 !important; filter: none !important; }
+  }
+</style>
+
+<script>
+  import { initGSAP } from '../../../scripts/gsap-bnb-arch';
+  import { gsap } from 'gsap';
+  initGSAP();
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    tl.to('.ar-hero__photo-wrap', { opacity: 1, filter: 'blur(0px)', duration: 1.2 }, 0)
+      .to('[data-anim="ar-nav"]',  { opacity: 1, duration: 0.5, stagger: 0.08 }, 0.3)
+      .to('.ar-hero__eyebrow',     { opacity: 1, duration: 0.5 }, 0.55)
+      .to('.ar-hl', { opacity: 1, filter: 'blur(0px)', duration: 0.9 }, 0.65)
+      .to('.ar-hero__sub',   { opacity: 1, duration: 0.6 }, 0.9)
+      .to('.ar-hero__specs', { opacity: 1, duration: 0.5 }, 1.05)
+      .to('.ar-hero__ctas',  { opacity: 1, duration: 0.5 }, 1.15)
+      .to('.ar-hero__meta',  { opacity: 1, duration: 0.5 }, 1.3);
+  });
+</script>

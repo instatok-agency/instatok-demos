@@ -1,0 +1,129 @@
+---
+const reviews = [
+  {
+    quote: 'Ο χώρος είναι μνημείο. Πέτρα, ξύλο, θέα που δεν ξεχνάς. Πήγαμε για 4 μέρες και μείναμε 8.',
+    name: 'Μαρία & Γιώργης',
+    from: 'Λονδίνο',
+    stays: '8 διανυκτερεύσεις',
+    stars: 5,
+  },
+  {
+    quote: 'Το καλύτερο σπίτι που νοικιάσαμε ποτέ. Κυριολεκτικά. Η γειτονιά στην Άνω Σύρο είναι σαν να γυρίσαμε στο χρόνο.',
+    name: 'Ζωή Π.',
+    from: 'Αθήνα',
+    stays: '5 διανυκτερεύσεις',
+    stars: 5,
+  },
+  {
+    quote: 'Φέραμε τους γονείς μας. Ήταν σαν δώρο. Κάθε πρωί ο καφές στο μπαλκόνι με θέα Αιγαίο. Δεν υπάρχουν λέξεις.',
+    name: 'Σπύρος Α.',
+    from: 'Θεσσαλονίκη',
+    stays: '6 διανυκτερεύσεις',
+    stars: 5,
+  },
+];
+---
+
+<section class="ar-rev" aria-label="Κριτικές">
+  <div class="ar-rev__inner ar-inner">
+
+    <div class="ar-rev__head" data-anim="ar-rev-head">
+      <p class="eyebrow">Κριτικές</p>
+      <h2 class="ar-section-title">Τι λένε.</h2>
+      <div class="ar-rev__score">
+        <span class="ar-rev__score-n">5.0</span>
+        <div class="ar-rev__score-r">
+          <span class="ar-rev__stars">★★★★★</span>
+          <span class="eyebrow">47 κριτικές</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-rev__grid">
+      {reviews.map(r => (
+        <blockquote class="ar-rev-card" data-anim="ar-rev-card">
+          <p class="ar-rev-card__quote">"{r.quote}"</p>
+          <footer class="ar-rev-card__foot">
+            <div>
+              <p class="ar-rev-card__name">{r.name}</p>
+              <p class="eyebrow" style="color:var(--c-ink-3); margin-top:2px;">{r.from} · {r.stays}</p>
+            </div>
+            <span class="ar-rev-card__stars">{'★'.repeat(r.stars)}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ar-rev { background: var(--c-bg-2); padding-block: var(--s-9); }
+  .ar-rev__inner { display: grid; gap: var(--s-8); }
+
+  .ar-rev__head { display: grid; gap: var(--s-4); }
+
+  .ar-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 400; font-style: italic;
+    letter-spacing: -0.02em;
+    color: var(--c-ink); line-height: 1.0;
+  }
+
+  .ar-rev__score { display: flex; align-items: center; gap: var(--s-4); }
+  .ar-rev__score-n {
+    font-family: var(--f-display); font-size: 3rem;
+    font-weight: 400; font-style: italic; color: var(--c-ink);
+  }
+  .ar-rev__score-r { display: grid; gap: 2px; }
+  .ar-rev__stars { color: var(--c-sage-2); font-size: 0.875rem; letter-spacing: 0.1em; }
+
+  .ar-rev__grid {
+    display: grid; gap: var(--s-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+
+  .ar-rev-card {
+    background: var(--c-bg); border: 1px solid var(--c-border);
+    border-radius: var(--r-lg); padding: var(--s-6);
+    display: flex; flex-direction: column; gap: var(--s-5);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .ar-rev-card:hover {
+    border-color: rgba(46,94,78,0.25);
+    box-shadow: 0 4px 24px rgba(46,94,78,0.06);
+  }
+
+  .ar-rev-card__quote {
+    font-family: var(--f-display); font-style: italic;
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+    line-height: 1.7; color: var(--c-ink); flex: 1;
+  }
+  .ar-rev-card__foot {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: var(--s-3);
+    padding-top: var(--s-4); border-top: 1px solid var(--c-border);
+  }
+  .ar-rev-card__name {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 500; color: var(--c-ink);
+  }
+  .ar-rev-card__stars { color: var(--c-sage-2); font-size: 0.75rem; letter-spacing: 0.1em; flex-shrink: 0; }
+
+  [data-anim="ar-rev-head"] { opacity: 0; }
+  [data-anim="ar-rev-card"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="ar-rev-head"], [data-anim="ar-rev-card"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="ar-rev-head"]', { opacity: 1, duration: 0.75, scrollTrigger: { trigger: '.ar-rev__head', start: 'top 85%' } });
+    gsap.to('[data-anim="ar-rev-card"]', { opacity: 1, duration: 0.75, stagger: 0.12, scrollTrigger: { trigger: '.ar-rev__grid', start: 'top 82%' } });
+  });
+</script>

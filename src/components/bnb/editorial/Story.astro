@@ -1,0 +1,107 @@
+---
+---
+<section class="story" aria-label="Ιστορία">
+  <div class="story__inner ed-inner">
+
+    <div class="story__grid">
+
+      <div class="story__text" data-anim="story-text">
+        <p class="eyebrow" style="margin-bottom: var(--s-5);">Το διαμέρισμα</p>
+        <div class="story__body">
+          <p>Χτισμένο το 1935, ανακαινισμένο με προσοχή το 2022. Δεν θέλαμε ένα ακόμη white-box διαμέρισμα. Κρατήσαμε τα ξύλινα δάπεδα, τα ψηλά ταβάνια, τις μπαλκονόπορτες.</p>
+          <p>Κάθε έπιπλο επιλέχτηκε ξεχωριστά. Κάθε λεπτομέρεια έχει ιστορία. Αν θέλεις να μείνεις κάπου που νιώθεις ότι ανήκει κάπου — αυτό είναι το μέρος.</p>
+        </div>
+        <div class="story__specs">
+          <div class="story__spec">
+            <span class="story__spec-n">85</span>
+            <span class="story__spec-l eyebrow">τ.μ.</span>
+          </div>
+          <div class="story__spec">
+            <span class="story__spec-n">2</span>
+            <span class="story__spec-l eyebrow">υπνοδωμ.</span>
+          </div>
+          <div class="story__spec">
+            <span class="story__spec-n">4</span>
+            <span class="story__spec-l eyebrow">άτομα</span>
+          </div>
+          <div class="story__spec">
+            <span class="story__spec-n">3ος</span>
+            <span class="story__spec-l eyebrow">όροφος</span>
+          </div>
+        </div>
+      </div>
+
+      <blockquote class="story__quote" data-anim="story-quote">
+        <p>"Όταν φεύγεις, δεν νιώθεις ότι έφυγες από ξενοδοχείο. Νιώθεις ότι έφυγες από σπίτι."</p>
+        <footer class="story__quote-attr">
+          <span class="eyebrow">Μαρία Κ.</span>
+          <span class="story__quote-stars">★★★★★</span>
+        </footer>
+      </blockquote>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .story { background: var(--c-bg-2); padding-block: var(--s-9); }
+
+  .story__grid {
+    display: grid; gap: var(--s-8);
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .story__grid { grid-template-columns: 7fr 5fr; }
+  }
+
+  .story__text { display: grid; gap: var(--s-6); }
+  .story__body {
+    display: grid; gap: var(--s-4);
+    font-size: 1rem; font-weight: 300; line-height: 1.85;
+    color: var(--c-ink-2); max-width: 38rem;
+  }
+
+  .story__specs {
+    display: grid; grid-template-columns: repeat(4, auto); gap: var(--s-6);
+    padding-top: var(--s-6); border-top: 1px solid var(--c-border);
+    justify-content: start;
+  }
+  .story__spec { display: grid; gap: 2px; }
+  .story__spec-n {
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--c-ink); line-height: 1;
+  }
+
+  .story__quote {
+    background: var(--c-bg); border: 1px solid var(--c-border);
+    border-radius: var(--r-lg); padding: var(--s-7);
+    display: grid; gap: var(--s-6); align-content: start;
+  }
+  .story__quote p {
+    font-family: var(--f-display); font-weight: 400; font-style: italic;
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    line-height: 1.5; color: var(--c-ink);
+  }
+  .story__quote-attr { display: flex; align-items: center; gap: var(--s-4); }
+  .story__quote-stars { color: var(--c-sand); font-size: 0.8rem; letter-spacing: 0.1em; }
+
+  [data-anim="story-text"],
+  [data-anim="story-quote"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="story-text"], [data-anim="story-quote"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.set('[data-anim="story-text"]',  { y: 28 });
+    gsap.set('[data-anim="story-quote"]', { y: 28 });
+    gsap.to('[data-anim="story-text"]',  { opacity: 1, y: 0, duration: 0.85, scrollTrigger: { trigger: '.story__grid', start: 'top 82%' } });
+    gsap.to('[data-anim="story-quote"]', { opacity: 1, y: 0, duration: 0.85, delay: 0.15, scrollTrigger: { trigger: '.story__grid', start: 'top 82%' } });
+  });
+</script>

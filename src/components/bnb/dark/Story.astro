@@ -1,0 +1,122 @@
+---
+---
+<section class="dk-story" aria-label="Ιστορία">
+  <div class="dk-story__inner dk-inner">
+
+    <div class="dk-story__body" data-anim="dk-story-body">
+      <p class="eyebrow" style="margin-bottom: var(--s-5);">Το χώρο</p>
+
+      <blockquote class="dk-story__pull">
+        "Δεν φτιάξαμε ένα δωμάτιο για να νοικιαστεί. Φτιάξαμε ένα χώρο που θα θέλαμε να ζούμε εμείς."
+      </blockquote>
+
+      <div class="dk-story__text">
+        <p>Κτίριο 1970, ανακαινισμένο ολοκληρωτικά το 2023. Ο Κεραμεικός αλλάζει — εμείς ήμασταν εδώ πριν γίνει trend.</p>
+        <p>Κάθε υλικό επιλέχτηκε για αντοχή και αίσθηση. Σκυρόδεμα, ξύλο καρυδιά, γυαλί. Τίποτα πλαστικό. Τίποτα περιττό.</p>
+        <p>Η ταράτσα είναι δική σου. Η πόλη είναι μπροστά σου. Η Ακρόπολη ορατή από το σαλόνι.</p>
+      </div>
+    </div>
+
+    <div class="dk-story__specs" data-anim="dk-story-specs">
+      <div class="dk-spec-row">
+        <span class="dk-spec-num">40</span>
+        <div>
+          <p class="dk-spec-label eyebrow eyebrow--amber">m²</p>
+          <p class="dk-spec-desc">studio</p>
+        </div>
+      </div>
+      <div class="dk-spec-row">
+        <span class="dk-spec-num">20</span>
+        <div>
+          <p class="dk-spec-label eyebrow eyebrow--amber">m²</p>
+          <p class="dk-spec-desc">ταράτσα</p>
+        </div>
+      </div>
+      <div class="dk-spec-row">
+        <span class="dk-spec-num">3ος</span>
+        <div>
+          <p class="dk-spec-label eyebrow eyebrow--amber">όροφος</p>
+          <p class="dk-spec-desc">θέα Ακρόπολη</p>
+        </div>
+      </div>
+      <div class="dk-spec-row">
+        <span class="dk-spec-num">2</span>
+        <div>
+          <p class="dk-spec-label eyebrow eyebrow--amber">άτομα</p>
+          <p class="dk-spec-desc">max capacity</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .dk-story { background: var(--c-bg-2); padding-block: var(--s-9); }
+
+  .dk-story__inner {
+    display: grid; gap: var(--s-8); align-items: start;
+  }
+  @media (min-width: 860px) {
+    .dk-story__inner { grid-template-columns: 7fr 5fr; }
+  }
+
+  .dk-story__body { display: grid; gap: var(--s-6); }
+
+  .dk-story__pull {
+    font-family: var(--f-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700; font-style: italic;
+    color: var(--c-amber); line-height: 1.4;
+    border-left: 2px solid var(--c-amber);
+    padding-left: var(--s-5);
+  }
+
+  .dk-story__text {
+    display: grid; gap: var(--s-4);
+    font-family: var(--f-body); font-size: 0.9375rem;
+    line-height: 1.85; color: var(--c-cream-2);
+  }
+
+  .dk-story__specs {
+    display: grid; gap: 0;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg); overflow: hidden;
+  }
+
+  .dk-spec-row {
+    display: flex; align-items: center; gap: var(--s-4);
+    padding: var(--s-5) var(--s-6);
+    border-bottom: 1px solid var(--c-border);
+    transition: background 0.2s;
+  }
+  .dk-spec-row:last-child { border-bottom: none; }
+  .dk-spec-row:hover { background: rgba(240,235,227,0.03); }
+
+  .dk-spec-num {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700; color: var(--c-cream);
+    min-width: 3.5rem;
+  }
+
+  .dk-spec-desc {
+    font-family: var(--f-body); font-size: 0.75rem;
+    color: var(--c-cream-3); margin-top: 2px;
+  }
+
+  [data-anim="dk-story-body"], [data-anim="dk-story-specs"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="dk-story-body"], [data-anim="dk-story-specs"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="dk-story-body"]',  { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '[data-anim="dk-story-body"]', start: 'top 82%' } });
+    gsap.to('[data-anim="dk-story-specs"]', { opacity: 1, duration: 0.8, delay: 0.1, scrollTrigger: { trigger: '[data-anim="dk-story-specs"]', start: 'top 82%' } });
+  });
+</script>

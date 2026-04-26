@@ -1,0 +1,162 @@
+---
+---
+<section class="dk-booking" id="booking" aria-label="Κράτηση">
+  <div class="dk-booking__inner dk-inner">
+
+    <div class="dk-booking__head" data-anim="dk-bk-head">
+      <p class="eyebrow">Κράτηση</p>
+      <h2 class="dk-section-title dk-booking__title">
+        <span class="line-wrap"><span data-anim="dk-bk-hl">Ας το κανονίσουμε</span></span>
+        <span class="line-wrap"><span data-anim="dk-bk-hl"><span class="dk-amber">τώρα.</span></span></span>
+      </h2>
+      <p class="dk-booking__sub">Στείλε αίτηση και θα επικοινωνήσουμε μέσα σε 2 ώρες.</p>
+    </div>
+
+    <form class="dk-booking__form" onsubmit="return false" data-anim="dk-bk-form">
+      <div class="dk-booking__row">
+        <div class="dk-booking__field">
+          <label for="dk-name" class="dk-booking__label">Όνομα</label>
+          <input type="text" id="dk-name" name="name" class="dk-booking__input" placeholder="Το όνομά σας" autocomplete="name" />
+        </div>
+        <div class="dk-booking__field">
+          <label for="dk-email" class="dk-booking__label">Email</label>
+          <input type="email" id="dk-email" name="email" class="dk-booking__input" placeholder="email@example.com" autocomplete="email" />
+        </div>
+      </div>
+      <div class="dk-booking__row dk-booking__row--3">
+        <div class="dk-booking__field">
+          <label for="dk-in" class="dk-booking__label">Check-in</label>
+          <input type="date" id="dk-in" name="checkin" class="dk-booking__input" />
+        </div>
+        <div class="dk-booking__field">
+          <label for="dk-out" class="dk-booking__label">Check-out</label>
+          <input type="date" id="dk-out" name="checkout" class="dk-booking__input" />
+        </div>
+        <div class="dk-booking__field">
+          <label for="dk-guests" class="dk-booking__label">Άτομα</label>
+          <select id="dk-guests" name="guests" class="dk-booking__input">
+            <option>1</option><option selected>2</option>
+          </select>
+        </div>
+      </div>
+      <div class="dk-booking__field">
+        <label for="dk-msg" class="dk-booking__label">Σχόλια <span style="font-weight:400; color:var(--c-cream-3);">(προαιρετικό)</span></label>
+        <textarea id="dk-msg" name="message" class="dk-booking__input dk-booking__textarea" placeholder="Π.χ. αφίξεις αργά, μακροχρόνια διαμονή…" rows="3"></textarea>
+      </div>
+      <button type="submit" class="dk-booking__submit">Αποστολή αιτήματος</button>
+    </form>
+
+  </div>
+
+  <footer class="dk-footer">
+    <div class="dk-footer__inner dk-inner">
+      <div class="dk-footer__brand">
+        <p class="dk-footer__name">ROOM 12</p>
+        <p class="eyebrow" style="color:var(--c-cream-3); margin-top:4px;">Κεραμεικός · Αθήνα</p>
+      </div>
+      <div class="dk-footer__links">
+        <a href="mailto:stay@room12.gr" class="dk-footer__link">stay@room12.gr</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="dk-footer__link">@room12.athens →</a>
+      </div>
+      <p class="eyebrow" style="color:var(--c-cream-3); opacity:0.4;">Demo — Instatok Agency</p>
+    </div>
+  </footer>
+</section>
+
+<style>
+  .dk-booking { background: var(--c-bg-2); padding-block-start: var(--s-9); }
+  .dk-booking__inner {
+    display: grid; gap: var(--s-8);
+    padding-block-end: var(--s-9);
+  }
+  @media (min-width: 860px) {
+    .dk-booking__inner { grid-template-columns: 5fr 7fr; align-items: start; }
+  }
+
+  .dk-booking__head { display: grid; gap: var(--s-5); }
+
+  .dk-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--c-cream); line-height: 1.1;
+  }
+  .dk-booking__title [data-anim="dk-bk-hl"] { display: block; }
+  .dk-amber { color: var(--c-amber); }
+
+  .dk-booking__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    line-height: 1.7; color: var(--c-cream-2);
+  }
+
+  .dk-booking__form { display: grid; gap: var(--s-5); }
+  .dk-booking__row { display: grid; gap: var(--s-4); grid-template-columns: 1fr 1fr; }
+  .dk-booking__row--3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 500px) {
+    .dk-booking__row, .dk-booking__row--3 { grid-template-columns: 1fr; }
+  }
+
+  .dk-booking__field { display: grid; gap: var(--s-2); }
+  .dk-booking__label {
+    font-family: var(--f-sans); font-size: 0.5625rem;
+    font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--c-cream-3);
+  }
+  .dk-booking__input {
+    padding: 0.75rem 1rem;
+    background: var(--c-surface); border: 1px solid var(--c-border-2);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body); font-size: 0.9375rem; color: var(--c-cream);
+    outline: none; width: 100%; appearance: none; -webkit-appearance: none;
+    transition: border-color 0.2s;
+    color-scheme: dark;
+  }
+  .dk-booking__input::placeholder { color: var(--c-cream-3); }
+  .dk-booking__input:focus { border-color: rgba(212,168,67,0.5); }
+  .dk-booking__textarea { resize: vertical; min-height: 5rem; }
+  .dk-booking__submit {
+    padding: 0.9rem 2rem; width: 100%;
+    background: var(--c-amber); color: #0C0B09;
+    border: 1px solid var(--c-amber); border-radius: var(--r-sm);
+    font-family: var(--f-sans); font-size: 0.625rem;
+    font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, border-color 0.2s;
+  }
+  .dk-booking__submit:hover { background: var(--c-amber-2); border-color: var(--c-amber-2); }
+
+  .dk-footer {
+    background: var(--c-bg);
+    padding-block: var(--s-7);
+    border-top: 1px solid var(--c-border);
+  }
+  .dk-footer__inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: var(--s-5);
+  }
+  .dk-footer__name {
+    font-family: var(--f-display); font-size: 1.125rem;
+    font-weight: 700; color: var(--c-cream); letter-spacing: 0.04em;
+  }
+  .dk-footer__links { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  .dk-footer__link {
+    font-family: var(--f-body); font-size: 0.8125rem;
+    color: var(--c-cream-3); transition: color 0.2s;
+  }
+  .dk-footer__link:hover { color: var(--c-amber); }
+
+  [data-anim="dk-bk-hl"] { display: block; opacity: 0; }
+  [data-anim="dk-bk-form"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="dk-bk-hl"], [data-anim="dk-bk-form"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="dk-bk-hl"]',  { opacity: 1, duration: 0.6, stagger: 0.1, scrollTrigger: { trigger: '.dk-booking__title', start: 'top 85%' } });
+    gsap.to('[data-anim="dk-bk-form"]', { opacity: 1, duration: 0.7, scrollTrigger: { trigger: '[data-anim="dk-bk-form"]', start: 'top 85%' } });
+  });
+</script>

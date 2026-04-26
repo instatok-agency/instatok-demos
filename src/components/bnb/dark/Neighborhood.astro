@@ -1,0 +1,119 @@
+---
+const places = [
+  { name: 'Μοναστηράκι', type: 'Αγορά · Πλατεία', dist: '4 λεπτά' },
+  { name: 'Τεχνόπολις', type: 'Τέχνη · Events', dist: '6 λεπτά' },
+  { name: 'Γκάζι', type: 'Νυχτερινή ζωή', dist: '5 λεπτά' },
+  { name: 'Ακρόπολη', type: 'Πολιτισμός', dist: '12 λεπτά' },
+  { name: 'Κεφαλλονιάς', type: 'Specialty Coffee', dist: '2 λεπτά' },
+  { name: 'Θησείο', type: 'Βόλτα · Θέα', dist: '8 λεπτά' },
+];
+---
+
+<section class="dk-nbhd" aria-label="Γειτονιά">
+  <div class="dk-nbhd__inner dk-inner">
+
+    <div class="dk-nbhd__head" data-anim="dk-nbhd-head">
+      <p class="eyebrow">Γύρω σας</p>
+      <h2 class="dk-section-title">Κεραμεικός.</h2>
+      <p class="dk-nbhd__sub">
+        Η γειτονιά που ανακαλύφτηκε πρόσφατα από τη δημιουργική σκηνή της Αθήνας. Galleries, bars, coffee shops, street art.
+      </p>
+    </div>
+
+    <div class="dk-nbhd__grid" data-anim="dk-nbhd-grid">
+      {places.map(p => (
+        <div class="dk-nbhd__card">
+          <div class="dk-nbhd__card-top">
+            <p class="dk-nbhd__card-name">{p.name}</p>
+            <span class="dk-nbhd__dist eyebrow eyebrow--amber">{p.dist}</span>
+          </div>
+          <p class="eyebrow" style="color: var(--c-cream-3);">{p.type}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="dk-nbhd__map" data-anim="dk-nbhd-map">
+      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="dk-nbhd__map-btn">
+        Άνοιξε χάρτη →
+      </a>
+      <p class="eyebrow" style="color: var(--c-cream-3);">Ερμού 180, Κεραμεικός · Αθήνα 118 55</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .dk-nbhd { background: var(--c-bg-2); padding-block: var(--s-9); }
+  .dk-nbhd__inner { display: grid; gap: var(--s-8); }
+
+  .dk-nbhd__head { display: grid; gap: var(--s-4); }
+
+  .dk-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--c-cream); line-height: 1.1;
+  }
+
+  .dk-nbhd__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 400; line-height: 1.75;
+    color: var(--c-cream-2); max-width: 38rem;
+  }
+
+  .dk-nbhd__grid {
+    display: grid; gap: 0;
+    border-top: 1px solid var(--c-border);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+
+  .dk-nbhd__card {
+    padding: var(--s-5) var(--s-4);
+    border-bottom: 1px solid var(--c-border);
+    display: grid; gap: var(--s-2);
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .dk-nbhd__card:hover { background: rgba(240,235,227,0.03); }
+
+  .dk-nbhd__card-top {
+    display: flex; align-items: baseline;
+    justify-content: space-between; gap: var(--s-3);
+  }
+
+  .dk-nbhd__card-name {
+    font-family: var(--f-display); font-size: 1rem;
+    font-weight: 600; color: var(--c-cream);
+  }
+
+  .dk-nbhd__dist { letter-spacing: 0.12em !important; }
+
+  .dk-nbhd__map {
+    display: flex; align-items: center; gap: var(--s-6);
+    flex-wrap: wrap;
+    padding-top: var(--s-5); border-top: 1px solid var(--c-border);
+  }
+  .dk-nbhd__map-btn {
+    font-family: var(--f-sans); font-size: 0.625rem;
+    font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--c-amber); border-bottom: 1px solid rgba(212,168,67,0.35);
+    padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+  }
+  .dk-nbhd__map-btn:hover { border-color: var(--c-amber); }
+
+  [data-anim="dk-nbhd-head"], [data-anim="dk-nbhd-grid"], [data-anim="dk-nbhd-map"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="dk-nbhd-head"], [data-anim="dk-nbhd-grid"], [data-anim="dk-nbhd-map"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="dk-nbhd-head"]', { opacity: 1, duration: 0.7, scrollTrigger: { trigger: '.dk-nbhd__head', start: 'top 85%' } });
+    gsap.to('[data-anim="dk-nbhd-grid"]', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '.dk-nbhd__grid', start: 'top 82%' } });
+    gsap.to('[data-anim="dk-nbhd-map"]',  { opacity: 1, duration: 0.6, scrollTrigger: { trigger: '[data-anim="dk-nbhd-map"]', start: 'top 88%' } });
+  });
+</script>

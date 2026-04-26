@@ -1,0 +1,113 @@
+---
+const places = [
+  { name: 'Άνω Σύρος', type: 'Μεσαιωνική πόλη', dist: '2 λεπτά' },
+  { name: 'Ερμούπολη', type: 'Πρωτεύουσα · Λιμάνι', dist: '15 λεπτά' },
+  { name: 'Γαλησσάς', type: 'Παραλία', dist: '20 λεπτά' },
+  { name: 'Κινί', type: 'Ψαροταβέρνες', dist: '18 λεπτά' },
+  { name: 'Βαρί', type: 'Ήσυχη παραλία', dist: '25 λεπτά' },
+  { name: 'Απολλωνία Νάξου', type: 'Ημερήσια εκδρομή', dist: '1.5 ώρα (ferry)' },
+];
+---
+
+<section class="ar-nbhd" aria-label="Περιοχή">
+  <div class="ar-nbhd__inner ar-inner">
+
+    <div class="ar-nbhd__head" data-anim="ar-nbhd-head">
+      <p class="eyebrow">Γύρω μας</p>
+      <h2 class="ar-section-title">Σύρος.</h2>
+      <p class="ar-nbhd__sub">
+        Το κέντρο του Αιγαίου — κυριολεκτικά. Η Σύρος είναι η πρωτεύουσα των Κυκλάδων, με ιστορία, μουσική, και τα καλύτερα λουκούμια της Ελλάδας.
+      </p>
+    </div>
+
+    <div class="ar-nbhd__grid" data-anim="ar-nbhd-grid">
+      {places.map(p => (
+        <div class="ar-nbhd__card">
+          <div class="ar-nbhd__card-top">
+            <p class="ar-nbhd__card-name">{p.name}</p>
+            <span class="eyebrow eyebrow--sage">{p.dist}</span>
+          </div>
+          <p class="eyebrow" style="color: var(--c-ink-3);">{p.type}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="ar-nbhd__map" data-anim="ar-nbhd-map">
+      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="ar-nbhd__map-btn">
+        Χάρτης →
+      </a>
+      <p class="eyebrow" style="color: var(--c-ink-3);">Πλατεία Μητρόπολης 5, Άνω Σύρος · Κυκλάδες 841 00</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ar-nbhd { background: var(--c-bg); padding-block: var(--s-9); }
+  .ar-nbhd__inner { display: grid; gap: var(--s-8); }
+
+  .ar-nbhd__head { display: grid; gap: var(--s-4); }
+
+  .ar-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 400; font-style: italic;
+    letter-spacing: -0.02em;
+    color: var(--c-ink); line-height: 1.0;
+  }
+
+  .ar-nbhd__sub {
+    font-family: var(--f-body); font-size: 0.9375rem;
+    font-weight: 300; line-height: 1.75; color: var(--c-ink-2); max-width: 38rem;
+  }
+
+  .ar-nbhd__grid {
+    display: grid; gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    border-top: 1px solid var(--c-border);
+  }
+  .ar-nbhd__card {
+    padding: var(--s-5) var(--s-4);
+    border-bottom: 1px solid var(--c-border);
+    display: grid; gap: var(--s-2);
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .ar-nbhd__card:hover { background: var(--c-sage-4); }
+  .ar-nbhd__card-top {
+    display: flex; align-items: baseline;
+    justify-content: space-between; gap: var(--s-3);
+  }
+  .ar-nbhd__card-name {
+    font-family: var(--f-display); font-size: 1rem;
+    font-weight: 500; color: var(--c-ink);
+  }
+
+  .ar-nbhd__map {
+    display: flex; align-items: center; gap: var(--s-6); flex-wrap: wrap;
+    padding-top: var(--s-5); border-top: 1px solid var(--c-border);
+  }
+  .ar-nbhd__map-btn {
+    font-family: var(--f-body); font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.1em;
+    color: var(--c-sage); border-bottom: 1px solid rgba(46,94,78,0.3);
+    padding-bottom: 2px; transition: border-color 0.2s;
+  }
+  .ar-nbhd__map-btn:hover { border-color: var(--c-sage); }
+
+  [data-anim="ar-nbhd-head"], [data-anim="ar-nbhd-grid"], [data-anim="ar-nbhd-map"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="ar-nbhd-head"], [data-anim="ar-nbhd-grid"], [data-anim="ar-nbhd-map"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="ar-nbhd-head"]', { opacity: 1, duration: 0.75, scrollTrigger: { trigger: '.ar-nbhd__head', start: 'top 85%' } });
+    gsap.to('[data-anim="ar-nbhd-grid"]', { opacity: 1, duration: 0.85, scrollTrigger: { trigger: '.ar-nbhd__grid', start: 'top 82%' } });
+    gsap.to('[data-anim="ar-nbhd-map"]',  { opacity: 1, duration: 0.65, scrollTrigger: { trigger: '[data-anim="ar-nbhd-map"]', start: 'top 88%' } });
+  });
+</script>

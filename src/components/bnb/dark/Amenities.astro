@@ -1,0 +1,124 @@
+---
+const groups = [
+  {
+    label: '01',
+    title: 'Χώρος',
+    items: ['King-size κρεβάτι', 'Ορθοπεδικά στρώματα', 'Γκαρνταρόμπα walk-in', 'Γραφείο εργασίας', 'Smart TV 55"', 'Ιδιωτική ταράτσα 20m²'],
+  },
+  {
+    label: '02',
+    title: 'Κουζίνα',
+    items: ['Πλήρης εξοπλισμός', 'Espresso machine', 'Πλυντήριο πιάτων', 'Πλυντήριο ρούχων', 'Ψυγείο Side-by-side', 'Αναλώσιμα ποιότητας'],
+  },
+  {
+    label: '03',
+    title: 'Τεχνολογία',
+    items: ['WiFi 1Gbps symmetric', 'Έξυπνες κλειδαριές', 'Κλιματισμός Mitsubishi', 'Bluetooth ηχεία', 'Φορτιστές ασύρματοι', 'Blackout κουρτίνες'],
+  },
+];
+---
+
+<section class="dk-amen" aria-label="Παροχές">
+  <div class="dk-amen__inner dk-inner">
+
+    <div class="dk-amen__head" data-anim="dk-amen-head">
+      <p class="eyebrow">Παροχές</p>
+      <h2 class="dk-section-title">Τι περιλαμβάνεται.</h2>
+    </div>
+
+    <div class="dk-amen__grid" data-anim="dk-amen-grid">
+      {groups.map(g => (
+        <div class="dk-amen__group">
+          <div class="dk-amen__group-head">
+            <span class="dk-amen__num eyebrow eyebrow--amber">{g.label}</span>
+            <p class="dk-amen__group-title">{g.title}</p>
+          </div>
+          <ul class="dk-amen__list">
+            {g.items.map(item => (
+              <li class="dk-amen__item">
+                <span class="dk-amen__dash" aria-hidden="true">—</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="dk-amen__note" data-anim="dk-amen-note">
+      <span class="eyebrow">+ Καλωσόρισμα με specialty coffee · Καθαρισμός ανά εβδομάδα · Concierge υπηρεσίες</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .dk-amen { background: var(--c-bg); padding-block: var(--s-9); }
+  .dk-amen__inner { display: grid; gap: var(--s-8); }
+
+  .dk-amen__head { display: grid; gap: var(--s-4); }
+
+  .dk-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--c-cream); line-height: 1.1;
+  }
+
+  .dk-amen__grid {
+    display: grid; gap: var(--s-1);
+    border-top: 1px solid var(--c-border);
+  }
+
+  @media (min-width: 768px) {
+    .dk-amen__grid { grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .dk-amen__group { border-right: 1px solid var(--c-border); }
+    .dk-amen__group:last-child { border-right: none; }
+  }
+
+  .dk-amen__group {
+    padding: var(--s-6) var(--s-5) var(--s-6) 0;
+    display: grid; gap: var(--s-5); align-content: start;
+    border-bottom: 1px solid var(--c-border);
+  }
+  @media (min-width: 768px) {
+    .dk-amen__group { padding: var(--s-6) var(--s-7) var(--s-6) 0; border-bottom: none; }
+    .dk-amen__group:not(:first-child) { padding-left: var(--s-7); }
+  }
+
+  .dk-amen__group-head { display: flex; align-items: baseline; gap: var(--s-3); }
+  .dk-amen__num { font-family: var(--f-body) !important; font-style: normal; }
+  .dk-amen__group-title {
+    font-family: var(--f-display); font-size: 1.125rem;
+    font-weight: 600; color: var(--c-cream);
+  }
+
+  .dk-amen__list { list-style: none; display: grid; gap: var(--s-3); }
+  .dk-amen__item {
+    display: flex; align-items: baseline; gap: var(--s-3);
+    font-family: var(--f-body); font-size: 0.875rem;
+    color: var(--c-cream-2); line-height: 1.5;
+  }
+  .dk-amen__dash { color: var(--c-amber); font-size: 0.75rem; flex-shrink: 0; }
+
+  .dk-amen__note {
+    padding-top: var(--s-6); border-top: 1px solid var(--c-border);
+    color: var(--c-cream-3);
+  }
+
+  [data-anim="dk-amen-head"], [data-anim="dk-amen-grid"], [data-anim="dk-amen-note"] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="dk-amen-head"], [data-anim="dk-amen-grid"], [data-anim="dk-amen-note"] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.to('[data-anim="dk-amen-head"]', { opacity: 1, duration: 0.7, scrollTrigger: { trigger: '.dk-amen__head', start: 'top 85%' } });
+    gsap.to('[data-anim="dk-amen-grid"]', { opacity: 1, duration: 0.8, scrollTrigger: { trigger: '.dk-amen__grid', start: 'top 82%' } });
+    gsap.to('[data-anim="dk-amen-note"]', { opacity: 1, duration: 0.6, scrollTrigger: { trigger: '[data-anim="dk-amen-note"]', start: 'top 88%' } });
+  });
+</script>
