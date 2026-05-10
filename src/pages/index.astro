@@ -8,6 +8,7 @@ const categories = [
     subtitle: 'Psychologist',
     count: 2,
     description: 'Ζεστή αισθητική για επαγγελματίες ψυχικής υγείας.',
+    tag: 'Aegean · Pangrati',
   },
   {
     slug: 'architect',
@@ -15,6 +16,7 @@ const categories = [
     subtitle: 'Architect',
     count: 1,
     description: 'Swiss minimalism για αρχιτεκτονικά γραφεία.',
+    tag: 'Swiss',
   },
   {
     slug: 'lawyer',
@@ -22,6 +24,7 @@ const categories = [
     subtitle: 'Lawyer',
     count: 0,
     description: 'Σύντομα.',
+    tag: null,
   },
   {
     slug: 'doctor',
@@ -29,6 +32,7 @@ const categories = [
     subtitle: 'Doctor',
     count: 0,
     description: 'Σύντομα.',
+    tag: null,
   },
   {
     slug: 'yoga',
@@ -36,6 +40,7 @@ const categories = [
     subtitle: 'Yoga Instructor',
     count: 3,
     description: 'Editorial somatic αισθητική για δασκάλες yoga και pilates.',
+    tag: 'Intelligence · Modern · Retreat',
   },
   {
     slug: 'cafe',
@@ -43,71 +48,349 @@ const categories = [
     subtitle: 'Specialty Café',
     count: 3,
     description: 'Warm corner-store αισθητική για specialty coffee και brunch.',
+    tag: 'Cornerstore · DarkBar · NYX',
   },
   {
     slug: 'coach',
     label: 'Coach / Consultant',
     subtitle: 'Coach & Consultant',
     count: 3,
-    description: 'Τρεις κατευθύνσεις για life coaches, executive coaches και στρατηγικούς συμβούλους.',
+    description: 'Life coaches, executive coaches και στρατηγικούς συμβούλους.',
+    tag: 'Insider · Modern · Consultant',
   },
   {
     slug: 'hospitality',
     label: 'Hospitality',
     subtitle: 'BNB · Hotel · Resort',
     count: 4,
-    description: 'Τέσσερις αισθητικές: editorial, urban dark, heritage Mediterranean και boutique island resort.',
+    description: 'Editorial, urban dark, heritage Mediterranean και boutique island resort.',
+    tag: 'Arch · Dark · Editorial · Rivora',
   },
 ];
 ---
 
-<ShowcaseBase title="Instatok Demos">
-  <main style="min-height:100dvh; display:flex; flex-direction:column; background:#FAFAFA;">
+<ShowcaseBase title="Instatok · Demos">
+  <style>
+    :root {
+      --bg:          #0a0908;
+      --bg-2:        #141110;
+      --bg-3:        #1d1917;
+      --bg-card:     #1a1614;
+      --ink:         #f7f3ea;
+      --ink-soft:    #e0d9cc;
+      --ink-dim:     #8a8278;
+      --ink-faint:   #56514a;
+      --accent:      #ff6b3a;
+      --accent-hot:  #ff4500;
+      --accent-soft: rgba(255,107,58,0.12);
+      --accent-line: rgba(255,107,58,0.35);
+      --warm:        #f5c17a;
+      --line:        rgba(255,243,234,0.08);
+      --line-strong: rgba(255,243,234,0.15);
+      --radius:      16px;
+    }
 
-    <!-- Header -->
-    <header style="padding:2.5rem; border-bottom:1px solid #E8E8E8; display:flex; align-items:baseline; justify-content:space-between; gap:1.5rem; flex-wrap:wrap;">
-      <div style="display:flex; align-items:baseline; gap:1rem;">
-        <span style="font-size:0.6875rem; font-weight:700; letter-spacing:0.2em; color:#0A0A0A;">INSTATOK</span>
-        <span style="font-size:0.625rem; font-weight:400; letter-spacing:0.08em; color:#ABABAB;">demos</span>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100dvh;
+    }
+
+    /* Noise + radial glow */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(1200px circle at 10% 0%, rgba(245,193,122,0.04), transparent 55%),
+        radial-gradient(900px  circle at 90% 25%, rgba(255,243,234,0.02), transparent 55%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 1;
+      opacity: 0.3; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    }
+
+    .page { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100dvh; }
+
+    /* ── Nav ─────────────────────────────── */
+    .nav {
+      position: sticky; top: 0;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1240px; margin: 0 auto; padding: 16px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 18px; letter-spacing: -0.035em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 26px; height: 26px;
+      position: relative; display: grid; place-items: center;
+    }
+    .nav-logo-mark::before {
+      content: "";
+      position: absolute; inset: 0; border-radius: 7px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--warm), var(--accent));
+      animation: spin 8s linear infinite;
+    }
+    .nav-logo-mark::after {
+      content: "";
+      position: absolute; inset: 2px; border-radius: 6px;
+      background: var(--bg);
+    }
+    .nav-logo-mark svg { position: relative; z-index: 1; width: 13px; height: 13px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .nav-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      color: var(--ink-dim); letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+    }
+
+    /* ── Marquee strip ───────────────────── */
+    .marquee {
+      background: var(--accent); color: #0a0908;
+      overflow: hidden; border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    .marquee-track {
+      display: flex; gap: 40px; padding: 10px 0;
+      animation: marquee-scroll 30s linear infinite;
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .marquee-track span { display: inline-flex; align-items: center; gap: 40px; }
+    .marquee-track span::after { content: "✦"; color: rgba(0,0,0,0.3); }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── Hero ────────────────────────────── */
+    .hero {
+      padding: 72px 28px 64px;
+      max-width: 1240px; margin: 0 auto; width: 100%;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+
+    .hero-title {
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+      color: var(--ink); margin-bottom: 20px; text-wrap: balance;
+    }
+    .hero-title em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic; font-weight: 400;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--warm) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: 17px; color: var(--ink-dim); line-height: 1.6;
+      max-width: 560px; text-wrap: pretty;
+    }
+
+    /* ── Grid ────────────────────────────── */
+    .grid-wrap {
+      padding: 0 28px 80px;
+      max-width: 1240px; margin: 0 auto; width: 100%;
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+    .cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .cat-card:not(.cat-card--inactive):hover {
+      border-color: var(--accent-line);
+      background: var(--bg-3);
+      transform: translateY(-2px);
+    }
+    .cat-card--inactive { cursor: default; opacity: 0.45; }
+
+    .cat-card-top {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+    }
+    .cat-label {
+      font-size: 20px; font-weight: 700;
+      letter-spacing: -0.02em; color: var(--ink); line-height: 1.1;
+    }
+    .cat-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-faint); margin-top: 4px;
+    }
+    .cat-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--ink-dim);
+      background: var(--bg-2); border: 1px solid var(--line-strong);
+      padding: 3px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+    }
+    .cat-soon {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-faint); flex-shrink: 0;
+    }
+    .cat-desc {
+      font-size: 13px; color: var(--ink-dim); line-height: 1.6; flex: 1;
+    }
+    .cat-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; color: var(--ink-faint);
+      letter-spacing: 0.06em; line-height: 1.5;
+    }
+    .cat-cta {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 4px; padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .cat-cta-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .cat-cta svg { width: 12px; height: 12px; color: var(--accent); transition: transform 0.2s; }
+    .cat-card:not(.cat-card--inactive):hover .cat-cta svg { transform: translateX(3px); }
+
+    /* ── Footer ──────────────────────────── */
+    .footer {
+      margin-top: auto;
+      padding: 24px 28px;
+      border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .footer p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--ink-faint); letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 48px 20px 40px; }
+      .grid-wrap { padding: 0 20px 60px; }
+      .nav-inner { padding: 14px 20px; }
+      .footer { padding: 20px; }
+      .marquee-track { font-size: 10.5px; gap: 28px; }
+      .marquee-track span { gap: 28px; }
+    }
+  </style>
+
+  <div class="page">
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Ψυχολόγος</span>
+        <span>Αρχιτέκτονας</span>
+        <span>Yoga / Pilates</span>
+        <span>Καφετέρια</span>
+        <span>Coach</span>
+        <span>Hospitality</span>
+        <span>Ψυχολόγος</span>
+        <span>Αρχιτέκτονας</span>
+        <span>Yoga / Pilates</span>
+        <span>Καφετέρια</span>
+        <span>Coach</span>
+        <span>Hospitality</span>
       </div>
-      <p style="font-size:0.625rem; font-weight:400; letter-spacing:0.1em; color:#ABABAB; text-transform:uppercase;">demo.instatok.gr</p>
-    </header>
+    </div>
 
-    <!-- Hero text -->
-    <section style="padding:5rem 2.5rem 3rem; max-width:72rem; margin:0 auto; width:100%;">
-      <p style="font-size:0.625rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#ABABAB; margin-bottom:1.25rem;">Βιτρίνα Demos</p>
-      <h1 style="font-size:clamp(2rem, 6vw, 4rem); font-weight:300; letter-spacing:-0.02em; line-height:1.1; color:#0A0A0A; margin-bottom:1.5rem;">
-        Δείγματα ψηφιακής<br />παρουσίας.
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          <span class="nav-logo-mark">
+            <svg viewBox="0 0 14 14" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12L7 2l5 10"/>
+              <path d="M4 8h6"/>
+            </svg>
+          </span>
+          Instatok
+        </a>
+        <span class="nav-badge">demo.instatok.gr</span>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="eyebrow">Βιτρίνα</p>
+      <h1 class="hero-title">
+        Δείγματα<br />
+        <em>ψηφιακής παρουσίας.</em>
       </h1>
-      <p style="font-size:0.9375rem; font-weight:300; line-height:1.7; color:#6B6B6B; max-width:38rem;">
-        Έτοιμα demos για Έλληνες επαγγελματίες. Κάθε κατηγορία περιέχει 1–3 διαφορετικές αισθητικές κατευθύνσεις.
+      <p class="hero-sub">
+        Έτοιμα demos για Έλληνες επαγγελματίες. Κάθε κατηγορία περιέχει 1–4 διαφορετικές αισθητικές κατευθύνσεις.
       </p>
     </section>
 
     <!-- Categories grid -->
-    <section style="padding:0 2.5rem 6rem; max-width:72rem; margin:0 auto; width:100%;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap:1px; border:1px solid #E8E8E8; background:#E8E8E8;">
+    <section class="grid-wrap">
+      <div class="cat-grid">
         {categories.map(cat => (
           <a
-            href={cat.count > 0 ? `/${cat.slug}` : '#'}
-            style={`display:flex; flex-direction:column; gap:1.5rem; padding:2.5rem 2rem; background:#FAFAFA; text-decoration:none; transition:background 0.15s;${cat.count === 0 ? ' cursor:default;' : ''}`}
-            class={cat.count > 0 ? 'cat-card' : 'cat-card cat-card--inactive'}
+            href={cat.count > 0 ? `/${cat.slug}` : undefined}
+            class={`cat-card${cat.count === 0 ? ' cat-card--inactive' : ''}`}
           >
-            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:1rem;">
-              <div style="display:flex; flex-direction:column; gap:0.25rem;">
-                <span style="font-size:1.125rem; font-weight:400; color:#0A0A0A; line-height:1.2;">{cat.label}</span>
-                <span style="font-size:0.5625rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:#ABABAB;">{cat.subtitle}</span>
+            <div class="cat-card-top">
+              <div>
+                <div class="cat-label">{cat.label}</div>
+                <div class="cat-subtitle">{cat.subtitle}</div>
               </div>
               {cat.count > 0
-                ? <span style="font-family:ui-monospace,'JetBrains Mono','Courier New',monospace; font-size:0.625rem; color:#ABABAB;">{cat.count} demo{cat.count !== 1 ? 's' : ''}</span>
-                : <span style="font-size:0.5rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#DCDCDC;">Soon</span>
+                ? <span class="cat-count">{cat.count} demo{cat.count !== 1 ? 's' : ''}</span>
+                : <span class="cat-soon">Soon</span>
               }
             </div>
-            <p style="font-size:0.75rem; font-weight:300; line-height:1.6; color:#6B6B6B;">{cat.description}</p>
+
+            <p class="cat-desc">{cat.description}</p>
+
+            {cat.tag && <p class="cat-tag">{cat.tag}</p>}
+
             {cat.count > 0 && (
-              <div style="display:flex; align-items:center; gap:0.5rem; margin-top:auto;">
-                <span style="font-size:0.5625rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0A0A0A;">Δες τα demos</span>
-                <div style="flex:1; height:1px; background:#0A0A0A; max-width:1.5rem;"></div>
+              <div class="cat-cta">
+                <span class="cat-cta-label">Δες τα demos</span>
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 6h8M6 2l4 4-4 4"/>
+                </svg>
               </div>
             )}
           </a>
@@ -116,19 +399,10 @@ const categories = [
     </section>
 
     <!-- Footer -->
-    <footer style="margin-top:auto; padding:1.5rem 2.5rem; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <p style="font-size:0.5625rem; font-weight:400; color:#DCDCDC; letter-spacing:0.08em;">© {new Date().getFullYear()} Instatok</p>
-      <p style="font-size:0.5625rem; font-weight:400; color:#DCDCDC; letter-spacing:0.08em;">Demos for review only — not for public distribution</p>
+    <footer class="footer">
+      <p>© {new Date().getFullYear()} Instatok</p>
+      <p>Demos for review only — not for public distribution</p>
     </footer>
 
-  </main>
+  </div>
 </ShowcaseBase>
-
-<style>
-  .cat-card:hover {
-    background: #F4F4F4 !important;
-  }
-  .cat-card--inactive:hover {
-    background: #FAFAFA !important;
-  }
-</style>
