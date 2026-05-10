@@ -1,0 +1,435 @@
+- generic [active] [ref=e1]:
+  - link "← demos" [ref=e2] [cursor=pointer]:
+    - /url: /bnb
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Αρχόντισσα Άνω Σύρος · 1847" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: Αρχόντισσα
+          - generic [ref=e8]: Άνω Σύρος · 1847
+        - list "Navigation" [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Χώροι" [ref=e11] [cursor=pointer]:
+              - /url: "#spaces"
+          - listitem [ref=e12]:
+            - link "Παροχές" [ref=e13] [cursor=pointer]:
+              - /url: "#amenities"
+          - listitem [ref=e14]:
+            - link "Κριτικές" [ref=e15] [cursor=pointer]:
+              - /url: "#reviews"
+          - listitem [ref=e16]:
+            - link "FAQ" [ref=e17] [cursor=pointer]:
+              - /url: "#faq"
+        - link "Κράτηση" [ref=e18] [cursor=pointer]:
+          - /url: "#booking"
+    - img "Πολυτελής βεράντα με θέα Αιγαίου" [ref=e20]
+    - generic [ref=e22]:
+      - generic [ref=e23]: "1847"
+      - generic [ref=e24]: Έτος ίδρυσης
+    - generic [ref=e25]:
+      - paragraph [ref=e26]: Κυκλαδική Πολυτέλεια · Σύρος
+      - heading "Απόλυτη Αρμονία Πολυτέλειας." [level=1] [ref=e27]:
+        - emphasis [ref=e29]: Απόλυτη Αρμονία
+        - generic [ref=e31]: Πολυτέλειας.
+      - generic [ref=e32]:
+        - generic [ref=e33]: ★★★★★
+        - generic [ref=e34]: 300+ Κριτικές · 4.9 / 5
+      - generic [ref=e35]:
+        - link "Κάντε Κράτηση" [ref=e36] [cursor=pointer]:
+          - /url: "#booking"
+        - link "Δείτε τους Χώρους" [ref=e37] [cursor=pointer]:
+          - /url: "#spaces"
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]: "3"
+        - generic [ref=e42]: Υπνοδωμάτια
+      - generic [ref=e44]:
+        - generic [ref=e45]: "160"
+        - generic [ref=e46]: τ.μ.
+      - generic [ref=e48]:
+        - generic [ref=e49]: "6"
+        - generic [ref=e50]: Άτομα
+      - generic [ref=e52]:
+        - generic [ref=e53]: "4.9"
+        - generic [ref=e54]: Βαθμολογία
+  - region "Χώροι" [ref=e55]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Οι Χώροι
+          - heading "Γνωρίστε την Ιδιοκτησία" [level=2] [ref=e60]
+          - paragraph [ref=e61]: Τρία υπνοδωμάτια, πλήρης κουζίνα, ιδιωτική αυλή 30 τ.μ. και θέα στο Αιγαίο. Ενοικιάζεται ολόκληρο — ιδανικό για ομάδες έως 6 ατόμων.
+        - generic [ref=e62]:
+          - generic [ref=e63]: Από
+          - generic [ref=e64]: €480
+          - generic [ref=e65]: /βράδυ · Ολόκληρο το κτίριο
+      - generic [ref=e66]:
+        - article [ref=e67]:
+          - generic [ref=e68]:
+            - img "Κυρίως υπνοδωμάτιο με θέα θάλασσας" [ref=e69]
+            - generic [ref=e70]: Επιλεγμένο
+          - generic [ref=e71]:
+            - heading "Κυρίως Υπνοδωμάτιο" [level=3] [ref=e72]
+            - paragraph [ref=e73]: King size κρεβάτι με πανοραμική θέα στο Αιγαίο. Πολυτελή λινά, ιδιωτικό μπάνιο με υδρομασάζ.
+            - list [ref=e74]:
+              - listitem [ref=e75]: King bed · 2 άτομα
+              - listitem [ref=e76]: 40 m² + μπαλκόνι
+              - listitem [ref=e77]: Θέα Αιγαίου
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - text: €480
+                - emphasis [ref=e80]: /βράδυ
+              - link "Κράτηση →" [ref=e81] [cursor=pointer]:
+                - /url: "#booking"
+        - article [ref=e82]:
+          - img "Δωμάτιο με θέα Αιγαίου" [ref=e84]
+          - generic [ref=e85]:
+            - heading "Δωμάτιο Αιγαίου" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Queen size κρεβάτι, ξύλινη οροφή, παράθυρο-τοξωτό που ανοίγει στη θέα. Ιδιωτικό μπάνιο.
+            - list [ref=e88]:
+              - listitem [ref=e89]: Queen bed · 2 άτομα
+              - listitem [ref=e90]: 28 m²
+              - listitem [ref=e91]: Θέα πόλης & θάλασσας
+            - generic [ref=e92]:
+              - generic [ref=e93]: ✓ Συμπεριλαμβάνεται
+              - link "Κράτηση →" [ref=e94] [cursor=pointer]:
+                - /url: "#booking"
+        - article [ref=e95]:
+          - img "Δίκλινο δωμάτιο" [ref=e97]
+          - generic [ref=e98]:
+            - heading "Δίκλινο Δωμάτιο" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Δύο single κρεβάτια, ιδανικό για φίλους ή παιδιά. Κοινόχρηστο μπάνιο. Θέα στην εσωτερική αυλή.
+            - list [ref=e101]:
+              - listitem [ref=e102]: 2× Single · 2 άτομα
+              - listitem [ref=e103]: 22 m²
+              - listitem [ref=e104]: Θέα αυλής
+            - generic [ref=e105]:
+              - generic [ref=e106]: ✓ Συμπεριλαμβάνεται
+              - link "Κράτηση →" [ref=e107] [cursor=pointer]:
+                - /url: "#booking"
+  - region "Ιστορία" [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - img "Κυκλαδική αρχιτεκτονική εσωτερικό" [ref=e112]
+        - blockquote [ref=e113]:
+          - generic: "\""
+          - paragraph [ref=e114]: Ξύπνησα στις 6 το πρωί και στάθηκα μισή ώρα στο παράθυρο. Δεν είχα κάτι να κάνω — απλά το Αιγαίο.
+          - generic [ref=e115]:
+            - generic [ref=e116]: Νίκος Δ. · Αθήνα
+            - generic [ref=e117]: ★★★★★
+      - generic [ref=e118]:
+        - paragraph [ref=e119]: Το κτίριο
+        - heading "Μία κατοικία που αντέχει στον χρόνο." [level=2] [ref=e120]:
+          - text: Μία κατοικία
+          - text: που αντέχει
+          - emphasis [ref=e121]: στον χρόνο.
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: Χτισμένο το 1847 από εμπορική οικογένεια της Σύρου, όταν η Ερμούπολη ήταν το μεγαλύτερο λιμάνι της Ελλάδας. Τα πέτρινα τοιχώματα, τα τοξωτά παράθυρα, η ψηφιδωτή αυλή — όλα πρωτότυπα.
+          - paragraph [ref=e124]: Ανακαινίστηκε το 2023 με σεβασμό στην Κυκλαδική αρχιτεκτονική. Δεν αλλάξαμε αυτά που δεν χρειάζονταν αλλαγή.
+          - paragraph [ref=e125]: Από το σαλόνι βλέπεις Ερμούπολη και Αιγαίο. Απλά ξυπνάς και κοιτάς.
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - generic [ref=e128]: "1847"
+            - generic [ref=e129]: Κτίσμα
+          - generic [ref=e130]:
+            - generic [ref=e131]: "160"
+            - generic [ref=e132]: τ.μ.
+          - generic [ref=e133]:
+            - generic [ref=e134]: "3"
+            - generic [ref=e135]: Υπνοδωμ.
+          - generic [ref=e136]:
+            - generic [ref=e137]: "2023"
+            - generic [ref=e138]: Ανακαίνιση
+        - link "Κάντε Κράτηση" [ref=e139] [cursor=pointer]:
+          - /url: "#booking"
+  - region "Στατιστικά" [ref=e140]:
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - paragraph [ref=e143]: Σε αριθμούς
+        - heading "Η εμπιστοσύνη των επισκεπτών μας ορίζει." [level=2] [ref=e144]:
+          - text: Η εμπιστοσύνη
+          - text: των επισκεπτών
+          - emphasis [ref=e145]: μας ορίζει.
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - generic [ref=e149]: "1847"
+          - generic [ref=e150]: Έτος ίδρυσης
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: "300"
+            - generic [ref=e155]: +
+          - generic [ref=e156]: Ικανοποιημένοι επισκέπτες
+        - generic [ref=e158]:
+          - generic [ref=e160]: "4.9"
+          - generic [ref=e161]: Μέση βαθμολογία
+        - generic [ref=e163]:
+          - generic [ref=e165]: "47"
+          - generic [ref=e166]: Κριτικές επισκεπτών
+  - region "Παροχές" [ref=e168]:
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - paragraph [ref=e171]: Παροχές
+        - heading "Τι περιλαμβάνεται." [level=2] [ref=e172]
+        - paragraph [ref=e173]: Όλα όσα χρειάζεστε για μια αυτόνομη, άνετη διαμονή. Τίποτα λιγότερο.
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]: 🏠
+            - generic [ref=e178]:
+              - text: "01"
+              - heading "Διαμονή" [level=3] [ref=e179]
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - generic [ref=e182]: —
+              - text: 3 υπνοδωμάτια (6 άτομα)
+            - listitem [ref=e183]:
+              - generic [ref=e184]: —
+              - text: King & queen κρεβάτια
+            - listitem [ref=e185]:
+              - generic [ref=e186]: —
+              - text: Πολυτελή λινά premium
+            - listitem [ref=e187]:
+              - generic [ref=e188]: —
+              - text: Ιδιωτική αυλή 30 m²
+            - listitem [ref=e189]:
+              - generic [ref=e190]: —
+              - text: Θέα Αιγαίου παντού
+            - listitem [ref=e191]:
+              - generic [ref=e192]: —
+              - text: Παραδοσιακοί πέτρινοι τοίχοι
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e195]: 🍽
+            - generic [ref=e196]:
+              - text: "02"
+              - heading "Κουζίνα" [level=3] [ref=e197]
+          - list [ref=e198]:
+            - listitem [ref=e199]:
+              - generic [ref=e200]: —
+              - text: Πλήρης εξοπλισμός
+            - listitem [ref=e201]:
+              - generic [ref=e202]: —
+              - text: Espresso machine Nespresso
+            - listitem [ref=e203]:
+              - generic [ref=e204]: —
+              - text: Πλυντήριο πιάτων
+            - listitem [ref=e205]:
+              - generic [ref=e206]: —
+              - text: Πλυντήριο ρούχων
+            - listitem [ref=e207]:
+              - generic [ref=e208]: —
+              - text: Ψυγείο & καταψύκτης
+            - listitem [ref=e209]:
+              - generic [ref=e210]: —
+              - text: Τοπικά προϊόντα Σύρου
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - generic [ref=e213]: 💡
+            - generic [ref=e214]:
+              - text: "03"
+              - heading "Τεχνολογία" [level=3] [ref=e215]
+          - list [ref=e216]:
+            - listitem [ref=e217]:
+              - generic [ref=e218]: —
+              - text: WiFi Fiber 400Mbps
+            - listitem [ref=e219]:
+              - generic [ref=e220]: —
+              - text: Smart TV 4K (2 δωμ.)
+            - listitem [ref=e221]:
+              - generic [ref=e222]: —
+              - text: Κλιματισμός Daikin
+            - listitem [ref=e223]:
+              - generic [ref=e224]: —
+              - text: Έξυπνες κλειδαριές
+            - listitem [ref=e225]:
+              - generic [ref=e226]: —
+              - text: Blackout κουρτίνες
+            - listitem [ref=e227]:
+              - generic [ref=e228]: —
+              - text: Εξωτερική BBQ εστία
+      - paragraph [ref=e229]:
+        - generic [ref=e230]: +
+        - generic [ref=e231]: Καλωσόρισμα με τοπικά προϊόντα · Τελικός καθαρισμός · Check-in ευέλικτο
+  - region "Κριτικές" [ref=e232]:
+    - generic [ref=e233]:
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - paragraph [ref=e236]: Κριτικές Επισκεπτών
+          - heading "Τι λένε οι επισκέπτες μας." [level=2] [ref=e237]:
+            - text: Τι λένε οι
+            - emphasis [ref=e238]: επισκέπτες μας.
+        - generic [ref=e239]:
+          - generic [ref=e240]: "4.9"
+          - generic [ref=e241]:
+            - generic [ref=e242]: ★★★★★
+            - generic [ref=e243]: 47 αξιολογήσεις
+            - generic [ref=e244]: Airbnb Superhost
+      - generic [ref=e245]:
+        - blockquote [ref=e246]:
+          - generic [ref=e247]: ★★★★★
+          - paragraph [ref=e248]: "\"Ο χώρος είναι μνημείο. Πέτρα, ξύλο, θέα που δεν ξεχνάς. Πήγαμε για 4 μέρες και μείναμε 8.\""
+          - generic [ref=e249]:
+            - img "Μαρία & Γιώργης Κ." [ref=e250]
+            - generic [ref=e251]:
+              - generic [ref=e252]: Μαρία & Γιώργης Κ.
+              - generic [ref=e253]: Λονδίνο · Σεπτέμβριος 2024
+        - blockquote [ref=e254]:
+          - generic [ref=e255]: ★★★★★
+          - paragraph [ref=e256]: "\"Η καλύτερη εμπειρία Airbnb που είχαμε ποτέ. Η γειτονιά στην Άνω Σύρο είναι σαν να γυρίσαμε στο χρόνο. Η θέα ασύγκριτη.\""
+          - generic [ref=e257]:
+            - img "Ζωή Π." [ref=e258]
+            - generic [ref=e259]:
+              - generic [ref=e260]: Ζωή Π.
+              - generic [ref=e261]: Αθήνα · Ιούλιος 2024
+        - blockquote [ref=e262]:
+          - generic [ref=e263]: ★★★★★
+          - paragraph [ref=e264]: "\"Φέραμε τους γονείς μας. Ήταν σαν δώρο. Κάθε πρωί ο καφές στο μπαλκόνι με θέα Αιγαίο.\""
+          - generic [ref=e265]:
+            - img "Σπύρος Α." [ref=e266]
+            - generic [ref=e267]:
+              - generic [ref=e268]: Σπύρος Α.
+              - generic [ref=e269]: Θεσσαλονίκη · Αύγουστος 2024
+        - blockquote [ref=e270]:
+          - generic [ref=e271]: ★★★★★
+          - paragraph [ref=e272]: "\"Εντυπωσιακή αρχιτεκτονική, τέλεια καθαριότητα, απίστευτη τοποθεσία. Θα επιστρέψουμε σίγουρα.\""
+          - generic [ref=e273]:
+            - img "Ελένη & Νίκος Δ." [ref=e274]
+            - generic [ref=e275]:
+              - generic [ref=e276]: Ελένη & Νίκος Δ.
+              - generic [ref=e277]: Βερολίνο · Ιούνιος 2024
+        - blockquote [ref=e278]:
+          - generic [ref=e279]: ★★★★★
+          - paragraph [ref=e280]: "\"Το σπίτι ξεπέρασε κάθε προσδοκία. Ο οικοδεσπότης εξαιρετικός, ανταποκρίθηκε άμεσα σε κάθε αίτημα.\""
+          - generic [ref=e281]:
+            - img "Thomas B." [ref=e282]
+            - generic [ref=e283]:
+              - generic [ref=e284]: Thomas B.
+              - generic [ref=e285]: Παρίσι · Μάιος 2024
+  - region "Συχνές ερωτήσεις" [ref=e286]:
+    - generic [ref=e287]:
+      - generic [ref=e288]:
+        - paragraph [ref=e289]: FAQ
+        - heading "Συχνές ερωτήσεις." [level=2] [ref=e290]:
+          - text: Συχνές
+          - emphasis [ref=e291]: ερωτήσεις.
+        - paragraph [ref=e292]:
+          - text: Δεν βρίσκετε αυτό που ψάχνετε;
+          - link "Επικοινωνήστε μαζί μας →" [ref=e293] [cursor=pointer]:
+            - /url: "#booking"
+      - generic [ref=e294]:
+        - group [ref=e295]:
+          - generic "01 Ποια είναι η πολιτική ακύρωσης;" [ref=e296] [cursor=pointer]:
+            - generic [ref=e297]: "01"
+            - generic [ref=e298]: Ποια είναι η πολιτική ακύρωσης;
+            - generic [ref=e300]: +
+        - group [ref=e301]:
+          - generic "02 Ποιες είναι οι ώρες check-in και check-out;" [ref=e302] [cursor=pointer]:
+            - generic [ref=e303]: "02"
+            - generic [ref=e304]: Ποιες είναι οι ώρες check-in και check-out;
+            - generic [ref=e306]: +
+        - group [ref=e307]:
+          - generic "03 Επιτρέπονται παιδιά;" [ref=e308] [cursor=pointer]:
+            - generic [ref=e309]: "03"
+            - generic [ref=e310]: Επιτρέπονται παιδιά;
+            - generic [ref=e312]: +
+        - group [ref=e313]:
+          - generic "04 Υπάρχει parking;" [ref=e314] [cursor=pointer]:
+            - generic [ref=e315]: "04"
+            - generic [ref=e316]: Υπάρχει parking;
+            - generic [ref=e318]: +
+        - group [ref=e319]:
+          - generic "05 Επιτρέπονται κατοικίδια;" [ref=e320] [cursor=pointer]:
+            - generic [ref=e321]: "05"
+            - generic [ref=e322]: Επιτρέπονται κατοικίδια;
+            - generic [ref=e324]: +
+        - group [ref=e325]:
+          - generic "06 Παρέχεται μεταφορά από/προς το λιμάνι;" [ref=e326] [cursor=pointer]:
+            - generic [ref=e327]: "06"
+            - generic [ref=e328]: Παρέχεται μεταφορά από/προς το λιμάνι;
+            - generic [ref=e330]: +
+  - region "Κράτηση" [ref=e331]:
+    - generic [ref=e332]:
+      - generic [ref=e333]:
+        - paragraph [ref=e334]: Κράτηση
+        - heading "Ας το κανονίσουμε μαζί." [level=2] [ref=e335]:
+          - text: Ας το κανονίσουμε
+          - emphasis [ref=e336]: μαζί.
+        - paragraph [ref=e337]: Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε μαζί σου εντός λίγων ωρών.
+        - generic [ref=e338]:
+          - generic [ref=e339]:
+            - generic [ref=e340]: 📍
+            - generic [ref=e341]:
+              - generic [ref=e342]: Διεύθυνση
+              - paragraph [ref=e343]: Πλατεία Μητρόπολης 5, Άνω Σύρος · 841 00
+          - generic [ref=e344]:
+            - generic [ref=e345]: ✉️
+            - generic [ref=e346]:
+              - generic [ref=e347]: Email
+              - link "stay@archontissa.gr" [ref=e348] [cursor=pointer]:
+                - /url: mailto:stay@archontissa.gr
+          - generic [ref=e349]:
+            - generic [ref=e350]: 📞
+            - generic [ref=e351]:
+              - generic [ref=e352]: Τηλέφωνο
+              - link "+30 2281 000 000" [ref=e353] [cursor=pointer]:
+                - /url: tel:+302281000000
+          - generic [ref=e354]:
+            - generic [ref=e355]: 📸
+            - generic [ref=e356]:
+              - generic [ref=e357]: Instagram
+              - link "@archontissa.syros" [ref=e358] [cursor=pointer]:
+                - /url: https://instagram.com
+        - generic [ref=e359]:
+          - generic [ref=e360]:
+            - generic [ref=e361]: Από
+            - generic [ref=e362]:
+              - text: €480
+              - emphasis [ref=e363]: /βράδυ
+          - paragraph [ref=e364]: Ολόκληρο το κτίριο · έως 6 άτομα · ελάχιστο 2 βράδια
+      - generic [ref=e366]:
+        - generic [ref=e367]:
+          - generic [ref=e368]:
+            - generic [ref=e369]: Όνομα
+            - textbox "Όνομα" [ref=e370]:
+              - /placeholder: Το όνομά σας
+          - generic [ref=e371]:
+            - generic [ref=e372]: Email
+            - textbox "Email" [ref=e373]:
+              - /placeholder: email@example.com
+        - generic [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]: Άφιξη
+            - textbox "Άφιξη" [ref=e377]
+          - generic [ref=e378]:
+            - generic [ref=e379]: Αναχώρηση
+            - textbox "Αναχώρηση" [ref=e380]
+          - generic [ref=e381]:
+            - generic [ref=e382]: Άτομα
+            - combobox "Άτομα" [ref=e383]:
+              - option "1"
+              - option "2"
+              - option "3"
+              - option "4"
+              - option "5"
+              - option "6" [selected]
+        - generic [ref=e384]:
+          - generic [ref=e385]: Σχόλια (προαιρετικό)
+          - textbox "Σχόλια (προαιρετικό)" [ref=e386]:
+            - /placeholder: Εορτασμός, μεταφορά από λιμάνι, ειδικά αιτήματα…
+        - button "Αποστολή αιτήματος κράτησης" [ref=e387] [cursor=pointer]
+        - paragraph [ref=e388]: Ανταποκρινόμαστε εντός 2 ωρών · Χωρίς χρέωση κράτησης
+    - generic [ref=e390]:
+      - generic [ref=e391]:
+        - generic [ref=e392]: Αρχόντισσα
+        - generic [ref=e393]: Άνω Σύρος · Κυκλάδες
+      - navigation "Footer" [ref=e394]:
+        - link "Χώροι" [ref=e395] [cursor=pointer]:
+          - /url: "#spaces"
+        - link "Παροχές" [ref=e396] [cursor=pointer]:
+          - /url: "#amenities"
+        - link "Κριτικές" [ref=e397] [cursor=pointer]:
+          - /url: "#reviews"
+        - link "FAQ" [ref=e398] [cursor=pointer]:
+          - /url: "#faq"
+      - paragraph [ref=e399]: Demo — Instatok Agency

@@ -1,0 +1,406 @@
+- generic [active] [ref=e1]:
+  - link "← demos" [ref=e2] [cursor=pointer]:
+    - /url: /hotel
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Ithaca Bay Resort & Spa · Κεφαλονιά" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: Ithaca Bay
+          - generic [ref=e9]: Resort & Spa · Κεφαλονιά
+        - list "Navigation" [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Δωμάτια" [ref=e12] [cursor=pointer]:
+              - /url: "#rooms"
+          - listitem [ref=e13]:
+            - link "Εμπειρίες" [ref=e14] [cursor=pointer]:
+              - /url: "#experiences"
+          - listitem [ref=e15]:
+            - link "Υπηρεσίες" [ref=e16] [cursor=pointer]:
+              - /url: "#amenities"
+          - listitem [ref=e17]:
+            - link "Επικοινωνία" [ref=e18] [cursor=pointer]:
+              - /url: "#contact"
+        - generic [ref=e19]:
+          - link "+30 2671 000 000" [ref=e20] [cursor=pointer]:
+            - /url: tel:+302671000000
+          - link "Κράτηση" [ref=e21] [cursor=pointer]:
+            - /url: "#booking"
+    - img "Θέα από το Ithaca Bay Resort" [ref=e23]
+    - generic [ref=e26]:
+      - paragraph [ref=e27]: Boutique Private Island Resort
+      - heading "Το καταφύγιο θαλπωρής, γαλήνης και αναγέννησης." [level=1] [ref=e28]:
+        - emphasis [ref=e30]: Το καταφύγιο
+        - generic [ref=e32]: θαλπωρής, γαλήνης
+        - generic [ref=e34]: και αναγέννησης.
+      - generic [ref=e35]:
+        - generic [ref=e36]: ★★★★★
+        - generic [ref=e37]: 5-Star Luxury · Κεφαλονιά, Ιόνιο
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: Check-In
+          - textbox [ref=e43] [cursor=pointer]
+        - generic [ref=e45]:
+          - generic [ref=e46]: Check-Out
+          - textbox [ref=e47] [cursor=pointer]
+        - generic [ref=e49]:
+          - generic [ref=e50]: Δωμάτια
+          - combobox [ref=e51] [cursor=pointer]:
+            - option "1" [selected]
+            - option "2"
+            - option "3"
+            - option "4"
+        - generic [ref=e53]:
+          - generic [ref=e54]: Ενήλικες
+          - combobox [ref=e55] [cursor=pointer]:
+            - option "1"
+            - option "2" [selected]
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+        - generic [ref=e57]:
+          - generic [ref=e58]: Παιδιά
+          - combobox [ref=e59] [cursor=pointer]:
+            - option "0" [selected]
+            - option "1"
+            - option "2"
+            - option "3"
+        - button "Έλεγχος Διαθεσιμότητας" [ref=e60] [cursor=pointer]
+      - paragraph [ref=e61]: "Check-in: 15:00 · Check-out: 11:00 · Ελάχιστη ηλικία: 18"
+  - region "Καλωσόρισμα" [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - paragraph [ref=e65]: Καλωσήρθατε
+        - heading "Welcome to Ithaca Bay Resort" [level=2] [ref=e66]:
+          - text: Welcome to
+          - text: Ithaca Bay Resort
+        - paragraph [ref=e67]: Στην καρδιά του Ιονίου Πελάγους, με ανεμπόδιστη θέα
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Το Ithaca Bay Resort είναι ένα ιδιωτικό boutique resort σε μία από τις ομορφότερες ακτές της Κεφαλονιάς. Ένα καταφύγιο θαλπωρής, γαλήνης και αναγέννησης — εμπνευσμένο από τη φυσική ομορφιά του Ιονίου και τις αρχαίες παραδόσεις φιλοξενίας.
+          - paragraph [ref=e70]: Με θέα σε τιρκουάζ νερά, κρυφές αμμουδιές και πευκόφυτα λόφους, το resort προσφέρει μια μοναδική εμπειρία πολυτέλειας — μακριά από τον θόρυβο, κοντά στο ουσιαστικό.
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: "5"
+            - generic [ref=e74]: Αστέρια
+          - generic [ref=e75]:
+            - generic [ref=e76]: "24"
+            - generic [ref=e77]: Villas
+          - generic [ref=e78]:
+            - generic [ref=e79]: "4.9"
+            - generic [ref=e80]: Βαθμολογία
+        - link "Δείτε τα Δωμάτια →" [ref=e81] [cursor=pointer]:
+          - /url: "#rooms"
+      - generic [ref=e82]:
+        - img "Infinity pool με θέα Ιονίου" [ref=e84]
+        - generic [ref=e85]:
+          - img "Παραλία resort" [ref=e86]
+          - img "Spa του resort" [ref=e87]
+          - img "Γαστρονομικό εστιατόριο" [ref=e88]
+  - region "Δωμάτια" [ref=e89]:
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - paragraph [ref=e92]: Καταλύματα
+        - heading "The Accommodations" [level=2] [ref=e93]
+        - paragraph [ref=e94]: Κάθε κατάλυμα σχεδιάστηκε για να προσφέρει μια μοναδική εμπειρία — συνδυάζοντας σύγχρονη πολυτέλεια με την αυθεντική ομορφιά του Ιονίου.
+      - generic [ref=e95]:
+        - article [ref=e96]:
+          - img "Ocean View Suite" [ref=e98]
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - heading "Ocean View Suite" [level=3] [ref=e102]
+              - generic [ref=e103]:
+                - generic [ref=e104]: Από
+                - generic [ref=e105]: €280
+                - generic [ref=e106]: /νύκτα
+            - paragraph [ref=e107]: Κομψή σουίτα με πανοραμική θέα στο Ιόνιο. Βεράντα ιδιωτική, king size κρεβάτι, μπάνιο με υδρομασάζ.
+            - list [ref=e108]:
+              - listitem [ref=e109]:
+                - img [ref=e110]
+                - text: 45 m²
+              - listitem [ref=e112]:
+                - img [ref=e113]
+                - text: 2 Άτομα
+              - listitem [ref=e118]:
+                - img [ref=e119]
+                - text: 1 King
+            - link "Discover More" [ref=e121] [cursor=pointer]:
+              - /url: "#contact"
+              - text: Discover More
+              - img [ref=e122]
+        - article [ref=e124]:
+          - generic [ref=e125]:
+            - img "Beachfront Villa" [ref=e126]
+            - generic [ref=e127]: Best Seller
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - heading "Beachfront Villa" [level=3] [ref=e131]
+              - generic [ref=e132]:
+                - generic [ref=e133]: Από
+                - generic [ref=e134]: €480
+                - generic [ref=e135]: /νύκτα
+            - paragraph [ref=e136]: Ιδιωτική βίλα απευθείας στην παραλία. Ιδιωτική πισίνα, υπαίθρια dining area, απεριόριστη θέα.
+            - list [ref=e137]:
+              - listitem [ref=e138]:
+                - img [ref=e139]
+                - text: 75 m²
+              - listitem [ref=e141]:
+                - img [ref=e142]
+                - text: 4 Άτομα
+              - listitem [ref=e147]:
+                - img [ref=e148]
+                - text: 1 King + 1 Queen
+            - link "Discover More" [ref=e150] [cursor=pointer]:
+              - /url: "#contact"
+              - text: Discover More
+              - img [ref=e151]
+        - article [ref=e153]:
+          - img "Garden Residence" [ref=e155]
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - heading "Garden Residence" [level=3] [ref=e159]
+              - generic [ref=e160]:
+                - generic [ref=e161]: Από
+                - generic [ref=e162]: €380
+                - generic [ref=e163]: /νύκτα
+            - paragraph [ref=e164]: Πολυτελής κατοικία εντός κήπου. Δύο υπνοδωμάτια, ιδιωτική τζακούζι, ήρεμο φυσικό περιβάλλον.
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - img [ref=e167]
+                - text: 65 m²
+              - listitem [ref=e169]:
+                - img [ref=e170]
+                - text: 4 Άτομα
+              - listitem [ref=e175]:
+                - img [ref=e176]
+                - text: 2 Kings
+            - link "Discover More" [ref=e178] [cursor=pointer]:
+              - /url: "#contact"
+              - text: Discover More
+              - img [ref=e179]
+        - article [ref=e181]:
+          - generic [ref=e182]:
+            - img "Grand Ocean Residence" [ref=e183]
+            - generic [ref=e184]: Flagship
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - heading "Grand Ocean Residence" [level=3] [ref=e188]
+              - generic [ref=e189]:
+                - generic [ref=e190]: Από
+                - generic [ref=e191]: €780
+                - generic [ref=e192]: /νύκτα
+            - paragraph [ref=e193]: Η αποκορύφωση της πολυτέλειας. Τέσσερα υπνοδωμάτια, ιδιωτική πισίνα infinity, butler service.
+            - list [ref=e194]:
+              - listitem [ref=e195]:
+                - img [ref=e196]
+                - text: 140 m²
+              - listitem [ref=e198]:
+                - img [ref=e199]
+                - text: 8 Άτομα
+              - listitem [ref=e204]:
+                - img [ref=e205]
+                - text: 4 Kings
+            - link "Discover More" [ref=e207] [cursor=pointer]:
+              - /url: "#contact"
+              - text: Discover More
+              - img [ref=e208]
+  - region "Εμπειρίες" [ref=e210]:
+    - generic [ref=e211]:
+      - paragraph [ref=e212]: Εμπειρίες
+      - heading "Unforgettable Experience" [level=2] [ref=e213]
+      - paragraph [ref=e214]: Ένας από τους πιο επιθυμητούς προορισμούς στη Μεσόγειο
+    - generic [ref=e215]:
+      - article [ref=e216]:
+        - img "Spa θεραπείες" [ref=e218]
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - generic [ref=e222]: Serenity Spa
+            - heading "Spa & Ευεξία" [level=3] [ref=e223]
+            - paragraph: Βυθιστείτε σε μια εμπειρία ολιστικής ευεξίας. Ayurvedic θεραπείες, σάουνα, hammam, yoga και meditation — κάθε στιγμή σχεδιασμένη για αναζωογόνηση σώματος και πνεύματος.
+          - link "Discover More" [ref=e224] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Discover More
+            - img [ref=e225]
+      - article [ref=e227]:
+        - img "Γαστρονομικό εστιατόριο" [ref=e229]
+        - generic [ref=e231]:
+          - generic [ref=e232]:
+            - generic [ref=e233]: The Ionian Table
+            - heading "Γαστρονομία" [level=3] [ref=e234]
+            - paragraph: Η κουζίνα μας εμπνέεται από τα τοπικά αρώματα και τα φρέσκα υλικά του Ιονίου. Farm-to-table φιλοσοφία, κρασιά από ντόπιους αμπελώνες, θέα στη θάλασσα.
+          - link "Discover More" [ref=e235] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Discover More
+            - img [ref=e236]
+      - article [ref=e238]:
+        - img "Island δραστηριότητες" [ref=e240]
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - generic [ref=e244]: Explore & Discover
+            - heading "Island Activities" [level=3] [ref=e245]
+            - paragraph: Ιστιοπλοΐα, καταδύσεις, kayak, πεζοπορία σε μονοπάτια με θέα, εξερεύνηση κρυφών σπηλαίων. Βιώστε το Ιόνιο από μια διαφορετική οπτική.
+          - link "Discover More" [ref=e246] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Discover More
+            - img [ref=e247]
+  - region "Κριτική επισκέπτη" [ref=e249]:
+    - generic [ref=e252]:
+      - paragraph [ref=e253]: Voice From Our Guests
+      - generic [ref=e254]:
+        - generic [ref=e255]: "\""
+        - blockquote [ref=e256]: Η εμπειρία στο Ithaca Bay ξεπέρασε κάθε προσδοκία μας. Ο χώρος, η ζεστασιά του προσωπικού, η γαστρονομία — όλα άψογα. Αλλά η στιγμή που δεν θα ξεχάσουμε ποτέ είναι η θέα από τη βεράντα μας στο ηλιοβασίλεμα πάνω στο Ιόνιο.
+      - generic [ref=e257]:
+        - img "Anna W." [ref=e258]
+        - generic [ref=e259]:
+          - generic [ref=e260]: Anna Williams
+          - generic [ref=e261]: TripAdvisor · Verified Guest
+        - generic [ref=e262]:
+          - generic [ref=e263]: ★★★★★
+          - generic [ref=e264]: 5 / 5
+  - region "Υπηρεσίες" [ref=e265]:
+    - generic [ref=e266]:
+      - generic [ref=e267]:
+        - paragraph [ref=e268]: Υπηρεσίες
+        - heading "Discover the Services we Offered" [level=2] [ref=e269]:
+          - text: Discover the Services
+          - text: we Offered
+        - paragraph [ref=e270]: Όλα τα απαραίτητα για μια άνετη και αξέχαστη διαμονή.
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - img [ref=e274]
+          - heading "Airport Transfer" [level=3] [ref=e278]
+          - paragraph [ref=e279]: Μεταφορά από αεροδρόμιο Κεφαλονιάς με ιδιωτικό όχημα
+        - generic [ref=e280]:
+          - img [ref=e282]
+          - heading "Concierge Service" [level=3] [ref=e284]
+          - paragraph [ref=e285]: Προσωπικός concierge 24/7 για κάθε ανάγκη σας
+        - generic [ref=e286]:
+          - img [ref=e288]
+          - heading "WiFi & Internet" [level=3] [ref=e292]
+          - paragraph [ref=e293]: Υψηλής ταχύτητας ασύρματο δίκτυο σε όλους τους χώρους
+        - generic [ref=e294]:
+          - img [ref=e296]
+          - heading "Breakfast in Bed" [level=3] [ref=e299]
+          - paragraph [ref=e300]: Πρωινό σερβιρισμένο στο δωμάτιό σας κάθε πρωί
+        - generic [ref=e301]:
+          - img [ref=e303]
+          - heading "Private Beach" [level=3] [ref=e307]
+          - paragraph [ref=e308]: Αποκλειστική πρόσβαση σε ιδιωτική αμμώδη παραλία
+        - generic [ref=e309]:
+          - img [ref=e311]
+          - heading "Infinity Pool" [level=3] [ref=e317]
+          - paragraph [ref=e318]: Κολυμβητήριο infinity με θέα στο Ιόνιο Πέλαγος
+  - region "Επικοινωνία" [ref=e319]:
+    - generic [ref=e321]:
+      - generic [ref=e322]:
+        - paragraph [ref=e323]: Newsletter
+        - heading "Stay Tuned with Ithaca Bay Resort" [level=2] [ref=e324]:
+          - text: Stay Tuned with
+          - emphasis [ref=e325]: Ithaca Bay Resort
+        - paragraph [ref=e326]: Εγγραφείτε για αποκλειστικές προσφορές, νέα και special offers.
+      - generic [ref=e327]:
+        - textbox "Email για newsletter" [ref=e328]:
+          - /placeholder: Το email σας
+        - button "Εγγραφή" [ref=e329] [cursor=pointer]
+    - generic [ref=e331]:
+      - generic [ref=e332]:
+        - paragraph [ref=e333]: Κρατήσεις
+        - heading "Κάντε την Κράτησή σας" [level=2] [ref=e334]
+        - paragraph [ref=e335]: Επικοινωνήστε μαζί μας για να οργανώσουμε μαζί τη διαμονή των ονείρων σας. Ανταποκρινόμαστε εντός 2 ωρών.
+        - generic [ref=e336]:
+          - generic [ref=e337]:
+            - generic [ref=e338]: Διεύθυνση
+            - paragraph [ref=e339]: Παραλία Πλατύς Γιαλός, Κεφαλονιά 280 82
+          - generic [ref=e340]:
+            - generic [ref=e341]: Τηλέφωνο
+            - link "+30 2671 000 000" [ref=e342] [cursor=pointer]:
+              - /url: tel:+302671000000
+          - generic [ref=e343]:
+            - generic [ref=e344]: Email
+            - link "reservation@ithacabay.gr" [ref=e345] [cursor=pointer]:
+              - /url: mailto:reservation@ithacabay.gr
+        - generic [ref=e346]:
+          - generic [ref=e347]: Δωμάτια από
+          - generic [ref=e348]:
+            - text: €280
+            - emphasis [ref=e349]: /νύκτα
+          - generic [ref=e350]: Check-in 15:00 · Check-out 11:00
+      - generic [ref=e351]:
+        - generic [ref=e352]:
+          - generic [ref=e353]:
+            - generic [ref=e354]: Ονοματεπώνυμο
+            - textbox "Ονοματεπώνυμο" [ref=e355]:
+              - /placeholder: Το όνομά σας
+          - generic [ref=e356]:
+            - generic [ref=e357]: Email
+            - textbox "Email" [ref=e358]:
+              - /placeholder: email@example.com
+        - generic [ref=e359]:
+          - generic [ref=e360]:
+            - generic [ref=e361]: Άφιξη
+            - textbox "Άφιξη" [ref=e362]
+          - generic [ref=e363]:
+            - generic [ref=e364]: Αναχώρηση
+            - textbox "Αναχώρηση" [ref=e365]
+          - generic [ref=e366]:
+            - generic [ref=e367]: Άτομα
+            - combobox "Άτομα" [ref=e368]:
+              - option "1"
+              - option "2" [selected]
+              - option "3"
+              - option "4"
+              - option "5"
+              - option "6+"
+        - generic [ref=e369]:
+          - generic [ref=e370]: Τύπος δωματίου
+          - combobox "Τύπος δωματίου" [ref=e371]:
+            - option "Επιλέξτε κατηγορία" [selected]
+            - option "Ocean View Suite"
+            - option "Beachfront Villa"
+            - option "Garden Residence"
+            - option "Grand Ocean Residence"
+        - generic [ref=e372]:
+          - generic [ref=e373]: Σχόλια (προαιρετικό)
+          - textbox "Σχόλια (προαιρετικό)" [ref=e374]:
+            - /placeholder: Ειδικά αιτήματα, γενέθλια, transfer από αεροδρόμιο…
+        - button "Αποστολή Αιτήματος Κράτησης" [ref=e375] [cursor=pointer]
+        - paragraph [ref=e376]: Ανταποκρινόμαστε εντός 2 ωρών · Χωρίς προμήθεια
+    - generic [ref=e377]:
+      - generic [ref=e378]:
+        - generic [ref=e379]:
+          - generic [ref=e380]: Ithaca Bay Resort
+          - generic [ref=e381]: Boutique Private Island Resort · Κεφαλονιά
+          - paragraph [ref=e382]: Παραλία Πλατύς Γιαλός, Κεφαλονιά 280 82, Ελλάδα
+        - navigation "Footer" [ref=e383]:
+          - generic [ref=e384]:
+            - generic [ref=e385]: Κατάλυμα
+            - link "Ocean View Suite" [ref=e386] [cursor=pointer]:
+              - /url: "#rooms"
+            - link "Beachfront Villa" [ref=e387] [cursor=pointer]:
+              - /url: "#rooms"
+            - link "Garden Residence" [ref=e388] [cursor=pointer]:
+              - /url: "#rooms"
+            - link "Grand Ocean Residence" [ref=e389] [cursor=pointer]:
+              - /url: "#rooms"
+          - generic [ref=e390]:
+            - generic [ref=e391]: Εμπειρίες
+            - link "Spa & Ευεξία" [ref=e392] [cursor=pointer]:
+              - /url: "#experiences"
+            - link "Γαστρονομία" [ref=e393] [cursor=pointer]:
+              - /url: "#experiences"
+            - link "Island Activities" [ref=e394] [cursor=pointer]:
+              - /url: "#experiences"
+            - link "Υπηρεσίες" [ref=e395] [cursor=pointer]:
+              - /url: "#amenities"
+          - generic [ref=e396]:
+            - generic [ref=e397]: Επικοινωνία
+            - link "+30 2671 000 000" [ref=e398] [cursor=pointer]:
+              - /url: tel:+302671000000
+            - link "reservation@ithacabay.gr" [ref=e399] [cursor=pointer]:
+              - /url: mailto:reservation@ithacabay.gr
+            - link "@ithacabay.resort" [ref=e400] [cursor=pointer]:
+              - /url: https://instagram.com
+      - generic [ref=e401]:
+        - paragraph [ref=e402]: © 2025 Ithaca Bay Resort · Privacy · Terms
+        - paragraph [ref=e403]: Demo — Instatok Agency
