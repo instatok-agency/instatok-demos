@@ -160,7 +160,7 @@ const activeCount = variants.filter(v => v.active).length;
     .variant-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10.5px; font-weight: 500;
-      color: var(--ink-faint); letter-spacing: 0.06em;
+      color: var(--accent); letter-spacing: 0.06em;
       padding-top: 2px;
       transition: color 0.15s;
     }
@@ -181,9 +181,15 @@ const activeCount = variants.filter(v => v.active).length;
       font-family: 'JetBrains Mono', monospace;
       font-size: 9px; font-weight: 600;
       letter-spacing: 0.10em; text-transform: uppercase;
-      color: var(--ink-dim);
-      border: 1px solid var(--line-strong);
+      color: var(--warm);
+      background: rgba(245,193,122,0.07);
+      border: 1px solid rgba(245,193,122,0.18);
       padding: 2px 7px; border-radius: 3px;
+    }
+    .variant-tag:nth-child(2n) {
+      color: rgba(255,107,58,0.75);
+      background: rgba(255,107,58,0.07);
+      border-color: rgba(255,107,58,0.18);
     }
 
     .variant-mood {
