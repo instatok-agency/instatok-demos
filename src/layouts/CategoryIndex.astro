@@ -25,24 +25,17 @@ const activeCount = variants.filter(v => v.active).length;
 
 <ShowcaseBase title={`${label} Demos — Instatok`}>
   <style>
-    /* ── Dark nav tokens ── */
     :root {
-      --nav-bg:      #0a0908;
-      --nav-ink:     #f7f3ea;
-      --nav-line:    rgba(255,243,234,0.10);
-      --nav-dim:     #8a8278;
+      --bg:          #0a0908;
+      --bg-2:        #111010;
+      --ink:         #f7f3ea;
+      --ink-soft:    #c8c0b4;
+      --ink-dim:     #7a7068;
+      --ink-faint:   #4a4540;
       --accent:      #ff6b3a;
       --warm:        #f5c17a;
-
-      /* Light content tokens */
-      --bg:          #f9f6f1;
-      --bg-2:        #f0ece5;
-      --ink:         #1c1714;
-      --ink-soft:    #3d3028;
-      --ink-dim:     #6a5b52;
-      --ink-faint:   #a09088;
-      --line:        rgba(28,23,20,0.10);
-      --line-strong: rgba(28,23,20,0.18);
+      --line:        rgba(255,243,234,0.09);
+      --line-strong: rgba(255,243,234,0.16);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,13 +52,13 @@ const activeCount = variants.filter(v => v.active).length;
 
     .page { display: flex; flex-direction: column; min-height: 100dvh; }
 
-    /* ── Nav (stays dark) ── */
+    /* ── Nav ── */
     .nav {
       position: sticky; top: 0; z-index: 100;
-      background: color-mix(in srgb, var(--nav-bg) 92%, transparent);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border-bottom: 1px solid var(--nav-line);
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
     }
     .nav-inner {
       max-width: 1240px; margin: 0 auto; padding: 16px 28px;
@@ -74,7 +67,7 @@ const activeCount = variants.filter(v => v.active).length;
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       font-weight: 800; font-size: 18px; letter-spacing: -0.035em;
-      color: var(--nav-ink); text-decoration: none;
+      color: var(--ink); text-decoration: none;
     }
     .nav-logo-mark {
       width: 26px; height: 26px;
@@ -89,7 +82,7 @@ const activeCount = variants.filter(v => v.active).length;
     .nav-logo-mark::after {
       content: "";
       position: absolute; inset: 2px; border-radius: 6px;
-      background: var(--nav-bg);
+      background: var(--bg);
     }
     .nav-logo-mark svg { position: relative; z-index: 1; width: 13px; height: 13px; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -99,18 +92,18 @@ const activeCount = variants.filter(v => v.active).length;
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px; font-weight: 500;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--nav-dim); text-decoration: none;
+      color: var(--ink-dim); text-decoration: none;
       padding: 5px 12px;
-      border: 1px solid rgba(255,243,234,0.15);
+      border: 1px solid var(--line-strong);
       border-radius: 999px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .nav-back:hover { color: var(--nav-ink); border-color: rgba(255,107,58,0.4); }
+    .nav-back:hover { color: var(--ink); border-color: rgba(255,107,58,0.4); }
     .nav-back svg { width: 10px; height: 10px; }
 
     /* ── Hero ── */
     .hero {
-      padding: 56px 28px 40px;
+      padding: 56px 28px 44px;
       max-width: 1240px; margin: 0 auto; width: 100%;
       border-bottom: 1px solid var(--line-strong);
     }
@@ -118,30 +111,27 @@ const activeCount = variants.filter(v => v.active).length;
       font-family: 'JetBrains Mono', monospace;
       font-size: 10.5px; font-weight: 600;
       color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .hero-title {
       font-size: clamp(32px, 5vw, 60px);
       font-weight: 800; letter-spacing: -0.04em; line-height: 1;
-      color: var(--ink); margin-bottom: 14px; text-wrap: balance;
+      color: var(--ink); margin-bottom: 16px; text-wrap: balance;
     }
     .hero-title em {
       font-family: 'Instrument Serif', serif;
       font-style: italic; font-weight: 400;
-      color: var(--ink-dim);
+      color: var(--ink-soft);
       letter-spacing: -0.02em;
-    }
-    .hero-row {
-      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-      margin-bottom: 14px;
     }
     .hero-count {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px; font-weight: 600;
       color: var(--ink-faint); letter-spacing: 0.10em; text-transform: uppercase;
+      margin-bottom: 12px;
     }
     .hero-sub {
-      font-size: 15px; color: var(--ink-dim); line-height: 1.65;
+      font-size: 15px; color: var(--ink-soft); line-height: 1.65;
       max-width: 500px; text-wrap: pretty;
     }
 
@@ -151,20 +141,19 @@ const activeCount = variants.filter(v => v.active).length;
       max-width: 1240px; margin: 0 auto; width: 100%;
       flex: 1;
     }
+
     .variant-row {
       display: grid;
       grid-template-columns: 28px 1fr auto;
       align-items: baseline;
       gap: 28px;
-      padding: 24px 0;
+      padding: 26px 0;
       border-bottom: 1px solid var(--line);
       text-decoration: none;
       color: inherit;
-      position: relative;
     }
     .variant-row--active { cursor: pointer; }
-    .variant-row--inactive { opacity: 0.4; cursor: default; }
-
+    .variant-row--inactive { opacity: 0.35; cursor: default; }
     .variant-row--active:hover .variant-num { color: var(--accent); }
     .variant-row--active:hover .variant-title { color: var(--accent); }
 
@@ -176,7 +165,7 @@ const activeCount = variants.filter(v => v.active).length;
       transition: color 0.15s;
     }
 
-    .variant-body { display: flex; flex-direction: column; gap: 6px; }
+    .variant-body { display: flex; flex-direction: column; gap: 7px; }
 
     .variant-title {
       font-size: 17px; font-weight: 700;
@@ -198,7 +187,7 @@ const activeCount = variants.filter(v => v.active).length;
     }
 
     .variant-mood {
-      font-size: 13px; color: var(--ink-dim); line-height: 1.6;
+      font-size: 13px; color: var(--ink-soft); line-height: 1.6;
     }
 
     .variant-cta {
@@ -226,7 +215,6 @@ const activeCount = variants.filter(v => v.active).length;
       border-top: 1px solid var(--line);
       display: flex; justify-content: space-between; align-items: center;
       gap: 12px; flex-wrap: wrap;
-      background: var(--bg-2);
     }
     .footer p {
       font-family: 'JetBrains Mono', monospace;
@@ -273,9 +261,7 @@ const activeCount = variants.filter(v => v.active).length;
       <h1 class="hero-title">
         {label}{subtitle ? <><br /><em>— {subtitle}</em></> : ''}
       </h1>
-      <div class="hero-row">
-        <span class="hero-count">{activeCount} demo{activeCount !== 1 ? 's' : ''} διαθέσιμ{activeCount !== 1 ? 'α' : 'ο'}</span>
-      </div>
+      <p class="hero-count">{activeCount} demo{activeCount !== 1 ? 's' : ''} διαθέσιμ{activeCount !== 1 ? 'α' : 'ο'}</p>
       <p class="hero-sub">{description}</p>
     </section>
 
