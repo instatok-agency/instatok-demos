@@ -9,6 +9,7 @@ interface Variant {
   fonts: string;
   mood: string;
   active: boolean;
+  thumb?: string;
 }
 
 interface Props {
@@ -20,7 +21,9 @@ interface Props {
 }
 
 const { title, label, subtitle, description, variants } = Astro.props;
-const activeCount = variants.filter(v => v.active).length;
+const activeVariants = variants.filter(v => v.active);
+const inactiveVariants = variants.filter(v => !v.active);
+const n = activeVariants.length;
 ---
 
 <ShowcaseBase title={`${label} Demos — Instatok`}>
@@ -28,6 +31,7 @@ const activeCount = variants.filter(v => v.active).length;
     :root {
       --bg:          #0a0908;
       --bg-2:        #111010;
+      --bg-card:     #141210;
       --ink:         #f7f3ea;
       --ink-soft:    #c8c0b4;
       --ink-dim:     #7a7068;
@@ -61,14 +65,10 @@ const activeCount = variants.filter(v => v.active).length;
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
-      max-width: 1240px; margin: 0 auto; padding: 16px 28px;
+      max-width: 1300px; margin: 0 auto; padding: 16px 28px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .nav-logo {
-      display: flex; align-items: center;
-      text-decoration: none;
-    }
-
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-back {
       display: flex; align-items: center; gap: 6px;
       font-family: 'JetBrains Mono', monospace;
@@ -85,116 +85,185 @@ const activeCount = variants.filter(v => v.active).length;
 
     /* ── Hero ── */
     .hero {
-      padding: 56px 28px 44px;
-      max-width: 1240px; margin: 0 auto; width: 100%;
-      border-bottom: 1px solid var(--line-strong);
+      padding: 48px 28px 36px;
+      max-width: 1300px; margin: 0 auto; width: 100%;
     }
     .eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px; font-weight: 600;
+      font-size: 10px; font-weight: 600;
       color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
     .hero-title {
-      font-size: clamp(32px, 5vw, 60px);
-      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
-      color: var(--ink); margin-bottom: 16px; text-wrap: balance;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      color: var(--ink); margin-bottom: 8px;
     }
     .hero-title em {
       font-family: 'Instrument Serif', serif;
       font-style: italic; font-weight: 400;
-      color: var(--ink-soft);
-      letter-spacing: -0.02em;
+      color: var(--ink-soft); letter-spacing: -0.02em;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 16px; margin-top: 10px;
     }
     .hero-count {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px; font-weight: 600;
       color: var(--ink-faint); letter-spacing: 0.10em; text-transform: uppercase;
-      margin-bottom: 12px;
     }
     .hero-sub {
-      font-size: 15px; color: var(--ink-soft); line-height: 1.65;
-      max-width: 500px; text-wrap: pretty;
+      font-size: 14px; color: var(--ink-dim); line-height: 1.6;
     }
 
-    /* ── Variants ── */
-    .variants-wrap {
-      padding: 0 28px 72px;
-      max-width: 1240px; margin: 0 auto; width: 100%;
+    /* ── Main grid ── */
+    .main {
+      padding: 0 28px 64px;
+      max-width: 1300px; margin: 0 auto; width: 100%;
       flex: 1;
     }
 
-    .variant-row {
+    .demo-grid {
       display: grid;
-      grid-template-columns: 28px 1fr auto;
-      align-items: baseline;
-      gap: 28px;
-      padding: 26px 0;
+      gap: 16px;
+    }
+    .demo-grid[data-cols="1"] { grid-template-columns: minmax(0, 540px); }
+    .demo-grid[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+    .demo-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+    .demo-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+
+    /* ── Demo card ── */
+    .dc {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none; color: inherit;
+    }
+    .dc:hover {
+      border-color: rgba(255,107,58,0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Browser chrome */
+    .dc-chrome {
+      background: #1c1917;
       border-bottom: 1px solid var(--line);
-      text-decoration: none;
-      color: inherit;
+      padding: 7px 10px;
+      display: flex; align-items: center; gap: 8px;
+      flex-shrink: 0;
     }
-    .variant-row--active { cursor: pointer; }
-    .variant-row--inactive { opacity: 0.35; cursor: default; }
-    .variant-row--active:hover .variant-num { color: var(--accent); }
-    .variant-row--active:hover .variant-title { color: var(--accent); }
-
-    .variant-num {
+    .dc-dots {
+      display: flex; gap: 4px; flex-shrink: 0;
+    }
+    .dc-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+    }
+    .dc-dots span:nth-child(1) { background: #ff5f57; }
+    .dc-dots span:nth-child(2) { background: #febc2e; }
+    .dc-dots span:nth-child(3) { background: #28c840; }
+    .dc-url {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px; font-weight: 500;
-      color: var(--accent); letter-spacing: 0.06em;
-      padding-top: 2px;
-      transition: color 0.15s;
+      font-size: 10px; color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      flex: 1; min-width: 0;
     }
 
-    .variant-body { display: flex; flex-direction: column; gap: 7px; }
+    /* Screenshot */
+    .dc-screen {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #1a1614;
+      position: relative;
+    }
+    .dc-screen img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+    }
+    .dc-screen-empty {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dc-screen-empty span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; color: var(--ink-faint); letter-spacing: 0.08em;
+    }
 
-    .variant-title {
+    /* Card info */
+    .dc-info {
+      padding: 11px 13px 13px;
+      display: flex; flex-direction: column; gap: 6px;
+      flex: 1;
+    }
+    .dc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; color: var(--accent); letter-spacing: 0.06em;
+    }
+    .dc-title {
       font-size: 17px; font-weight: 700;
-      letter-spacing: -0.02em; line-height: 1.2;
+      letter-spacing: -0.01em; line-height: 1.2;
       color: var(--ink);
-      transition: color 0.15s;
     }
-
-    .variant-tags {
+    .dc-tags {
       display: flex; flex-wrap: wrap; gap: 5px;
     }
-    .variant-tag {
+    .dc-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 9px; font-weight: 600;
-      letter-spacing: 0.10em; text-transform: uppercase;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
       color: var(--warm);
       background: rgba(245,193,122,0.07);
-      border: 1px solid rgba(245,193,122,0.18);
-      padding: 2px 7px; border-radius: 3px;
+      border: 1px solid rgba(245,193,122,0.16);
+      padding: 4px 9px; border-radius: 4px;
     }
-    .variant-tag:nth-child(2n) {
-      color: rgba(255,107,58,0.75);
+    .dc-tag:nth-child(2n) {
+      color: rgba(255,107,58,0.8);
       background: rgba(255,107,58,0.07);
       border-color: rgba(255,107,58,0.18);
     }
-
-    .variant-mood {
-      font-size: 13px; color: var(--ink-soft); line-height: 1.6;
+    .dc-cta {
+      margin-top: auto; padding-top: 10px;
     }
-
-    .variant-cta {
-      display: flex; align-items: center; gap: 5px;
+    .dc-cta-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent);
+      color: #0a0908;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 9.5px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); white-space: nowrap;
-      transition: gap 0.15s;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      padding: 9px 16px; border-radius: 6px;
+      transition: background 0.15s;
     }
-    .variant-cta svg { width: 9px; height: 9px; transition: transform 0.15s; }
-    .variant-row--active:hover .variant-cta { gap: 8px; }
-    .variant-row--active:hover .variant-cta svg { transform: translateX(2px); }
+    .dc:hover .dc-cta-btn { background: #ff8255; }
+    .dc-cta-btn svg { width: 10px; height: 10px; transition: transform 0.15s; }
+    .dc:hover .dc-cta-btn svg { transform: translateX(3px); }
 
-    .variant-soon {
+    /* ── Inactive variants ── */
+    .inactive-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .inactive-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 9px; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--ink-faint);
+      color: var(--ink-faint); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .inactive-list {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .inactive-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--ink-faint);
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 4px 10px; border-radius: 4px;
+      opacity: 0.5;
     }
 
     /* ── Footer ── */
@@ -209,14 +278,22 @@ const activeCount = variants.filter(v => v.active).length;
       font-size: 9.5px; color: var(--ink-faint); letter-spacing: 0.06em;
     }
 
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .demo-grid[data-cols="4"] { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .demo-grid[data-cols="3"],
+      .demo-grid[data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
-      .hero { padding: 40px 20px 32px; }
-      .variants-wrap { padding: 0 20px 56px; }
-      .nav-inner { padding: 14px 20px; }
-      .footer { padding: 16px 20px; }
-      .variant-row { grid-template-columns: 24px 1fr; gap: 16px; }
-      .variant-cta, .variant-soon { grid-column: 2; padding-top: 4px; }
-      .variant-title { font-size: 15px; }
+      .hero { padding: 36px 16px 24px; }
+      .main { padding: 0 16px 48px; }
+      .nav-inner { padding: 14px 16px; }
+      .footer { padding: 16px 16px; }
+      .demo-grid[data-cols="2"],
+      .demo-grid[data-cols="3"],
+      .demo-grid[data-cols="4"] { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -226,7 +303,7 @@ const activeCount = variants.filter(v => v.active).length;
     <nav class="nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="/assets/logo-horizontal.webp" alt="Instatok" height="32" style="display:block;width:auto">
+          <img src="/assets/logo-horizontal.webp" alt="Instatok" height="30" style="display:block;width:auto">
         </a>
         <a href="/" class="nav-back">
           <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -243,45 +320,64 @@ const activeCount = variants.filter(v => v.active).length;
       <h1 class="hero-title">
         {label}{subtitle ? <><br /><em>— {subtitle}</em></> : ''}
       </h1>
-      <p class="hero-count">{activeCount} demo{activeCount !== 1 ? 's' : ''} διαθέσιμ{activeCount !== 1 ? 'α' : 'ο'}</p>
-      <p class="hero-sub">{description}</p>
+      <div class="hero-meta">
+        <span class="hero-count">{n} demo{n !== 1 ? 's' : ''} διαθέσιμ{n !== 1 ? 'α' : 'ο'}</span>
+        <span class="hero-sub">{description}</span>
+      </div>
     </section>
 
-    <!-- Variants -->
-    <div class="variants-wrap">
-      {variants.map(v => (
-        v.active
-          ? (
-            <a href={v.href} class="variant-row variant-row--active">
-              <span class="variant-num">{v.num}</span>
-              <div class="variant-body">
-                <span class="variant-title">{v.title}</span>
+    <!-- Demo cards -->
+    <div class="main">
+      <div class="demo-grid" data-cols={String(Math.min(n, 4))}>
+        {activeVariants.map(v => {
+          const path = v.href;
+          return (
+            <a href={v.href} class="dc" target="_blank">
+              <div class="dc-chrome">
+                <div class="dc-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="dc-url">demo.instatok.gr{path}</div>
+              </div>
+              <div class="dc-screen">
+                {v.thumb
+                  ? <img src={v.thumb} alt={v.title} loading="lazy" />
+                  : <div class="dc-screen-empty"><span>preview soon</span></div>
+                }
+              </div>
+              <div class="dc-info">
+                <div class="dc-num">{v.num}</div>
+                <div class="dc-title">{v.title}</div>
                 {(v.palette !== '—' || v.fonts !== '—') && (
-                  <div class="variant-tags">
-                    {v.palette !== '—' && <span class="variant-tag">{v.palette}</span>}
-                    {v.fonts !== '—' && <span class="variant-tag">{v.fonts}</span>}
+                  <div class="dc-tags">
+                    {v.palette !== '—' && <span class="dc-tag">{v.palette}</span>}
+                    {v.fonts !== '—' && <span class="dc-tag">{v.fonts}</span>}
                   </div>
                 )}
-                <span class="variant-mood">{v.mood}</span>
+                <div class="dc-cta">
+                  <span class="dc-cta-btn">
+                    Δες το live
+                    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 5h6M5 2l3 3-3 3"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
-              <span class="variant-cta">
-                Άνοιγμα
-                <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 5h6M5 2l3 3-3 3"/>
-                </svg>
-              </span>
             </a>
-          ) : (
-            <div class="variant-row variant-row--inactive">
-              <span class="variant-num">{v.num}</span>
-              <div class="variant-body">
-                <span class="variant-title">{v.title}</span>
-                <span class="variant-mood">{v.mood}</span>
-              </div>
-              <span class="variant-soon">Soon</span>
-            </div>
-          )
-      ))}
+          );
+        })}
+      </div>
+
+      {inactiveVariants.length > 0 && (
+        <div class="inactive-section">
+          <p class="inactive-label">Σύντομα</p>
+          <div class="inactive-list">
+            {inactiveVariants.map(v => (
+              <span class="inactive-item">{v.num} · {v.title}</span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
 
     <!-- Footer -->
