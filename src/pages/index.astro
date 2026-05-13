@@ -148,6 +148,12 @@ const categories = [
       padding: 4px 10px;
       border: 1px solid var(--line-strong);
       border-radius: 999px;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    a.nav-badge:hover {
+      color: var(--accent);
+      border-color: var(--accent-line);
     }
 
     /* ── Marquee strip ───────────────────── */
@@ -322,7 +328,7 @@ const categories = [
         <a href="/" class="nav-logo">
           <img src="/assets/logo-horizontal.webp" alt="Instatok" height="32" style="display:block;width:auto">
         </a>
-        <span class="nav-badge">demo.instatok.gr</span>
+        <a href="https://instatok.gr" class="nav-badge" target="_blank" rel="noopener">instatok.gr →</a>
       </div>
     </nav>
 
